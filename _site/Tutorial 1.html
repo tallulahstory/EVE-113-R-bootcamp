@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R-bootcamp – CMM R Bootcamp</title>
+<title>Tutorial 1 – CMM R Bootcamp</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -128,7 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./Home.html" aria-current="page"> 
+    <a class="nav-link" href="./Home.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -136,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">About XXX R Bootcamp</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Tutorial 1.html"> 
+    <a class="nav-link active" href="./Tutorial 1.html" aria-current="page"> 
 <span class="menu-text">Tutorial 1</span></a>
   </li>  
 </ul>
@@ -150,32 +115,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#welcome-to-r-bootcamp" id="toc-welcome-to-r-bootcamp" class="nav-link active" data-scroll-target="#welcome-to-r-bootcamp">Welcome to R Bootcamp!</a>
-  <ul class="collapse">
-  <li><a href="#course-design" id="toc-course-design" class="nav-link" data-scroll-target="#course-design">Course Design</a>
-  <ul class="collapse">
-  <li><a href="#tutorials-tutorial" id="toc-tutorials-tutorial" class="nav-link" data-scroll-target="#tutorials-tutorial">Tutorials “Tutorial”</a></li>
-  </ul></li>
-  <li><a href="#how-to-download-r-and-rstudio" id="toc-how-to-download-r-and-rstudio" class="nav-link" data-scroll-target="#how-to-download-r-and-rstudio">How to Download R and RStudio</a></li>
-  <li><a href="#beyond-this-course" id="toc-beyond-this-course" class="nav-link" data-scroll-target="#beyond-this-course">Beyond this course…</a>
-  <ul class="collapse">
-  <li><a href="#works-cited" id="toc-works-cited" class="nav-link" data-scroll-target="#works-cited">Works Cited</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R-bootcamp</h1>
+<h1 class="title">Tutorial 1</h1>
 </div>
 
 
@@ -192,108 +140,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="welcome-to-r-bootcamp" class="level1">
-<h1>Welcome to R Bootcamp!</h1>
-<p><code>R</code> is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because <code>R</code> is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or “add-ons”) that further extend the programs functionality. <code>R</code> is a valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you’d like to learn more about why reproducibility in research matters, you can read more <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/">here</a>.</p>
-<section id="course-design" class="level2">
-<h2 class="anchored" data-anchor-id="course-design">Course Design</h2>
-<p>This “course” was written and developed with the intrepid, undergraduate ecologist or marine biologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in XXX. Some students may have zero experience using <code>R</code>. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or <code>unix</code>. It’s possible this is your first time ever hearing of <code>R</code> (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, this resource is meant to serve you! If there is a problem you’re hoping to tackle that is not included in this guide, please don’t hesitate to notify the TA or your instructor and we can likely work to include it as a subtutorial.</p>
-<p>Overall, our goal here is to:</p>
-<ol type="1">
-<li><p>Introduce students to the <code>R</code> programming language - specifically with ecological and biological data in mind.</p></li>
-<li><p>Introduce and learn how to code in the tidyverse (and all of its amazing sub-packages).</p></li>
-<li><p>Introduce <code>unix</code> fundamentals and provide an entry-level introduction to dealing with microbial data.</p></li>
-<li><p>Learn what the dada2 pipeline is and apply it to data you (the student) has collected.</p></li>
-<li><p>Get excited about Coastal Marine Microbial Ecology!</p></li>
-</ol>
-<p>This guide is setup like a website where we have our landing page (the page you’re on now), the About page, the Tutorial pages, and XXXXX. You can navigate between each of these by simply heading to the top of the web browser you’re on and clicking the hyper linked sections. This home page won’t contain more than a general overview of the boot camp, how to download the tools you will need to complete the tutorials, and information for further “R education” beyond this resource. Your learning here will be a product of the amount of time you spend engaging with the material, practicing your skills, and asking questions when you have them.</p>
-<section id="tutorials-tutorial" class="level3">
-<h3 class="anchored" data-anchor-id="tutorials-tutorial">Tutorials “Tutorial”</h3>
-<p>I’ve tried to make this experience as learner-friendly as possible. As you work through the tutorials, you might see some things that don’t make sense at first, or might not understand their intention. Below is a basic overview of how most tutorials will be formatted:</p>
-<ol type="1">
-<li><p>A series of bullet pointed or numbered learning objectives for that specific tutorial.</p></li>
-<li><p>There might more than one learning objective, or possibly none at all.</p></li>
-</ol>
-<p>Then, I might include some text about the data set or packages we’re using. I’ll always make an effort to cite information, packages, or resources where applicable. If you’re curious, or if you’re writing up a report based on any packages, software, or resources used throughout the tutorial, I’ll also include a full bibliography at the very end of the document for your viewing pleasure. Please make sure you’re citing the necessary software you’re using in your work (giving credit where credit is due is very important to avoid plagiarism and promote reproducibility)!</p>
-<p>Now, as we actually learn how to code, there will be real code “chunks” included in the tutorials. They look like this:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Some fun code here to do something super cool</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Or</span> even more fun code here</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>We’ll be using two main languages in this course: <code>R</code> and <code>unix</code> (or bash, which is the text interface that actually lets you use unix commands). <code>R</code> is done in the console. <code>unix</code> is done in the Terminal. I will point out where those are later on, and the fundamental differences between the two. Note that above, I’ve actually used two different code chunks. One of them is <code>unix</code> and one of them is <code>R</code>. Here, you actually can’t (visually) tell the difference between the two. However, I will be very clear about what type of code chunk you should be using by doing something like this:</p>
-<blockquote class="blockquote">
-<p><code>R</code></p>
-</blockquote>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#more code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<blockquote class="blockquote">
-<p><code>unix</code></p>
-</blockquote>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">more</span> code here</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>We’ll get into why I’m using the # in my <code>R</code> code chunks during Tutorial 1. However, I’ll only do this when we’re working between the Terminal and the Console during Tutorials XXX. I will make it clear at the start of every tutorial whether you will be using <code>R</code> in the Console or using <code>unix</code> in the Terminal.</p>
-<p>Sometimes, we might also use an external application for Quality Control. If that’s the case, I’ll link the external application and give you directions on how to access that information <a href="https://qiime2.org/">like this.</a></p>
-<p><img src="https://qiime.org/home_static/images/qiime2.png" class="img-fluid"></p>
-<p>I’ll try to include some fun graphic so you know where that hyper link is taking you, like the one above (we will learn about QIIME in Tutorial XX).</p>
-<p>At the end of every tutorial, I will give you some DIYs to test the learning objectives from the beginning of the tutorial. These aren’t for a grade, but you can turn them in to me for feedback on your work (if you’d like any). Otherwise, they are only there for your learning and skill building. Answer keys to the questions will only be available if you come to office hours or submit your DIYs for feedback.</p>
-</section>
-</section>
-<section id="how-to-download-r-and-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-download-r-and-rstudio">How to Download R and RStudio</h2>
-<p>In this course, we will be conducting our work in a free software interface application known as RStudio. RStudio is a user-friendly IDE (intergrated development environment) where you can access both the Console and the Terminal (we will talk about what both of those means later). <code>R</code> and RStudio work with any operating system you have on hand, whether that be Windows, Apple (macOS), or Linux. Although, if you’re operating on Linux, I might just assume you already have <code>R</code> downloaded in some capacity.</p>
-<p>Either way, to get started, you should probably go ahead and download <code>R</code> and RStudio onto your computer. (Again, did I mention that it’s free?) Let’s start with R first:</p>
-<p><strong>Visit <a href="https://cloud.r-project.org/">this link here</a> to get started with downloading <code>R</code>.</strong></p>
-<p>Once you open the webpage it should look something like the below image.</p>
-<p><img src="images/clipboard-478905486.png" class="img-fluid"></p>
-<p>There’s a lot of hyperlinks here, so start by directing your attention to the first three links towards the top. Click on the associated “Download <code>R</code> for…” your current operating system. I’ll be doing this tutorial, and most other coding demonstrations in this bootcamp, using a macOS operating system. Windows and Mac don’t largely differ when using RStudio or <code>R</code>, but if you find yourself confused, don’t hesitate to ask me any questions you might have.</p>
-<p>Once you hit download you will be redirected to another webpage, with even more links.</p>
-<p><img src="images/clipboard-3099214236.png" class="img-fluid"></p>
-<p>Click on the hyperlink that is associated with your current operating system. For most users, it should be the most up-to-date version of your internal operating system. For me, that’s currently macOS Sequoia 15.1.1, which means I would choose the blue hyperlink that says ‘R-4.6.0-arm64.pkg’.</p>
-<p><img src="images/clipboard-1616476471.png" class="img-fluid"></p>
-<p>Click that link, allow the <code>R</code> package to download onto your computer, then follow your computers prompts to download it onto your device. Once downloaded, if you open <code>R</code>, you’ll get a console environment that looks like this.</p>
-<p><img src="images/clipboard-3443394905.png" class="img-fluid"></p>
-<p>Great! You now have R installed. However, you’ll soon discover this is not the most user-friendly or flexible application to be doing the analyses or visualizations we’d like to do. Instead, we’re going to be using RStudio as our main interface for this course.</p>
-<p><strong>Visit <a href="https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads">this link here</a> to download RStudio.</strong></p>
-<p>Again, you’ll be redirected to a website with a lot of hyperlinks. If you are at the top of the webpage where is says “<strong>RStudio IDE User Guide</strong>”, scroll down until you find the set of links pictured below:</p>
-<p><img src="images/clipboard-708821866.png" class="img-fluid"></p>
-<p>Click the link that is associated with your operating system and allow the installer disk to download. Then, follow the instillation instructions when prompted by your computer.</p>
-<p>Now, to make sure RStudio is correctly installed, go ahead and open the application for the first time. Your screen should look something like the below image (although your “File” window in the bottom right may appear different from mine).</p>
-<blockquote class="blockquote">
-<p><strong>Apple and macOS users:</strong> You may receive a warning from Apple security that confirms if you’d like to open the application for the first time. This is normal, and don’t be afraid to hit the “Open” button. If you followed the correct directions from the websites I’ve hyper linked in this guide, there will be no danger to your computer by opening the application. I pinky promise.</p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1146750783.png" class="img-fluid figure-img"></p>
-<figcaption>Congrats! You’ve now successfully downloaded and installed both <code>R</code> and RStudio onto your computer. This is a huge milestone in your learning as a scientist. Feel free to poke around and explore this interface if you’d like. This boot camp will cover a lot of the necessary elements we’ll be using in the course, but it’s always good to familiarize yourself with a new operating software if you can.</figcaption>
-</figure>
-</div>
-<p>Happy coding!</p>
-<p><img src="images/clipboard-168018562.png" class="img-fluid" width="199"></p>
-</section>
-<section id="beyond-this-course" class="level2">
-<h2 class="anchored" data-anchor-id="beyond-this-course">Beyond this course…</h2>
-<p><a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3060">Auker and Barthelmess, 2020</a> synthesize how important learning how to use <code>R</code> has become for Ecologists and Biologists just within the past decade. Relatively any job in this field nowadays likely requires some fundamental (or, occasionally, even advanced) knowledge of how to use <code>R</code> as a tool to analyze ecological data. Personally, I use <code>R</code> on a near daily basis; Between running statistical tests, plotting data, or sharing my workflow with collaborators, it’s become a vital skill in my tool set to leverage.</p>
-<p>It’s true that learning a new programming language can, in simple terms, suck. However, being able to leverage these tools in your learning can be an invaluable skill both short- and long-term. I know in the age of Artificial Intelligence, learning something like this may seem like a fruitless task, but evidence has shown that AI actually isn’t all that great at helping you write code to analyze data (<a href="https://metr.org/blog/2026-02-24-uplift-update/#wider-adoption-of-ai-has-made-it-more-difficult-to-measure-task-level-productivity">Becker et al., 2026</a>). These researchers found that AI, in it’s current state as of February 2026, is roughly 20% slower than actual researchers at completing a coding or development task. At the task level, there may be some marginal benefits to utilizing a LLM like ChatGPT or Gemini to solve short-term code bugs, but not in the grand scheme of an entire project. You, the student scientist, are likely better at handling, parsing, and analyzing your own data – no matter how much a beginner you may think you are.</p>
-<p>I implore you to give learning <code>R</code> a honest try before turning to AI to complete your assignments for you. Not only will you gain more hands-on understanding of the material, but you may also gain a renewed appreciation for the step-by-step process of working with your very own data for the first time. I am also happy to be a resource, if needed, to help troubleshoot. Things don’t always work as we intend them to; We may mistype a character here or there, possibly use the wrong command for something it’s not meant to actually do. These can be valuable parts of the learning experience, so best to let them happen and work through them before letting an AI assistant feed you an “out-of-the-box” solution that may or may not apply to your work.</p>
-<p>If you’re excited about the prospect of learning more in <code>R</code>, there are a plethora of resources that exist out there that can teach you! I’d recommend the following places, to start:</p>
-<ul>
-<li><p><a href="https://r4ds.hadley.nz/">R for Data Science by Wickham and Grolemund</a></p></li>
-<li><p><a href="https://rfortherestofus.com/">R for the rest of us</a></p></li>
-<li><p><a href="https://www.davidzeleny.net/wiki/lib/exe/fetch.php/recol:materials:beckerman-petchey2012_getting-started-with-r-an-introduction-for-biologists2.pdf">Getting Started with R: An Introduction for Biologists by Beckerman and Petchy</a></p></li>
-<li><p><a href="https://link.springer.com/book/10.1007/978-3-031-99665-8">R Coding for Ecology by Rocchini</a></p></li>
-</ul>
-<p>If you find none of these fit your style, or don’t fit your learning needs, lets sit down and chat to find something better.</p>
-<section id="works-cited" class="level3">
-<h3 class="anchored" data-anchor-id="works-cited">Works Cited</h3>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

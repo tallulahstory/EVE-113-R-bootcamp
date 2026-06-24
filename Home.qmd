@@ -1,16 +1,84 @@
 ---
 title: "R-bootcamp"
+editor_options: 
+  chunk_output_type: console
 ---
 
-# Welcome to XXXX R Bootcamp!
+```{r setup, include = FALSE, eval=TRUE}
+library(rmarkdown)
+```
 
-`R` is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because `R` is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or "add-ons") that further extend the programs functionality. `R` is a valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you'd like to learn more about why reproducibility in research matters, you can read more here: <https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/>
+# Welcome to R Bootcamp!
 
-## First: Download R and RStudio
+`R` is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because `R` is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or "add-ons") that further extend the programs functionality. `R` is a valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you'd like to learn more about why reproducibility in research matters, you can read more [here](https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/).
 
-In this course, we will be conducting our work in a free software interface application known as RStudio. RStudio is a user-friendly environment where you can access both the \<Console\> and the \<Terminal\> (we will talk about what both of those means later). `R` and RStudio work with any operating system you have on hand, whether that be Windows, Apple (macOS), or Linux. Although, if you're operating on Linux, I might just assume you already have `R` downloaded in some capacity.
+## Course Design
 
-Either way, to get started, you should probably go ahead and download `R` and RStudio onto your computer. (Again, did I mention that it's free?) We'll start with R first:
+This "course" was written and developed with the intrepid, undergraduate ecologist or marine biologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in XXX. Some students may have zero experience using `R`. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or `unix`. It's possible this is your first time ever hearing of `R` (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, this resource is meant to serve you! If there is a problem you're hoping to tackle that is not included in this guide, please don't hesitate to notify the TA or your instructor and we can likely work to include it as a subtutorial.
+
+Overall, our goal here is to:
+
+1.  Introduce students to the `R` programming language - specifically with ecological and biological data in mind.
+
+2.  Introduce and learn how to code in the tidyverse (and all of its amazing sub-packages).
+
+3.  Introduce `unix` fundamentals and provide an entry-level introduction to dealing with microbial data.
+
+4.  Learn what the dada2 pipeline is and apply it to data you (the student) has collected.
+
+5.  Get excited about Coastal Marine Microbial Ecology!
+
+This guide is setup like a website where we have our landing page (the page you're on now), the About page, the Tutorial pages, and XXXXX. You can navigate between each of these by simply heading to the top of the web browser you're on and clicking the hyper linked sections. This home page won't contain more than a general overview of the boot camp, how to download the tools you will need to complete the tutorials, and information for further "R education" beyond this resource. Your learning here will be a product of the amount of time you spend engaging with the material, practicing your skills, and asking questions when you have them.
+
+### Tutorials "Tutorial"
+
+I've tried to make this experience as learner-friendly as possible. As you work through the tutorials, you might see some things that don't make sense at first, or might not understand their intention. Below is a basic overview of how most tutorials will be formatted:
+
+1.  A series of bullet pointed or numbered learning objectives for that specific tutorial.
+
+2.  There might more than one learning objective, or possibly none at all.
+
+Then, I might include some text about the data set or packages we're using. I'll always make an effort to cite information, packages, or resources where applicable. If you're curious, or if you're writing up a report based on any packages, software, or resources used throughout the tutorial, I'll also include a full bibliography at the very end of the document for your viewing pleasure. Please make sure you're citing the necessary software you're using in your work (giving credit where credit is due is very important to avoid plagiarism and promote reproducibility)!
+
+Now, as we actually learn how to code, there will be real code "chunks" included in the tutorials. They look like this:
+
+```{r, eval=FALSE}
+#Some fun code here to do something super cool
+```
+
+```{bash, eval = FALSE}
+Or even more fun code here
+```
+
+We'll be using two main languages in this course: `R` and `unix` (or bash, which is the text interface that actually lets you use unix commands). `R` is done in the console. `unix` is done in the Terminal. I will point out where those are later on, and the fundamental differences between the two. Note that above, I've actually used two different code chunks. One of them is `unix` and one of them is `R`. Here, you actually can't (visually) tell the difference between the two. However, I will be very clear about what type of code chunk you should be using by doing something like this:
+
+> `R`
+
+```{r, eval = FALSE}
+#more code here
+```
+
+> `unix`
+
+```{bash, eval = FALSE}
+more code here
+```
+
+We'll get into why I'm using the \# in my `R` code chunks during Tutorial 1. However, I'll only do this when we're working between the Terminal and the Console during Tutorials XXX. I will make it clear at the start of every tutorial whether you will be using `R` in the Console or using `unix` in the Terminal.
+
+Sometimes, we might also use an external application for Quality Control. If that's the case, I'll link the external application and give you directions on how to access that information [like this.](https://qiime2.org/)
+
+![](https://qiime.org/home_static/images/qiime2.png)
+
+I'll try to include some fun graphic so you know where that hyper link is taking you, like the one above (we will learn about QIIME in Tutorial XX).
+
+At the end of every tutorial, I will give you some DIYs to test the learning objectives from the beginning of the tutorial. These aren't for a grade, but you can turn them in to me for feedback on your work (if you'd like any). Otherwise, they are only there for your learning and skill building. Answer keys to the questions will only be available if you come to office hours or submit your DIYs for feedback.
+
+## How to Download R and RStudio
+
+In this course, we will be conducting our work in a free software interface application known as RStudio. RStudio is a user-friendly IDE (intergrated development environment) where you can access both the Console and the Terminal (we will talk about what both of those means later). `R` and RStudio work with any operating system you have on hand, whether that be Windows, Apple (macOS), or Linux. Although, if you're operating on Linux, I might just assume you already have `R` downloaded in some capacity.
+
+Either way, to get started, you should probably go ahead and download `R` and RStudio onto your computer. (Again, did I mention that it's free?) Let's start with R first:
 
 **Visit [this link here](https://cloud.r-project.org/) to get started with downloading `R`.**
 
@@ -18,13 +86,13 @@ Once you open the webpage it should look something like the below image.
 
 ![](images/clipboard-478905486.png)
 
-There's a lot of buttons here, but start by navigating to the first three links towards the top. Click on the associated download for your operating system. I'll be doing this tutorial, and most other coding demonstrations in this boot camp, using my personal macOS operating system. Windows and Mac don't largely differ when using RStudio or `R`, but if you find yourself confused don't hesitate to ask me any questions you might have.
+There's a lot of hyperlinks here, so start by directing your attention to the first three links towards the top. Click on the associated "Download `R` for..." your current operating system. I'll be doing this tutorial, and most other coding demonstrations in this bootcamp, using a macOS operating system. Windows and Mac don't largely differ when using RStudio or `R`, but if you find yourself confused, don't hesitate to ask me any questions you might have.
 
 Once you hit download you will be redirected to another webpage, with even more links.
 
 ![](images/clipboard-3099214236.png)
 
-Click on the link that is associated with your current operating system. For most users, it should be the most up-to-date version of your internal operating system. For me, that's macOS Sequoia 15.1.1, which means I would choose the blue link that says 'R-4.6.0-arm64.pkg'.
+Click on the hyperlink that is associated with your current operating system. For most users, it should be the most up-to-date version of your internal operating system. For me, that's currently macOS Sequoia 15.1.1, which means I would choose the blue hyperlink that says 'R-4.6.0-arm64.pkg'.
 
 ![](images/clipboard-1616476471.png)
 
@@ -32,19 +100,27 @@ Click that link, allow the `R` package to download onto your computer, then foll
 
 ![](images/clipboard-3443394905.png)
 
-This is great, but it's not a very user-friendly or flexible application to be doing the analyses or visualizations we'd like to do. Instead, we're going to be using RStudio as our main interface for this course.
+Great! You now have R installed. However, you'll soon discover this is not the most user-friendly or flexible application to be doing the analyses or visualizations we'd like to do. Instead, we're going to be using RStudio as our main interface for this course.
 
 **Visit [this link here](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads) to download RStudio.**
 
-Again, you'll be redirected to a website with a lot of links. If you are at the top of the webpage where is says "**RStudio IDE User Guide**", scroll down until you find the set of links pictured below:
+Again, you'll be redirected to a website with a lot of hyperlinks. If you are at the top of the webpage where is says "**RStudio IDE User Guide**", scroll down until you find the set of links pictured below:
 
 ![](images/clipboard-708821866.png)
 
-Click the link that is associated with your "native operating system" (or, essentially, the computer you plan to be doing your coding in for this course). Click the link, allow the installer disk to download, and then follow the instillation instructions your computer prompts you with.
+Click the link that is associated with your operating system and allow the installer disk to download. Then, follow the instillation instructions when prompted by your computer.
 
-To make sure RStudio is correctly installed, go ahead and open the application for the first time. Your screen should look something like the below image (although your "File" window in the bottom right may appear different from mine).
+Now, to make sure RStudio is correctly installed, go ahead and open the application for the first time. Your screen should look something like the below image (although your "File" window in the bottom right may appear different from mine).
 
-![Congrats! You've now successfully downloaded and installed both `R` and RStudio onto your computer. This is a huge milestone in your learning as a scientist. Feel free to poke around and explore this interface if you'd like. This boot camp will cover a lot of the necessary elements we'll be using in the course, but it's always good to familiarize yourself with a new operating software if you can. ](images/clipboard-1146750783.png)
+> **Apple and macOS users:** You may receive a warning from Apple security that confirms if you'd like to open the application for the first time. This is normal, and don't be afraid to hit the "Open" button. If you followed the correct directions from the websites I've hyper linked in this guide, there will be no danger to your computer by opening the application. I pinky promise.
+
+![](images/clipboard-1146750783.png)
+
+Congrats! You've now successfully downloaded and installed both R and RStudio onto your computer. This is a huge milestone in your learning as a scientist. Feel free to poke around and explore this interface if you'd like. This boot camp will cover a lot of the necessary elements we'll be using in the course, but it's always good to familiarize yourself with a new operating software if you can.
+
+**Happy coding!**
+
+![](images/clipboard-168018562.png){width="199"}
 
 ## Beyond this course...
 
@@ -65,3 +141,5 @@ If you're excited about the prospect of learning more in `R`, there are a pletho
 - [R Coding for Ecology by Rocchini](https://link.springer.com/book/10.1007/978-3-031-99665-8)
 
 If you find none of these fit your style, or don't fit your learning needs, lets sit down and chat to find something better.
+
+### Works Cited

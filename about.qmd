@@ -1,3 +1,5 @@
 ---
 title: "About XXX R Bootcamp"
 ---
+
+This R boot camp resource was initially created and designed in June 2026 to prep for the second summer session of Coastal Marine Microbes taught by Dr. Anya Brown. All information herein was written and developed with this course in mind by PhD student Tallulah Story.

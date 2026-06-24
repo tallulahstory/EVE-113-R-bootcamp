@@ -1,0 +1,67 @@
+---
+title: "R-bootcamp"
+---
+
+# Welcome to XXXX R Bootcamp!
+
+`R` is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because `R` is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or "add-ons") that further extend the programs functionality. `R` is a valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you'd like to learn more about why reproducibility in research matters, you can read more here: <https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/>
+
+## First: Download R and RStudio
+
+In this course, we will be conducting our work in a free software interface application known as RStudio. RStudio is a user-friendly environment where you can access both the \<Console\> and the \<Terminal\> (we will talk about what both of those means later). `R` and RStudio work with any operating system you have on hand, whether that be Windows, Apple (macOS), or Linux. Although, if you're operating on Linux, I might just assume you already have `R` downloaded in some capacity.
+
+Either way, to get started, you should probably go ahead and download `R` and RStudio onto your computer. (Again, did I mention that it's free?) We'll start with R first:
+
+**Visit [this link here](https://cloud.r-project.org/) to get started with downloading `R`.**
+
+Once you open the webpage it should look something like the below image.
+
+![](images/clipboard-478905486.png)
+
+There's a lot of buttons here, but start by navigating to the first three links towards the top. Click on the associated download for your operating system. I'll be doing this tutorial, and most other coding demonstrations in this boot camp, using my personal macOS operating system. Windows and Mac don't largely differ when using RStudio or `R`, but if you find yourself confused don't hesitate to ask me any questions you might have.
+
+Once you hit download you will be redirected to another webpage, with even more links.
+
+![](images/clipboard-3099214236.png)
+
+Click on the link that is associated with your current operating system. For most users, it should be the most up-to-date version of your internal operating system. For me, that's macOS Sequoia 15.1.1, which means I would choose the blue link that says 'R-4.6.0-arm64.pkg'.
+
+![](images/clipboard-1616476471.png)
+
+Click that link, allow the `R` package to download onto your computer, then follow your computers prompts to download it onto your device. Once downloaded, if you open `R`, you'll get a console environment that looks like this.
+
+![](images/clipboard-3443394905.png)
+
+This is great, but it's not a very user-friendly or flexible application to be doing the analyses or visualizations we'd like to do. Instead, we're going to be using RStudio as our main interface for this course.
+
+**Visit [this link here](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads) to download RStudio.**
+
+Again, you'll be redirected to a website with a lot of links. If you are at the top of the webpage where is says "**RStudio IDE User Guide**", scroll down until you find the set of links pictured below:
+
+![](images/clipboard-708821866.png)
+
+Click the link that is associated with your "native operating system" (or, essentially, the computer you plan to be doing your coding in for this course). Click the link, allow the installer disk to download, and then follow the instillation instructions your computer prompts you with.
+
+To make sure RStudio is correctly installed, go ahead and open the application for the first time. Your screen should look something like the below image (although your "File" window in the bottom right may appear different from mine).
+
+![Congrats! You've now successfully downloaded and installed both `R` and RStudio onto your computer. This is a huge milestone in your learning as a scientist. Feel free to poke around and explore this interface if you'd like. This boot camp will cover a lot of the necessary elements we'll be using in the course, but it's always good to familiarize yourself with a new operating software if you can. ](images/clipboard-1146750783.png)
+
+## Beyond this course...
+
+[Auker and Barthelmess, 2020](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3060) synthesize how important learning how to use `R` has become for Ecologists and Biologists just within the past decade. Relatively any job in this field nowadays likely requires some fundamental (or, occasionally, even advanced) knowledge of how to use `R` as a tool to analyze ecological data. Personally, I use `R` on a near daily basis; Between running statistical tests, plotting data, or sharing my workflow with collaborators, it's become a vital skill in my tool set to leverage.
+
+It's true that learning a new programming language can, in simple terms, suck. However, being able to leverage these tools in your learning can be an invaluable skill both short- and long-term. I know in the age of Artificial Intelligence, learning something like this may seem like a fruitless task, but evidence has shown that AI actually isn't all that great at helping you write code to analyze data ([Becker et al., 2026](https://metr.org/blog/2026-02-24-uplift-update/#wider-adoption-of-ai-has-made-it-more-difficult-to-measure-task-level-productivity)). These researchers found that AI, in it's current state as of February 2026, is roughly 20% slower than actual researchers at completing a coding or development task. At the task level, there may be some marginal benefits to utilizing a LLM like ChatGPT or Gemini to solve short-term code bugs, but not in the grand scheme of an entire project. You, the student scientist, are likely better at handling, parsing, and analyzing your own data – no matter how much a beginner you may think you are.
+
+I implore you to give learning `R` a honest try before turning to AI to complete your assignments for you. Not only will you gain more hands-on understanding of the material, but you may also gain a renewed appreciation for the step-by-step process of working with your very own data for the first time. I am also happy to be a resource, if needed, to help troubleshoot. Things don't always work as we intend them to; We may mistype a character here or there, possibly use the wrong command for something it's not meant to actually do. These can be valuable parts of the learning experience, so best to let them happen and work through them before letting an AI assistant feed you an "out-of-the-box" solution that may or may not apply to your work.
+
+If you're excited about the prospect of learning more in `R`, there are a plethora of resources that exist out there that can teach you! I'd recommend the following places, to start:
+
+- [R for Data Science by Wickham and Grolemund](https://r4ds.hadley.nz/)
+
+- [R for the rest of us](https://rfortherestofus.com/)
+
+- [Getting Started with R: An Introduction for Biologists by Beckerman and Petchy](https://www.davidzeleny.net/wiki/lib/exe/fetch.php/recol:materials:beckerman-petchey2012_getting-started-with-r-an-introduction-for-biologists2.pdf)
+
+- [R Coding for Ecology by Rocchini](https://link.springer.com/book/10.1007/978-3-031-99665-8)
+
+If you find none of these fit your style, or don't fit your learning needs, lets sit down and chat to find something better.

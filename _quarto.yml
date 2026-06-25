@@ -7,8 +7,10 @@ website:
     left:
       - href: Home.qmd
         text: Home
-      - About.qmd
-      - Tutorial 0.qmd
+      - href: About.qmd
+        text: About
+      - href: Tutorial 0.qmd
+        text: Tutorial 0.qmd
 
 format:
   html:
@@ -20,3 +22,12 @@ format:
 
 editor: visual
 
+project:
+  type: website
+
+website:
+  title: My Website
+
+format:
+  html:
+    theme: cosmo

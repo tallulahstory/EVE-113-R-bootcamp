@@ -10,7 +10,7 @@ website:
       - href: About.qmd
         text: About
       - href: Tutorial 0.qmd
-        text: Tutorial 0.qmd
+        text: Tutorial 0
 
 format:
   html:
@@ -21,13 +21,3 @@ format:
     toc: true
 
 editor: visual
-
-project:
-  type: website
-
-website:
-  title: My Website
-
-format:
-  html:
-    theme: cosmo

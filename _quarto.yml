@@ -2,13 +2,13 @@ project:
   type: website
 
 website:
-  title: "CMM R Bootcamp"
+  title: "EVE 113 R Bootcamp"
   navbar:
     left:
       - href: Home.qmd
         text: Home
       - About.qmd
-      - Tutorial 1.qmd
+      - Tutorial 0.qmd
 
 format:
   html:

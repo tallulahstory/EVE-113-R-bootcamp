@@ -327,7 +327,7 @@ At the end of the document on line 32 (or 33 if you've been completing the DIYs 
 RMarkdown **parameters (or chunk options)** allow you to alter *individual chunks of code* to alter the **code output** in some manner. For the purposes of this course, we will only really care about `eval`, `include`, and `echo`, but know that many (many) more chunk options exist. To find more ways to edit or alter you code chunks, visit [this cheat sheet](https://www.rob-mcculloch.org/R/rmarkdown-cheatsheet-2.0_from-rstudio-2019-1-7.pdf). Chunk options come with an operative argument (like `eval`) and a conditional statement like `TRUE` or `FALSE`. Default chunk options are almost always `TRUE`, with a few non-important exceptions you don't need to worry about now (unless they're included below). Here's a quick guide to what these mean below:
 
 | Option | Function |
-|-----------|-------------------------------------------------------------|
+|----|----|
 | `eval` | dictates whether a code block is actually executed when you render, knit, or compile your document. |
 | `include` | controls the visibility of a code chunk's output in your final rendered document. |
 | `echo` | controls whether the source code itself appears in your final rendered document. `echo = numeric` will select specific lines of code to display (e.g., `echo = 1:2` displays source code lines 1 through 2). |

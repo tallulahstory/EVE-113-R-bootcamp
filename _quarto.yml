@@ -9,7 +9,7 @@ website:
         text: Home
       - href: About.html
         text: About
-      - href: Tutorial-0.html
+      - href: Tutorial 0.html
         text: Tutorial 0
 
 format:

@@ -1,0 +1,149 @@
+---
+title: "Welcome to EVE 113 (Coastal Marine Microbes)!"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE, eval=TRUE}
+library(rmarkdown)
+```
+
+![](images/clipboard-1943924653.png)
+
+> *Photo Credit: [**Stefan Andrews / Ocean Image Bank**](https://www.instagram.com/ocean_imaging/?hl=en)*
+
+This "course" was written and developed with the intrepid, undergraduate ecologist and/or marine biologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113. Some students may have zero experience using `R`. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or `unix`. It's possible this is your first time ever hearing of `R` (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, **this resource is meant to serve you!** If there is a problem you're hoping to tackle that is not included in this guide, please don't hesitate to notify your TA or instructor and we can help you.
+
+This guide is setup like a website where we have our Home page (the page you're on now), the Getting Started page, and the Tutorial page(s). You can navigate between each of these by simply heading to the top of the web browser you're currently viewing this on. This home page won't contain more than a general overview of how this bootcamp is structured, how to get the most out of your learning, and information for further "R education" beyond EVE 113.
+
+# What is R?
+
+`R` is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because `R` is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or "add-ons") that further extend the programs functionality. `R` is an extroidinarily valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you'd like to learn more about why reproducibility in research matters, you can read more [here](https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/).
+
+In this course, we will be coding in `R` using the **free** software interface application known as RStudio. RStudio is a user-friendly IDE (integrated development environment) where you can access both the Console and the Terminal (we will talk about what both of those means later). `R` and RStudio work with any operating system you have on hand, whether that be Windows, Apple (macOS), or Linux. Although, if you're operating on Linux, I might just assume you already have `R` downloaded in some capacity.
+
+# Course Design
+
+Overall, our class learning objectives for data analysis this summer are (broadly) as follows:
+
+1.  Introduce students to the `R` programming language - specifically with ecological and biological data in mind.
+
+2.  Introduce and learn how to code in the tidyverse (and all of its amazing sub-packages).
+
+3.  Learn how to make plots and conduct introductory statistical analyses.
+
+4.  Learn what the dada2 pipeline is and how it is applied to data you (the student) has collected.
+
+5.  Get excited about Coastal Marine Microbial Ecology!
+
+::: callout-tip
+***Your learning here will be a product of the amount of time you spend engaging with the material, practicing your skills, and asking questions when they come up.***
+
+You should always return to this website if you need to revisit any tutorials from earlier in the term (e.g., you're doing an analysis but forgot the code to run said analysis, you can return to this website and navigate to the top right corner search bar to find what you're looking for). **I am always available via email to help you when you get stuck. Please come to me before finding your way to chatGPT or AI.**
+:::
+
+I've tried to make this experience as learner-friendly as possible. This bootcamp will follow a series of tutorials, practice problems, and assignments that you can complete to flaunt your newly acquired R knowledge.
+
+Your **tutorials** are where you will *gain skills and knowledge* to satisfy our **learning objectives**.
+
+The **DIYs** are ways you can *test or practice your new skills or knowledge* as you go.
+
+The **assignments** are the *products of your tutorials, DIYs, lab work, and learning objectives*.
+
+## Learning Objectives
+
+At the top of every tutorial, there will be numbered **learning objectives** stating the goals and material covered in the tutorial itself. They will look like:
+
+1.  A series of bullet pointed or objectives for that specific tutorial.
+
+2.  There might be more than one learning objective, or sub-learning objectives.
+
+3.  This numbered list will give you a sneak peek into what the tutorial will be covering.
+
+## The *Actual* Tutorial
+
+The tutorials will give you the skills needed to complete your final project and paper. I will try to include screenshots of an actual working RStudio environment as much as I can so you truly visualize what we're supposed to be doing. However, most tutorials will largely be made up of "chunks" of code that I expect you to either directly copy/paste into your RStudio or, better yet, type yourself.
+
+::: callout-tip
+***Actually typing the code yourself, rather than copy/pasting will help you better absorb the material and skills you are learning.***
+:::
+
+Code chunks included in tutorials will looks like this:
+
+```{r, eval = FALSE}
+ggplot2::ggplot(data = cars, aes(x = speed, y = dist)) +
+  geom_point() 
+```
+
+Or maybe even like this:
+
+```{r, eval = FALSE}
+increment1 <- function(input){
+  incremented_value <- input + 1
+  return(incremented_value)
+}
+```
+
+We will learn about two different coding languages in this course: `R` and `unix`. The primary distinction between the two, asides from the languages themselves, is that `R` uses the *Console* and `unix` uses the *Terminal*. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in `R`. However, some tutorials will cover using `unix`. Since operating in the terminal is often computationally heavy, **this course will not require students to use the Terminal,** but the information on how to actually use `unix`, bash chunks, and the Terminal will be covered in these tutorials. When I am switching between `R` and `unix` I will be **very clear about what type of code chunk I am using.**
+
+## Do It Yourself
+
+My Do It Yourself (or DIYs) are built-in to provide short breaks between content-heavy topics. These allow you to test and implement the knowledge you gain as you move along in the tutorials.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Do It Yourself T0-00**
+
+This is what a DIY will look like. It will include the header above with a number associated with that tutorial. Say, for example, this is DIY 7 in Tutorial 4, the header would look like:
+
+**Do It Yourself T4-07**
+
+a\. Then each DIY may include multiple parts.
+
+b\. Each part will be a specific task or question that may ask you to explain a topic, write a line of code, or complete a task.
+:::
+
+**DIYs are not for grade** but they can be turned in to your TA (me) for feedback (if you'd like). Otherwise, the only function DIYs serve is to (a) break up the learning material and (b) test your skills. Answers to the DIYs will be located at the bottom of every tutorial. However, like most things in life, there are often more ways than one to answer a single question. Therefore, you can also bring your DIYs to TA office hours to discuss them with me.
+
+## **Review**
+
+At the end of every tutorial, there will be a review (and celebration) of all that you've accomplished.
+
+1.  If you read the review and can mentally say: "Yes! I know how to answer all of these questions" than congratulations, you've completed all the learning objectives!!
+2.  You should give yourself a massive pat on the back and do a little celebration when you can do that (it's a big deal)!
+3.  If you find yourself unable to understand a topic in the review, I suggest taking time to review the tutorial again to make sure you are understanding what is expected of you.
+
+I will end every tutorial with a message and a "celebration" photo, and that is how you know you've reached the end of the educational content. ***Hooray!!!***
+
+![](images/clipboard-168018562.png){width="199"}
+
+## DIY Answer Key
+
+::: {.callout-tip appearance="simple" icon="false"}
+0a. Answer keys will have the answer to your questions in order.
+
+0b. If there are more questions or you didn't come to the same answer that I did, just notify me and we can discuss in office hours!
+:::
+
+## Works Cited
+
+At very, very bottom, I will cite any of the packages or resources I used to make the tutorial. When you're writing up your final report, you may refer back to these tutorials for the citation information to include in your own works cited. **Please make sure you're citing the necessary software you're using in your work (giving credit where credit is due is very important to avoid plagiarism and promote reproducibility)!**
+
+# Beyond This Course...
+
+[Auker and Barthelmess, 2020](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3060) synthesize how important learning how to use `R` has become for Ecologists and Biologists just within the past decade. Relatively any job in this field nowadays likely requires some fundamental (or, occasionally, even advanced) knowledge of how to use `R` as a tool to analyze ecological data. Personally, I use `R` on a near daily basis; Between running statistical tests, plotting data, or sharing my workflow with collaborators, it's become a vital skill in my tool set to leverage.
+
+It's true that learning a new programming language can, in simple terms, suck. However, being able to leverage these tools in your learning can be an invaluable skill both short- and long-term. I know in the age of Artificial Intelligence, learning something like this may seem like a fruitless task, but evidence has shown that AI actually isn't all that great at helping you write code to analyze data ([Becker et al., 2026](https://metr.org/blog/2026-02-24-uplift-update/#wider-adoption-of-ai-has-made-it-more-difficult-to-measure-task-level-productivity)). These researchers found that AI, in it's current state as of February 2026, is roughly 20% slower than actual researchers at completing a coding or development task. At the task level, there may be some marginal benefits to utilizing a LLM like ChatGPT or Gemini to solve short-term code bugs, but not in the grand scheme of an entire project. You, the student scientist, are likely better at handling, parsing, and analyzing your own data – no matter how much a beginner you may think you are.
+
+I implore you to give learning `R` a honest try before turning to AI to complete your assignments for you. Not only will you gain more hands-on understanding of the material, but you may also gain a renewed appreciation for the step-by-step process of working with your very own data for the first time. I am also happy to be a resource, if needed, to help troubleshoot. Things don't always work as we intend them to; We may mistype a character here or there, possibly use the wrong command for something it's not meant to actually do. These can be valuable parts of the learning experience, so best to let them happen and work through them before letting an AI assistant feed you an "out-of-the-box" solution that may or may not apply to your work.
+
+If you're excited about the prospect of learning more in `R`, there are a plethora of resources that exist out there that can teach you! I'd recommend the following places, to start:
+
+- [R for Data Science by Wickham and Grolemund](https://r4ds.hadley.nz/)
+
+- [R for the rest of us](https://rfortherestofus.com/)
+
+- [Getting Started with R: An Introduction for Biologists by Beckerman and Petchy](https://www.davidzeleny.net/wiki/lib/exe/fetch.php/recol:materials:beckerman-petchey2012_getting-started-with-r-an-introduction-for-biologists2.pdf)
+
+- [R Coding for Ecology by Rocchini](https://link.springer.com/book/10.1007/978-3-031-99665-8)
+
+If you find none of these fit your style, or don't fit your learning needs, lets sit down and chat to find something better.

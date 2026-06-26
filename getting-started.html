@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About the EVE 113 R Bootcamp – EVE 113 R Bootcamp</title>
+<title>Getting Started – EVE 113 R Bootcamp</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -93,15 +93,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./Home.html"> 
+    <a class="nav-link" href="./Home.qmd"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./Getting Started.qmd"> 
+<span class="menu-text">Getting Started</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Tutorial-0.html"> 
+    <a class="nav-link" href="./Tutorial 0.qmd"> 
 <span class="menu-text">Tutorial 0</span></a>
   </li>  
 </ul>
@@ -115,15 +115,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#download-r" id="toc-download-r" class="nav-link active" data-scroll-target="#download-r">Download R</a></li>
+  <li><a href="#download-rstudio" id="toc-download-rstudio" class="nav-link" data-scroll-target="#download-rstudio">Download RStudio</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About the EVE 113 R Bootcamp</h1>
+<h1 class="title">Getting Started</h1>
 </div>
 
 
@@ -140,14 +147,55 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="images/clipboard-590625097.png" class="img-fluid"></p>
-<p>This R bootcamp resource was initially created and designed in June 2026 to prep for the second summer session of the undergraduate ecology and evolution Coastal Marine Microbes (EVE 113) course taught by Dr.&nbsp;Anya Brown at Bodega Marine Lab (extension of University of California, Davis). All information herein was written and developed with this course in mind by PhD student and Teaching Assistant Tallulah Story.</p>
-<p>However, this guide can be widely applicable to any undergraduate or graduate student looking to learn R for ecology! It starts with the basics then slowly builds upon that knowledge, so it can be flexible for any knowledge level (beyond anything too advanced). This might also be a good refresher for those just getting back into <code>R</code> after a while away from the application. Either way, no matter how you (dear viewer) may be accessing this tutorial, please feel free to make full use of it in any way that best suits your needs.</p>
-<p>For instructors looking to adapt this material for their own courses, please do so! You may credit: <strong>Story and Brown, R Bootcamp 2026</strong>.</p>
-<p>If you have questions, concerns, or would like to see changes made to this resource, please contact:</p>
-<p>Tallulah Story, tstory@ucdavis.edu</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-590625097.png" class="img-fluid figure-img"></p>
+<figcaption>Grey topshell, Steromphala cineraria on a blade of eelgrass | Photo credit: Shannon Moran / Ocean Image Bank</figcaption>
+</figure>
+</div>
+<p>Before we even begin, it’s incredibly important we actually have the software we need downloaded on our computer. So, to get started, you should probably go ahead and download <code>R</code> and RStudio onto your computer. (Again, did I mention that it’s free?)</p>
+<section id="download-r" class="level2">
+<h2 class="anchored" data-anchor-id="download-r">Download R</h2>
+<p><strong>Visit <a href="https://cloud.r-project.org/">this link here</a> to get started with downloading <code>R</code>.</strong></p>
+<p>Once you open the webpage it should look something like the below image.</p>
+<p><img src="images/clipboard-478905486.png" class="img-fluid"></p>
+<p>There’s a lot of hyperlinks here, so start by directing your attention to the first three links towards the top. Click on the associated “Download <code>R</code> for…” your current operating system. I’ll be doing this tutorial, and most other coding demonstrations in this bootcamp, using a macOS operating system. Windows and Mac don’t largely differ when using RStudio or <code>R</code>, but if you find yourself confused, don’t hesitate to ask me any questions you might have.</p>
+<p>Once you hit download you will be redirected to another webpage, with even more links.</p>
+<p><img src="images/clipboard-3099214236.png" class="img-fluid"></p>
+<p>Click on the hyperlink that is associated with your current operating system. For most users, it should be the most up-to-date version of your internal operating system. For me, that’s currently macOS Sequoia 15.1.1, which means I would choose the blue hyperlink that says ‘R-4.6.0-arm64.pkg’.</p>
+<p><img src="images/clipboard-1616476471.png" class="img-fluid"></p>
+<p>Click that link, allow the <code>R</code> package to download onto your computer, then follow your computers prompts to download it onto your device.</p>
+<p>Once downloaded, if you open <code>R</code>, you’ll get a console environment that looks like this.</p>
+<p><img src="images/clipboard-3443394905.png" class="img-fluid"></p>
+<p>Great! You now have R installed. However, you’ll soon discover this is not the most user-friendly or flexible application to be doing the analyses or visualizations we’d like to do. Instead, we’re going to be using <strong>RStudio as our main interface for this course.</strong></p>
+</section>
+<section id="download-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="download-rstudio">Download RStudio</h2>
+<p><strong>Visit <a href="https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads">this link here</a> to download RStudio.</strong></p>
+<p>Again, you’ll be redirected to a website with a lot of hyperlinks. If you are at the top of the webpage where is says “<strong>RStudio IDE User Guide</strong>”, scroll down until you find the set of links pictured below:</p>
+<p><img src="images/clipboard-708821866.png" class="img-fluid"></p>
+<p>Click the link that is associated with your operating system and allow the installer disk to download. Then, follow the instillation instructions when prompted by your computer.</p>
+<p>Now, to make sure RStudio is correctly installed, go ahead and open the application for the first time. Your screen should look something like the below image (although your “File” window in the bottom right may appear different from mine).</p>
+<p><img src="images/clipboard-1146750783.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Apple and macOS users:</strong> You may receive a warning from Apple security that confirms if you’d like to open the application for the first time. This is normal, and don’t be afraid to hit the “Open” button. If you followed the correct directions from the websites I’ve hyper linked in this guide, there will be no danger to your computer by opening the application. I pinky promise.</p>
+</div>
+</div>
+<p><strong>Congrats! You’ve now successfully downloaded and installed both R and RStudio onto your computer.</strong> This is a huge milestone in your learning as a scientist. Feel free to poke around and explore this interface if you’d like. This boot camp will cover a lot of the necessary elements we’ll be using in the course, but it’s always good to familiarize yourself with a new operating software if you can.</p>
+<p><strong>Happy Coding!</strong></p>
+<p><img src="images/clipboard-3038303337.png" class="img-fluid" width="295"></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

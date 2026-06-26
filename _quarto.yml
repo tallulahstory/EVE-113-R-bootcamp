@@ -7,9 +7,9 @@ website:
     left:
       - href: Home.qmd
         text: Home
-      - href: about.qmd
-        text: About
-      - href: Tutorial-0.qmd
+      - href: Getting Started.qmd
+        text: Getting Started
+      - href: Tutorial 0.qmd
         text: Tutorial 0
 
 format:

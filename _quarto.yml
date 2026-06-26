@@ -5,11 +5,11 @@ website:
   title: "EVE 113 R Bootcamp"
   navbar:
     left:
-      - href: Home.qmd
+      - href: index.html
         text: Home
-      - href: About.qmd
+      - href: About.html
         text: About
-      - href: Tutorial 0.qmd
+      - href: Tutorial-0.html
         text: Tutorial 0
 
 format:

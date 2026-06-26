@@ -84,50 +84,50 @@
     "text": "Wowie! That was a lot! If you’ve made it to the end of this, CONGRATS! You now know how to start coding in RStudio. Give yourself a HUGE pat on the back because learning the basics to R and Rmarkdown are by far the hardest parts of learning how to code in R. However, I’m confident these essentials will give you the foundational knowledge you will need to succeed in this course. And I can (hopefully) promise once you master these skills, learning how to use RStudio to your advantage will only get easier from here. Now to review, you should now be able to:\n\nNavigate the RStudio computing environment, including describing where the Console is.\nSet a working directory and explain the difference between and absolute and relative path.\nCreate, edit, and save Rmarkdown files.\nEdit chunk options in a Rmarkdown file.\nUnderstand how to comment on your code.\nApply the basics of good coding etiquette in your own code\nProvide the summary on a data set.\nPlot a simple, 2 variable data set.\n\nIf you find you are unable to do one or more of the above tasks, go ahead and take some time to review this tutorial again until it starts to make sense. Happy coding!"
   },
   {
-    "objectID": "home.html",
-    "href": "home.html",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
     "section": "",
     "text": "This “course” was written and developed with the intrepid, undergraduate ecologist and/or marine biologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113. Some students may have zero experience using R. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or unix. It’s possible this is your first time ever hearing of R (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, this resource is meant to serve you! If there is a problem you’re hoping to tackle that is not included in this guide, please don’t hesitate to notify your TA or instructor and we can help you.\nThis guide is setup like a website where we have our Home page (the page you’re on now), the Getting Started page, and the Tutorial page(s). You can navigate between each of these by simply heading to the top of the web browser you’re currently viewing this on. This home page won’t contain more than a general overview of how this bootcamp is structured, how to get the most out of your learning, and information for further “R education” beyond EVE 113."
   },
   {
-    "objectID": "home.html#learning-objectives",
-    "href": "home.html#learning-objectives",
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
     "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nAt the top of every tutorial, there will be numbered learning objectives stating the goals and material covered in the tutorial itself. They will look like:\n\nA series of bullet pointed or objectives for that specific tutorial.\nThere might be more than one learning objective, or sub-learning objectives.\nThis numbered list will give you a sneak peek into what the tutorial will be covering."
   },
   {
-    "objectID": "home.html#the-actual-tutorial",
-    "href": "home.html#the-actual-tutorial",
+    "objectID": "index.html#the-actual-tutorial",
+    "href": "index.html#the-actual-tutorial",
     "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
     "section": "The Actual Tutorial",
     "text": "The Actual Tutorial\nThe tutorials will give you the skills needed to complete your final project and paper. I will try to include screenshots of an actual working RStudio environment as much as I can so you truly visualize what we’re supposed to be doing. However, most tutorials will largely be made up of “chunks” of code that I expect you to either directly copy/paste into your RStudio or, better yet, type yourself.\n\n\n\n\n\n\nTip\n\n\n\nActually typing the code yourself, rather than copy/pasting will help you better absorb the material and skills you are learning.\n\n\nCode chunks included in tutorials will looks like this:\n\nggplot2::ggplot(data = cars, aes(x = speed, y = dist)) +\n  geom_point() \n\nOr maybe even like this:\n\nincrement1 &lt;- function(input){\n  incremented_value &lt;- input + 1\n  return(incremented_value)\n}\n\nWe will learn about two different coding languages in this course: R and unix. The primary distinction between the two, asides from the languages themselves, is that R uses the Console and unix uses the Terminal. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in R. However, some tutorials will cover using unix. Since operating in the terminal is often computationally heavy, this course will not require students to use the Terminal, but the information on how to actually use unix, bash chunks, and the Terminal will be covered in these tutorials. When I am switching between R and unix I will be very clear about what type of code chunk I am using."
   },
   {
-    "objectID": "home.html#do-it-yourself",
-    "href": "home.html#do-it-yourself",
+    "objectID": "index.html#do-it-yourself",
+    "href": "index.html#do-it-yourself",
     "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
     "section": "Do It Yourself",
     "text": "Do It Yourself\nMy Do It Yourself (or DIYs) are built-in to provide short breaks between content-heavy topics. These allow you to test and implement the knowledge you gain as you move along in the tutorials.\n\n\n\n\n\n\nDo It Yourself T0-00\nThis is what a DIY will look like. It will include the header above with a number associated with that tutorial. Say, for example, this is DIY 7 in Tutorial 4, the header would look like:\nDo It Yourself T4-07\na. Then each DIY may include multiple parts.\nb. Each part will be a specific task or question that may ask you to explain a topic, write a line of code, or complete a task.\n\n\n\nDIYs are not for grade but they can be turned in to your TA (me) for feedback (if you’d like). Otherwise, the only function DIYs serve is to (a) break up the learning material and (b) test your skills. Answers to the DIYs will be located at the bottom of every tutorial. However, like most things in life, there are often more ways than one to answer a single question. Therefore, you can also bring your DIYs to TA office hours to discuss them with me."
   },
   {
-    "objectID": "home.html#review",
-    "href": "home.html#review",
+    "objectID": "index.html#review",
+    "href": "index.html#review",
     "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
     "section": "Review",
     "text": "Review\nAt the end of every tutorial, there will be a review (and celebration) of all that you’ve accomplished.\n\nIf you read the review and can mentally say: “Yes! I know how to answer all of these questions” than congratulations, you’ve completed all the learning objectives!!\nYou should give yourself a massive pat on the back and do a little celebration when you can do that (it’s a big deal)!\nIf you find yourself unable to understand a topic in the review, I suggest taking time to review the tutorial again to make sure you are understanding what is expected of you.\n\nI will end every tutorial with a message and a “celebration” photo, and that is how you know you’ve reached the end of the educational content. Hooray!!!"
   },
   {
-    "objectID": "home.html#diy-answer-key",
-    "href": "home.html#diy-answer-key",
+    "objectID": "index.html#diy-answer-key",
+    "href": "index.html#diy-answer-key",
     "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
     "section": "DIY Answer Key",
     "text": "DIY Answer Key\n\n\n\n\n\n\n0a. Answer keys will have the answer to your questions in order.\n0b. If there are more questions or you didn’t come to the same answer that I did, just notify me and we can discuss in office hours!"
   },
   {
-    "objectID": "home.html#works-cited",
-    "href": "home.html#works-cited",
+    "objectID": "index.html#works-cited",
+    "href": "index.html#works-cited",
     "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
     "section": "Works Cited",
     "text": "Works Cited\nAt very, very bottom, I will cite any of the packages or resources I used to make the tutorial. When you’re writing up your final report, you may refer back to these tutorials for the citation information to include in your own works cited. Please make sure you’re citing the necessary software you’re using in your work (giving credit where credit is due is very important to avoid plagiarism and promote reproducibility)!"

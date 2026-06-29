@@ -9,6 +9,8 @@ website:
         text: Home
       - href: getting-started.qmd
         text: Getting Started
+      - href: code-etiquette.qmd
+        text: Code Etiquette 101
       - href: tutorial-0.qmd
         text: Tutorial 0
 

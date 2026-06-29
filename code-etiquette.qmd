@@ -1,3 +1,252 @@
 ---
-title: "code-etiquette"
+title: "Code Etiquette 101"
 ---
+
+# What is Code Etiquette?
+
+Now that we’ve actually started writing and running our own commands, now is the best time to introduce you to **proper code etiquette.** We might also refer to this as “coding style” which actually matters a lot more than you might think.
+
+Good coding style is like using correct punctuation or capitalization; You can manage without it, but it sure makes things easier to read. As with styles of punctuation, there are many possible variations that one can use, but over the years language conventions have settled on “correct” ways of using punctuation. The same thing has happened with code. There is an "unspoken" grammar that is used when coding that has nothing to do with the actual code.
+
+# Why Use Good Etiquette? 
+
+This is one of the coding things that chatGPT and LLM AI models actually **fail** at. These applications often add in large spaces and comments that are *unnecessary* and *unproductive* to your code at large. This also (ironically) makes spotting when code was written by you (the talented, capable student) or a dumb chat bot. And trust me, I know the difference.
+
+Good style is also important because while your code often only has one author, it’ll usually have multiple readers (like me!!). This is especially true when you’re writing code with others. Turning in code that is pleasant to read, easy to follow, and logical makes the grading process way easier (and, once again, aids in reproducibility)!
+
+# Code Guidlines
+
+This "code etiquette guide" was adapted from [Hadley Wickham’s Advanced R Guide.](http://adv-r.had.co.nz/Style.html) As you progress in your coding progress, you should never wayside good code practices, so feel free to check out his resources if you want to learn more. For now, let's start with the basics.
+
+## File Names
+
+File names should be meaningful and end in `.R`.
+
+```{r, eval = FALSE}
+# Good
+fit-models.R
+utility-functions.R
+
+# Bad
+foo.r
+stuff.r
+```
+
+If files need to be run in sequence, prefix them with numbers:
+
+```{r, eval=FALSE}
+0-download.R
+1-parse.R
+2-explore.R
+```
+
+## Object and Vector Names
+
+> “There are only two hard things in Computer Science: cache invalidation and naming things.”
+>
+> — Phil Karlton
+
+Variable and function names should be lowercase. Use an underscore (`_`) to separate words within a name. Generally, variable names should be nouns and function names should be verbs. Strive for names that are concise and meaningful (this is not easy!!!!).
+
+```{r, eval = FALSE}
+# Good
+day_one
+day_1
+
+# Bad
+first_day_of_the_month
+DayOne
+dayone
+djm1
+```
+
+Where possible, avoid using names of existing functions and variables. Doing so will cause confusion for the readers of your code.
+
+```{r, eval = FALSE}
+# Bad
+T <- FALSE
+c <- 10
+mean <- function(x) sum(x)
+```
+
+## Spacing
+
+Place spaces around all infix operators (`=`, `+`, `-`, `<-`, etc.). The same rule applies when using `=` in function calls. Always put a space after a comma, and never before (just like in regular English).
+
+```{r, eval=FALSE}
+# Good
+average <- mean(feet / 12 + inches, na.rm = TRUE)
+
+# Bad
+average<-mean(feet/12+inches,na.rm=TRUE)
+```
+
+**BUT**, There’s a small exception to this rule: `:`, `::` and `:::` don’t need spaces around them.
+
+```{r,eval=FALSE}
+# Good
+x <- 1:10
+base::get
+
+# Bad
+x <- 1 : 10
+base :: get
+```
+
+Place a space before left parentheses, except in a function call.
+
+```{r, eval=FALSE}
+# Good
+if (debug) do(x)
+plot(x, y)
+
+# Bad
+if(debug)do(x)
+plot (x, y)
+```
+
+Extra spacing (i.e., more than one space in a row) is **ok** if it improves alignment of equal signs or assignments (`<-`).
+
+```{r, eval = FALSE}
+list(
+  total = a + b + c, 
+  mean  = (a + b + c) / n
+)
+```
+
+Do not place spaces around code in parentheses or square brackets (unless there’s a comma, in which case see above).
+
+```{r, eval = FALSE}
+# Good
+if (debug) do(x)
+diamonds[5, ]
+
+# Bad
+if ( debug ) do(x)  # No spaces around debug
+x[1,]   # Needs a space after the comma
+x[1 ,]  # Space goes after comma not before
+```
+
+## Commenting
+
+Comment your code. Each line of a comment should begin with the comment symbol and a single space: `#`.
+
+::: callout-tip
+Comments should explain the why, not the what.
+:::
+
+Use commented lines of `-` and `=` to break up your file into easily readable chunks if you’re not coding in a .rmd file.
+
+```{r}
+# Load data ---------------------------
+
+# Plot data ---------------------------
+```
+
+## Pipes
+
+### Right-hand assignment
+
+In this house, we do not support using right-hand assignment.
+
+```{r, eval = FALSE}
+# Good
+results < iris %>%
+  dplyr::summarize(max_petal = max(Petal.Width)) -> results
+
+# Bad
+iris %>%
+  dplyr::summarize(max_petal = max(Petal.Width)) -> results
+```
+
+This convention differs substantially from practices in other languages and makes it harder to see in code where an object is defined. E.g. searching for `foo <-` is easier than searching for `foo <-` and `-> foo` (possibly split over lines).
+
+## Explicit returns
+
+Do not rely on R’s implicit return feature. It is better to be clear about your intent to `return()` an object within a function call.
+
+```{r, eval = FALSE}
+# Good
+AddValues <- function(x, y) {
+  return(x + y)
+}
+
+# Bad
+AddValues <- function(x, y) {
+  x + y
+}
+```
+
+## ggplot Do's and Don't's
+
+### To Pipe Or To Not Pipe 
+
+Styling suggestions for `+` used to separate ggplot2 layers are very similar to those for `|>` or `%>%` in pipelines. Both can be used interchangeably. We will use `+` and `%>%` in this course.
+
+### White Space
+
+`+` should always have a space before it, and should be followed by a new line. This is true even if your plot has only two layers. After the first step, each line should be indented by two spaces.
+
+If you are creating a ggplot off of a dplyr pipeline, **there should only be one level of indentation**.
+
+```{r, eval = FALSE}
+# Good
+iris %>%
+  filter(Species == "setosa") %>%
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +
+  geom_point()
+
+# Bad
+iris %>%
+  filter(Species == "setosa") %>%
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +
+  geom_point() # this extra indent is not needed
+
+# Bad
+iris |>
+  filter(Species == "setosa") |>
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) + geom_point() # do not put your geom_ call inline!
+```
+
+### Long lines
+
+If the arguments to a ggplot2 layer don’t all fit on one line, put each argument on its own line and indent:
+
+```{r, eval = FALSE}
+# Good
+iris %>%
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  geom_point() +
+  labs(
+    x = "Sepal width, in cm",
+    y = "Sepal length, in cm",
+    title = "Sepal length vs. width of irises")
+
+# Okay
+iris %>% 
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  geom_point() +
+  labs(
+    x = "Sepal width, in cm", y = "Sepal length, in cm", 
+    title = "Sepal length vs. width of irises")
+
+# Bad
+iris %>% 
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  geom_point() +
+  labs(x = "Sepal width, in cm", y = "Sepal length, in cm", subtitle = "Dot Plot", legend = "Species", title = "Sepal length vs. width of irises") 
+```
+
+ggplot2 allows you to do data manipulation, such as filtering or slicing, within the `data` argument. Avoid this, and instead do the data manipulation in a pipeline before starting plotting.
+
+```{r eval = FALSE}
+# Good
+iris %>%
+  filter(Species == "setosa") %>%
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +
+  geom_point()
+
+# Bad
+ggplot(filter(iris, Species == "setosa"), aes(x = Sepal.Width, y = Sepal.Length)) +
+  geom_point()
+```

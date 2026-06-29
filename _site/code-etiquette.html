@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>code-etiquette – EVE 113 R Bootcamp</title>
+<title>Code Etiquette 101 – EVE 113 R Bootcamp</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -115,15 +150,40 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-code-etiquette" id="toc-what-is-code-etiquette" class="nav-link active" data-scroll-target="#what-is-code-etiquette">What is Code Etiquette?</a></li>
+  <li><a href="#why-use-good-etiquette" id="toc-why-use-good-etiquette" class="nav-link" data-scroll-target="#why-use-good-etiquette">Why Use Good Etiquette?</a></li>
+  <li><a href="#code-guidlines" id="toc-code-guidlines" class="nav-link" data-scroll-target="#code-guidlines">Code Guidlines</a>
+  <ul class="collapse">
+  <li><a href="#file-names" id="toc-file-names" class="nav-link" data-scroll-target="#file-names">File Names</a></li>
+  <li><a href="#object-and-vector-names" id="toc-object-and-vector-names" class="nav-link" data-scroll-target="#object-and-vector-names">Object and Vector Names</a></li>
+  <li><a href="#spacing" id="toc-spacing" class="nav-link" data-scroll-target="#spacing">Spacing</a></li>
+  <li><a href="#commenting" id="toc-commenting" class="nav-link" data-scroll-target="#commenting">Commenting</a></li>
+  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes">Pipes</a>
+  <ul class="collapse">
+  <li><a href="#right-hand-assignment" id="toc-right-hand-assignment" class="nav-link" data-scroll-target="#right-hand-assignment">Right-hand assignment</a></li>
+  </ul></li>
+  <li><a href="#explicit-returns" id="toc-explicit-returns" class="nav-link" data-scroll-target="#explicit-returns">Explicit returns</a></li>
+  <li><a href="#ggplot-dos-and-donts" id="toc-ggplot-dos-and-donts" class="nav-link" data-scroll-target="#ggplot-dos-and-donts">ggplot Do’s and Don’t’s</a>
+  <ul class="collapse">
+  <li><a href="#to-pipe-or-to-not-pipe" id="toc-to-pipe-or-to-not-pipe" class="nav-link" data-scroll-target="#to-pipe-or-to-not-pipe">To Pipe Or To Not Pipe</a></li>
+  <li><a href="#white-space" id="toc-white-space" class="nav-link" data-scroll-target="#white-space">White Space</a></li>
+  <li><a href="#long-lines" id="toc-long-lines" class="nav-link" data-scroll-target="#long-lines">Long lines</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">code-etiquette</h1>
+<h1 class="title">Code Etiquette 101</h1>
 </div>
 
 
@@ -140,8 +200,241 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="what-is-code-etiquette" class="level1">
+<h1>What is Code Etiquette?</h1>
+<p>Now that we’ve actually started writing and running our own commands, now is the best time to introduce you to <strong>proper code etiquette.</strong> We might also refer to this as “coding style” which actually matters a lot more than you might think.</p>
+<p>Good coding style is like using correct punctuation or capitalization; You can manage without it, but it sure makes things easier to read. As with styles of punctuation, there are many possible variations that one can use, but over the years language conventions have settled on “correct” ways of using punctuation. The same thing has happened with code. There is an “unspoken” grammar that is used when coding that has nothing to do with the actual code.</p>
+</section>
+<section id="why-use-good-etiquette" class="level1">
+<h1>Why Use Good Etiquette?</h1>
+<p>This is one of the coding things that chatGPT and LLM AI models actually <strong>fail</strong> at. These applications often add in large spaces and comments that are <em>unnecessary</em> and <em>unproductive</em> to your code at large. This also (ironically) makes spotting when code was written by you (the talented, capable student) or a dumb chat bot. And trust me, I know the difference.</p>
+<p>Good style is also important because while your code often only has one author, it’ll usually have multiple readers (like me!!). This is especially true when you’re writing code with others. Turning in code that is pleasant to read, easy to follow, and logical makes the grading process way easier (and, once again, aids in reproducibility)!</p>
+</section>
+<section id="code-guidlines" class="level1">
+<h1>Code Guidlines</h1>
+<p>This “code etiquette guide” was adapted from <a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham’s Advanced R Guide.</a> As you progress in your coding progress, you should never wayside good code practices, so feel free to check out his resources if you want to learn more. For now, let’s start with the basics.</p>
+<section id="file-names" class="level2">
+<h2 class="anchored" data-anchor-id="file-names">File Names</h2>
+<p>File names should be meaningful and end in <code>.R</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">-</span>models.R</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>utility<span class="sc">-</span>functions.R</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>foo.r</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>stuff.r</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>If files need to be run in sequence, prefix them with numbers:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">-</span>download.R</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span>parse.R</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">-</span>explore.R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="object-and-vector-names" class="level2">
+<h2 class="anchored" data-anchor-id="object-and-vector-names">Object and Vector Names</h2>
+<blockquote class="blockquote">
+<p>“There are only two hard things in Computer Science: cache invalidation and naming things.”</p>
+<p>— Phil Karlton</p>
+</blockquote>
+<p>Variable and function names should be lowercase. Use an underscore (<code>_</code>) to separate words within a name. Generally, variable names should be nouns and function names should be verbs. Strive for names that are concise and meaningful (this is not easy!!!!).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>day_one</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>day_1</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>first_day_of_the_month</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>DayOne</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>dayone</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>djm1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Where possible, avoid using names of existing functions and variables. Doing so will cause confusion for the readers of your code.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sum</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="spacing" class="level2">
+<h2 class="anchored" data-anchor-id="spacing">Spacing</h2>
+<p>Place spaces around all infix operators (<code>=</code>, <code>+</code>, <code>-</code>, <code>&lt;-</code>, etc.). The same rule applies when using <code>=</code> in function calls. Always put a space after a comma, and never before (just like in regular English).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>average <span class="ot">&lt;-</span> <span class="fu">mean</span>(feet <span class="sc">/</span> <span class="dv">12</span> <span class="sc">+</span> inches, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>average<span class="ot">&lt;-</span><span class="fu">mean</span>(feet<span class="sc">/</span><span class="dv">12</span><span class="sc">+</span>inches,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>BUT</strong>, There’s a small exception to this rule: <code>:</code>, <code>::</code> and <code>:::</code> don’t need spaces around them.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>base<span class="sc">::</span>get</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">:</span> <span class="dv">10</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>base <span class="sc">::</span> get</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Place a space before left parentheses, except in a function call.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (debug) <span class="fu">do</span>(x)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(debug)<span class="fu">do</span>(x)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span> (x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Extra spacing (i.e., more than one space in a row) is <strong>ok</strong> if it improves alignment of equal signs or assignments (<code>&lt;-</code>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">total =</span> a <span class="sc">+</span> b <span class="sc">+</span> c, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean  =</span> (a <span class="sc">+</span> b <span class="sc">+</span> c) <span class="sc">/</span> n</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Do not place spaces around code in parentheses or square brackets (unless there’s a comma, in which case see above).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (debug) <span class="fu">do</span>(x)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>diamonds[<span class="dv">5</span>, ]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( debug ) <span class="fu">do</span>(x)  <span class="co"># No spaces around debug</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>,]   <span class="co"># Needs a space after the comma</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span> ,]  <span class="co"># Space goes after comma not before</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="commenting" class="level2">
+<h2 class="anchored" data-anchor-id="commenting">Commenting</h2>
+<p>Comment your code. Each line of a comment should begin with the comment symbol and a single space: <code>#</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Comments should explain the why, not the what.</p>
+</div>
+</div>
+<p>Use commented lines of <code>-</code> and <code>=</code> to break up your file into easily readable chunks if you’re not coding in a .rmd file.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data ---------------------------</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data ---------------------------</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="pipes" class="level2">
+<h2 class="anchored" data-anchor-id="pipes">Pipes</h2>
+<section id="right-hand-assignment" class="level3">
+<h3 class="anchored" data-anchor-id="right-hand-assignment">Right-hand assignment</h3>
+<p>In this house, we do not support using right-hand assignment.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>results <span class="sc">&lt;</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">max_petal =</span> <span class="fu">max</span>(Petal.Width)) <span class="ot">-&gt;</span> results</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">max_petal =</span> <span class="fu">max</span>(Petal.Width)) <span class="ot">-&gt;</span> results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This convention differs substantially from practices in other languages and makes it harder to see in code where an object is defined. E.g. searching for <code>foo &lt;-</code> is easier than searching for <code>foo &lt;-</code> and <code>-&gt; foo</code> (possibly split over lines).</p>
+</section>
+</section>
+<section id="explicit-returns" class="level2">
+<h2 class="anchored" data-anchor-id="explicit-returns">Explicit returns</h2>
+<p>Do not rely on R’s implicit return feature. It is better to be clear about your intent to <code>return()</code> an object within a function call.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>AddValues <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>AddValues <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="ggplot-dos-and-donts" class="level2">
+<h2 class="anchored" data-anchor-id="ggplot-dos-and-donts">ggplot Do’s and Don’t’s</h2>
+<section id="to-pipe-or-to-not-pipe" class="level3">
+<h3 class="anchored" data-anchor-id="to-pipe-or-to-not-pipe">To Pipe Or To Not Pipe</h3>
+<p>Styling suggestions for <code>+</code> used to separate ggplot2 layers are very similar to those for <code>|&gt;</code> or <code>%&gt;%</code> in pipelines. Both can be used interchangeably. We will use <code>+</code> and <code>%&gt;%</code> in this course.</p>
+</section>
+<section id="white-space" class="level3">
+<h3 class="anchored" data-anchor-id="white-space">White Space</h3>
+<p><code>+</code> should always have a space before it, and should be followed by a new line. This is true even if your plot has only two layers. After the first step, each line should be indented by two spaces.</p>
+<p>If you are creating a ggplot off of a dplyr pipeline, <strong>there should only be one level of indentation</strong>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="co"># this extra indent is not needed</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="co"># do not put your geom_ call inline!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="long-lines" class="level3">
+<h3 class="anchored" data-anchor-id="long-lines">Long lines</h3>
+<p>If the arguments to a ggplot2 layer don’t all fit on one line, put each argument on its own line and indent:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Okay</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>, <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>, </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>, <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>, <span class="at">subtitle =</span> <span class="st">"Dot Plot"</span>, <span class="at">legend =</span> <span class="st">"Species"</span>, <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>ggplot2 allows you to do data manipulation, such as filtering or slicing, within the <code>data</code> argument. Avoid this, and instead do the data manipulation in a pipeline before starting plotting.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">"setosa"</span>), <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

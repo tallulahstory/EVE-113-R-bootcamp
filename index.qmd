@@ -8,17 +8,19 @@ editor_options:
 library(rmarkdown)
 ```
 
-![](images/clipboard-1943924653.png)
+![Abalone in a Kelp Forest \| Photo Credit: Stefan Andrews / Ocean Image Bank](images/clipboard-1943924653.png)
 
-> *Photo Credit: [**Stefan Andrews / Ocean Image Bank**](https://www.instagram.com/ocean_imaging/?hl=en)*
-
-This "course" was written and developed with the intrepid, undergraduate ecologist and/or marine biologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113. Some students may have zero experience using `R`. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or `unix`. It's possible this is your first time ever hearing of `R` (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, **this resource is meant to serve you!** If there is a problem you're hoping to tackle that is not included in this guide, please don't hesitate to notify your TA or instructor and we can help you.
+This "course" was written and developed with the intrepid, undergraduate ecologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113. Some oif you may have zero experience using `R`. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or `unix`. It's possible this is your first time ever hearing of `R` (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, **this resource is meant to serve you!** If there is a problem you're hoping to tackle that is not included in this guide, please don't hesitate to notify your TA or instructor and we can help you.
 
 This guide is setup like a website where we have our Home page (the page you're on now), the Getting Started page, and the Tutorial page(s). You can navigate between each of these by simply heading to the top of the web browser you're currently viewing this on. This home page won't contain more than a general overview of how this bootcamp is structured, how to get the most out of your learning, and information for further "R education" beyond EVE 113.
 
+::: callout-important
+**Work associated with these tutorials is [due August 27th]{.underline}**, prior to our first data workshop day. It is our expectation that you understand the learning objectives in each tutorial prior to coming to class on the 27th.
+:::
+
 # What is R?
 
-`R` is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because `R` is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or "add-ons") that further extend the programs functionality. `R` is an extroidinarily valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you'd like to learn more about why reproducibility in research matters, you can read more [here](https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/).
+`R` is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because `R` is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or "add-ons") that further extend the programs functionality. `R` is an extraordinarily valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you'd like to learn more about why reproducibility in research matters, you can read more [here](https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/).
 
 In this course, we will be coding in `R` using the **free** software interface application known as RStudio. RStudio is a user-friendly IDE (integrated development environment) where you can access both the Console and the Terminal (we will talk about what both of those means later). `R` and RStudio work with any operating system you have on hand, whether that be Windows, Apple (macOS), or Linux. Although, if you're operating on Linux, I might just assume you already have `R` downloaded in some capacity.
 
@@ -39,7 +41,7 @@ Overall, our class learning objectives for data analysis this summer are (broadl
 ::: callout-tip
 ***Your learning here will be a product of the amount of time you spend engaging with the material, practicing your skills, and asking questions when they come up.***
 
-You should always return to this website if you need to revisit any tutorials from earlier in the term (e.g., you're doing an analysis but forgot the code to run said analysis, you can return to this website and navigate to the top right corner search bar to find what you're looking for). **I am always available via email to help you when you get stuck. Please come to me before finding your way to chatGPT or AI.**
+You should always return to this website if you need to revisit any tutorials from earlier in the term (e.g., you're doing an analysis but forgot the code to run said analysis, you can return to this website and navigate to the top right corner search bar to find what you're looking for). **I am always available via email to help you when you get stuck. [Please come to me before finding your way to ask questions to chatGPT or AI.]{.underline}**
 :::
 
 I've tried to make this experience as learner-friendly as possible. This bootcamp will follow a series of tutorials, practice problems, and assignments that you can complete to flaunt your newly acquired R knowledge.
@@ -48,7 +50,7 @@ Your **tutorials** are where you will *gain skills and knowledge* to satisfy our
 
 The **DIYs** are ways you can *test or practice your new skills or knowledge* as you go.
 
-The **assignments** are the *products of your tutorials, DIYs, lab work, and learning objectives*.
+The **assignments** are the *products of your tutorials, DIYs, lab work, and learning objectives*. Assignments associated with tutorial content will be due August 27th.
 
 ## Learning Objectives
 
@@ -84,7 +86,7 @@ increment1 <- function(input){
 }
 ```
 
-We will learn about two different coding languages in this course: `R` and `unix`. The primary distinction between the two, asides from the languages themselves, is that `R` uses the *Console* and `unix` uses the *Terminal*. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in `R`. However, some tutorials will cover using `unix`. Since operating in the terminal is often computationally heavy, **this course will not require students to use the Terminal,** but the information on how to actually use `unix`, bash chunks, and the Terminal will be covered in these tutorials. When I am switching between `R` and `unix` I will be **very clear about what type of code chunk I am using.**
+We will learn about two different coding languages in this course: `R` and `unix`. The primary distinction between the two, asides from the languages themselves, is that `R` uses the *Console* and `unix` uses the *Terminal*. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in `R`. However, some tutorials will cover using `unix`. Since operating in the terminal is often computationally heavy, **this course will not require students to use the Terminal,** but the information on how to actually use `unix`, bash chunks, and the Terminal will be covered in tutorial 4. When I am switching between `R` and `unix` I will be **very clear about what type of code chunk I am using.**
 
 ## Do It Yourself
 
@@ -146,4 +148,4 @@ If you're excited about the prospect of learning more in `R`, there are a pletho
 
 - [R Coding for Ecology by Rocchini](https://link.springer.com/book/10.1007/978-3-031-99665-8)
 
-If you find none of these fit your style, or don't fit your learning needs, lets sit down and chat to find something better.
+If you find none of these fit your style, or don't fit your learning needs, lets sit down and chat to find something better for you.

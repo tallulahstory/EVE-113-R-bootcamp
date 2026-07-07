@@ -4,9 +4,7 @@ title: "Tutorial 0"
 
 # R and RMarkdown Basics
 
-![](images/clipboard-1208279086.png)
-
-> *Photo Credit: [Show Me Mizzou Research News \| Rebecca North](https://showme.missouri.edu/2020/controlling-light-could-leave-toxic-algae-dead-in-the-water-mu-researchers-find/)*
+![Cyanobacterial growth in a lake \| Photo Credit: Rebecca North](images/clipboard-1208279086.png)
 
 Welcome to your "first" R bootcamp tutorial! Well, technically this is tutorial 0, but this lesson will form the foundational knowledge you will need to start learning the basics of coding in R! Let's get started...
 
@@ -16,9 +14,9 @@ Welcome to your "first" R bootcamp tutorial! Well, technically this is tutorial 
 
 2.  Learn how to set your working directory and understand pathing in a computing environment.
 
-3.  Learn how to create new script, .rmd, and quarto files.
+3.  Learn how to create new script and .rmd files.
 
-4.  Be able to set evaluations and inclusions in .rmd code chunks with knitr::.
+4.  Be able to set evaluations and customizations in .rmd code chunks with knitr::.
 
 5.  Understand good code etiquette and commenting guidelines, especially with research reproducibility in mind.
 
@@ -112,7 +110,7 @@ This is the directory path R will now use when searching and saving files as I w
 
 ### Option 2: Point-and-Click Approach in RStudio
 
-The second option to set your working directiory is the point-and-click approach (I personally prefer setting my directory manually, but others might like this better).
+The second option to set your working directory is the point-and-click approach (I personally prefer setting my directory manually, but others might like this better).
 
 To do this:
 
@@ -158,7 +156,7 @@ To create a new project in RStudio, you can take two different point-and-click a
 
 ## Understanding Absolute and Relative Paths
 
-For the sake of this course (and these tutorials), I suggest making a folder to set as your working directory before we proceed any further. You can use the following template if you'd like to keep things simple:
+For the sake of this course (and these tutorials), I'd like you to make a folder to set as your working directory before we proceed any further. You can use the following template if you'd like to keep things simple:
 
 1.  Create a primary folder on your desktop called **EVE 113**.
 2.  Create a sub-folder inside **EVE 113** called **Coding Tutorials** – (this will let you keep coding tutorial work and class coding work separate from one another).
@@ -166,7 +164,7 @@ For the sake of this course (and these tutorials), I suggest making a folder to 
 
 The **path** you've just created will be something along the lines of:
 
-| `/Users/yourusername/Desktop/EVE 113/Coding Tutorials` 
+| `/Users/yourusername/Desktop/EVE 113/Coding Tutorials`
 
 A **file path** tells you (and your computer) the exact place you can locate a file. Paths can either be [absolute]{.underline} or [relative]{.underline}. You use different paths, in different scenarios, to set your working directory.
 

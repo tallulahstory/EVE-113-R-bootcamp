@@ -2,7 +2,7 @@
 title: "Getting Started"
 ---
 
-![Grey topshell, Steromphala cineraria on a blade of eelgrass \| Photo credit: Shannon Moran / Ocean Image Bank](images/clipboard-590625097.png)
+![Grey topshell (Steromphala) cineraria on a blade of eelgrass \| Photo credit: Shannon Moran / Ocean Image Bank](images/clipboard-590625097.png)
 
 Before we even begin, it's incredibly important we actually have the software we need downloaded on our computer. So, to get started, you should probably go ahead and download `R` and RStudio onto your computer. (Again, did I mention that it's free?)
 

@@ -1,5 +1,138 @@
 [
   {
+    "objectID": "tutorial-1.html",
+    "href": "tutorial-1.html",
+    "title": "Tutorial 1",
+    "section": "",
+    "text": "test test test"
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Grey topshell, Steromphala cineraria on a blade of eelgrass | Photo credit: Shannon Moran / Ocean Image Bank\nBefore we even begin, it’s incredibly important we actually have the software we need downloaded on our computer. So, to get started, you should probably go ahead and download R and RStudio onto your computer. (Again, did I mention that it’s free?)"
+  },
+  {
+    "objectID": "getting-started.html#download-r",
+    "href": "getting-started.html#download-r",
+    "title": "Getting Started",
+    "section": "Download R",
+    "text": "Download R\nVisit this link here to get started with downloading R.\nOnce you open the webpage it should look something like the below image.\n\nThere’s a lot of hyperlinks here, so start by directing your attention to the first three links towards the top. Click on the associated “Download R for…” your current operating system. I’ll be doing this tutorial, and most other coding demonstrations in this bootcamp, using a macOS operating system. Windows and Mac don’t largely differ when using RStudio or R, but if you find yourself confused, don’t hesitate to ask me any questions you might have.\nOnce you hit download you will be redirected to another webpage, with even more links.\n\nClick on the hyperlink that is associated with your current operating system. For most users, it should be the most up-to-date version of your internal operating system. For me, that’s currently macOS Sequoia 15.1.1, which means I would choose the blue hyperlink that says ‘R-4.6.0-arm64.pkg’.\n\nClick that link, allow the R package to download onto your computer, then follow your computers prompts to download it onto your device.\nOnce downloaded, if you open R, you’ll get a console environment that looks like this.\n\nGreat! You now have R installed. However, you’ll soon discover this is not the most user-friendly or flexible application to be doing the analyses or visualizations we’d like to do. Instead, we’re going to be using RStudio as our main interface for this course."
+  },
+  {
+    "objectID": "getting-started.html#download-rstudio",
+    "href": "getting-started.html#download-rstudio",
+    "title": "Getting Started",
+    "section": "Download RStudio",
+    "text": "Download RStudio\nVisit this link here to download RStudio.\nAgain, you’ll be redirected to a website with a lot of hyperlinks. If you are at the top of the webpage where is says “RStudio IDE User Guide”, scroll down until you find the set of links pictured below:\n\nClick the link that is associated with your operating system and allow the installer disk to download. Then, follow the instillation instructions when prompted by your computer.\nNow, to make sure RStudio is correctly installed, go ahead and open the application for the first time. Your screen should look something like the below image (although your “File” window in the bottom right may appear different from mine).\n\n\n\n\n\n\n\nCaution\n\n\n\nApple and macOS users: You may receive a warning from Apple security that confirms if you’d like to open the application for the first time. This is normal, and don’t be afraid to hit the “Open” button. If you followed the correct directions from the websites I’ve hyper linked in this guide, there will be no danger to your computer by opening the application. I pinky promise.\n\n\nCongrats! You’ve now successfully downloaded and installed both R and RStudio onto your computer. This is a huge milestone in your learning as a scientist. Feel free to poke around and explore this interface if you’d like. This boot camp will cover a lot of the necessary elements we’ll be using in the course, but it’s always good to familiarize yourself with a new operating software if you can.\nHappy Coding!"
+  },
+  {
+    "objectID": "code-etiquette.html",
+    "href": "code-etiquette.html",
+    "title": "Code Etiquette 101",
+    "section": "",
+    "text": "Now that we’ve actually started writing and running our own commands, now is the best time to introduce you to proper code etiquette. We might also refer to this as “coding style” which actually matters a lot more than you might think.\nGood coding style is like using correct punctuation or capitalization; You can manage without it, but it sure makes things easier to read. As with styles of punctuation, there are many possible variations that one can use, but over the years language conventions have settled on “correct” ways of using punctuation. The same thing has happened with code. There is an “unspoken” grammar that is used when coding that has nothing to do with the actual code."
+  },
+  {
+    "objectID": "code-etiquette.html#file-names",
+    "href": "code-etiquette.html#file-names",
+    "title": "Code Etiquette 101",
+    "section": "File Names",
+    "text": "File Names\nFile names should be meaningful and end in .R.\n\n# Good\nfit-models.R\nutility-functions.R\n\n# Bad\nfoo.r\nstuff.r\n\nIf files need to be run in sequence, prefix them with numbers:\n\n0-download.R\n1-parse.R\n2-explore.R"
+  },
+  {
+    "objectID": "code-etiquette.html#object-and-vector-names",
+    "href": "code-etiquette.html#object-and-vector-names",
+    "title": "Code Etiquette 101",
+    "section": "Object and Vector Names",
+    "text": "Object and Vector Names\n\n“There are only two hard things in Computer Science: cache invalidation and naming things.”\n— Phil Karlton\n\nVariable and function names should be lowercase. Use an underscore (_) to separate words within a name. Generally, variable names should be nouns and function names should be verbs. Strive for names that are concise and meaningful (this is not easy!!!!).\n\n# Good\nday_one\nday_1\n\n# Bad\nfirst_day_of_the_month\nDayOne\ndayone\ndjm1\n\nWhere possible, avoid using names of existing functions and variables. Doing so will cause confusion for the readers of your code.\n\n# Bad\nT &lt;- FALSE\nc &lt;- 10\nmean &lt;- function(x) sum(x)"
+  },
+  {
+    "objectID": "code-etiquette.html#spacing",
+    "href": "code-etiquette.html#spacing",
+    "title": "Code Etiquette 101",
+    "section": "Spacing",
+    "text": "Spacing\nPlace spaces around all infix operators (=, +, -, &lt;-, etc.). The same rule applies when using = in function calls. Always put a space after a comma, and never before (just like in regular English).\n\n# Good\naverage &lt;- mean(feet / 12 + inches, na.rm = TRUE)\n\n# Bad\naverage&lt;-mean(feet/12+inches,na.rm=TRUE)\n\nBUT, There’s a small exception to this rule: :, :: and ::: don’t need spaces around them.\n\n# Good\nx &lt;- 1:10\nbase::get\n\n# Bad\nx &lt;- 1 : 10\nbase :: get\n\nPlace a space before left parentheses, except in a function call.\n\n# Good\nif (debug) do(x)\nplot(x, y)\n\n# Bad\nif(debug)do(x)\nplot (x, y)\n\nExtra spacing (i.e., more than one space in a row) is ok if it improves alignment of equal signs or assignments (&lt;-).\n\nlist(\n  total = a + b + c, \n  mean  = (a + b + c) / n\n)\n\nDo not place spaces around code in parentheses or square brackets (unless there’s a comma, in which case see above).\n\n# Good\nif (debug) do(x)\ndiamonds[5, ]\n\n# Bad\nif ( debug ) do(x)  # No spaces around debug\nx[1,]   # Needs a space after the comma\nx[1 ,]  # Space goes after comma not before"
+  },
+  {
+    "objectID": "code-etiquette.html#commenting",
+    "href": "code-etiquette.html#commenting",
+    "title": "Code Etiquette 101",
+    "section": "Commenting",
+    "text": "Commenting\nComment your code. Each line of a comment should begin with the comment symbol and a single space: #.\n\n\n\n\n\n\nTip\n\n\n\nComments should explain the why, not the what.\n\n\nUse commented lines of - and = to break up your file into easily readable chunks if you’re not coding in a .rmd file.\n\n# Load data ---------------------------\n\n# Plot data ---------------------------"
+  },
+  {
+    "objectID": "code-etiquette.html#pipes",
+    "href": "code-etiquette.html#pipes",
+    "title": "Code Etiquette 101",
+    "section": "Pipes",
+    "text": "Pipes\n\nRight-hand assignment\nIn this house, we do not support using right-hand assignment.\n\n# Good\nresults &lt; iris %&gt;%\n  dplyr::summarize(max_petal = max(Petal.Width)) -&gt; results\n\n# Bad\niris %&gt;%\n  dplyr::summarize(max_petal = max(Petal.Width)) -&gt; results\n\nThis convention differs substantially from practices in other languages and makes it harder to see in code where an object is defined. E.g. searching for foo &lt;- is easier than searching for foo &lt;- and -&gt; foo (possibly split over lines)."
+  },
+  {
+    "objectID": "code-etiquette.html#explicit-returns",
+    "href": "code-etiquette.html#explicit-returns",
+    "title": "Code Etiquette 101",
+    "section": "Explicit returns",
+    "text": "Explicit returns\nDo not rely on R’s implicit return feature. It is better to be clear about your intent to return() an object within a function call.\n\n# Good\nAddValues &lt;- function(x, y) {\n  return(x + y)\n}\n\n# Bad\nAddValues &lt;- function(x, y) {\n  x + y\n}"
+  },
+  {
+    "objectID": "code-etiquette.html#ggplot-dos-and-donts",
+    "href": "code-etiquette.html#ggplot-dos-and-donts",
+    "title": "Code Etiquette 101",
+    "section": "ggplot Do’s and Don’t’s",
+    "text": "ggplot Do’s and Don’t’s\n\nTo Pipe Or To Not Pipe\nStyling suggestions for + used to separate ggplot2 layers are very similar to those for |&gt; or %&gt;% in pipelines. Both can be used interchangeably. We will use + and %&gt;% in this course.\n\n\nWhite Space\n+ should always have a space before it, and should be followed by a new line. This is true even if your plot has only two layers. After the first step, each line should be indented by two spaces.\nIf you are creating a ggplot off of a dplyr pipeline, there should only be one level of indentation.\n\n# Good\niris %&gt;%\n  filter(Species == \"setosa\") %&gt;%\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +\n  geom_point()\n\n# Bad\niris %&gt;%\n  filter(Species == \"setosa\") %&gt;%\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +\n  geom_point() # this extra indent is not needed\n\n# Bad\niris |&gt;\n  filter(Species == \"setosa\") |&gt;\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) + geom_point() # do not put your geom_ call inline!\n\n\n\nLong lines\nIf the arguments to a ggplot2 layer don’t all fit on one line, put each argument on its own line and indent:\n\n# Good\niris %&gt;%\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +\n  geom_point() +\n  labs(\n    x = \"Sepal width, in cm\",\n    y = \"Sepal length, in cm\",\n    title = \"Sepal length vs. width of irises\")\n\n# Okay\niris %&gt;% \n  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +\n  geom_point() +\n  labs(\n    x = \"Sepal width, in cm\", y = \"Sepal length, in cm\", \n    title = \"Sepal length vs. width of irises\")\n\n# Bad\niris %&gt;% \n  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +\n  geom_point() +\n  labs(x = \"Sepal width, in cm\", y = \"Sepal length, in cm\", subtitle = \"Dot Plot\", legend = \"Species\", title = \"Sepal length vs. width of irises\") \n\nggplot2 allows you to do data manipulation, such as filtering or slicing, within the data argument. Avoid this, and instead do the data manipulation in a pipeline before starting plotting.\n\n# Good\niris %&gt;%\n  filter(Species == \"setosa\") %&gt;%\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +\n  geom_point()\n\n# Bad\nggplot(filter(iris, Species == \"setosa\"), aes(x = Sepal.Width, y = Sepal.Length)) +\n  geom_point()"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
+    "section": "",
+    "text": "This “course” was written and developed with the intrepid, undergraduate ecologist and/or marine biologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113. Some students may have zero experience using R. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or unix. It’s possible this is your first time ever hearing of R (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, this resource is meant to serve you! If there is a problem you’re hoping to tackle that is not included in this guide, please don’t hesitate to notify your TA or instructor and we can help you.\nThis guide is setup like a website where we have our Home page (the page you’re on now), the Getting Started page, and the Tutorial page(s). You can navigate between each of these by simply heading to the top of the web browser you’re currently viewing this on. This home page won’t contain more than a general overview of how this bootcamp is structured, how to get the most out of your learning, and information for further “R education” beyond EVE 113."
+  },
+  {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAt the top of every tutorial, there will be numbered learning objectives stating the goals and material covered in the tutorial itself. They will look like:\n\nA series of bullet pointed or objectives for that specific tutorial.\nThere might be more than one learning objective, or sub-learning objectives.\nThis numbered list will give you a sneak peek into what the tutorial will be covering."
+  },
+  {
+    "objectID": "index.html#the-actual-tutorial",
+    "href": "index.html#the-actual-tutorial",
+    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
+    "section": "The Actual Tutorial",
+    "text": "The Actual Tutorial\nThe tutorials will give you the skills needed to complete your final project and paper. I will try to include screenshots of an actual working RStudio environment as much as I can so you truly visualize what we’re supposed to be doing. However, most tutorials will largely be made up of “chunks” of code that I expect you to either directly copy/paste into your RStudio or, better yet, type yourself.\n\n\n\n\n\n\nTip\n\n\n\nActually typing the code yourself, rather than copy/pasting will help you better absorb the material and skills you are learning.\n\n\nCode chunks included in tutorials will looks like this:\n\nggplot2::ggplot(data = cars, aes(x = speed, y = dist)) +\n  geom_point() \n\nOr maybe even like this:\n\nincrement1 &lt;- function(input){\n  incremented_value &lt;- input + 1\n  return(incremented_value)\n}\n\nWe will learn about two different coding languages in this course: R and unix. The primary distinction between the two, asides from the languages themselves, is that R uses the Console and unix uses the Terminal. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in R. However, some tutorials will cover using unix. Since operating in the terminal is often computationally heavy, this course will not require students to use the Terminal, but the information on how to actually use unix, bash chunks, and the Terminal will be covered in these tutorials. When I am switching between R and unix I will be very clear about what type of code chunk I am using."
+  },
+  {
+    "objectID": "index.html#do-it-yourself",
+    "href": "index.html#do-it-yourself",
+    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
+    "section": "Do It Yourself",
+    "text": "Do It Yourself\nMy Do It Yourself (or DIYs) are built-in to provide short breaks between content-heavy topics. These allow you to test and implement the knowledge you gain as you move along in the tutorials.\n\n\n\n\n\n\nDo It Yourself T0-00\nThis is what a DIY will look like. It will include the header above with a number associated with that tutorial. Say, for example, this is DIY 7 in Tutorial 4, the header would look like:\nDo It Yourself T4-07\na. Then each DIY may include multiple parts.\nb. Each part will be a specific task or question that may ask you to explain a topic, write a line of code, or complete a task.\n\n\n\nDIYs are not for grade but they can be turned in to your TA (me) for feedback (if you’d like). Otherwise, the only function DIYs serve is to (a) break up the learning material and (b) test your skills. Answers to the DIYs will be located at the bottom of every tutorial. However, like most things in life, there are often more ways than one to answer a single question. Therefore, you can also bring your DIYs to TA office hours to discuss them with me."
+  },
+  {
+    "objectID": "index.html#review",
+    "href": "index.html#review",
+    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
+    "section": "Review",
+    "text": "Review\nAt the end of every tutorial, there will be a review (and celebration) of all that you’ve accomplished.\n\nIf you read the review and can mentally say: “Yes! I know how to answer all of these questions” than congratulations, you’ve completed all the learning objectives!!\nYou should give yourself a massive pat on the back and do a little celebration when you can do that (it’s a big deal)!\nIf you find yourself unable to understand a topic in the review, I suggest taking time to review the tutorial again to make sure you are understanding what is expected of you.\n\nI will end every tutorial with a message and a “celebration” photo, and that is how you know you’ve reached the end of the educational content. Hooray!!!"
+  },
+  {
+    "objectID": "index.html#diy-answer-key",
+    "href": "index.html#diy-answer-key",
+    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
+    "section": "DIY Answer Key",
+    "text": "DIY Answer Key\n\n\n\n\n\n\n0a. Answer keys will have the answer to your questions in order.\n0b. If there are more questions or you didn’t come to the same answer that I did, just notify me and we can discuss in office hours!"
+  },
+  {
+    "objectID": "index.html#works-cited",
+    "href": "index.html#works-cited",
+    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
+    "section": "Works Cited",
+    "text": "Works Cited\nAt very, very bottom, I will cite any of the packages or resources I used to make the tutorial. When you’re writing up your final report, you may refer back to these tutorials for the citation information to include in your own works cited. Please make sure you’re citing the necessary software you’re using in your work (giving credit where credit is due is very important to avoid plagiarism and promote reproducibility)!"
+  },
+  {
     "objectID": "tutorial-0.html",
     "href": "tutorial-0.html",
     "title": "Tutorial 0",
@@ -75,131 +208,5 @@
     "title": "Tutorial 0",
     "section": "",
     "text": "Wowie! That was a lot! If you’ve made it to the end of this, CONGRATS! You now know how to start coding in RStudio. Give yourself a HUGE pat on the back because learning the basics to R and Rmarkdown are by far the hardest parts of learning how to code in R.\nHowever, I’m confident these essentials will give you the foundational knowledge you will need to succeed in this course. And I can (hopefully) promise once you master these skills, learning how to use RStudio to your advantage will only get easier from here.\nTo review, you should be able to:\n\nNavigate the RStudio computing environment, including describing where the Console is.\nSet a working directory and explain the difference between an absolute and relative path.\nCreate, edit, and save Rmarkdown files.\nEdit chunk options in a Rmarkdown file.\nUnderstand how to comment on your code.\nProvide a summary on a data set.\nPlot a simple, 2 variable data set.\n\nIf you find you are unable to do one or more of the above tasks, go ahead and take some time to review this tutorial again until it starts to make sense. Happy coding!"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
-    "section": "",
-    "text": "This “course” was written and developed with the intrepid, undergraduate ecologist and/or marine biologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113. Some students may have zero experience using R. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or unix. It’s possible this is your first time ever hearing of R (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, this resource is meant to serve you! If there is a problem you’re hoping to tackle that is not included in this guide, please don’t hesitate to notify your TA or instructor and we can help you.\nThis guide is setup like a website where we have our Home page (the page you’re on now), the Getting Started page, and the Tutorial page(s). You can navigate between each of these by simply heading to the top of the web browser you’re currently viewing this on. This home page won’t contain more than a general overview of how this bootcamp is structured, how to get the most out of your learning, and information for further “R education” beyond EVE 113."
-  },
-  {
-    "objectID": "index.html#learning-objectives",
-    "href": "index.html#learning-objectives",
-    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the top of every tutorial, there will be numbered learning objectives stating the goals and material covered in the tutorial itself. They will look like:\n\nA series of bullet pointed or objectives for that specific tutorial.\nThere might be more than one learning objective, or sub-learning objectives.\nThis numbered list will give you a sneak peek into what the tutorial will be covering."
-  },
-  {
-    "objectID": "index.html#the-actual-tutorial",
-    "href": "index.html#the-actual-tutorial",
-    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
-    "section": "The Actual Tutorial",
-    "text": "The Actual Tutorial\nThe tutorials will give you the skills needed to complete your final project and paper. I will try to include screenshots of an actual working RStudio environment as much as I can so you truly visualize what we’re supposed to be doing. However, most tutorials will largely be made up of “chunks” of code that I expect you to either directly copy/paste into your RStudio or, better yet, type yourself.\n\n\n\n\n\n\nTip\n\n\n\nActually typing the code yourself, rather than copy/pasting will help you better absorb the material and skills you are learning.\n\n\nCode chunks included in tutorials will looks like this:\n\nggplot2::ggplot(data = cars, aes(x = speed, y = dist)) +\n  geom_point() \n\nOr maybe even like this:\n\nincrement1 &lt;- function(input){\n  incremented_value &lt;- input + 1\n  return(incremented_value)\n}\n\nWe will learn about two different coding languages in this course: R and unix. The primary distinction between the two, asides from the languages themselves, is that R uses the Console and unix uses the Terminal. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in R. However, some tutorials will cover using unix. Since operating in the terminal is often computationally heavy, this course will not require students to use the Terminal, but the information on how to actually use unix, bash chunks, and the Terminal will be covered in these tutorials. When I am switching between R and unix I will be very clear about what type of code chunk I am using."
-  },
-  {
-    "objectID": "index.html#do-it-yourself",
-    "href": "index.html#do-it-yourself",
-    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
-    "section": "Do It Yourself",
-    "text": "Do It Yourself\nMy Do It Yourself (or DIYs) are built-in to provide short breaks between content-heavy topics. These allow you to test and implement the knowledge you gain as you move along in the tutorials.\n\n\n\n\n\n\nDo It Yourself T0-00\nThis is what a DIY will look like. It will include the header above with a number associated with that tutorial. Say, for example, this is DIY 7 in Tutorial 4, the header would look like:\nDo It Yourself T4-07\na. Then each DIY may include multiple parts.\nb. Each part will be a specific task or question that may ask you to explain a topic, write a line of code, or complete a task.\n\n\n\nDIYs are not for grade but they can be turned in to your TA (me) for feedback (if you’d like). Otherwise, the only function DIYs serve is to (a) break up the learning material and (b) test your skills. Answers to the DIYs will be located at the bottom of every tutorial. However, like most things in life, there are often more ways than one to answer a single question. Therefore, you can also bring your DIYs to TA office hours to discuss them with me."
-  },
-  {
-    "objectID": "index.html#review",
-    "href": "index.html#review",
-    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
-    "section": "Review",
-    "text": "Review\nAt the end of every tutorial, there will be a review (and celebration) of all that you’ve accomplished.\n\nIf you read the review and can mentally say: “Yes! I know how to answer all of these questions” than congratulations, you’ve completed all the learning objectives!!\nYou should give yourself a massive pat on the back and do a little celebration when you can do that (it’s a big deal)!\nIf you find yourself unable to understand a topic in the review, I suggest taking time to review the tutorial again to make sure you are understanding what is expected of you.\n\nI will end every tutorial with a message and a “celebration” photo, and that is how you know you’ve reached the end of the educational content. Hooray!!!"
-  },
-  {
-    "objectID": "index.html#diy-answer-key",
-    "href": "index.html#diy-answer-key",
-    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
-    "section": "DIY Answer Key",
-    "text": "DIY Answer Key\n\n\n\n\n\n\n0a. Answer keys will have the answer to your questions in order.\n0b. If there are more questions or you didn’t come to the same answer that I did, just notify me and we can discuss in office hours!"
-  },
-  {
-    "objectID": "index.html#works-cited",
-    "href": "index.html#works-cited",
-    "title": "Welcome to EVE 113 (Coastal Marine Microbes)!",
-    "section": "Works Cited",
-    "text": "Works Cited\nAt very, very bottom, I will cite any of the packages or resources I used to make the tutorial. When you’re writing up your final report, you may refer back to these tutorials for the citation information to include in your own works cited. Please make sure you’re citing the necessary software you’re using in your work (giving credit where credit is due is very important to avoid plagiarism and promote reproducibility)!"
-  },
-  {
-    "objectID": "code-etiquette.html",
-    "href": "code-etiquette.html",
-    "title": "Code Etiquette 101",
-    "section": "",
-    "text": "Now that we’ve actually started writing and running our own commands, now is the best time to introduce you to proper code etiquette. We might also refer to this as “coding style” which actually matters a lot more than you might think.\nGood coding style is like using correct punctuation or capitalization; You can manage without it, but it sure makes things easier to read. As with styles of punctuation, there are many possible variations that one can use, but over the years language conventions have settled on “correct” ways of using punctuation. The same thing has happened with code. There is an “unspoken” grammar that is used when coding that has nothing to do with the actual code."
-  },
-  {
-    "objectID": "code-etiquette.html#file-names",
-    "href": "code-etiquette.html#file-names",
-    "title": "Code Etiquette 101",
-    "section": "File Names",
-    "text": "File Names\nFile names should be meaningful and end in .R.\n\n# Good\nfit-models.R\nutility-functions.R\n\n# Bad\nfoo.r\nstuff.r\n\nIf files need to be run in sequence, prefix them with numbers:\n\n0-download.R\n1-parse.R\n2-explore.R"
-  },
-  {
-    "objectID": "code-etiquette.html#object-and-vector-names",
-    "href": "code-etiquette.html#object-and-vector-names",
-    "title": "Code Etiquette 101",
-    "section": "Object and Vector Names",
-    "text": "Object and Vector Names\n\n“There are only two hard things in Computer Science: cache invalidation and naming things.”\n— Phil Karlton\n\nVariable and function names should be lowercase. Use an underscore (_) to separate words within a name. Generally, variable names should be nouns and function names should be verbs. Strive for names that are concise and meaningful (this is not easy!!!!).\n\n# Good\nday_one\nday_1\n\n# Bad\nfirst_day_of_the_month\nDayOne\ndayone\ndjm1\n\nWhere possible, avoid using names of existing functions and variables. Doing so will cause confusion for the readers of your code.\n\n# Bad\nT &lt;- FALSE\nc &lt;- 10\nmean &lt;- function(x) sum(x)"
-  },
-  {
-    "objectID": "code-etiquette.html#spacing",
-    "href": "code-etiquette.html#spacing",
-    "title": "Code Etiquette 101",
-    "section": "Spacing",
-    "text": "Spacing\nPlace spaces around all infix operators (=, +, -, &lt;-, etc.). The same rule applies when using = in function calls. Always put a space after a comma, and never before (just like in regular English).\n\n# Good\naverage &lt;- mean(feet / 12 + inches, na.rm = TRUE)\n\n# Bad\naverage&lt;-mean(feet/12+inches,na.rm=TRUE)\n\nBUT, There’s a small exception to this rule: :, :: and ::: don’t need spaces around them.\n\n# Good\nx &lt;- 1:10\nbase::get\n\n# Bad\nx &lt;- 1 : 10\nbase :: get\n\nPlace a space before left parentheses, except in a function call.\n\n# Good\nif (debug) do(x)\nplot(x, y)\n\n# Bad\nif(debug)do(x)\nplot (x, y)\n\nExtra spacing (i.e., more than one space in a row) is ok if it improves alignment of equal signs or assignments (&lt;-).\n\nlist(\n  total = a + b + c, \n  mean  = (a + b + c) / n\n)\n\nDo not place spaces around code in parentheses or square brackets (unless there’s a comma, in which case see above).\n\n# Good\nif (debug) do(x)\ndiamonds[5, ]\n\n# Bad\nif ( debug ) do(x)  # No spaces around debug\nx[1,]   # Needs a space after the comma\nx[1 ,]  # Space goes after comma not before"
-  },
-  {
-    "objectID": "code-etiquette.html#commenting",
-    "href": "code-etiquette.html#commenting",
-    "title": "Code Etiquette 101",
-    "section": "Commenting",
-    "text": "Commenting\nComment your code. Each line of a comment should begin with the comment symbol and a single space: #.\n\n\n\n\n\n\nTip\n\n\n\nComments should explain the why, not the what.\n\n\nUse commented lines of - and = to break up your file into easily readable chunks if you’re not coding in a .rmd file.\n\n# Load data ---------------------------\n\n# Plot data ---------------------------"
-  },
-  {
-    "objectID": "code-etiquette.html#pipes",
-    "href": "code-etiquette.html#pipes",
-    "title": "Code Etiquette 101",
-    "section": "Pipes",
-    "text": "Pipes\n\nRight-hand assignment\nIn this house, we do not support using right-hand assignment.\n\n# Good\nresults &lt; iris %&gt;%\n  dplyr::summarize(max_petal = max(Petal.Width)) -&gt; results\n\n# Bad\niris %&gt;%\n  dplyr::summarize(max_petal = max(Petal.Width)) -&gt; results\n\nThis convention differs substantially from practices in other languages and makes it harder to see in code where an object is defined. E.g. searching for foo &lt;- is easier than searching for foo &lt;- and -&gt; foo (possibly split over lines)."
-  },
-  {
-    "objectID": "code-etiquette.html#explicit-returns",
-    "href": "code-etiquette.html#explicit-returns",
-    "title": "Code Etiquette 101",
-    "section": "Explicit returns",
-    "text": "Explicit returns\nDo not rely on R’s implicit return feature. It is better to be clear about your intent to return() an object within a function call.\n\n# Good\nAddValues &lt;- function(x, y) {\n  return(x + y)\n}\n\n# Bad\nAddValues &lt;- function(x, y) {\n  x + y\n}"
-  },
-  {
-    "objectID": "code-etiquette.html#ggplot-dos-and-donts",
-    "href": "code-etiquette.html#ggplot-dos-and-donts",
-    "title": "Code Etiquette 101",
-    "section": "ggplot Do’s and Don’t’s",
-    "text": "ggplot Do’s and Don’t’s\n\nTo Pipe Or To Not Pipe\nStyling suggestions for + used to separate ggplot2 layers are very similar to those for |&gt; or %&gt;% in pipelines. Both can be used interchangeably. We will use + and %&gt;% in this course.\n\n\nWhite Space\n+ should always have a space before it, and should be followed by a new line. This is true even if your plot has only two layers. After the first step, each line should be indented by two spaces.\nIf you are creating a ggplot off of a dplyr pipeline, there should only be one level of indentation.\n\n# Good\niris %&gt;%\n  filter(Species == \"setosa\") %&gt;%\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +\n  geom_point()\n\n# Bad\niris %&gt;%\n  filter(Species == \"setosa\") %&gt;%\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +\n  geom_point() # this extra indent is not needed\n\n# Bad\niris |&gt;\n  filter(Species == \"setosa\") |&gt;\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) + geom_point() # do not put your geom_ call inline!\n\n\n\nLong lines\nIf the arguments to a ggplot2 layer don’t all fit on one line, put each argument on its own line and indent:\n\n# Good\niris %&gt;%\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +\n  geom_point() +\n  labs(\n    x = \"Sepal width, in cm\",\n    y = \"Sepal length, in cm\",\n    title = \"Sepal length vs. width of irises\")\n\n# Okay\niris %&gt;% \n  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +\n  geom_point() +\n  labs(\n    x = \"Sepal width, in cm\", y = \"Sepal length, in cm\", \n    title = \"Sepal length vs. width of irises\")\n\n# Bad\niris %&gt;% \n  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +\n  geom_point() +\n  labs(x = \"Sepal width, in cm\", y = \"Sepal length, in cm\", subtitle = \"Dot Plot\", legend = \"Species\", title = \"Sepal length vs. width of irises\") \n\nggplot2 allows you to do data manipulation, such as filtering or slicing, within the data argument. Avoid this, and instead do the data manipulation in a pipeline before starting plotting.\n\n# Good\niris %&gt;%\n  filter(Species == \"setosa\") %&gt;%\n  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +\n  geom_point()\n\n# Bad\nggplot(filter(iris, Species == \"setosa\"), aes(x = Sepal.Width, y = Sepal.Length)) +\n  geom_point()"
-  },
-  {
-    "objectID": "getting-started.html",
-    "href": "getting-started.html",
-    "title": "Getting Started",
-    "section": "",
-    "text": "Grey topshell, Steromphala cineraria on a blade of eelgrass | Photo credit: Shannon Moran / Ocean Image Bank\nBefore we even begin, it’s incredibly important we actually have the software we need downloaded on our computer. So, to get started, you should probably go ahead and download R and RStudio onto your computer. (Again, did I mention that it’s free?)"
-  },
-  {
-    "objectID": "getting-started.html#download-r",
-    "href": "getting-started.html#download-r",
-    "title": "Getting Started",
-    "section": "Download R",
-    "text": "Download R\nVisit this link here to get started with downloading R.\nOnce you open the webpage it should look something like the below image.\n\nThere’s a lot of hyperlinks here, so start by directing your attention to the first three links towards the top. Click on the associated “Download R for…” your current operating system. I’ll be doing this tutorial, and most other coding demonstrations in this bootcamp, using a macOS operating system. Windows and Mac don’t largely differ when using RStudio or R, but if you find yourself confused, don’t hesitate to ask me any questions you might have.\nOnce you hit download you will be redirected to another webpage, with even more links.\n\nClick on the hyperlink that is associated with your current operating system. For most users, it should be the most up-to-date version of your internal operating system. For me, that’s currently macOS Sequoia 15.1.1, which means I would choose the blue hyperlink that says ‘R-4.6.0-arm64.pkg’.\n\nClick that link, allow the R package to download onto your computer, then follow your computers prompts to download it onto your device.\nOnce downloaded, if you open R, you’ll get a console environment that looks like this.\n\nGreat! You now have R installed. However, you’ll soon discover this is not the most user-friendly or flexible application to be doing the analyses or visualizations we’d like to do. Instead, we’re going to be using RStudio as our main interface for this course."
-  },
-  {
-    "objectID": "getting-started.html#download-rstudio",
-    "href": "getting-started.html#download-rstudio",
-    "title": "Getting Started",
-    "section": "Download RStudio",
-    "text": "Download RStudio\nVisit this link here to download RStudio.\nAgain, you’ll be redirected to a website with a lot of hyperlinks. If you are at the top of the webpage where is says “RStudio IDE User Guide”, scroll down until you find the set of links pictured below:\n\nClick the link that is associated with your operating system and allow the installer disk to download. Then, follow the instillation instructions when prompted by your computer.\nNow, to make sure RStudio is correctly installed, go ahead and open the application for the first time. Your screen should look something like the below image (although your “File” window in the bottom right may appear different from mine).\n\n\n\n\n\n\n\nCaution\n\n\n\nApple and macOS users: You may receive a warning from Apple security that confirms if you’d like to open the application for the first time. This is normal, and don’t be afraid to hit the “Open” button. If you followed the correct directions from the websites I’ve hyper linked in this guide, there will be no danger to your computer by opening the application. I pinky promise.\n\n\nCongrats! You’ve now successfully downloaded and installed both R and RStudio onto your computer. This is a huge milestone in your learning as a scientist. Feel free to poke around and explore this interface if you’d like. This boot camp will cover a lot of the necessary elements we’ll be using in the course, but it’s always good to familiarize yourself with a new operating software if you can.\nHappy Coding!"
   }
 ]

@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tallulahstory.github.io/EVE-113-R-bootcamp/tutorial-0.html</loc>
-    <lastmod>2026-06-29T18:53:30.779Z</lastmod>
+    <loc>https://tallulahstory.github.io/EVE-113-R-bootcamp/tutorial-1.html</loc>
+    <lastmod>2026-07-07T17:49:31.162Z</lastmod>
   </url>
   <url>
-    <loc>https://tallulahstory.github.io/EVE-113-R-bootcamp/index.html</loc>
-    <lastmod>2026-06-26T23:29:05.582Z</lastmod>
+    <loc>https://tallulahstory.github.io/EVE-113-R-bootcamp/getting-started.html</loc>
+    <lastmod>2026-06-26T23:09:07.715Z</lastmod>
   </url>
   <url>
     <loc>https://tallulahstory.github.io/EVE-113-R-bootcamp/code-etiquette.html</loc>
     <lastmod>2026-06-29T19:24:35.823Z</lastmod>
   </url>
   <url>
-    <loc>https://tallulahstory.github.io/EVE-113-R-bootcamp/getting-started.html</loc>
-    <lastmod>2026-06-26T23:09:07.715Z</lastmod>
+    <loc>https://tallulahstory.github.io/EVE-113-R-bootcamp/index.html</loc>
+    <lastmod>2026-06-26T23:29:05.582Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tallulahstory.github.io/EVE-113-R-bootcamp/tutorial-0.html</loc>
+    <lastmod>2026-06-29T18:53:30.779Z</lastmod>
   </url>
 </urlset>

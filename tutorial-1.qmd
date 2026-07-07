@@ -2,4 +2,14 @@
 title: "Tutorial 1"
 ---
 
-test test test
+- variables
+
+- printing
+
+- logical values and if statements
+
+- vectors and data types
+
+- setwd
+
+- import data

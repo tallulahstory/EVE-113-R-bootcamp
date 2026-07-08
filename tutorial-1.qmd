@@ -2,6 +2,106 @@
 title: "Tutorial 1"
 ---
 
+# Introduction to the Tidyverse
+
+![Soft corals growing on a pier, Indonesia \| Photo Credit: Erik Lucas](images/clipboard-2064581165.png)
+
+In this class, we will be using a suite of packages known as the tidyverse. These packages were originally developed by Hadley Wickham and Garrett Grolemund as a new approach to using `R`. Since it's widespread use and continued developmwent, the tidyverse has made `R` more user friendly and more flexible for the purposes of data science. By the end of this tutorial, my goal is to familiarize you with the tidy workflow and the commands that will allow you to work with your own data.
+
+## Learning Objectives
+
+1.  Be able to manually import a .csv file.
+2.  Understand variables, vectors, and logical operators.
+3.  Explore, filter, and transform using dplyr::.
+4.  Generate plots with ggplot::.
+
+## Install Packages and Import Data
+
+For this tutorial you are expected to already know how to create a new .rmd file, get your working directory, and set your working directory. If you are not able to do so, return to Tutorial 0 for a quick review on these skills.
+
+To start, create a new .rmd file in your **EVE 113** \> **Coding Tutorials** directory under a new folder called **Tutorial 1**. Name the .rmd **Tutorial 1**. Once you've done this, get and set your working directory to **Coding Tutorials** \> **Tutorial 1**.
+
+In this tutorial we will be using the package `palmerpenguins` as well as an example data set provided on the class canvas page. Palmer penguins is a CRAN data set provided that is a better alternative to the `iris` data set. If you'd like to know more about why we won't be using `iris` in this course, you can [read more here](https://medium.com/data-science/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5).
+
+[Palmer penguins](https://allisonhorst.github.io/palmerpenguins/) is a data set including size measurements, clutch observations, and blood isotope ratios for adult foraging Adelie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.
+
+First, install palmerpenguins by using the following command.
+
+```{r, echo = FALSE}
+install.packages("palmerpenguins")
+```
+
+When installing multiple packages at once, you will use something known as a **character vector** followed by the list of packages you're installing. (e.g., `c()`)
+
+```{r, eval = FALSE}
+install.packages(c("package1", "package2", "package3", "package4"))
+```
+
+The packages are now installed, but not currently active in our library. To make the packages usable and active in our current session, use the `library()` command.
+
+```{r, eval = FALSE}
+library(palmerpenguins)
+```
+
+::: callout-tip
+To keep things neat and tidy, I suggest **using one R chunk to complete your "setup" (i.e., package installation, library imports, and other global options you set in your script)**. It would look something like this in your .rmd file:
+
+```{r setup, eval = FALSE}
+# gloabl chunk options (example)
+knitr::opts_chunk$set(echo = TRUE)
+
+# getting and setting working directory. Always double check if this worked
+getwd()
+setwd("/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 1")
+getwd()
+
+# install packages 
+install.packages(c("package1", 
+                   "package2", 
+                   "package3", 
+                   "package4")
+                 )
+
+# import packages into active library
+library(c(package1, # perhaps add a comment about what this package is used for
+          package2, # btw these are not real packages, don't try to install them
+          package3, # (hint: it won't work, FYI)
+          package4)
+        )
+```
+:::
+
+Create a new chunk and name it "data import". In this class, we will save our data sets as .csv files (comma seperated files). As scientists, we may use Excel or Google Sheets to input data, but it is best practice to save individual data sets as .csv files for simple, easy importing. To read a .xls file into R, you would need to install a third party package which adds an additional computing step during set up.
+
+Navigate to our class canvas page. Go to Files and open the Coding Tutorials folder. Download the metadata_tidepool.csv file and save it in your **Tutorial 1** folder. If you've properly set your working directory and saved the file to the correct location, this next step will be easy.
+
+Import your .csv data set using the `read.csv()` command and saving it in a data fram object called 'tidepool_data'.
+
+```{r, eval = FALSE}
+tidepool_data <- read.csv("metadata_tidepool.csv", header = TRUE)
+```
+
+When you do this the data frame object tidepool_data will appear in the Environment window (upper right panel in RStudio). If you click on it, the data frame will open as it's own tab so you can view the full data set you've just manually imported.
+
+The argument `header = TRUE` will ensure that when you import your .csv, R is treating the first row of your data as column names. You wold set this the `header = FALSE` if your data set does not contain column names.
+
+Great, now we have two different data sets to play around with. Let's start with palmer penguins. It's good practice to ensure that when you import a new data frame into your computing environment, you make sure everything looks approximately as it should (i.e., variable names are included, variable types, and number of observations is accurate).
+
+This is simply done with three commands that I suggest you always run when first importing data into R: `summary()`, `head()`, and `tail()`.
+
+```{r}
+summary(penguins)
+```
+
+summary() is a generic function used to provide overall summaries of objects or models.
+
+```{r}
+head(penguins)
+tail(penguins)
+```
+
+`head()` returns the first parts of a vector, matrix, table, data frame, or function. `tail()` returns the last parts of the object.
+
 - variables
 
 - printing

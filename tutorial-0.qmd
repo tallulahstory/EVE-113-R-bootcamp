@@ -6,7 +6,7 @@ title: "Tutorial 0"
 
 ![Cyanobacterial growth in a lake \| Photo Credit: Rebecca North](images/clipboard-1208279086.png)
 
-Welcome to your "first" R bootcamp tutorial! Well, technically this is tutorial 0, but this lesson will form the foundational knowledge you will need to start learning the basics of coding in R! Let's get started...
+Welcome to your "first" R tutorial! Well, technically this is tutorial 0, but this lesson will form the foundational knowledge you will need to start learning the basics of coding in R! Let's get started...
 
 ## Learning Objectives
 
@@ -16,9 +16,15 @@ Welcome to your "first" R bootcamp tutorial! Well, technically this is tutorial 
 
 3.  Learn how to create new script and .rmd files.
 
-4.  Be able to set evaluations and customizations in .rmd code chunks with knitr::.
+4.  Be able to set evaluations and customization in .rmd code chunks with `knitr`.
 
 5.  Understand good code etiquette and commenting guidelines, especially with research reproducibility in mind.
+
+::: callout-note
+You will not be submitting an assignment associated with this tutorial. This is simply meant to provide you with foundational knowledge in order to use R.
+
+If you have extensive experience in R or RStudio, you may proceed on to Tutorial 1.
+:::
 
 ## Tour De RStudio
 
@@ -66,19 +72,19 @@ Now, we're going to type out our first ever command into the **Console**! Yay! G
 getwd()
 ```
 
-Congrats!! You've now typed your first command in `R`. This should result in a response being **printed** below your command that looks (something) like this:
+Congrats!! You've now typed your first command in R. This should result in a response being **printed** below your command that looks (something) like this:
 
 ![](images/clipboard-4144521823.png){width="672"}
 
-Above, you asked `R` to "get my working directory" with the command `getwd()` by using the starting prompt `>` in the Console; A response was printed after you hit Enter.
+Above, you asked R to "get my working directory" with the command `getwd()` by using the starting prompt `>` in the Console; A response was printed after you hit Enter.
 
 This is lot's of new vocabulary, so lets zoom it in and break it down.
 
 ![](images/clipboard-53264308.png)
 
-Here you've **commanded** `R` to `getwd()` and it **prints** your [response]{.underline}, above a new **prompt** line.
+Here you've **commanded** R to `getwd()` and it **prints** your [response]{.underline}, above a new **prompt** line.
 
-This is how `R` works (for the most part). You type a command in the Console (or in a `R` chunk) and it will either:
+This is how R works (for the most part). You type a command in the Console (or in a R chunk) and it will either:
 
 1.  Print a response for you in the Console.
 
@@ -88,7 +94,7 @@ This is how `R` works (for the most part). You type a command in the Console (or
 
 4.  Open the help window.
 
-As you can see, when I run the command `getwd()`, it tells me that my current **working directory** is a general space on my computer called `/Users/loganstory`. What this really means is that when I try to read new files into `R`, or "write" files out of `R`, it will assume that I want to put them in this general folder.
+As you can see, when I run the command `getwd()`, it tells me that my current **working directory** is a general space on my computer called `/Users/loganstory`. What this really means is that when I try to read new files into R, or "write" files out of R, it will assume that I want to put them in this general folder.
 
 ::: callout-tip
 As a good practice, *getting* and *setting* your **working directory** is one of the first things you want to do when starting a new project, document, or script file. Doing this tells R where to [locate]{.underline} and [save]{.underline} files as your work on your code.
@@ -100,13 +106,13 @@ There are **two** methods to set your working directory...
 
 In order to change your working directory manually, we will use the `setwd()` command.
 
-For example, if I wanted to change my working directory to an existing folder called *`R-bootcamp`* located on my *`Desktop`* under my *`PhD`* and *`Teaching`* folders, I’d run the following code:
+For example, if I wanted to change my working directory to an existing folder called `R-tutorials` located on my `Desktop` in a folder called `EVE 113`, I’d run the following code:
 
 ```{r, eval = FALSE}
-setwd("/Users/loganstory/Desktop/PhD/Teaching/R Bootcamp/R-bootcamp")
+setwd("/Users/yourusernamehere/Desktop/EVE 113/R tutorials")
 ```
 
-This is the directory path R will now use when searching and saving files as I work: Users \> loganstory \> Desktop \> PhD \> Teaching \> R Bootcamp \> R-bootcamp. The "\>" indicates the directionality that `R` is searching in my computer for the workspace.
+This is the directory path R will now use when searching and saving files as I work: Users \> yourusenamehere \> Desktop \> EVE 113 \> R tutorials. The "\>" indicates the directionality that `R` is searching in my computer for the works pace.
 
 ### Option 2: Point-and-Click Approach in RStudio
 
@@ -122,38 +128,6 @@ To do this:
 
 ![](images/clipboard-1113837578.png){width="450"}
 
-### (Optional) Option 3: Working with RStudio Rprojects
-
-![](images/clipboard-2087124086.png){width="178"}
-
-RStudio Projects provide a convenient way to manage and organize your data analysis work. **Instead of setting your working directory every time, you can work within a Rproject and won't have to worry about setting a working directory every time you make a new file.**
-
-A project creates an isolated workspace, ensuring that all files, data, and settings are kept together. This helps maintain a clear and organized workflow, especially for complex or long-term projects. We won't be using projects in this course, but this is yet another option at your disposal (if you so choose).
-
-To create a new project in RStudio, you can take two different point-and-click approaches:
-
-**Point-and-Click in the Menu:**
-
-1.  Click on **File** in the menu.
-
-2.  Select **New Project...**.
-
-3.  Choose **New Directory** for a new project or **Existing Directory** to use an existing folder.
-
-4.  Follow the prompts to set up your project.
-
-**Point-and-click in RStudio:**
-
-1.  Go to the top right corner and select the **Project: (None)** icon (should look like a little R in a 3-d cube).
-
-2.  Select **New Project**.
-
-![](images/clipboard-710576101.png){width="450"}
-
-3.  Select **New Directory** -\> **New Project**. 
-4.  Name your project and select a directory (i.e., folder where you are working).
-5.  Click **Create Project**.
-
 ## Understanding Absolute and Relative Paths
 
 For the sake of this course (and these tutorials), I'd like you to make a folder to set as your working directory before we proceed any further. You can use the following template if you'd like to keep things simple:
@@ -164,7 +138,7 @@ For the sake of this course (and these tutorials), I'd like you to make a folder
 
 The **path** you've just created will be something along the lines of:
 
-| `/Users/yourusername/Desktop/EVE 113/Coding Tutorials`
+| `/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 0`
 
 A **file path** tells you (and your computer) the exact place you can locate a file. Paths can either be [absolute]{.underline} or [relative]{.underline}. You use different paths, in different scenarios, to set your working directory.
 
@@ -194,35 +168,15 @@ setwd("./Tutorial 0")
 
 - A `.` before the forward or backslash indicates you are moving *down* the path, whereas `..` indicates movement *up* the path.
 
-This idea is simply illustrated here:
+This idea is illustrated here:
 
 ![](images/clipboard-1258135516.png)
-
-> **EXAMPLE**
->
-> larry or nelle can set their working directory as `/Users/larry` or `/Users/nelle`.
->
-> If either of them wanted to access a file called 'image.png' inside their working directory they would use the path `./image.png`.
->
-> If either of them wanted to access a filed called 'image.png' *outside* of their working directory under `data`, they would use an absolute path of `/data/Documents/image.png`.
-
-::: {.callout-tip appearance="simple" icon="false"}
-**Do It Yourself T0.1**
-
-1a. Using the Console, set your working directory to the **Tutorial 0** folder.
-
-1b. Use a command to print your working directory.
-
-1c. Change your working directory back to your **root** directory.
-:::
 
 Understanding the path concept will help you when saving, accessing, and moving around your internal operating system. If you encounter problems setting your working directory, try restarting the RStudio application before seeking further assistance.
 
 ## Creating a new Rmarkdown File
 
-A .rmd (or Rmarkdown) file is a type of `R` script file that allows you to provide detailed descriptions of your code, analyses, and even interpretation.
-
-Rmarkdown files also are also great for creating class assignments, writing manuscript code, or even cross-working between two different code languages (like `R` and `python`, for example). It's also has integrated tools to help with improving reproducibility, including both a visual and source code editor. These tutorials were written in a similar interface known as a quarto website, which functions relatively similarly to a Rmarkdown file.
+A .rmd (or Rmarkdown) file is a type of R script file that allows you to provide detailed descriptions of your code, analyses, and even interpretation.
 
 To make a new .rmd file, go through the following steps:
 
@@ -248,6 +202,10 @@ To make a new .rmd file, go through the following steps:
 
 6.  Select your **Default Output Format**. This will be what your file will be saved as when you Knit your .rmd. Any format will do for the sake of this tutorial, but I often prefer HTML.
 
+::: callout-note
+**In future tutorials you will be completing your assignments in a pre-prepared .rmd file. This output option will already be chosen for you in those files.**
+:::
+
 7.  Click **Okay**.
 
 Your .rmd document should be created! There's already a lot of text included in the base Rmarkdown document, but some of it should help with getting oriented. Go ahead and take a minute to explore.
@@ -268,7 +226,7 @@ Here, you're using the package **knitr::** to set any *outputs* you run in Rmark
 
 Scroll down to the second code chunk.
 
-Run chunk 2. You should see a new output print diretly below your code chunk inside the code editor AND the Console.
+Run chunk 2. You should see a new output print directly below your code chunk inside the code editor AND the Console.
 
 ```{r eval=TRUE}
 #| message: false
@@ -281,11 +239,11 @@ This is the output of the command `summary(cars)`.
 
 ![](images/clipboard-2280816900.png)
 
-Here, `R` is providing a `summary()` of the data set `cars`.
+Here, R is providing a `summary()` of the data set `cars`.
 
 Now you may be asking yourself, "where did this data set come from??? I don't have any data sets in my computer called `cars`." You'd be 100% correct!
 
-You *don't* have a data set called `cars` on your computer, but RStudio *does*. This is one of the "native" data sets included in the `R` and Rstudio computing environment. These can be used to practice data manipulation and visualization and we will use a few of these throughout these tutorials.
+You *don't* have a data set called `cars` on your computer, but RStudio *does*. This is one of the "native" data sets included in the R and Rstudio computing environment. These can be used to practice data manipulation and visualization and we will use a few of these throughout these tutorials.
 
 The data gives the speed of cars and the distances taken to stop. The data was recorded in the 1920s. `cars` is data frame with 50 observations on 2 variables.
 
@@ -338,14 +296,6 @@ editor_options:
 
 You can manually change the chunk output type by simply adding this option at the top of your .rmd manually, like above, but it's significantly easier to just do the point-and-click method.
 
-::: {.callout-tip appearance="simple" icon="false"}
-**Do It Yourself T0-2**
-
-2a. Re-run chunk 2. Find where the new output is.
-
-2b. We've plotted a different internal data set called `pressure`. Get a summary of `pressure` without adding a new chunk of code or adding a new line within an already existing chunk of code.
-:::
-
 ## Commenting on Code
 
 Adding comments on your code is by far one of the most important data management practices you'll develop as a scientist. Some code doesn't inherently call for comments, but it's good to get into the habit of adding frequent, descriptive comments to your code early on.
@@ -373,7 +323,7 @@ Additionally, there is no such command as `gives` in `R`.
 The moment `R` recognizes something wrong in your code, it won't run and it will return an **error** or a **warning** message.
 
 ::: callout-tip
-**It is always best practice to ensure all of your code runs without any errors or warnings before submitting for a grade.**
+**It is always best practice to ensure all of your code runs without any errors or warnings before submitting it.**
 
 A good way to check if your code is running completely without errors or warnings is by scrolling all the way to the bottom of your .rmd and running all the chunks above it. Everything should run synchronously.
 :::
@@ -404,12 +354,6 @@ Yay!!! It works!!!
 Using a preemptive `#` before your comment text will turn your comment a different color and `R` will ignore any text included to the right of it.
 
 If you press enter to a new line of code, you will need to add another `#` before any additional comments you make. Essentially, what R is doing is it's reading what you've typed into any code chunk left to right. When it encounters a `#`, it reads past it until a new line of code begins.
-
-::: {.callout-tip appearance="simple" icon="false"}
-**Do It Yourself T0-3**
-
-3a. Add comments to chunk 3 to describe what the command `plot()` is doing.
-:::
 
 ## RMarkdown Chunk Options
 
@@ -470,18 +414,6 @@ Now to add your very own chunk of `R` code into your new .rmd file!!
     ![](images/clipboard-3560408174.png){width="550"}
 
 You should now have your very own chunk of R code ready for use.
-
-::: {.callout-tip appearance="simple" icon="false"}
-**Do It Yourself T0-4**
-
-In your Brand New Code Chunk™ ...
-
-4a. Plot the `cars` data. What is the x axis? What is the y axis?
-
-4b. Add a comment to your `cars` plot code.
-
-4c. In this chunk, configure the options so it includes your plot in the final knitted document, but doesn't include the source code.
-:::
 
 ## Saving and Knitting Your RMarkdown File
 

@@ -1,0 +1,49 @@
+---
+title: "Tutorial 1"
+author: "your name here"
+date: "current date here"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Tutorial 1
+
+This assignment is due August 27th. In order to receive full credit students should:
+
+1.  Follow Tutorial 1 from start to finish.
+2.  Complete the Questions as they go.
+3.  Type their answers into the provided code chunks below or in the text space provided.
+4.  Ask questions if they arise.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+
+**1a. Get and set your working directory based on the suggested file path in Tutorial 0.**
+
+**1b. Install the Palmer penguins data set onto your computer.**
+
+**1c. Import the tidepool metadata practice data set.**
+
+```{r question_1, echo = FALSE}
+
+```
+
+## Question 2
+
+**2a. Retrieve the summary, head, and tail of the tide pool metadata set**.
+
+```{r Question_2}
+
+```
+
+**2b. What's the mean tidepool volume?**
+
+Answer:
+
+**2c. How many rows does the tidepool metadata set have?**
+
+Answer:

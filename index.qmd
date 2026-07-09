@@ -45,18 +45,16 @@ Overall, our class learning objectives for data analysis this summer are (broadl
 
 You should always return to this website if you need to revisit any tutorials from earlier in the term (e.g., you're doing an analysis but forgot the code to run said analysis, you can return to this website and navigate to the top right corner search bar to find what you're looking for). **I am always available via email or in office hours to help you when you get stuck. [Please come to me before finding your way to ask questions to chatGPT or AI.]{.underline}**
 
-I want to see you succeed and I believe the best way to do that is asking a real human with real-world experience rather than AI (plus it's literally my job to help you when you get stuck)!
+I want to see you succeed!! I believe you are so much smarter and more capable than AI. AND I believe the best way you will learn more is by asking a real human with real-world experience rather than AI (plus it's literally my job to help you when you get stuck)!
 :::
 
 I've tried to make this experience as learner-friendly as possible. This bootcamp will follow a series of tutorials, practice problems, and assignments that you can complete to "flaunt" your newly acquired R knowledge (and prepare for the work we will be doing in class).
 
 Your **tutorials** are where you will *gain skills and knowledge* to satisfy our **learning objectives**.
 
-The **DIYs** are ways you can *test or practice your new skills or knowledge* as you go.
+The **DIYs** are ways you can *test or practice your new skills or knowledge* as you go and form the component parts of the assignment(s) associated with your **R Preparedness assignment**.
 
-The **assignments** are the *products of your tutorials and DIYs*.
-
-Again: [**Assignments associated with tutorial content will be due August 27th.**]{.underline} Give yourself ample time to work through these. You will thank me later.
+Again: [**The R Preparedness assignment(s) associated with tutorial content will be due August 27th.**]{.underline} Give yourself ample time to work through these! You will thank me later.
 
 ## Learning Objectives
 
@@ -94,11 +92,9 @@ increment1 <- function(input){
 }
 ```
 
-We will learn about two different coding languages in this course: `R` and `unix`. The primary distinction between the two, asides from the languages themselves, is that R uses the *Console* and unix uses the *Terminal*. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in R. Me, the TA, will show you how to code in unix in Tutorial 4. Since operating in the terminal is often computationally heavy, **this course will not require students to use the Terminal,** but the information on how to actually use unix, bash chunks will still be available to you.
+## Do It Yourself and "Assignments"
 
-## Do It Yourself
-
-My Do It Yourself (or DIYs) are built-in to provide short breaks between content-heavy topics. These allow you to test and implement the knowledge you gain as you move along in the tutorials. The DIY's are the component parts to your assignment(s). This will help me evaluate if you've actually completed the learning objectives in the tutorials and are ready to tackle working with our class data.
+My Do It Yourself (or DIYs) are built-in to provide short breaks between content-heavy topics. These allow you to test and implement the knowledge you gain as you move along in the tutorials. **The DIY's are also the component parts to your assignment(s).** This will help me evaluate if you've actually completed the learning objectives in the tutorials and are ready to tackle working with our class data.
 
 ::: {.callout-tip appearance="simple" icon="false"}
 **Do It Yourself T0-00**
@@ -112,7 +108,13 @@ a\. Then each DIY may include multiple parts.
 b\. Each part will be a specific task or question that may ask you to explain a topic, write a line of code, or complete a task.
 :::
 
-**DIYs are not for grade** but they can be turned in to your TA (me) for feedback (if you'd like). Otherwise, the only function DIYs serve is to (a) break up the learning material and (b) test your skills. Answers to the DIYs will be located at the bottom of every tutorial. However, like most things in life, there are often more ways than one to answer a single question. Therefore, you can also bring your DIYs to TA office hours to discuss them with me.
+**DIYs are graded for completion, not accuracy.** By August 27th you will turn in your DIYs to your TA (me) for feedback. I've done this to discourage use of AI so you don't feel pressured to get "everything correct" but rather focus on the actual acquisition of knowledge. Again, the function of the DIYs is to (a) break up the learning material and (b) test your skills. I will publish answer keys to your DIYs after August 27th and provide feedback accordingly.
+
+### Completing Assignments
+
+Navigate to Files on our class Canvas page and find the R Preparedness folder. Download the .rmd files named "Tutorial 1" and "Tutorial 2". At the end of each tutorial, you will knit your .rmd document as an html and submit it via canvas by the due date. More on how to do this in Tutorial 0.
+
+The .rmd will include chunks of code and places for you to answer the DIYs as you work through the tutorial.
 
 ## **Review**
 
@@ -125,14 +127,6 @@ At the end of every tutorial, there will be a review (and celebration) of all th
 I will end every tutorial with a message and a "celebration" photo, and that is how you know you've reached the end of the educational content. ***Hooray!!!***
 
 ![](images/clipboard-168018562.png){width="199"}
-
-## DIY Answer Key
-
-::: {.callout-tip appearance="simple" icon="false"}
-0a. Answer keys will have the answer to your questions in order.
-
-0b. If there are more questions or you didn't come to the same answer that I did, just notify me and we can discuss in office hours!
-:::
 
 ## Works Cited
 
@@ -164,6 +158,6 @@ If you find none of these fit your style, or don't fit your learning needs, lets
 
 Hello! I'm Tallulah (the person who wrote these tutorial(s) and built this website for you)! I will be your TA for this course and am here to help you learn how to use R now and in the future. I am a first year ecology PhD student in Dr. Brown's lab. I graduated from Emory University (which is in Atlanta, Georgia if you've never heard of it) with my Bachelor's of Science in environmental science and biology. I am interested in studying host-microbe-pathogen dynamics in marine invertebrates.
 
-In my research and day-to-day work, I've come to use R. Like a lot. I first became passionate about using R for ecology during my junior year when I took a disease ecology course with my research mentor at Emory. In that course I learned how build and implement mechanistic models to study disease transmission in various systems – all of which I did using R. I went on to complete an REU at the California Academy of Sciences where I did computational and statistical research for 10 weeks to serve a conservation breeding program on the critically endangered sunflower sea star! After that summer, I traveled to Australia to work with Dr. David Bourne and Dr. Ira Cooke at the Australia Institute for Marine Science. Dr. Bourne and Cooke are marine microbial biologists/bioninformaticians, so my research involved a lot of bioinformatics work. Like a lot. Now
+In my research and day-to-day work, I've come to use R. Like a lot. I first became passionate about using R for ecology during my junior year when I took a disease ecology course with my research mentor at Emory. In that course I learned how build and implement mechanistic models to study disease transmission in various systems – all of which I did using R. I went on to complete an REU at the California Academy of Sciences where I did computational and statistical research for 10 weeks to serve a conservation breeding program on the critically endangered sunflower sea star! After that summer, I traveled to Australia to work with Dr. David Bourne and Dr. Ira Cooke at the Australia Institute for Marine Science. Dr. Bourne and Cooke are marine microbial biologists/bioninformaticians, so my research involved a lot of bioinformatics work. Like a lot. Now I use R all the time! Yippee!
 
-I started out undergrad hating R and statistics and everything to do with data science. Heck, I never wanted to touch R again after my first year stats class (which was the worst grade I received in undergrad). However, once I actually learned how to use R the appreciation for it as a *tool* and not my *Mortal Enemy* quickly blossomed. By the end of this course, I hope I can impart on you some knowledge and skills to make R easy and fun to use.
+But, it's important you know **I started out undergrad hating R and statistics and everything to do with data science.** Heck, I never wanted to touch R again after my first year stats class. However, once I *actually learned* how to use R, the appreciation for it as a *tool* and not my *Mortal Enemy* quickly blossomed. By the end of this course, I hope I can impart on you some knowledge and skills to make R easy and fun to use now and in the future.

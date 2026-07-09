@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -39,10 +74,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,8 +158,33 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-the-tidyverse" id="toc-introduction-to-the-tidyverse" class="nav-link active" data-scroll-target="#introduction-to-the-tidyverse">Introduction to the Tidyverse</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#install-packages-and-import-data" id="toc-install-packages-and-import-data" class="nav-link" data-scroll-target="#install-packages-and-import-data">Install Packages and Import Data</a></li>
+  <li><a href="#exploring-your-data-frame-object" id="toc-exploring-your-data-frame-object" class="nav-link" data-scroll-target="#exploring-your-data-frame-object">Exploring Your Data Frame Object</a></li>
+  <li><a href="#values-variables-and-vectors" id="toc-values-variables-and-vectors" class="nav-link" data-scroll-target="#values-variables-and-vectors">Values, Variables, and Vectors</a></li>
+  <li><a href="#data-transformation-with-dplyr" id="toc-data-transformation-with-dplyr" class="nav-link" data-scroll-target="#data-transformation-with-dplyr">Data Transformation with dplyr</a>
+  <ul class="collapse">
+  <li><a href="#install-and-load-dplyr" id="toc-install-and-load-dplyr" class="nav-link" data-scroll-target="#install-and-load-dplyr">Install and Load dplyr</a></li>
+  <li><a href="#dplyr-basics" id="toc-dplyr-basics" class="nav-link" data-scroll-target="#dplyr-basics">dplyr Basics</a></li>
+  <li><a href="#filter-rows-with-filter" id="toc-filter-rows-with-filter" class="nav-link" data-scroll-target="#filter-rows-with-filter">Filter Rows with filter()</a></li>
+  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values">Missing Values</a></li>
+  <li><a href="#arrange-rows-with-arrange" id="toc-arrange-rows-with-arrange" class="nav-link" data-scroll-target="#arrange-rows-with-arrange">Arrange Rows with arrange()</a></li>
+  <li><a href="#select-columns-with-select" id="toc-select-columns-with-select" class="nav-link" data-scroll-target="#select-columns-with-select">Select Columns with select()</a></li>
+  <li><a href="#add-new-variables-with-mutate" id="toc-add-new-variables-with-mutate" class="nav-link" data-scroll-target="#add-new-variables-with-mutate">Add New Variables with mutate()</a></li>
+  <li><a href="#group-summaries-with-summarize" id="toc-group-summaries-with-summarize" class="nav-link" data-scroll-target="#group-summaries-with-summarize">Group Summaries with summarize()</a></li>
+  <li><a href="#combining-multiple-operations-with-the-pipe" id="toc-combining-multiple-operations-with-the-pipe" class="nav-link" data-scroll-target="#combining-multiple-operations-with-the-pipe">Combining Multiple Operations with the Pipe</a></li>
+  </ul></li>
+  <li><a href="#how-to-plot-and-visualize-data-with-ggplot2" id="toc-how-to-plot-and-visualize-data-with-ggplot2" class="nav-link" data-scroll-target="#how-to-plot-and-visualize-data-with-ggplot2">How to Plot and Visualize Data with ggplot2</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -148,9 +208,863 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>test test test</p>
+<section id="introduction-to-the-tidyverse" class="level1">
+<h1>Introduction to the Tidyverse</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2064581165.png" class="img-fluid figure-img"></p>
+<figcaption>Soft corals growing on a pier, Indonesia | Photo Credit: Erik Lucas</figcaption>
+</figure>
+</div>
+<p>In this class, we will be using a suite of packages known as the tidyverse. These packages were originally developed by Hadley Wickham and Garrett Grolemund as a new approach to using <code>R</code>. Since it’s widespread use and continued development, the tidyverse has made <code>R</code> more user friendly and more flexible for the purposes of data science. By the end of this tutorial, my goal is to familiarize you with the tidy workflow and the commands that will allow you to work with your own data.</p>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Be able to manually import a .csv file.</li>
+<li>Understand variables, vectors, and logical operators.</li>
+<li>Explore, filter, and transform using dplyr.</li>
+<li>Generate plots with ggplot.</li>
+</ol>
+</section>
+<section id="install-packages-and-import-data" class="level2">
+<h2 class="anchored" data-anchor-id="install-packages-and-import-data">Install Packages and Import Data</h2>
+<p>For this tutorial you are expected to already know how to create a new .rmd file, get your working directory, and set your working directory. If you are not able to do so, return to Tutorial 0 for a quick review on these skills.</p>
+<p>To start, create a new .rmd file in your <strong>EVE 113</strong> &gt; <strong>Coding Tutorials</strong> directory under a new folder called <strong>Tutorial 1</strong>. Name the .rmd “Tutorial 1”. Once you’ve done this, get and set your working directory to <strong>EVE 113</strong> &gt; <strong>Coding Tutorials</strong> &gt; <strong>Tutorial 1</strong>.</p>
+<p>In this tutorial we will be using the package <code>palmerpenguins</code> as well as an example data set provided on the class canvas page. Palmer penguins is a CRAN data set provided that is a better alternative to the <code>iris</code> data set. If you’d like to know more about why we won’t be using <code>iris</code> in this course, you can <a href="https://medium.com/data-science/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5">read more here</a>.</p>
+<p><a href="https://allisonhorst.github.io/palmerpenguins/">Palmer penguins</a> is a data set including size measurements, clutch observations, and blood isotope ratios for adult foraging Adelie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.</p>
+<p>First, install palmerpenguins into your local environment by using the command <code>install.packages()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>When installing multiple packages at once, you will use something known as a <strong>character vector</strong> <strong>combine</strong> ( <code>c()</code> ) followed by the list of packages you’re installing.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"package1"</span>, <span class="st">"package2"</span>, <span class="st">"package3"</span>, <span class="st">"package4"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The packages are now installed, but not currently active in our library. To make the packages usable and active in our current session, we use the <code>library()</code> command.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To keep things neat and tidy, I suggest <strong>using one R chunk to complete your “setup” (i.e., package installation, library imports, and other global options you set in your script)</strong>. It would look something like this in your .rmd file:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gloabl chunk options (example)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># getting and setting working directory. Always double check if this worked</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 1"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># install packages </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"package1"</span>, </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package2"</span>, </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package3"</span>, </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package4"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                 )</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># load multiple packages at once</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>my_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"package1"</span>, <span class="co"># perhaps note what this package is used for</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package2"</span>, <span class="co"># bwt these are not real packages</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package3"</span>, <span class="co"># don't try to actually install them</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package4"</span>) <span class="co"># (HINT: it won't work)</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(my_packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>Create a new chunk and name it “data import”. In this class, we will save our data sets as .csv files (comma separated files). As scientists, we may use Excel or Google Sheets to input data, but it is best practice to save individual data sets as .csv files for simple, easy importing. To read a .xls file into R, you would need to install a third party package which adds an additional computing step during set up.</p>
+<p>Navigate to our class canvas page. Go to <strong>Files</strong> and open the <strong>Coding Tutorials</strong> folder. Download the metadata_tidepool.csv file and save it in your <strong>Tutorial 1</strong> folder. If you’ve properly set your working directory and saved the file to the correct location, this next step will be easy.</p>
+<p>Import your .csv data set using the <code>read.csv()</code> command and saving it in a <strong>data frame object</strong> called ‘data’.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"metadata_tidepool.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The argument <code>header = TRUE</code> will ensure that when you import your .csv, <code>R</code> is treating the first row of your data as column names. You would set this as <code>header = FALSE</code> if your data set did not contain column names.</p>
+<p>Great, now we have two different data sets to play around with. Let’s start with Palmer penguins.</p>
+</section>
+<section id="exploring-your-data-frame-object" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-your-data-frame-object">Exploring Your Data Frame Object</h2>
+<p>It’s good practice to ensure that when you import a new data frame into your computing environment, you ensure everything looks approximately as it should (i.e., variable names are included and correct, variable types seem accurate to your data, and number of observations is approximately accurate).</p>
+<p>This is simply done with three commands that I suggest you always run when first importing data into <code>R</code>: <code>summary()</code>, <code>head()</code>, and <code>tail()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      species          island    bill_length_mm  bill_depth_mm  
+ Adelie   :152   Biscoe   :168   Min.   :32.10   Min.   :13.10  
+ Chinstrap: 68   Dream    :124   1st Qu.:39.23   1st Qu.:15.60  
+ Gentoo   :124   Torgersen: 52   Median :44.45   Median :17.30  
+                                 Mean   :43.92   Mean   :17.15  
+                                 3rd Qu.:48.50   3rd Qu.:18.70  
+                                 Max.   :59.60   Max.   :21.50  
+                                 NA's   :2       NA's   :2      
+ flipper_length_mm  body_mass_g       sex           year     
+ Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
+ 1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
+ Median :197.0     Median :4050   NA's  : 11   Median :2008  
+ Mean   :200.9     Mean   :4202                Mean   :2008  
+ 3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
+ Max.   :231.0     Max.   :6300                Max.   :2009  
+ NA's   :2         NA's   :2                                 </code></pre>
+</div>
+</div>
+<p><code>summary()</code> is a generic function used to provide overall summaries of objects or models.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+1 Adelie  Torgersen           39.1          18.7               181        3750
+2 Adelie  Torgersen           39.5          17.4               186        3800
+3 Adelie  Torgersen           40.3          18                 195        3250
+4 Adelie  Torgersen           NA            NA                  NA          NA
+5 Adelie  Torgersen           36.7          19.3               193        3450
+6 Adelie  Torgersen           39.3          20.6               190        3650
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+1 Chinstrap Dream            45.7          17                 195        3650
+2 Chinstrap Dream            55.8          19.8               207        4000
+3 Chinstrap Dream            43.5          18.1               202        3400
+4 Chinstrap Dream            49.6          18.2               193        3775
+5 Chinstrap Dream            50.8          19                 210        4100
+6 Chinstrap Dream            50.2          18.7               198        3775
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p><code>head()</code> returns the first parts of a vector, matrix, table, data frame, or function. <code>tail()</code> returns the last parts of the object.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Do It Yourself T1.1</strong></p>
+<p>1a. Get the summary of the tide pool metadata. What’s the mean tidepool volume?</p>
+<p>1c. Get the head and the tail of the tide pool metadata. How many rows does this data frame have?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="values-variables-and-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="values-variables-and-vectors">Values, Variables, and Vectors</h2>
+<p>Looking at the summary of <code>penguins</code> reveals this is an 8 variable data frame: 3 categorical variables (species, island, sex), 4 numeric variables (bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g), and 1 integer variable (year).</p>
+<p>To check what kind of variable is contained within a data frame object, you use the <code>class()</code> command.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># syntax example of class()</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dataframe<span class="sc">$</span>variableofinterest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The command is broken down as <code>class(x$variable)</code> where <code>x</code> is the data frame object you’re inspecting, <code>$</code> is the extraction operator of x, and <code>variable</code> is simply the name of the variable you’re extracting from x.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(penguins<span class="sc">$</span>species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+</div>
+<p>This returns the class of the variable species extracted from the <code>penguins</code> data frame. You should see “factor” in your own .rmd, like above.</p>
+<p>It’s important you understand and can differentiate between the <strong>atomic data types</strong> you might encounter when using <code>R</code>. However, for this class and likely beyond, you’ll only really need to focus on the first four.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Description</th>
+<th>Example Value</th>
+<th><code>class()</code> Output</th>
+<th>Common Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Numeric</td>
+<td>Default for all real numbers; Can be continuous or discrete.</td>
+<td><code>10</code> or <code>2.1415</code></td>
+<td>“<code>numeric</code>”</td>
+<td>Continuous measurements, math calculations</td>
+</tr>
+<tr class="even">
+<td>Integer</td>
+<td>Whole numbers explicitly defined.</td>
+<td><code>7L</code> or <code>year</code></td>
+<td>“<code>integer</code>”</td>
+<td>Discretely counted numbers, IDs, loops, dates</td>
+</tr>
+<tr class="odd">
+<td>Character</td>
+<td>Text strings wrapped in single or double quotes, categorical variables with no numerical value.</td>
+<td>“<code>hello</code>” or “<code>yes</code>” or “<code>female</code>”</td>
+<td>“<code>factor</code>”</td>
+<td>Names, descriptive labels, text data</td>
+</tr>
+<tr class="even">
+<td>Logical</td>
+<td>Boolean states representing truth values.</td>
+<td><code>TRUE</code> and/or <code>FALSE</code></td>
+<td>“<code>logical</code>”</td>
+<td>Filtering data, evaluating conditions</td>
+</tr>
+<tr class="odd">
+<td>Complex</td>
+<td>Numbers containing real and imaginary components.</td>
+<td><code>3 + 2i</code></td>
+<td>“<code>complex</code>”</td>
+<td>Purely mathematical or signal functions.</td>
+</tr>
+<tr class="even">
+<td>Raw</td>
+<td>Unprocessessed binary data stored ad individual bytes.</td>
+<td><code>as.raw(43)</code></td>
+<td>“<code>raw</code>”</td>
+<td>Reading binary files or protocol streams.</td>
+</tr>
+</tbody>
+</table>
+<p>In <code>R</code>, we have <u>values</u> (the data), <u>vectors</u> (the container), and <u>variables</u> (the names).</p>
+<p><strong>Values</strong> in <code>R</code> must belong to an atomic data type (like the six types above).</p>
+<p><strong>Vectors</strong> are an ordered collection of values. Vectors are <em>homogeneous</em>, meaning all values inside a single vector must be of the same type.</p>
+<ul>
+<li><p>To create a vector you combine values using the <code>c()</code> (combine) function.</p></li>
+<li><p>If you mix data types, <code>R</code> forces lower types into higher types (<code>Logical &lt; Integer &lt; Double &lt; Character</code>) without throwing an error.</p>
+<ul>
+<li>For example, <code>c(5, "Hello")</code> forces the numeric <code>5</code> to become a factor <code>"5"</code>.</li>
+</ul></li>
+<li><p>Access specific elements of a vector by using square brackets <code>[]</code>. <code>R</code> uses 1-based indexing, so the first element is at position <code>1</code>.</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a numeric vector</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting the second element follows 1-based idexing</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>ages[<span class="dv">2</span>] <span class="co"># should return 20</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+</div>
+<p><strong>Variables</strong> are the “labeled boxes” of your data. When you write code, you use the assignment operator <code>&lt;-</code> to bind a name (the variable) to a data object (like a vector).</p>
+<ul>
+<li><p>While the equals sign <code>=</code> works for assignment, <code>&lt;-</code> is preferred (and the widely recognized standard for assignment).</p></li>
+<li><p>Variable names are case- and space-sensitive (<code>my_data</code> is different from <code>My_Data</code> or <code>my_ data</code>).</p></li>
+<li><p>Assigning a new value to an existing variable overwrites its previous contents.</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"cherry"</span>, <span class="st">"blueberry"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fruits)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "apple"     "cherry"    "blueberry"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assigning a new value will un-write the previously assigned content of "fruits"</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"lettuce"</span>, <span class="st">"carrots"</span>, <span class="st">"celery"</span>) </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fruits)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "lettuce" "carrots" "celery" </code></pre>
+</div>
+</div>
+<p>We use the <code>print()</code> function to give the output or generate the contents of a vector or object into the <code>R</code> Console.</p>
+<p>All <code>R</code> statements where you create objects , assignment statements, have the same form: <code>object_name &lt;- value</code>. Again, don’t use <code>=</code>. It’s just confusing.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Getting tired of continuously, manually typing <code>&lt;-</code> ? Well, you’re just in luck!! Statisticians and those who use <code>R</code> agree with that sentiment, so there’s actually a keyboard shortcut! Just type <strong>Alt</strong> + <strong>-</strong> and voila! You’re very own assignment argument.</p>
+<p>This is also great because <code>R</code> automatically gives you spaces on both sides of the assignment arrow, which (again) is good coding practice and etiquette. Code is miserable to read on a good day, so giveyourselfabreakand <u><strong><em>use spaces</em></strong></u>.</p>
+</div>
+</div>
+<p>This harkens back to our code etiquette tutorial, but please ensure you’re giving your assigned objects, vectors, data frames (or literally everything else) a descriptive name. In this course, I’d like you to use <code>snake_case</code>, where you will separate lowercase words of a named object with <code>_</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>i_use_snake_case</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>otherPeopleUseCamelCase</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>some.people.use.periods</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>And_aFew.People_RENOUNCEconvention.like_fre_AKS</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Sometimes the data you have doesn’t match your coding conventions. Our tide pool meta data mixes <code>snake_case</code> and <code>camelCase</code>. This is a very common issue and often happens with data sets that include multiple contributors.</p>
+<p>It is best practice to <em>agree</em> and <em>stick to</em> a single convention when collaborating. To maintain continuity, you can rename variables using your agreed-upon convention.</p>
+<p>For us, this convention is <code>snake_case</code>. To do this, you can use <code>dplyr</code> or base <code>R</code>. We’ll learn more about <code>dplyr</code> in a moment, but for now lets learn how to do this in base <code>R</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># explicit name matching in base R to re-name data frame variables</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) [<span class="fu">names</span>(data) <span class="sc">==</span> <span class="st">"Old_Column_Name"</span>] <span class="ot">&lt;-</span> <span class="st">"new_column_name"</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="do">####OR####</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># rename ALL columns all at once</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"column_1"</span>, <span class="st">"column_2"</span>, <span class="st">"column_3"</span>, <span class="st">"column_4"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Do It Yourself T1.2</strong></p>
+<p>2a. What is the atomic data type of tide pool size? How many tide pool sizes are there?</p>
+<p>2b. Rename the tidepool metadata object (if you haven’t already) using <code>snake_case</code> convention.</p>
+<p>2c. Rename all variables in your new tide pool data frame to match <code>snake_case</code> conventions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="data-transformation-with-dplyr" class="level2">
+<h2 class="anchored" data-anchor-id="data-transformation-with-dplyr">Data Transformation with dplyr</h2>
+<p>If you’ve noticed the double semi-colon after certain names of things (e.g., <code>knitr::</code> , <code>ggplot::</code> , <code>dplyr::</code>) this is an easy indication I am talking about a <strong>package</strong>.</p>
+<p>When installing packages that overwrite previously installed or loaded packages in <code>R</code>, but you still want to use those functions, you’ll need to specify what package relates to what function. The two most common conflicts are two functions from the <code>stats::</code> package (which is pre-loaded in base <code>R</code>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">filter</span>()</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">lag</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>If you receive conflict messages when running <code>filter()</code> or <code>lag()</code>, it’s likely because you’ve overwritten one or the other with either <code>stats::</code> or <code>dplyr::</code>. Use the package that correlates to the command you’re trying to execute by indicating so with <code>::</code>.</p>
+<section id="install-and-load-dplyr" class="level3">
+<h3 class="anchored" data-anchor-id="install-and-load-dplyr">Install and Load dplyr</h3>
+<p>To transform our data, we will be using the <code>dplyr</code> package, which is a small component of the tidyverse package suite. If you haven’t done so before, install and load the <code>tidyverse</code> and <code>dplyr</code> packages in your setup chunk of your Tutorial 1 .rmd.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"dplyr"</span>))</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load multiple packages at once</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>CRAN_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"dplyr"</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(CRAN_packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>CRAN packages are add-on modules written for <code>R</code> by other programmers. <code>lapply()</code> applies your vector <code>CRAN_packages</code> using the <code>library()</code> function, ensuring <code>R</code> passes your string of variables (your packages) in your vector as actual package names <code>R</code> will recognize. This allows you to load multiple packages at once without having to retype <code>library()</code> over and over.</p>
+</section>
+<section id="dplyr-basics" class="level3">
+<h3 class="anchored" data-anchor-id="dplyr-basics">dplyr Basics</h3>
+<p>There are five key functions that make <code>dplyr</code> extraordinarily valuable for data visualization and transformation.</p>
+<ol type="1">
+<li>Pick observations by their values using <code>filter()</code></li>
+<li>Reorder rows with <code>arrange()</code></li>
+<li>Pick variables by their names with <code>select()</code></li>
+<li>Create new variables with functions of existing variables using <code>mutate()</code></li>
+<li>Collapse many values down to a single summary with <code>summarize()</code></li>
+</ol>
+<p>These commands are often used in conjunction with <code>group_by()</code>, which changes the scope of each function by going group-by-group, if desired. All of these functions together provide the verbage of data manipulation. All of the verbs (functions) work similarly where:</p>
+<ol type="1">
+<li>Argument one is the data frame.</li>
+<li>Subsequent arguments describe what you’d like to actually do with the data.</li>
+<li>The result is saved in a new data frame.</li>
+</ol>
+<p>Do these things and you can successfully manipulate any data frame.</p>
+</section>
+<section id="filter-rows-with-filter" class="level3">
+<h3 class="anchored" data-anchor-id="filter-rows-with-filter">Filter Rows with filter()</h3>
+<p><code>filter()</code> subsets observations based on their values followed by a logical operator that you provide. For example, say I want to only look at Chinstrap penguin measurements from 2007.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Chinstrap"</span>, year <span class="sc">==</span> <span class="dv">2007</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 8
+   species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Chinstrap Dream            46.5          17.9               192        3500
+ 2 Chinstrap Dream            50            19.5               196        3900
+ 3 Chinstrap Dream            51.3          19.2               193        3650
+ 4 Chinstrap Dream            45.4          18.7               188        3525
+ 5 Chinstrap Dream            52.7          19.8               197        3725
+ 6 Chinstrap Dream            45.2          17.8               198        3950
+ 7 Chinstrap Dream            46.1          18.2               178        3250
+ 8 Chinstrap Dream            51.3          18.2               197        3750
+ 9 Chinstrap Dream            46            18.9               195        4150
+10 Chinstrap Dream            51.3          19.9               198        3700
+# ℹ 16 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p><code>dplyr</code> functions never permanently modify their inputs, so if you want to save the result, you’ll need to use an assignment <code>&lt;-</code> operator.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>chinstrap_2007_df <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Chinstrap"</span>, year <span class="sc">==</span> <span class="dv">2007</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>R</code> will either print out the results if you explicilty ask using <code>print()</code>, or save them into a variable without printing. If you want to print and save it, wrap the entire argument in parentheses.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>(chinstrap_2007_df <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Chinstrap"</span>, year <span class="sc">==</span> <span class="dv">2007</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 8
+   species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Chinstrap Dream            46.5          17.9               192        3500
+ 2 Chinstrap Dream            50            19.5               196        3900
+ 3 Chinstrap Dream            51.3          19.2               193        3650
+ 4 Chinstrap Dream            45.4          18.7               188        3525
+ 5 Chinstrap Dream            52.7          19.8               197        3725
+ 6 Chinstrap Dream            45.2          17.8               198        3950
+ 7 Chinstrap Dream            46.1          18.2               178        3250
+ 8 Chinstrap Dream            51.3          18.2               197        3750
+ 9 Chinstrap Dream            46            18.9               195        4150
+10 Chinstrap Dream            51.3          19.9               198        3700
+# ℹ 16 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>To filter effectively, you need to understand how to correctly select comparison and logical operators. <code>R</code> gives you quite a few:</p>
+<ul>
+<li><p><code>&gt;</code>, greater than</p></li>
+<li><p><code>&gt;=</code>, greater than or equal to</p></li>
+<li><p><code>&lt;</code>, less than</p></li>
+<li><p><code>&lt;=</code>, less than or equal to</p></li>
+<li><p><code>!=</code>, not equal to</p></li>
+<li><p><code>==</code>, equal to</p></li>
+</ul>
+<p>Boolean operators combine comparisons and logical operators when you’d like to filter multiple things at once. This is where filtering is the most confusing. Even after 4 years of using <code>dplyr</code> consistently, I am still struggling to understand this. So, I am under no expectation that you are to master this, I am simply giving you this information, and you may do with it what you’d like.</p>
+<p>Boolean Operations are as follows:</p>
+<ul>
+<li><p>&amp; is “and”</p></li>
+<li><p>| is “or”</p></li>
+<li><p>! is “not”</p></li>
+</ul>
+<p><img src="images/clipboard-1634400291.png" class="img-fluid"></p>
+<p>Say, for example I’d like to find penguins that were measured in 2007 or 2008.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(penguins, year <span class="sc">==</span> <span class="dv">2007</span> <span class="sc">|</span> year <span class="sc">==</span> <span class="dv">2008</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 224 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 214 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>This reads in plain English as “find all penguins measured in year 2007 or year 2008”. You can also simplify if you’re filtering the data frame by the same variable by using <code>x %in% y</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(penguins, year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2007</span>,<span class="dv">2008</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 224 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 214 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>Or for character variables…</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(penguins, species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Chinstrap"</span>, <span class="st">"Adelie"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 220 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 210 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>What if I’d like to do more complicated subsetting? For example, I’d like to filter for every penguin that isn’t a Adelie and Chinstrap penguins and that have bills &lt;40mm.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(penguins, <span class="sc">!</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>) <span class="sc">&amp;</span> bill_length_mm <span class="sc">&gt;</span> <span class="dv">40</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 224 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           36.7          19.3               193        3450
+ 4 Adelie  Torgersen           39.3          20.6               190        3650
+ 5 Adelie  Torgersen           38.9          17.8               181        3625
+ 6 Adelie  Torgersen           39.2          19.6               195        4675
+ 7 Adelie  Torgersen           34.1          18.1               193        3475
+ 8 Adelie  Torgersen           37.8          17.1               186        3300
+ 9 Adelie  Torgersen           37.8          17.3               180        3700
+10 Adelie  Torgersen           38.6          21.2               191        3800
+# ℹ 214 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>When filtering, you can simplify by remembering that:</p>
+<ol type="1">
+<li>!(x &amp; y) is the same as !x &amp; !y</li>
+<li>!(x | y) is the same as !x &amp; !y</li>
+</ol>
+</section>
+<section id="missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="missing-values">Missing Values</h3>
+<p>Filtering and using comparison operators is often tricky when values are missing. NA represents an unknown value. Unknown values are contagious, and any operation or command that requires all values won’t run when values are missing. For example:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let x be Penelope's age. Sadly, we have no idea how old Penelope is.</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># let y be Jack's age. We also don't know how old Jack is. Bummer.</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Are Jack and Penelope the same age?</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>x <span class="sc">==</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We don't know because Jack and Penelope's ages are NA's!!!!!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>If you’d like to know if a value is missing, use <code>is.na()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Filtering data will only include rows where the condition of <code>is.na()</code> == FALSE.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>))</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(fake_data, x <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      x
+  &lt;dbl&gt;
+1     3</code></pre>
+</div>
+</div>
+<p>But perhaps we’d like to include all rows, even if they have NAs, then you’d explicitly ask <code>R</code> to do so.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(fake_data, <span class="fu">is.na</span>(x) <span class="sc">|</span> x <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 1
+      x
+  &lt;dbl&gt;
+1    NA
+2     3</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Do It Yourself T1-3</strong></p>
+<p>3a. Filter the tide pool data to only include large tide pools with a macro_richness that is &gt;= to 10.</p>
+<p>3b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="arrange-rows-with-arrange" class="level3">
+<h3 class="anchored" data-anchor-id="arrange-rows-with-arrange">Arrange Rows with arrange()</h3>
+<p><code>arrange()</code> changes the orders of rows, which can be useful when plotting or doing ranked statistical analyses.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(penguins, bill_length_mm, bill_depth_mm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Dream               32.1          15.5               188        3050
+ 2 Adelie  Dream               33.1          16.1               178        2900
+ 3 Adelie  Torgersen           33.5          19                 190        3600
+ 4 Adelie  Dream               34            17.1               185        3400
+ 5 Adelie  Torgersen           34.1          18.1               193        3475
+ 6 Adelie  Torgersen           34.4          18.4               184        3325
+ 7 Adelie  Biscoe              34.5          18.1               187        2900
+ 8 Adelie  Torgersen           34.6          17.2               189        3200
+ 9 Adelie  Torgersen           34.6          21.1               198        4400
+10 Adelie  Biscoe              35            17.9               190        3450
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p><code>arrange()</code> automatically sorts the values of bill_length_mm and bill_depth_mm in ascending order. If I wanted these variables to be in descending order, I’d specify with <code>desc()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(penguins, <span class="fu">desc</span>(bill_length_mm), <span class="fu">desc</span>(bill_depth_mm))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Gentoo    Biscoe           59.6          17                 230        6050
+ 2 Chinstrap Dream            58            17.8               181        3700
+ 3 Gentoo    Biscoe           55.9          17                 228        5600
+ 4 Chinstrap Dream            55.8          19.8               207        4000
+ 5 Gentoo    Biscoe           55.1          16                 230        5850
+ 6 Gentoo    Biscoe           54.3          15.7               231        5650
+ 7 Chinstrap Dream            54.2          20.8               201        4300
+ 8 Chinstrap Dream            53.5          19.9               205        4500
+ 9 Gentoo    Biscoe           53.4          15.8               219        5500
+10 Chinstrap Dream            52.8          20                 205        4550
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>If you provide more than one column when arranging, each additional column will be used to break ties in the values of preceding columns. Above, we’ve arranged penguin observations by largest bill length, further sorted by largest bill depth. See what happens to the first few rows when we instead sort by bill_depth_mm first.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(penguins, <span class="fu">desc</span>(bill_depth_mm), <span class="fu">desc</span>(bill_length_mm))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species   island   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;     &lt;fct&gt;             &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie    Torgers…           46            21.5               194        4200
+ 2 Adelie    Dream              42.3          21.2               191        4150
+ 3 Adelie    Torgers…           38.6          21.2               191        3800
+ 4 Adelie    Biscoe             41.3          21.1               195        4400
+ 5 Adelie    Dream              39.2          21.1               196        4150
+ 6 Adelie    Torgers…           34.6          21.1               198        4400
+ 7 Chinstrap Dream              54.2          20.8               201        4300
+ 8 Chinstrap Dream              52            20.7               210        4800
+ 9 Adelie    Torgers…           42.5          20.7               197        4500
+10 Adelie    Biscoe             39.6          20.7               191        3900
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>Two Adelie observations have the same value for bill_depth_mm, therefore arrange will then “rank” the individual by the other specified column in arrange.</p>
+<p>Missing values are always sorted at the end:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">arrange</span>(penguins, <span class="fu">desc</span>(bill_depth_mm), <span class="fu">desc</span>(bill_length_mm)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+1 Gentoo  Biscoe              43.3          13.4               209        4400
+2 Gentoo  Biscoe              44.9          13.3               213        5100
+3 Gentoo  Biscoe              46.1          13.2               211        4500
+4 Gentoo  Biscoe              42.9          13.1               215        5000
+5 Adelie  Torgersen           NA            NA                  NA          NA
+6 Gentoo  Biscoe              NA            NA                  NA          NA
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Do It Yourself T1-4</strong></p>
+<p>4a. How could you use <code>arrange()</code> to sort all missing values to the start? (HINT: try using <code>is.na()</code>).</p>
+<p>4b. In the tide pool data frame, arrange our observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="select-columns-with-select" class="level3">
+<h3 class="anchored" data-anchor-id="select-columns-with-select">Select Columns with select()</h3>
+<p>Its not uncommon to receive data sets with hundreds or maybe even thousands of variables. Working with a data frame that dense is computationally expensive, so sub-setting down to the variables of interest is best practice when dealing with data like this. <code>select()</code> gives you the power to accomplish this.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns of interest</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(penguins, species, island, sex, year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 4
+   species island    sex     year
+   &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;
+ 1 Adelie  Torgersen male    2007
+ 2 Adelie  Torgersen female  2007
+ 3 Adelie  Torgersen female  2007
+ 4 Adelie  Torgersen &lt;NA&gt;    2007
+ 5 Adelie  Torgersen female  2007
+ 6 Adelie  Torgersen male    2007
+ 7 Adelie  Torgersen female  2007
+ 8 Adelie  Torgersen male    2007
+ 9 Adelie  Torgersen &lt;NA&gt;    2007
+10 Adelie  Torgersen &lt;NA&gt;    2007
+# ℹ 334 more rows</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select all columns between species and flipper_length_mm</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(penguins, species<span class="sc">:</span>flipper_length_mm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 5
+   species island    bill_length_mm bill_depth_mm flipper_length_mm
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181
+ 2 Adelie  Torgersen           39.5          17.4               186
+ 3 Adelie  Torgersen           40.3          18                 195
+ 4 Adelie  Torgersen           NA            NA                  NA
+ 5 Adelie  Torgersen           36.7          19.3               193
+ 6 Adelie  Torgersen           39.3          20.6               190
+ 7 Adelie  Torgersen           38.9          17.8               181
+ 8 Adelie  Torgersen           39.2          19.6               195
+ 9 Adelie  Torgersen           34.1          18.1               193
+10 Adelie  Torgersen           42            20.2               190
+# ℹ 334 more rows</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select all columns except those from species to flipper_length_mm</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(penguins, <span class="sc">-</span>(species<span class="sc">:</span>flipper_length_mm))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 3
+   body_mass_g sex     year
+         &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+ 1        3750 male    2007
+ 2        3800 female  2007
+ 3        3250 female  2007
+ 4          NA &lt;NA&gt;    2007
+ 5        3450 female  2007
+ 6        3650 male    2007
+ 7        3625 female  2007
+ 8        4675 male    2007
+ 9        3475 &lt;NA&gt;    2007
+10        4250 &lt;NA&gt;    2007
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+<p>I often use <code>select()</code> to make my data transformations more exclusive in a sub-set. I will ask you to select variables when preparing for statistical analyses, to prevent influence or leverage from unwanted values in your analysis.</p>
+<p>Additional helper functions that come along with select() include:</p>
+<ul>
+<li><p><code>starts_with("abc")</code> would match names that begin with “abc”.</p></li>
+<li><p><code>ends_with("xyz")</code> would matches names that end with “xyz”.</p></li>
+<li><p><code>contains("ijk")</code> would match names that contain “ijk”.</p></li>
+</ul>
+<p>Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command <code>rename()</code>!</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(example_data, <span class="at">old_col_name1 =</span> new_col_name1, <span class="at">old_col_name2 =</span> new_col_name2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="add-new-variables-with-mutate" class="level3">
+<h3 class="anchored" data-anchor-id="add-new-variables-with-mutate">Add New Variables with mutate()</h3>
+<p>Adding new columns or variables that are functions of existing columns is exactly where mutate() comes in.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a smaller sub-set of data to work with</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>penguins_reduced <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, species, bill_length_mm, bill_depth_mm)</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate to add column that calculates bill volume (BTW this is not a real measurement metric that opthimologists use, just an example I'm using for this)</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(penguins_reduced,</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">bill_volume =</span> bill_length_mm <span class="sc">*</span> bill_depth_mm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 4
+   species bill_length_mm bill_depth_mm bill_volume
+   &lt;fct&gt;            &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Adelie            39.1          18.7        731.
+ 2 Adelie            39.5          17.4        687.
+ 3 Adelie            40.3          18          725.
+ 4 Adelie            NA            NA           NA 
+ 5 Adelie            36.7          19.3        708.
+ 6 Adelie            39.3          20.6        810.
+ 7 Adelie            38.9          17.8        692.
+ 8 Adelie            39.2          19.6        768.
+ 9 Adelie            34.1          18.1        617.
+10 Adelie            42            20.2        848.
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+<p>The <code>*</code> is the multiplication mathematical operation we use in R. Other mathematical operations you might encounter include:</p>
+<ul>
+<li><p><code>-</code> = subtraction</p></li>
+<li><p><code>/</code> = division</p></li>
+<li><p><code>+</code> = addition</p></li>
+<li><p><code>sqrt()</code> = square root</p></li>
+<li><p><code>log()</code> = log</p></li>
+</ul>
+</section>
+<section id="group-summaries-with-summarize" class="level3">
+<h3 class="anchored" data-anchor-id="group-summaries-with-summarize">Group Summaries with summarize()</h3>
+<p>Retrieve mean, medians, standard deviations, standard errors, and more with <code>summarize()</code>. Run the code below.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(penguins, <span class="at">mean_bill_length_mm =</span> <span class="fu">mean</span>(bill_length_mm))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  mean_bill_length_mm
+                &lt;dbl&gt;
+1                  NA</code></pre>
+</div>
+</div>
+<p>Ruh roh… Okay that went wrong fast. Well, do you recall when I was talking about how missing values can muck up your code earlier in the tutorial? Well the <code>penguins</code> data frame includes a few rows that have <code>NA</code> observations. To run summaries that include rows with NAs, use <code>na.rm = TRUE</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(penguins, <span class="at">mean_bill_length_mm =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  mean_bill_length_mm
+                &lt;dbl&gt;
+1                43.9</code></pre>
+</div>
+</div>
+<p><code>na.rm = TRUE</code> tells <code>R</code> to remove any missing values prior to computation. You could also leverage <code>filter()</code> to simply exclude any rows with NA observations prior to computation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>penguins_no_na <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins, <span class="sc">!</span><span class="fu">is.na</span>(bill_length_mm))</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(penguins_no_na, <span class="at">mean_bill_length_mm =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  mean_bill_length_mm
+                &lt;dbl&gt;
+1                43.9</code></pre>
+</div>
+</div>
+<p><code>summarize()</code> can do quick, general calculations for you, or can be used in tandem with <code>group_by()</code> to get grouped summary stats.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">species_bill_means =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  species   species_bill_means
+  &lt;fct&gt;                  &lt;dbl&gt;
+1 Adelie                  38.8
+2 Chinstrap               48.8
+3 Gentoo                  47.5</code></pre>
+</div>
+</div>
+<p>Okay, now if you’ve never seen a pipe before (or have no idea what a pipe even is (and no I don’t mean like the plumbing type of pipe)), this might look like complete and total gibberish. <strong>However, I think this is the most valuable skill I want you to take away from this tutorial: stringing together commands with pipes</strong> <code>%&gt;%</code>.</p>
+</section>
+<section id="combining-multiple-operations-with-the-pipe" class="level3">
+<h3 class="anchored" data-anchor-id="combining-multiple-operations-with-the-pipe">Combining Multiple Operations with the Pipe</h3>
+<p>Imagine that I’d like to get the mean of bill length and bill depth by species on each island from 2007 and 2008. You could do this step-by-step by:</p>
+<ol type="1">
+<li>selecting variables of interest</li>
+<li>filtering out observations from 2009</li>
+<li>grouping by species and island</li>
+<li>summarizing your variables</li>
+</ol>
+<p>Doing it like this is why people might come to hate coding, because this would be time intensive and yield a higher risk of making an up-stream mistake that would don’t catch until the very end. However, what if I told you all of this can be done in one consecutive “line” of code? Take a look at the following:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>penguins_bills <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, island, bill_length_mm, bill_depth_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(bill_length_mm)) <span class="sc">%&gt;%</span></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, island) <span class="sc">%&gt;%</span></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_length =</span> <span class="fu">mean</span>(bill_length_mm),</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_depth =</span> <span class="fu">mean</span>(bill_depth_mm))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+</div>
+<p>You should read this code as a series of interpretive statements: using the penguins data set select the variables <strong>then</strong> filter the NAs <strong>then</strong> group by the categories of interest <strong>then</strong> summarize. A pipe follows every primary command you’re asking <code>R</code> to compute, stringing them all together as one whole operation and saving it in a new data frame. You use pipes sequentially (left to right, top to bottom) which means you can un-write or over-write previous work in the same pipe string. Don’t do this. This is bad code practice. I will be sad.</p>
+<p><strong>Working with the pipe is one of the key features of the tidyverse that make it so powerful.</strong> The only exception to this, however, is <code>ggplot2</code>, which was written before the pipe was discovered. However, you can still string together piped, <code>dplyr</code> operations when plotting in ggplot2. I’ll show you how to do that next as we learn…</p>
+</section>
+</section>
+<section id="how-to-plot-and-visualize-data-with-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-plot-and-visualize-data-with-ggplot2">How to Plot and Visualize Data with ggplot2</h2>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

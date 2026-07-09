@@ -168,12 +168,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#the-actual-tutorial" id="toc-the-actual-tutorial" class="nav-link" data-scroll-target="#the-actual-tutorial">The <em>Actual</em> Tutorial</a></li>
-  <li><a href="#do-it-yourself" id="toc-do-it-yourself" class="nav-link" data-scroll-target="#do-it-yourself">Do It Yourself</a></li>
+  <li><a href="#do-it-yourself-and-assignments" id="toc-do-it-yourself-and-assignments" class="nav-link" data-scroll-target="#do-it-yourself-and-assignments">Do It Yourself and “Assignments”</a>
+  <ul class="collapse">
+  <li><a href="#completing-assignments" id="toc-completing-assignments" class="nav-link" data-scroll-target="#completing-assignments">Completing Assignments</a></li>
+  </ul></li>
   <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review"><strong>Review</strong></a></li>
-  <li><a href="#diy-answer-key" id="toc-diy-answer-key" class="nav-link" data-scroll-target="#diy-answer-key">DIY Answer Key</a></li>
   <li><a href="#works-cited" id="toc-works-cited" class="nav-link" data-scroll-target="#works-cited">Works Cited</a></li>
   </ul></li>
-  <li><a href="#beyond-this-course" id="toc-beyond-this-course" class="nav-link" data-scroll-target="#beyond-this-course">Beyond This Course…</a></li>
+  <li><a href="#why-you-should-continue-learning-r-beyond-this-course" id="toc-why-you-should-continue-learning-r-beyond-this-course" class="nav-link" data-scroll-target="#why-you-should-continue-learning-r-beyond-this-course">Why You Should Continue Learning R Beyond This Course…</a>
+  <ul class="collapse">
+  <li><a href="#about-me" id="toc-about-me" class="nav-link" data-scroll-target="#about-me">About Me</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -205,8 +210,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Abalone in a Kelp Forest | Photo Credit: Stefan Andrews / Ocean Image Bank</figcaption>
 </figure>
 </div>
-<p>This “course” was written and developed with the intrepid, undergraduate ecologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113. Some oif you may have zero experience using <code>R</code>. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or <code>unix</code>. It’s possible this is your first time ever hearing of <code>R</code> (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, <strong>this resource is meant to serve you!</strong> If there is a problem you’re hoping to tackle that is not included in this guide, please don’t hesitate to notify your TA or instructor and we can help you.</p>
-<p>This guide is setup like a website where we have our Home page (the page you’re on now), the Getting Started page, and the Tutorial page(s). You can navigate between each of these by simply heading to the top of the web browser you’re currently viewing this on. This home page won’t contain more than a general overview of how this bootcamp is structured, how to get the most out of your learning, and information for further “R education” beyond EVE 113.</p>
+<p>Welcome! Let’s get excited about coastal marine microbial ecology! This “course” was written and developed with the intrepid, undergraduate ecologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113.</p>
+<p>Some of you may have zero experience using R; Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or <code>unix</code>. It’s completely possible this is your first time ever hearing of R (but hopefully not the last!), or it could be your hundredth. Either way, no matter the situation, <strong>this resource is meant to serve you!</strong> If there is a problem you’re hoping to tackle that is not included in this guide, please don’t hesitate to notify your TA or instructor. We are here to help you succeed and grow your toolkit as an ecologist.</p>
+<p>This guide is setup like a website: We have a home page (the page you’re on now), the Getting Started page, and the Tutorial page(s). You can navigate between each of these by simply heading to the top of the web browser you’re currently viewing this on and clicking on the tabs. This home page won’t contain more than a general overview of how this bootcamp is structured, how to get the most out of your learning, and information for further “R education” beyond EVE 113.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -222,8 +228,8 @@ Important
 </div>
 <section id="what-is-r" class="level1">
 <h1>What is R?</h1>
-<p><code>R</code> is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because <code>R</code> is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or “add-ons”) that further extend the programs functionality. <code>R</code> is an extraordinarily valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you’d like to learn more about why reproducibility in research matters, you can read more <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/">here</a>.</p>
-<p>In this course, we will be coding in <code>R</code> using the <strong>free</strong> software interface application known as RStudio. RStudio is a user-friendly IDE (integrated development environment) where you can access both the Console and the Terminal (we will talk about what both of those means later). <code>R</code> and RStudio work with any operating system you have on hand, whether that be Windows, Apple (macOS), or Linux. Although, if you’re operating on Linux, I might just assume you already have <code>R</code> downloaded in some capacity.</p>
+<p>R is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because R is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or “add-ons”) that further extend the programs functionality. R is an extraordinarily valuable tool and it is used (nearly) ubiquitously across a plethora of disciplines. If you have any interest in continuing work in ecology, evolution, or the environmental/biological sciences, you will most certainty encounter R again at some point.</p>
+<p>In this course, we will be coding in R using the <strong>free</strong> software interface application known as <strong>RStudio</strong>. RStudio is a user-friendly IDE (integrated development environment) where you can access both the Console and the Terminal (we will talk about what both of those means later). R and RStudio work with any operating system you have on hand, whether that be Windows, Apple (macOS), or Linux. (Although, if you’re operating on Linux, I might just assume you already have R downloaded in some capacity).</p>
 </section>
 <section id="course-design" class="level1">
 <h1>Course Design</h1>
@@ -235,24 +241,25 @@ Important
 <li><p>Learn what the dada2 pipeline is and how it is applied to data you (the student) has collected.</p></li>
 <li><p>Get excited about Coastal Marine Microbial Ecology!</p></li>
 </ol>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong><em>Your learning here will be a product of the amount of time you spend engaging with the material, practicing your skills, and asking questions when they come up.</em></strong></p>
-<p>You should always return to this website if you need to revisit any tutorials from earlier in the term (e.g., you’re doing an analysis but forgot the code to run said analysis, you can return to this website and navigate to the top right corner search bar to find what you’re looking for). <strong>I am always available via email to help you when you get stuck. <u>Please come to me before finding your way to ask questions to chatGPT or AI.</u></strong></p>
+<p><strong><em>Your learning here will be a product of the amount of time you spend engaging with the material, practicing your skills, and asking questions when they arise.</em></strong></p>
+<p>You should always return to this website if you need to revisit any tutorials from earlier in the term (e.g., you’re doing an analysis but forgot the code to run said analysis, you can return to this website and navigate to the top right corner search bar to find what you’re looking for). <strong>I am always available via email or in office hours to help you when you get stuck. <u>Please come to me before finding your way to ask questions to chatGPT or AI.</u></strong></p>
+<p>I want to see you succeed!! I believe you are so much smarter and more capable than AI. AND I believe the best way you will learn more is by asking a real human with real-world experience rather than AI (plus it’s literally my job to help you when you get stuck)!</p>
 </div>
 </div>
-<p>I’ve tried to make this experience as learner-friendly as possible. This bootcamp will follow a series of tutorials, practice problems, and assignments that you can complete to flaunt your newly acquired R knowledge.</p>
+<p>I’ve tried to make this experience as learner-friendly as possible. This bootcamp will follow a series of tutorials, practice problems, and assignments that you can complete to “flaunt” your newly acquired R knowledge (and prepare for the work we will be doing in class).</p>
 <p>Your <strong>tutorials</strong> are where you will <em>gain skills and knowledge</em> to satisfy our <strong>learning objectives</strong>.</p>
-<p>The <strong>DIYs</strong> are ways you can <em>test or practice your new skills or knowledge</em> as you go.</p>
-<p>The <strong>assignments</strong> are the <em>products of your tutorials, DIYs, lab work, and learning objectives</em>. Assignments associated with tutorial content will be due August 27th.</p>
+<p>The <strong>DIYs</strong> are ways you can <em>test or practice your new skills or knowledge</em> as you go and form the component parts of the assignment(s) associated with your <strong>R Preparedness assignment</strong>.</p>
+<p>Again: <u><strong>The R Preparedness assignment(s) associated with tutorial content will be due August 27th.</strong></u> Give yourself ample time to work through these! You will thank me later.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <p>At the top of every tutorial, there will be numbered <strong>learning objectives</strong> stating the goals and material covered in the tutorial itself. They will look like:</p>
@@ -260,11 +267,12 @@ Tip
 <li><p>A series of bullet pointed or objectives for that specific tutorial.</p></li>
 <li><p>There might be more than one learning objective, or sub-learning objectives.</p></li>
 <li><p>This numbered list will give you a sneak peek into what the tutorial will be covering.</p></li>
+<li><p>If you already know how to do some things in the learning objectives then you can consider the tutorial a good chance to review your knowledge.</p></li>
 </ol>
 </section>
 <section id="the-actual-tutorial" class="level2">
 <h2 class="anchored" data-anchor-id="the-actual-tutorial">The <em>Actual</em> Tutorial</h2>
-<p>The tutorials will give you the skills needed to complete your final project and paper. I will try to include screenshots of an actual working RStudio environment as much as I can so you truly visualize what we’re supposed to be doing. However, most tutorials will largely be made up of “chunks” of code that I expect you to either directly copy/paste into your RStudio or, better yet, type yourself.</p>
+<p>The tutorials will give you the skills needed to complete your final project/paper. I will try to include screenshots of an actual working RStudio environment where applicable so you can better understand what we’re supposed to be doing. However, most tutorials will largely be made up of “chunks” of code that I expect you to either directly copy/paste into your RStudio or, better yet, type yourself.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -290,11 +298,10 @@ Tip
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(incremented_value)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>We will learn about two different coding languages in this course: <code>R</code> and <code>unix</code>. The primary distinction between the two, asides from the languages themselves, is that <code>R</code> uses the <em>Console</em> and <code>unix</code> uses the <em>Terminal</em>. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in <code>R</code>. However, some tutorials will cover using <code>unix</code>. Since operating in the terminal is often computationally heavy, <strong>this course will not require students to use the Terminal,</strong> but the information on how to actually use <code>unix</code>, bash chunks, and the Terminal will be covered in tutorial 4. When I am switching between <code>R</code> and <code>unix</code> I will be <strong>very clear about what type of code chunk I am using.</strong></p>
 </section>
-<section id="do-it-yourself" class="level2">
-<h2 class="anchored" data-anchor-id="do-it-yourself">Do It Yourself</h2>
-<p>My Do It Yourself (or DIYs) are built-in to provide short breaks between content-heavy topics. These allow you to test and implement the knowledge you gain as you move along in the tutorials.</p>
+<section id="do-it-yourself-and-assignments" class="level2">
+<h2 class="anchored" data-anchor-id="do-it-yourself-and-assignments">Do It Yourself and “Assignments”</h2>
+<p>My Do It Yourself (or DIYs) are built-in to provide short breaks between content-heavy topics. These allow you to test and implement the knowledge you gain as you move along in the tutorials. <strong>The DIY’s are also the component parts to your assignment(s).</strong> This will help me evaluate if you’ve actually completed the learning objectives in the tutorials and are ready to tackle working with our class data.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -309,7 +316,12 @@ Tip
 </div>
 </div>
 </div>
-<p><strong>DIYs are not for grade</strong> but they can be turned in to your TA (me) for feedback (if you’d like). Otherwise, the only function DIYs serve is to (a) break up the learning material and (b) test your skills. Answers to the DIYs will be located at the bottom of every tutorial. However, like most things in life, there are often more ways than one to answer a single question. Therefore, you can also bring your DIYs to TA office hours to discuss them with me.</p>
+<p><strong>DIYs are graded for completion, not accuracy.</strong> By August 27th you will turn in your DIYs to your TA (me) for feedback. I’ve done this to discourage use of AI so you don’t feel pressured to get “everything correct” but rather focus on the actual acquisition of knowledge. Again, the function of the DIYs is to (a) break up the learning material and (b) test your skills. I will publish answer keys to your DIYs after August 27th and provide feedback accordingly.</p>
+<section id="completing-assignments" class="level3">
+<h3 class="anchored" data-anchor-id="completing-assignments">Completing Assignments</h3>
+<p>Navigate to Files on our class Canvas page and find the R Preparedness folder. Download the .rmd files named “Tutorial 1” and “Tutorial 2”. At the end of each tutorial, you will knit your .rmd document as an html and submit it via canvas by the due date. More on how to do this in Tutorial 0.</p>
+<p>The .rmd will include chunks of code and places for you to answer the DIYs as you work through the tutorial.</p>
+</section>
 </section>
 <section id="review" class="level2">
 <h2 class="anchored" data-anchor-id="review"><strong>Review</strong></h2>
@@ -322,30 +334,17 @@ Tip
 <p>I will end every tutorial with a message and a “celebration” photo, and that is how you know you’ve reached the end of the educational content. <strong><em>Hooray!!!</em></strong></p>
 <p><img src="images/clipboard-168018562.png" class="img-fluid" width="199"></p>
 </section>
-<section id="diy-answer-key" class="level2">
-<h2 class="anchored" data-anchor-id="diy-answer-key">DIY Answer Key</h2>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>0a. Answer keys will have the answer to your questions in order.</p>
-<p>0b. If there are more questions or you didn’t come to the same answer that I did, just notify me and we can discuss in office hours!</p>
-</div>
-</div>
-</div>
-</section>
 <section id="works-cited" class="level2">
 <h2 class="anchored" data-anchor-id="works-cited">Works Cited</h2>
 <p>At very, very bottom, I will cite any of the packages or resources I used to make the tutorial. When you’re writing up your final report, you may refer back to these tutorials for the citation information to include in your own works cited. <strong>Please make sure you’re citing the necessary software you’re using in your work (giving credit where credit is due is very important to avoid plagiarism and promote reproducibility)!</strong></p>
 </section>
 </section>
-<section id="beyond-this-course" class="level1">
-<h1>Beyond This Course…</h1>
-<p><a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3060">Auker and Barthelmess, 2020</a> synthesize how important learning how to use <code>R</code> has become for Ecologists and Biologists just within the past decade. Relatively any job in this field nowadays likely requires some fundamental (or, occasionally, even advanced) knowledge of how to use <code>R</code> as a tool to analyze ecological data. Personally, I use <code>R</code> on a near daily basis; Between running statistical tests, plotting data, or sharing my workflow with collaborators, it’s become a vital skill in my tool set to leverage.</p>
-<p>It’s true that learning a new programming language can, in simple terms, suck. However, being able to leverage these tools in your learning can be an invaluable skill both short- and long-term. I know in the age of Artificial Intelligence, learning something like this may seem like a fruitless task, but evidence has shown that AI actually isn’t all that great at helping you write code to analyze data (<a href="https://metr.org/blog/2026-02-24-uplift-update/#wider-adoption-of-ai-has-made-it-more-difficult-to-measure-task-level-productivity">Becker et al., 2026</a>). These researchers found that AI, in it’s current state as of February 2026, is roughly 20% slower than actual researchers at completing a coding or development task. At the task level, there may be some marginal benefits to utilizing a LLM like ChatGPT or Gemini to solve short-term code bugs, but not in the grand scheme of an entire project. You, the student scientist, are likely better at handling, parsing, and analyzing your own data – no matter how much a beginner you may think you are.</p>
-<p>I implore you to give learning <code>R</code> a honest try before turning to AI to complete your assignments for you. Not only will you gain more hands-on understanding of the material, but you may also gain a renewed appreciation for the step-by-step process of working with your very own data for the first time. I am also happy to be a resource, if needed, to help troubleshoot. Things don’t always work as we intend them to; We may mistype a character here or there, possibly use the wrong command for something it’s not meant to actually do. These can be valuable parts of the learning experience, so best to let them happen and work through them before letting an AI assistant feed you an “out-of-the-box” solution that may or may not apply to your work.</p>
+<section id="why-you-should-continue-learning-r-beyond-this-course" class="level1">
+<h1>Why You Should Continue Learning R Beyond This Course…</h1>
+<p><a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3060">Auker and Barthelmess, 2020</a> synthesize how important learning how to use R has become for Ecologists and Biologists just within the past decade. Relatively any job in this field nowadays likely requires some fundamental (or, occasionally, even advanced) knowledge of how to use R as a tool to analyze ecological data. Personally, I use R on a near daily basis; Between running statistical tests, plotting data, or sharing my workflow with collaborators, it’s become a vital skill in my tool set to leverage. Having heavy computational and statistical experience has allowed me to be better prepared for my PhD, and I know these skills will continue to serve me throughout my career.</p>
+<p>It’s true that learning a new programming language can, in simple terms, suck. However, being able to leverage these tools in your learning can be an invaluable skill both short- and long-term.</p>
+<p>I know in the age of Artificial Intelligence, learning something like this may seem like a fruitless task, but evidence has shown that AI actually isn’t all that great at helping you write code to analyze data (<a href="https://metr.org/blog/2026-02-24-uplift-update/#wider-adoption-of-ai-has-made-it-more-difficult-to-measure-task-level-productivity">Becker et al., 2026</a>). These researchers found that AI, in it’s current state as of February 2026, is roughly 20% slower than actual researchers at completing a coding or development task. At the task level, there may be some marginal benefits to utilizing a LLM like ChatGPT or Gemini to solve short-term code bugs, but not in the grand scheme of an entire project. You, the student scientist, are likely better at handling, parsing, and analyzing your own data – no matter how much a beginner you may think you are.</p>
+<p><strong>Therefore, I implore you to give learning R a honest try before turning to AI to complete your assignments for you.</strong> Not only will you gain more hands-on understanding of the material, but you may also gain a renewed appreciation for the step-by-step process of working with your very own data for the first time. I am also happy to be a resource, if needed, to help troubleshoot. Things don’t always work as we intend them to; We may mistype a character here or there, possibly use the wrong command for something it’s not meant to actually do. These can be valuable parts of the learning experience, so best to let them happen and work through them before letting an AI assistant feed you an “out-of-the-box” solution that may or may not apply to your work.</p>
 <p>If you’re excited about the prospect of learning more in <code>R</code>, there are a plethora of resources that exist out there that can teach you! I’d recommend the following places, to start:</p>
 <ul>
 <li><p><a href="https://r4ds.hadley.nz/">R for Data Science by Wickham and Grolemund</a></p></li>
@@ -354,8 +353,14 @@ Tip
 <li><p><a href="https://link.springer.com/book/10.1007/978-3-031-99665-8">R Coding for Ecology by Rocchini</a></p></li>
 </ul>
 <p>If you find none of these fit your style, or don’t fit your learning needs, lets sit down and chat to find something better for you.</p>
+<section id="about-me" class="level2">
+<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
+<p>Hello! I’m Tallulah (the person who wrote these tutorial(s) and built this website for you)! I will be your TA for this course and am here to help you learn how to use R now and in the future. I am a first year ecology PhD student in Dr.&nbsp;Brown’s lab. I graduated from Emory University (which is in Atlanta, Georgia if you’ve never heard of it) with my Bachelor’s of Science in environmental science and biology. I am interested in studying host-microbe-pathogen dynamics in marine invertebrates.</p>
+<p>In my research and day-to-day work, I’ve come to use R. Like a lot. I first became passionate about using R for ecology during my junior year when I took a disease ecology course with my research mentor at Emory. In that course I learned how build and implement mechanistic models to study disease transmission in various systems – all of which I did using R. I went on to complete an REU at the California Academy of Sciences where I did computational and statistical research for 10 weeks to serve a conservation breeding program on the critically endangered sunflower sea star! After that summer, I traveled to Australia to work with Dr.&nbsp;David Bourne and Dr.&nbsp;Ira Cooke at the Australia Institute for Marine Science. Dr.&nbsp;Bourne and Cooke are marine microbial biologists/bioninformaticians, so my research involved a lot of bioinformatics work. Like a lot. Now I use R all the time! Yippee!</p>
+<p>But, it’s important you know <strong>I started out undergrad hating R and statistics and everything to do with data science.</strong> Heck, I never wanted to touch R again after my first year stats class. However, once I <em>actually learned</em> how to use R, the appreciation for it as a <em>tool</em> and not my <em>Mortal Enemy</em> quickly blossomed. By the end of this course, I hope I can impart on you some knowledge and skills to make R easy and fun to use now and in the future.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

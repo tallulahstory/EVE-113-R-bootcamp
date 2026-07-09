@@ -2,6 +2,16 @@
 title: "Tutorial 1"
 ---
 
+```{r, echo=FALSE}
+#| message: false
+#| warning: false
+#| paged-print: false
+library(palmerpenguins)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+
 # Introduction to the Tidyverse
 
 ![Soft corals growing on a pier, Indonesia \| Photo Credit: Erik Lucas](images/clipboard-2064581165.png)
@@ -12,32 +22,32 @@ In this class, we will be using a suite of packages known as the tidyverse. Thes
 
 1.  Be able to manually import a .csv file.
 2.  Understand variables, vectors, and logical operators.
-3.  Explore, filter, and transform using dplyr::.
-4.  Generate plots with ggplot::.
+3.  Explore, filter, and transform using dplyr.
+4.  Generate plots with ggplot.
 
 ## Install Packages and Import Data
 
 For this tutorial you are expected to already know how to create a new .rmd file, get your working directory, and set your working directory. If you are not able to do so, return to Tutorial 0 for a quick review on these skills.
 
-To start, create a new .rmd file in your **EVE 113** \> **Coding Tutorials** directory under a new folder called **Tutorial 1**. Name the .rmd **Tutorial 1**. Once you've done this, get and set your working directory to **Coding Tutorials** \> **Tutorial 1**.
+To start, create a new .rmd file in your **EVE 113** \> **Coding Tutorials** directory under a new folder called **Tutorial 1**. Name the .rmd "Tutorial 1". Once you've done this, get and set your working directory to **EVE 113** \> **Coding Tutorials** \> **Tutorial 1**.
 
 In this tutorial we will be using the package `palmerpenguins` as well as an example data set provided on the class canvas page. Palmer penguins is a CRAN data set provided that is a better alternative to the `iris` data set. If you'd like to know more about why we won't be using `iris` in this course, you can [read more here](https://medium.com/data-science/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5).
 
 [Palmer penguins](https://allisonhorst.github.io/palmerpenguins/) is a data set including size measurements, clutch observations, and blood isotope ratios for adult foraging Adelie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.
 
-First, install palmerpenguins by using the following command.
+First, install palmerpenguins into your local environment by using the command `install.packages()`.
 
-```{r, echo = FALSE}
+```{r, eval = FALSE}
 install.packages("palmerpenguins")
 ```
 
-When installing multiple packages at once, you will use something known as a **character vector** **combine** followed by the list of packages you're installing. (e.g., `c()`)
+When installing multiple packages at once, you will use something known as a **character vector** **combine** ( `c()` ) followed by the list of packages you're installing.
 
 ```{r, eval = FALSE}
 install.packages(c("package1", "package2", "package3", "package4"))
 ```
 
-The packages are now installed, but not currently active in our library. To make the packages usable and active in our current session, use the `library()` command.
+The packages are now installed, but not currently active in our library. To make the packages usable and active in our current session, we use the `library()` command.
 
 ```{r, eval = FALSE}
 library(palmerpenguins)
@@ -62,38 +72,41 @@ install.packages(c("package1",
                    "package4")
                  )
 
-# import packages into active library
-library(c(package1, # perhaps add a comment about what this package is used for
-          package2, # btw these are not real packages, don't try to install them
-          package3, # (hint: it won't work, FYI)
-          package4)
-        )
+# load multiple packages at once
+my_packages <- c("package1", # perhaps note what this package is used for
+                   "package2", # bwt these are not real packages
+                   "package3", # don't try to actually install them
+                   "package4") # (HINT: it won't work)
+lapply(my_packages, library, character.only = TRUE)
+
 ```
 :::
 
-Create a new chunk and name it "data import". In this class, we will save our data sets as .csv files (comma seperated files). As scientists, we may use Excel or Google Sheets to input data, but it is best practice to save individual data sets as .csv files for simple, easy importing. To read a .xls file into R, you would need to install a third party package which adds an additional computing step during set up.
+Create a new chunk and name it "data import". In this class, we will save our data sets as .csv files (comma separated files). As scientists, we may use Excel or Google Sheets to input data, but it is best practice to save individual data sets as .csv files for simple, easy importing. To read a .xls file into R, you would need to install a third party package which adds an additional computing step during set up.
 
-Navigate to our class canvas page. Go to Files and open the Coding Tutorials folder. Download the metadata_tidepool.csv file and save it in your **Tutorial 1** folder. If you've properly set your working directory and saved the file to the correct location, this next step will be easy.
+Navigate to our class canvas page. Go to **Files** and open the **Coding Tutorials** folder. Download the metadata_tidepool.csv file and save it in your **Tutorial 1** folder. If you've properly set your working directory and saved the file to the correct location, this next step will be easy.
 
-Import your .csv data set using the `read.csv()` command and saving it in a data fram object called 'tidepool_data'.
+Import your .csv data set using the `read.csv()` command and saving it in a **data frame object** called 'data'.
 
 ```{r, eval = FALSE}
 data <- read.csv("metadata_tidepool.csv", header = TRUE)
 ```
 
-When you do this the data frame object 'data' will appear in the Environment window (upper right panel in RStudio). If you click on it, the data frame will open as it's own tab so you can view the full data set you've just manually imported.
+The argument `header = TRUE` will ensure that when you import your .csv, `R` is treating the first row of your data as column names. You would set this as `header = FALSE` if your data set did not contain column names.
 
-The argument `header = TRUE` will ensure that when you import your .csv, R is treating the first row of your data as column names. You wold set this the `header = FALSE` if your data set does not contain column names.
+Great, now we have two different data sets to play around with. Let's start with Palmer penguins.
 
-Great, now we have two different data sets to play around with. Let's start with palmer penguins. It's good practice to ensure that when you import a new data frame into your computing environment, you make sure everything looks approximately as it should (i.e., variable names are included, variable types, and number of observations is accurate).
+## Exploring Your Data Frame Object
 
-This is simply done with three commands that I suggest you always run when first importing data into R: `summary()`, `head()`, and `tail()`.
+It's good practice to ensure that when you import a new data frame into your computing environment, you ensure everything looks approximately as it should (i.e., variable names are included and correct, variable types seem accurate to your data, and number of observations is approximately accurate).
+
+This is simply done with three commands that I suggest you always run when first importing data into `R`: `summary()`, `head()`, and `tail()`.
 
 ```{r}
 summary(penguins)
 ```
 
-summary() is a generic function used to provide overall summaries of objects or models.
+`summary()` is a generic function used to provide overall summaries of objects or models.
 
 ```{r}
 head(penguins)
@@ -107,12 +120,12 @@ tail(penguins)
 
 1a. Get the summary of the tide pool metadata. What's the mean tidepool volume?
 
-1c. Get the head() and the tail() of the tide pool metadata. How many rows does this data frame have?
+1c. Get the head and the tail of the tide pool metadata. How many rows does this data frame have?
 :::
 
 ## Values, Variables, and Vectors
 
-Looking at the summary of penguins reveals this is an 8 variable data frame: 3 categorical variables (species, island, sex), 4 numeric variables (bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g), and 1 integer variable (year).
+Looking at the summary of `penguins` reveals this is an 8 variable data frame: 3 categorical variables (species, island, sex), 4 numeric variables (bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g), and 1 integer variable (year).
 
 To check what kind of variable is contained within a data frame object, you use the `class()` command.
 
@@ -127,7 +140,7 @@ The command is broken down as `class(x$variable)` where `x` is the data frame ob
 class(penguins$species)
 ```
 
-This returns the class of the variable species extracted from the penguins data frame. You should see "factor" in your own .rmd.
+This returns the class of the variable species extracted from the `penguins` data frame. You should see "factor" in your own .rmd, like above.
 
 It's important you understand and can differentiate between the **atomic data types** you might encounter when using `R`. However, for this class and likely beyond, you'll only really need to focus on the first four.
 
@@ -138,7 +151,7 @@ It's important you understand and can differentiate between the **atomic data ty
 | Character | Text strings wrapped in single or double quotes, categorical variables with no numerical value. | "`hello`" or "`yes`" or "`female`" | "`factor`" | Names, descriptive labels, text data |
 | Logical | Boolean states representing truth values. | `TRUE` and/or `FALSE` | "`logical`" | Filtering data, evaluating conditions |
 | Complex | Numbers containing real and imaginary components. | `3 + 2i` | "`complex`" | Purely mathematical or signal functions. |
-| Raw | Unprocessesed binary data stored ad individual bytes. | `as.raw(43)` | "`raw`" | Reading binary files or protocol streams. |
+| Raw | Unprocessessed binary data stored ad individual bytes. | `as.raw(43)` | "`raw`" | Reading binary files or protocol streams. |
 
 In `R`, we have [values]{.underline} (the data), [vectors]{.underline} (the container), and [variables]{.underline} (the names).
 
@@ -150,9 +163,9 @@ In `R`, we have [values]{.underline} (the data), [vectors]{.underline} (the cont
 
 - If you mix data types, `R` forces lower types into higher types (`Logical < Integer < Double < Character`) without throwing an error.
 
-  - For example, `c(5, "Hello")` forces the `5` to become `"5"`.
+  - For example, `c(5, "Hello")` forces the numeric `5` to become a factor `"5"`.
 
-- Access specific elements of a vector by using square brackets `[]`. R uses 1-based indexing, so the first element is at position `1`.
+- Access specific elements of a vector by using square brackets `[]`. `R` uses 1-based indexing, so the first element is at position `1`.
 
 ```{r}
 # create a numeric vector
@@ -177,18 +190,18 @@ print(fruits)
 
 ```{r}
 # assigning a new value will un-write the previously assigned content of "fruits"
-fruits <- c("lettuce", "carrots", "celery")
+fruits <- c("lettuce", "carrots", "celery") 
 print(fruits)
 ```
 
 We use the `print()` function to give the output or generate the contents of a vector or object into the `R` Console.
 
-All R statements where you create objects , assignment statements, have the same form: `object_name <- value`. Again, don't use `=`. It's just confusing.
+All `R` statements where you create objects , assignment statements, have the same form: `object_name <- value`. Again, don't use `=`. It's just confusing.
 
 ::: callout-tip
-Getting tired of continuously, manually typing `<-` ? Well, you're just in luck because statisticians and those who use `R` agreed with that sentiment, so there's actually now a keyboard shortcut! Just type **Alt** + **-** and voila! You're very own assignment argument.
+Getting tired of continuously, manually typing `<-` ? Well, you're just in luck!! Statisticians and those who use `R` agree with that sentiment, so there's actually a keyboard shortcut! Just type **Alt** + **-** and voila! You're very own assignment argument.
 
-This is also great because `R` automatically gives you spaces on both sides of the assignment arrow, which (again) is good coding practice and etiquette. Code is miserable to read on a good day, so giveyourselfabreak and [***use spaces***]{.underline}.
+This is also great because `R` automatically gives you spaces on both sides of the assignment arrow, which (again) is good coding practice and etiquette. Code is miserable to read on a good day, so giveyourselfabreakand [***use spaces***]{.underline}.
 :::
 
 This harkens back to our code etiquette tutorial, but please ensure you're giving your assigned objects, vectors, data frames (or literally everything else) a descriptive name. In this course, I'd like you to use `snake_case`, where you will separate lowercase words of a named object with `_`.
@@ -200,11 +213,11 @@ some.people.use.periods
 And_aFew.People_RENOUNCEconvention.like_fre_AKS
 ```
 
-Sometimes the data you have doesn't match your coding conventions. Our tide pool meta data mixes `snake_case` and `camelCase`. This often happens with data sets that include multiple contributors and is actually a common issue.
+Sometimes the data you have doesn't match your coding conventions. Our tide pool meta data mixes `snake_case` and `camelCase`. This is a very common issue and often happens with data sets that include multiple contributors.
 
 It is best practice to *agree* and *stick to* a single convention when collaborating. To maintain continuity, you can rename variables using your agreed-upon convention.
 
-For us, this convention is `snake_case`. To do this, you can use `dplyr::` or base `R`. We'll learn more about dplyr:: in a moment but for now, lets learn how to do this in base `R`.
+For us, this convention is `snake_case`. To do this, you can use `dplyr` or base `R`. We'll learn more about `dplyr` in a moment, but for now lets learn how to do this in base `R`.
 
 ```{r, eval = FALSE}
 # explicit name matching in base R to re-name data frame variables
@@ -221,14 +234,16 @@ names(data) <- c("column_1", "column_2", "column_3", "column_4")
 
 2a. What is the atomic data type of tide pool size? How many tide pool sizes are there?
 
-2b. Rename the tidepool metadata object (if you haven't already) using the `snake_case` convention.
+2b. Rename the tidepool metadata object (if you haven't already) using `snake_case` convention.
 
-2c. Rename all variables in your new tide pool data frame to match snake_case conventions.
+2c. Rename all variables in your new tide pool data frame to match `snake_case` conventions.
 :::
 
-## Data Transformation with dplyr:: and Piping
+## Data Transformation with dplyr
 
-If you've noticed the double semi-colon after certain names of things (e.g., `knitr::` , `ggplot::` , `dplyr::`) this is an easy indication I am talking about a package. When installing packages that overwrite previously installed or loaded packages in `R`, but you still want to use those functions, you'll need to specify what package relates to what function. The two most common conflicts are two functions from the `stats::` package (which is pre-loaded in base `R`).
+If you've noticed the double semi-colon after certain names of things (e.g., `knitr::` , `ggplot::` , `dplyr::`) this is an easy indication I am talking about a **package**.
+
+When installing packages that overwrite previously installed or loaded packages in `R`, but you still want to use those functions, you'll need to specify what package relates to what function. The two most common conflicts are two functions from the `stats::` package (which is pre-loaded in base `R`).
 
 ```{r, eval = FALSE}
 stats::filter()
@@ -236,13 +251,13 @@ stats::filter()
 stats::lag()
 ```
 
-If you receive conflict messages when running filter() or lag(), it's likely because you've overwritten one or the other with either `stats::` or `dplyr::`. Use the package that correlates to the command you're trying to execute.
+If you receive conflict messages when running `filter()` or `lag()`, it's likely because you've overwritten one or the other with either `stats::` or `dplyr::`. Use the package that correlates to the command you're trying to execute by indicating so with `::`.
 
 ### Install and Load dplyr
 
-To transform our data, we will be using the `dplyr` package, which is a small component of the tidyverse package suite. If you haven't done so before, install and load the `tidyverse` and `dplyr` package in your setup chunk of your Tutorial 1 .rmd.
+To transform our data, we will be using the `dplyr` package, which is a small component of the tidyverse package suite. If you haven't done so before, install and load the `tidyverse` and `dplyr` packages in your setup chunk of your Tutorial 1 .rmd.
 
-```{r, echo = FALSE}
+```{r, eval = FALSE}
 install.packages(c("tidyverse", "dplyr"))
 
 # load multiple packages at once
@@ -250,11 +265,11 @@ CRAN_packages <- c("tidyverse", "dplyr")
 lapply(CRAN_packages, library, character.only = TRUE)
 ```
 
-CRAN packages are packages are add-on modules written for `R` by other programmers. `lapply()` applies your vector `CRAN_packages` using the `library()` function, ensuring `R` passes your string of variables (your packages) in your vector as actual package names `R` will recognize.
+CRAN packages are add-on modules written for `R` by other programmers. `lapply()` applies your vector `CRAN_packages` using the `library()` function, ensuring `R` passes your string of variables (your packages) in your vector as actual package names `R` will recognize. This allows you to load multiple packages at once without having to retype `library()` over and over.
 
 ### dplyr Basics
 
-There are five key functions that make dplyr extraordinarily valuable for data visualization and analysis.
+There are five key functions that make `dplyr` extraordinarily valuable for data visualization and transformation.
 
 1.  Pick observations by their values using `filter()`
 2.  Reorder rows with `arrange()`
@@ -272,39 +287,39 @@ Do these things and you can successfully manipulate any data frame.
 
 ### Filter Rows with filter()
 
-filter() subsets observations based on their values followed by a logical operator that you provide. For example, say I want to only look at Chinstrap penguin measurements from 2007.
+`filter()` subsets observations based on their values followed by a logical operator that you provide. For example, say I want to only look at Chinstrap penguin measurements from 2007.
 
 ```{r}
 filter(penguins, species == "Chinstrap", year == 2007)
 ```
 
-dplyr functions never modify their inputs, so if you want to save the result you'll need to use the assignment operator.
+`dplyr` functions never permanently modify their inputs, so if you want to save the result, you'll need to use an assignment `<-` operator.
 
 ```{r}
 chinstrap_2007_df <- filter(penguins, species == "Chinstrap", year == 2007)
 ```
 
-R will either print out the results or save them into a variable without printing. If you want to print and save it, wrap the entire argument in parentheses.
+`R` will either print out the results if you explicilty ask using `print()`, or save them into a variable without printing. If you want to print and save it, wrap the entire argument in parentheses.
 
 ```{r}
 (chinstrap_2007_df <- filter(penguins, species == "Chinstrap", year == 2007))
 ```
 
-To filter effectively, you need to understand how to correctly select comparison and logical operators. R gives you quite a few:
+To filter effectively, you need to understand how to correctly select comparison and logical operators. `R` gives you quite a few:
 
-- \>, greater than
+- `>`, greater than
 
-- \>=, greater than or equal to
+- `>=`, greater than or equal to
 
-- \<, less than
+- `<`, less than
 
-- \<=, less than or equal to
+- `<=`, less than or equal to
 
-- !=, not equal to
+- `!=`, not equal to
 
-- ==, equal to
+- `==`, equal to
 
-Boolean operators combine comparisons and logical operators when you'd like to filter multiple things at once. This is where filtering is the most confusing. Even after 4 years of using `dplyr` consistently, I am still struggling to understand this. So, I am under no expectation that you are to master this, I am simply giving you this information and you may do with it what you'd like.
+Boolean operators combine comparisons and logical operators when you'd like to filter multiple things at once. This is where filtering is the most confusing. Even after 4 years of using `dplyr` consistently, I am still struggling to understand this. So, I am under no expectation that you are to master this, I am simply giving you this information, and you may do with it what you'd like.
 
 Boolean Operations are as follows:
 
@@ -322,7 +337,7 @@ Say, for example I'd like to find penguins that were measured in 2007 or 2008.
 filter(penguins, year == 2007 | year == 2008)
 ```
 
-This reads in plain English as "find all penguins measures in year 2007 or year 2008". You can also simplify if you're filtering the data frame by the same variable by using `x %in% y`.
+This reads in plain English as "find all penguins measured in year 2007 or year 2008". You can also simplify if you're filtering the data frame by the same variable by using `x %in% y`.
 
 ```{r}
 filter(penguins, year %in% c(2007,2008))
@@ -374,7 +389,7 @@ fake_data <- tibble(x = c(1, NA, 3))
 filter(fake_data, x > 1)
 ```
 
-But perhaps we'd like to include all rows, even if they have NAs, then you'd then explicitly ask R to do so.
+But perhaps we'd like to include all rows, even if they have NAs, then you'd explicitly ask `R` to do so.
 
 ```{r}
 filter(fake_data, is.na(x) | x > 1)
@@ -387,3 +402,153 @@ filter(fake_data, is.na(x) | x > 1)
 
 3b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).
 :::
+
+### Arrange Rows with arrange()
+
+`arrange()` changes the orders of rows, which can be useful when plotting or doing ranked statistical analyses.
+
+```{r}
+arrange(penguins, bill_length_mm, bill_depth_mm)
+```
+
+`arrange()` automatically sorts the values of bill_length_mm and bill_depth_mm in ascending order. If I wanted these variables to be in descending order, I'd specify with `desc()`.
+
+```{r}
+arrange(penguins, desc(bill_length_mm), desc(bill_depth_mm))
+```
+
+If you provide more than one column when arranging, each additional column will be used to break ties in the values of preceding columns. Above, we've arranged penguin observations by largest bill length, further sorted by largest bill depth. See what happens to the first few rows when we instead sort by bill_depth_mm first.
+
+```{r}
+arrange(penguins, desc(bill_depth_mm), desc(bill_length_mm))
+```
+
+Two Adelie observations have the same value for bill_depth_mm, therefore arrange will then "rank" the individual by the other specified column in arrange.
+
+Missing values are always sorted at the end:
+
+```{r}
+tail(arrange(penguins, desc(bill_depth_mm), desc(bill_length_mm)))
+```
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Do It Yourself T1-4**
+
+4a. How could you use `arrange()` to sort all missing values to the start? (HINT: try using `is.na()`).
+
+4b. In the tide pool data frame, arrange our observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.
+:::
+
+### Select Columns with select()
+
+Its not uncommon to receive data sets with hundreds or maybe even thousands of variables. Working with a data frame that dense is computationally expensive, so sub-setting down to the variables of interest is best practice when dealing with data like this. `select()` gives you the power to accomplish this.
+
+```{r}
+# select columns of interest
+select(penguins, species, island, sex, year)
+
+# select all columns between species and flipper_length_mm
+select(penguins, species:flipper_length_mm)
+
+# select all columns except those from species to flipper_length_mm
+select(penguins, -(species:flipper_length_mm))
+```
+
+I often use `select()` to make my data transformations more exclusive in a sub-set. I will ask you to select variables when preparing for statistical analyses, to prevent influence or leverage from unwanted values in your analysis.
+
+Additional helper functions that come along with select() include:
+
+- `starts_with("abc")` would match names that begin with "abc".
+
+- `ends_with("xyz")` would matches names that end with "xyz".
+
+- `contains("ijk")` would match names that contain "ijk".
+
+Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command `rename()`!
+
+```{r, eval = FALSE}
+rename(example_data, old_col_name1 = new_col_name1, old_col_name2 = new_col_name2)
+```
+
+### Add New Variables with mutate()
+
+Adding new columns or variables that are functions of existing columns is exactly where mutate() comes in.
+
+```{r}
+# create a smaller sub-set of data to work with
+penguins_reduced <- select(penguins, species, bill_length_mm, bill_depth_mm)
+
+# mutate to add column that calculates bill volume (BTW this is not a real measurement metric that opthimologists use, just an example I'm using for this)
+mutate(penguins_reduced,
+       bill_volume = bill_length_mm * bill_depth_mm)
+```
+
+The `*` is the multiplication mathematical operation we use in R. Other mathematical operations you might encounter include:
+
+- `-` = subtraction
+
+- `/` = division
+
+- `+` = addition
+
+- `sqrt()` = square root
+
+- `log()` = log
+
+### Group Summaries with summarize()
+
+Retrieve mean, medians, standard deviations, standard errors, and more with `summarize()`. Run the code below.
+
+```{r}
+summarize(penguins, mean_bill_length_mm = mean(bill_length_mm))
+```
+
+Ruh roh... Okay that went wrong fast. Well, do you recall when I was talking about how missing values can muck up your code earlier in the tutorial? Well the `penguins` data frame includes a few rows that have `NA` observations. To run summaries that include rows with NAs, use `na.rm = TRUE`.
+
+```{r}
+summarize(penguins, mean_bill_length_mm = mean(bill_length_mm, na.rm = TRUE))
+```
+
+`na.rm = TRUE` tells `R` to remove any missing values prior to computation. You could also leverage `filter()` to simply exclude any rows with NA observations prior to computation.
+
+```{r}
+penguins_no_na <- filter(penguins, !is.na(bill_length_mm))
+
+summarize(penguins_no_na, mean_bill_length_mm = mean(bill_length_mm, na.rm = TRUE))
+```
+
+`summarize()` can do quick, general calculations for you, or can be used in tandem with `group_by()` to get grouped summary stats.
+
+```{r}
+penguins %>% 
+  group_by(species) %>%
+  summarize(species_bill_means = mean(bill_length_mm, na.rm = TRUE))
+```
+
+Okay, now if you've never seen a pipe before (or have no idea what a pipe even is (and no I don't mean like the plumbing type of pipe)), this might look like complete and total gibberish. **However, I think this is the most valuable skill I want you to take away from this tutorial: stringing together commands with pipes** `%>%`.
+
+### Combining Multiple Operations with the Pipe
+
+Imagine that I'd like to get the mean of bill length and bill depth by species on each island from 2007 and 2008. You could do this step-by-step by:
+
+1.  selecting variables of interest
+2.  filtering out observations from 2009
+3.  grouping by species and island
+4.  summarizing your variables
+
+Doing it like this is why people might come to hate coding, because this would be time intensive and yield a higher risk of making an up-stream mistake that would don't catch until the very end. However, what if I told you all of this can be done in one consecutive "line" of code? Take a look at the following:
+
+```{r}
+penguins_bills <- penguins %>%
+  select(species, island, bill_length_mm, bill_depth_mm) %>%
+  filter(!is.na(bill_length_mm)) %>%
+  group_by(species, island) %>%
+  summarize(mean_length = mean(bill_length_mm),
+            mean_depth = mean(bill_depth_mm))
+```
+
+You should read this code as a series of interpretive statements: using the penguins data set select the variables **then** filter the NAs **then** group by the categories of interest **then** summarize. A pipe follows every primary command you're asking `R` to compute, stringing them all together as one whole operation and saving it in a new data frame. You use pipes sequentially (left to right, top to bottom) which means you can un-write or over-write previous work in the same pipe string. Don't do this. This is bad code practice. I will be sad.
+
+**Working with the pipe is one of the key features of the tidyverse that make it so powerful.** The only exception to this, however, is `ggplot2`, which was written before the pipe was discovered. However, you can still string together piped, `dplyr` operations when plotting in ggplot2. I'll show you how to do that next as we learn...
+
+## How to Plot and Visualize Data with ggplot2

@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Tutorial 0 – EVE 113 R Bootcamp</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">EVE 113 R Bootcamp</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./getting-started.html"> 
+<span class="menu-text">Getting Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./code-etiquette.html"> 
+<span class="menu-text">Code Etiquette 101</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./tutorial-0.html" aria-current="page"> 
+<span class="menu-text">Tutorial 0</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./tutorial-1.html"> 
+<span class="menu-text">Tutorial 1</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#r-and-rmarkdown-basics" id="toc-r-and-rmarkdown-basics" class="nav-link active" data-scroll-target="#r-and-rmarkdown-basics">R and RMarkdown Basics</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#tour-de-rstudio" id="toc-tour-de-rstudio" class="nav-link" data-scroll-target="#tour-de-rstudio">Tour De RStudio</a></li>
+  <li><a href="#setting-your-working-directory" id="toc-setting-your-working-directory" class="nav-link" data-scroll-target="#setting-your-working-directory">Setting your working directory</a>
+  <ul class="collapse">
+  <li><a href="#option-1-manually-set-your-working-directory" id="toc-option-1-manually-set-your-working-directory" class="nav-link" data-scroll-target="#option-1-manually-set-your-working-directory">Option 1: Manually set your working directory</a></li>
+  <li><a href="#option-2-point-and-click-approach-in-rstudio" id="toc-option-2-point-and-click-approach-in-rstudio" class="nav-link" data-scroll-target="#option-2-point-and-click-approach-in-rstudio">Option 2: Point-and-Click Approach in RStudio</a></li>
+  <li><a href="#optional-option-3-working-with-rstudio-rprojects" id="toc-optional-option-3-working-with-rstudio-rprojects" class="nav-link" data-scroll-target="#optional-option-3-working-with-rstudio-rprojects">(Optional) Option 3: Working with RStudio Rprojects</a></li>
+  </ul></li>
+  <li><a href="#understanding-absolute-and-relative-paths" id="toc-understanding-absolute-and-relative-paths" class="nav-link" data-scroll-target="#understanding-absolute-and-relative-paths">Understanding Absolute and Relative Paths</a></li>
+  <li><a href="#creating-a-new-rmarkdown-file" id="toc-creating-a-new-rmarkdown-file" class="nav-link" data-scroll-target="#creating-a-new-rmarkdown-file">Creating a new Rmarkdown File</a>
+  <ul class="collapse">
+  <li><a href="#setting-chunk-output-to-console" id="toc-setting-chunk-output-to-console" class="nav-link" data-scroll-target="#setting-chunk-output-to-console">Setting Chunk Output to Console</a></li>
+  </ul></li>
+  <li><a href="#commenting-on-code" id="toc-commenting-on-code" class="nav-link" data-scroll-target="#commenting-on-code">Commenting on Code</a></li>
+  <li><a href="#rmarkdown-chunk-options" id="toc-rmarkdown-chunk-options" class="nav-link" data-scroll-target="#rmarkdown-chunk-options">RMarkdown Chunk Options</a></li>
+  <li><a href="#adding-a-code-chunk-in-rmarkdown" id="toc-adding-a-code-chunk-in-rmarkdown" class="nav-link" data-scroll-target="#adding-a-code-chunk-in-rmarkdown">Adding a Code Chunk in RMarkdown</a></li>
+  <li><a href="#saving-and-knitting-your-rmarkdown-file" id="toc-saving-and-knitting-your-rmarkdown-file" class="nav-link" data-scroll-target="#saving-and-knitting-your-rmarkdown-file">Saving and Knitting Your RMarkdown File</a></li>
+  <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review">Review</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tutorial 0</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="r-and-rmarkdown-basics" class="level1">
+<h1>R and RMarkdown Basics</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1208279086.png" class="img-fluid figure-img"></p>
+<figcaption>Cyanobacterial growth in a lake | Photo Credit: Rebecca North</figcaption>
+</figure>
+</div>
+<p>Welcome to your “first” R bootcamp tutorial! Well, technically this is tutorial 0, but this lesson will form the foundational knowledge you will need to start learning the basics of coding in R! Let’s get started…</p>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li><p>Be able to describe and navigate the RStudio computing environment.</p></li>
+<li><p>Learn how to set your working directory and understand pathing in a computing environment.</p></li>
+<li><p>Learn how to create new script and .rmd files.</p></li>
+<li><p>Be able to set evaluations and customizations in .rmd code chunks with knitr::.</p></li>
+<li><p>Understand good code etiquette and commenting guidelines, especially with research reproducibility in mind.</p></li>
+</ol>
+</section>
+<section id="tour-de-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="tour-de-rstudio">Tour De RStudio</h2>
+<p>Start by opening the RStudio application.</p>
+<p>If you’re opening RStudio for the first time this might be quite overwhelming. Fear not, this will become more familiar over the course of the next 6 weeks.</p>
+<p>For now, let’s break this down as if you were currently working on a project:</p>
+<p><img src="images/clipboard-2988999930.png" class="img-fluid"></p>
+<ul>
+<li><p>At the top of your interface you have your <strong>menu</strong> and <strong>script tab</strong>. This is where the data sets and files you’re actively working on live. You can easily navigate between files like you would between tabs on a search engine.</p></li>
+<li><p>Below these tabs is your <strong>code editor.</strong> This is where the permanent, written down portions of your code live.</p></li>
+<li><p>Below the code editor is the <strong>Console</strong>, <strong>Terminal</strong>, and <strong>Background Jobs</strong> windows. The Console is where outputs from your commands are printed (depending on your global chunk options). You can also type commands directly into the Console.</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Typing code directly into the Console <u>will not</u> permanently save any of your work after you close out of your current RStudio session.</strong></p>
+<p>I highly recommend conducting all your coding for this course in the code editor rather than in the console.</p>
+</div>
+</div>
+<ul>
+<li><p>The far right top window is your <strong>Environment</strong> - where all your data sets and vectors live. To view any of these in full screen you can simply press on the blue and white play button to the left of the vector name and it will open up in the script tab.</p></li>
+<li><p>The bottom right of the screen is where <strong>Help</strong> prompts and <strong>Plots</strong> can be viewed. You can also view files in your working directory from here by navigating to the <strong>Files</strong> window.</p></li>
+</ul>
+<p>Now your RStudio won’t look exactly like that above screenshot when you open it for the first time. Instead, it will look more like the screenshot below.</p>
+<p>Firstly, direct your attention to the top tab that says Console, Terminal, and Background Jobs.</p>
+<p><img src="images/clipboard-387131248.png" class="img-fluid" width="450"></p>
+<p>Again, the <strong>Console</strong> is where <u>you code directly with <code>R</code> and where outputs to commands will <strong>print</strong></u>.</p>
+<p>Find the point where your cursor is blinking towards the bottom. The <code>&gt;</code> indicates the <strong>Prompt</strong> space. This is where you can type your commands directly into the Console.</p>
+<p><img src="images/clipboard-3133842425.png" class="img-fluid" width="450"></p>
+</section>
+<section id="setting-your-working-directory" class="level2">
+<h2 class="anchored" data-anchor-id="setting-your-working-directory">Setting your working directory</h2>
+<p>Now, we’re going to type out our first ever command into the <strong>Console</strong>! Yay! Go ahead and either manually type or copy/paste the command below then press ‘return’ or ‘Enter’ on your keyboard.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Congrats!! You’ve now typed your first command in <code>R</code>. This should result in a response being <strong>printed</strong> below your command that looks (something) like this:</p>
+<p><img src="images/clipboard-4144521823.png" class="img-fluid" width="672"></p>
+<p>Above, you asked <code>R</code> to “get my working directory” with the command <code>getwd()</code> by using the starting prompt <code>&gt;</code> in the Console; A response was printed after you hit Enter.</p>
+<p>This is lot’s of new vocabulary, so lets zoom it in and break it down.</p>
+<p><img src="images/clipboard-53264308.png" class="img-fluid"></p>
+<p>Here you’ve <strong>commanded</strong> <code>R</code> to <code>getwd()</code> and it <strong>prints</strong> your <u>response</u>, above a new <strong>prompt</strong> line.</p>
+<p>This is how <code>R</code> works (for the most part). You type a command in the Console (or in a <code>R</code> chunk) and it will either:</p>
+<ol type="1">
+<li><p>Print a response for you in the Console.</p></li>
+<li><p>Open file into the script tab.</p></li>
+<li><p>Open a plot on the bottom right.</p></li>
+<li><p>Open the help window.</p></li>
+</ol>
+<p>As you can see, when I run the command <code>getwd()</code>, it tells me that my current <strong>working directory</strong> is a general space on my computer called <code>/Users/loganstory</code>. What this really means is that when I try to read new files into <code>R</code>, or “write” files out of <code>R</code>, it will assume that I want to put them in this general folder.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As a good practice, <em>getting</em> and <em>setting</em> your <strong>working directory</strong> is one of the first things you want to do when starting a new project, document, or script file. Doing this tells R where to <u>locate</u> and <u>save</u> files as your work on your code.</p>
+</div>
+</div>
+<p>There are <strong>two</strong> methods to set your working directory…</p>
+<section id="option-1-manually-set-your-working-directory" class="level3">
+<h3 class="anchored" data-anchor-id="option-1-manually-set-your-working-directory">Option 1: Manually set your working directory</h3>
+<p>In order to change your working directory manually, we will use the <code>setwd()</code> command.</p>
+<p>For example, if I wanted to change my working directory to an existing folder called <em><code>R-bootcamp</code></em> located on my <em><code>Desktop</code></em> under my <em><code>PhD</code></em> and <em><code>Teaching</code></em> folders, I’d run the following code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/loganstory/Desktop/PhD/Teaching/R Bootcamp/R-bootcamp"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This is the directory path R will now use when searching and saving files as I work: Users &gt; loganstory &gt; Desktop &gt; PhD &gt; Teaching &gt; R Bootcamp &gt; R-bootcamp. The “&gt;” indicates the directionality that <code>R</code> is searching in my computer for the workspace.</p>
+</section>
+<section id="option-2-point-and-click-approach-in-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="option-2-point-and-click-approach-in-rstudio">Option 2: Point-and-Click Approach in RStudio</h3>
+<p>The second option to set your working directory is the point-and-click approach (I personally prefer setting my directory manually, but others might like this better).</p>
+<p>To do this:</p>
+<ol type="1">
+<li><p>Go to <strong>Session</strong> in the menu.</p></li>
+<li><p>Select <strong>Set Working Directory</strong>.</p></li>
+<li><p>Choose <strong>Choose Directory…</strong> and navigate to the desired folder on your computer.</p></li>
+</ol>
+<p><img src="images/clipboard-1113837578.png" class="img-fluid" width="450"></p>
+</section>
+<section id="optional-option-3-working-with-rstudio-rprojects" class="level3">
+<h3 class="anchored" data-anchor-id="optional-option-3-working-with-rstudio-rprojects">(Optional) Option 3: Working with RStudio Rprojects</h3>
+<p><img src="images/clipboard-2087124086.png" class="img-fluid" width="178"></p>
+<p>RStudio Projects provide a convenient way to manage and organize your data analysis work. <strong>Instead of setting your working directory every time, you can work within a Rproject and won’t have to worry about setting a working directory every time you make a new file.</strong></p>
+<p>A project creates an isolated workspace, ensuring that all files, data, and settings are kept together. This helps maintain a clear and organized workflow, especially for complex or long-term projects. We won’t be using projects in this course, but this is yet another option at your disposal (if you so choose).</p>
+<p>To create a new project in RStudio, you can take two different point-and-click approaches:</p>
+<p><strong>Point-and-Click in the Menu:</strong></p>
+<ol type="1">
+<li><p>Click on <strong>File</strong> in the menu.</p></li>
+<li><p>Select <strong>New Project…</strong>.</p></li>
+<li><p>Choose <strong>New Directory</strong> for a new project or <strong>Existing Directory</strong> to use an existing folder.</p></li>
+<li><p>Follow the prompts to set up your project.</p></li>
+</ol>
+<p><strong>Point-and-click in RStudio:</strong></p>
+<ol type="1">
+<li><p>Go to the top right corner and select the <strong>Project: (None)</strong> icon (should look like a little R in a 3-d cube).</p></li>
+<li><p>Select <strong>New Project</strong>.</p></li>
+</ol>
+<p><img src="images/clipboard-710576101.png" class="img-fluid" width="450"></p>
+<ol start="3" type="1">
+<li>Select <strong>New Directory</strong> -&gt; <strong>New Project</strong>.&nbsp;</li>
+<li>Name your project and select a directory (i.e., folder where you are working).</li>
+<li>Click <strong>Create Project</strong>.</li>
+</ol>
+</section>
+</section>
+<section id="understanding-absolute-and-relative-paths" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-absolute-and-relative-paths">Understanding Absolute and Relative Paths</h2>
+<p>For the sake of this course (and these tutorials), I’d like you to make a folder to set as your working directory before we proceed any further. You can use the following template if you’d like to keep things simple:</p>
+<ol type="1">
+<li>Create a primary folder on your desktop called <strong>EVE 113</strong>.</li>
+<li>Create a sub-folder inside <strong>EVE 113</strong> called <strong>Coding Tutorials</strong> – (this will let you keep coding tutorial work and class coding work separate from one another).</li>
+<li>Create another sub-folder called <strong>Tutorial 0</strong>.</li>
+</ol>
+<p>The <strong>path</strong> you’ve just created will be something along the lines of:</p>
+<div class="line-block"><code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials</code></div>
+<p>A <strong>file path</strong> tells you (and your computer) the exact place you can locate a file. Paths can either be <u>absolute</u> or <u>relative</u>. You use different paths, in different scenarios, to set your working directory.</p>
+<p>An <strong>absolute</strong> path would be something like…</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 0"</span>) <span class="co"># on macOS</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>or</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:\Users\yourusername\Desktop\EVE 113\Coding Tutorials\Tutorial 0"</span>) <span class="co"># on Windows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p>Here the working directory is explicitly specified (<code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials</code>).</p></li>
+<li><p>It includes the set destination for a file (<code>/Tutorial 0</code>, or essentially where you want to go with the path).</p></li>
+</ul>
+<p>A <strong>relative</strong> path would be something like…</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"./Tutorial 0"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p>Here, the working directory is implicitly specified.</p></li>
+<li><p>A <code>.</code> before the forward or backslash indicates you are moving <em>down</em> the path, whereas <code>..</code> indicates movement <em>up</em> the path.</p></li>
+</ul>
+<p>This idea is simply illustrated here:</p>
+<p><img src="images/clipboard-1258135516.png" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p><strong>EXAMPLE</strong></p>
+<p>larry or nelle can set their working directory as <code>/Users/larry</code> or <code>/Users/nelle</code>.</p>
+<p>If either of them wanted to access a file called ‘image.png’ inside their working directory they would use the path <code>./image.png</code>.</p>
+<p>If either of them wanted to access a filed called ‘image.png’ <em>outside</em> of their working directory under <code>data</code>, they would use an absolute path of <code>/data/Documents/image.png</code>.</p>
+</blockquote>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Do It Yourself T0.1</strong></p>
+<p>1a. Using the Console, set your working directory to the <strong>Tutorial 0</strong> folder.</p>
+<p>1b. Use a command to print your working directory.</p>
+<p>1c. Change your working directory back to your <strong>root</strong> directory.</p>
+</div>
+</div>
+</div>
+<p>Understanding the path concept will help you when saving, accessing, and moving around your internal operating system. If you encounter problems setting your working directory, try restarting the RStudio application before seeking further assistance.</p>
+</section>
+<section id="creating-a-new-rmarkdown-file" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-new-rmarkdown-file">Creating a new Rmarkdown File</h2>
+<p>A .rmd (or Rmarkdown) file is a type of <code>R</code> script file that allows you to provide detailed descriptions of your code, analyses, and even interpretation.</p>
+<p>Rmarkdown files also are also great for creating class assignments, writing manuscript code, or even cross-working between two different code languages (like <code>R</code> and <code>python</code>, for example). It’s also has integrated tools to help with improving reproducibility, including both a visual and source code editor. These tutorials were written in a similar interface known as a quarto website, which functions relatively similarly to a Rmarkdown file.</p>
+<p>To make a new .rmd file, go through the following steps:</p>
+<ol type="1">
+<li><p>Set your working directory.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusenamehere/Desktop/EVE 113/Coding Tutorials/Tutorial 0"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+<li><p>Check that you’ve successfully changed your working directory.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+<li><p>Proceed to the top left corner and click the <strong>New File</strong> icon.</p></li>
+<li><p>Scroll down and select <strong>R Markdown</strong>…</p>
+<p><img src="images/clipboard-2120255914.png" class="img-fluid" width="573"></p></li>
+<li><p>When the document window pops up, title your new .rmd “Tutorial 0”.</p></li>
+<li><p>Select your <strong>Default Output Format</strong>. This will be what your file will be saved as when you Knit your .rmd. Any format will do for the sake of this tutorial, but I often prefer HTML.</p></li>
+<li><p>Click <strong>Okay</strong>.</p></li>
+</ol>
+<p>Your .rmd document should be created! There’s already a lot of text included in the base Rmarkdown document, but some of it should help with getting oriented. Go ahead and take a minute to explore.</p>
+<p><img src="images/clipboard-2139477287.png" class="img-fluid"></p>
+<p>Start by pressing the green play button (which is the <strong>Run Current Chunk</strong> button) to the right corner of <u>Chunk 1</u> (which begins at line 8).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>You can also run individual lines of code by pressing the ‘<strong>control ^</strong>’ and ‘<strong>return</strong>’ keys on your keyboard at the same time.</strong></p>
+<p>If you want to run the entire chunk of code at once, you can use the <strong>Run Current Chunk</strong> button.</p>
+</div>
+</div>
+<p>The line <code>knitr::opts_chunk$set(echo = TRUE)</code> in code chunk 1 is used in Rmarkdown documents to globally configure code chunks so that the underlying source code is visible in the final rendered output.</p>
+<p>Here, you’re using the package <strong>knitr::</strong> to set any <em>outputs</em> you run in Rmarkdown to be included when you <strong>knit</strong> the final document. This code chunk is automatically included in all .rmd files you create unless you personalize your RStudio otherwise. We won’t worry about this too much for now.</p>
+<p>Scroll down to the second code chunk.</p>
+<p>Run chunk 2. You should see a new output print diretly below your code chunk inside the code editor AND the Console.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     speed           dist       
+ Min.   : 4.0   Min.   :  2.00  
+ 1st Qu.:12.0   1st Qu.: 26.00  
+ Median :15.0   Median : 36.00  
+ Mean   :15.4   Mean   : 42.98  
+ 3rd Qu.:19.0   3rd Qu.: 56.00  
+ Max.   :25.0   Max.   :120.00  </code></pre>
+</div>
+</div>
+<p>This is the output of the command <code>summary(cars)</code>.</p>
+<p><img src="images/clipboard-2280816900.png" class="img-fluid"></p>
+<p>Here, <code>R</code> is providing a <code>summary()</code> of the data set <code>cars</code>.</p>
+<p>Now you may be asking yourself, “where did this data set come from??? I don’t have any data sets in my computer called <code>cars</code>.” You’d be 100% correct!</p>
+<p>You <em>don’t</em> have a data set called <code>cars</code> on your computer, but RStudio <em>does</em>. This is one of the “native” data sets included in the <code>R</code> and Rstudio computing environment. These can be used to practice data manipulation and visualization and we will use a few of these throughout these tutorials.</p>
+<p>The data gives the speed of cars and the distances taken to stop. The data was recorded in the 1920s. <code>cars</code> is data frame with 50 observations on 2 variables.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><strong>Variable</strong></td>
+<td><strong>Variable Type</strong></td>
+<td><strong>Unit</strong></td>
+</tr>
+<tr class="even">
+<td>speed</td>
+<td>numeric</td>
+<td>Speed (mph)</td>
+</tr>
+<tr class="odd">
+<td>dist</td>
+<td>numeric</td>
+<td>Stopping distance (ft)</td>
+</tr>
+</tbody>
+</table>
+<p>We will use <code>cars</code> in this tutorial to explore adding code chunks and running individual lines of code.</p>
+<p>In code chunk 3, there is code to produce a plot. This also makes use of another internal data set called <code>pressure</code>, which is a 2 variable data set exploring the relation between temperature in degrees Celsius and vapor pressure of mercury in millimeters (of mercury).</p>
+<p>Run this code chunk and scroll down to look at the output.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial-0_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img src="images/clipboard-4006929003.png" class="img-fluid"></p>
+<p>You might be quick to notice that this plot output is very large, and you have to scroll far down to even be able to view the entire thing in the code editor. As we progress in this course, we will continue adding multiple lines of code per code chunk and constantly scrolling up and down will become very tiresome very quickly.</p>
+<p>So, whenever we generate a plot or need a summary from our code chunk output, navigating the printed results in the code editor will become cumbersome. <strong>For the purposes of continuity in this class, we will be setting our <u>code chunk outputs</u> to be in the <em>Console</em> instead of <em>inline</em>.</strong></p>
+<section id="setting-chunk-output-to-console" class="level3">
+<h3 class="anchored" data-anchor-id="setting-chunk-output-to-console">Setting Chunk Output to Console</h3>
+<ol type="1">
+<li>Click the wheel icon <img src="images/clipboard-620963695.png" class="img-fluid" width="33"> (a.k.a. the <strong>Format Options</strong> button) below the file tab bar (directly to the right of the knit button).</li>
+<li>Scroll down and select <strong>Chunk Output in Console</strong>.</li>
+<li>RStudio will then ask you if you’d like to remove any inline chunk output you’ve already generated. Click <strong>Remove Output</strong>.</li>
+<li>Run Chunk 3 again. If you did this correctly, you should see the following: <img src="images/clipboard-1337713178.png" class="img-fluid"></li>
+</ol>
+<p>This generates your plots in the <strong>Plot</strong> window at the bottom right of your screen. Here you can navigate between <strong>Files</strong>, <strong>Plots</strong>, and other environmental viewers. Keep the plot tab open for now.</p>
+<p>If you scroll back up to the top of your document you should now see the following at the top:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Tutorial 0"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"You Name Here"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"Todays Date Here"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> html_document</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>editor_options<span class="sc">:</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  chunk_output_type<span class="sc">:</span> console</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You can manually change the chunk output type by simply adding this option at the top of your .rmd manually, like above, but it’s significantly easier to just do the point-and-click method.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Do It Yourself T0-2</strong></p>
+<p>2a. Re-run chunk 2. Find where the new output is.</p>
+<p>2b. We’ve plotted a different internal data set called <code>pressure</code>. Get a summary of <code>pressure</code> without adding a new chunk of code or adding a new line within an already existing chunk of code.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="commenting-on-code" class="level2">
+<h2 class="anchored" data-anchor-id="commenting-on-code">Commenting on Code</h2>
+<p>Adding comments on your code is by far one of the most important data management practices you’ll develop as a scientist. Some code doesn’t inherently call for comments, but it’s good to get into the habit of adding frequent, descriptive comments to your code early on.</p>
+<p><em>The more comments, the better</em> (in my opinion, there is not such thing as too many comments on your code).</p>
+<p>In Rmarkdown, you can also add more detailed text above and below code chunks (like the text included in our new .rmd file we’ve created). In this case, the text in our new document introduces you to Rmarkdown, but in the future we will use this for interpretative comments about our work.</p>
+<p>With the code chunks we already have, lets add some comments. Go ahead and add the following comment next to <code>summary(cars)</code> then run the chunk.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars) <span class="ot">&lt;-</span> gives a summary of the native data set cars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>…that doesn’t work. When you run this, you should receive the following error:</p>
+<blockquote class="blockquote">
+<p>Error: unexpected symbol in “summary(cars) &lt;- gives a”</p>
+</blockquote>
+<p>This means your code is <em>not able to run</em> because <code>R</code> encountered an <em>unexpected symbol</em> in the text you added to the chunk. That’s because <code>&lt;-</code> is an actual <strong>argument</strong> in the <code>R</code> programming language.</p>
+<p>Additionally, there is no such command as <code>gives</code> in <code>R</code>.</p>
+<p>The moment <code>R</code> recognizes something wrong in your code, it won’t run and it will return an <strong>error</strong> or a <strong>warning</strong> message.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>It is always best practice to ensure all of your code runs without any errors or warnings before submitting for a grade.</strong></p>
+<p>A good way to check if your code is running completely without errors or warnings is by scrolling all the way to the bottom of your .rmd and running all the chunks above it. Everything should run synchronously.</p>
+</div>
+</div>
+<p>So, how can we add a comment to our code if we can’t do it that way?? Let’s try something else:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars) <span class="st">"gives a summary of the native data set cars"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Huh… Using quotes around our comment doesn’t work either?? When you do this, you’ll receive the error message:</p>
+<blockquote class="blockquote">
+<p>Error: unexpected string constant in “summary(cars)”gives a summary of the native data set cars””</p>
+</blockquote>
+<p>That is because <code>R</code> is not able to recognize the constraint <code>"gives a summary of the native data set cars"</code> as a part of the code evaluation <code>summary(cars)</code>.</p>
+<p>Let’s try one more thing… Go ahead and edit chunk 2 with the following:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars) <span class="co"># gives a summary of the native data set cars</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Yay!!! It works!!!</p>
+<p>Using a preemptive <code>#</code> before your comment text will turn your comment a different color and <code>R</code> will ignore any text included to the right of it.</p>
+<p>If you press enter to a new line of code, you will need to add another <code>#</code> before any additional comments you make. Essentially, what R is doing is it’s reading what you’ve typed into any code chunk left to right. When it encounters a <code>#</code>, it reads past it until a new line of code begins.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Do It Yourself T0-3</strong></p>
+<p>3a. Add comments to chunk 3 to describe what the command <code>plot()</code> is doing.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="rmarkdown-chunk-options" class="level2">
+<h2 class="anchored" data-anchor-id="rmarkdown-chunk-options">RMarkdown Chunk Options</h2>
+<p>At the end of the document on line 32 (or 33 if you’ve been completing the DIYs as we’ve progressed) there is the following text explaining the code chunk options.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+</div>
+</div>
+<p>RMarkdown <strong>parameters (or chunk options)</strong> allow you to alter <em>individual chunks of code</em> to alter the <strong>code output</strong> in some manner when you knit your final document.</p>
+<p>For the purposes of this course, we will only really care about <code>eval</code>, <code>include</code>, and <code>echo</code>, but know that many (many) more chunk options exist. To find more ways to edit or alter you code chunks, visit <a href="https://www.rob-mcculloch.org/R/rmarkdown-cheatsheet-2.0_from-rstudio-2019-1-7.pdf">this cheat sheet</a>. Chunk options come with an operative argument (like <code>eval</code>) and a conditional statement (like <code>TRUE</code> or <code>FALSE</code>).</p>
+<p>Here’s a quick guide to what these mean below:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eval</code></td>
+<td>dictates whether a code block is actually executed when you render, knit, or compile your document.</td>
+</tr>
+<tr class="even">
+<td><code>include</code></td>
+<td>controls the visibility of a code chunk’s output in your final rendered document.</td>
+</tr>
+<tr class="odd">
+<td><code>echo</code></td>
+<td>controls whether the source code itself appears in your final rendered document. <code>echo = numeric</code> will select specific lines of code to display (e.g., <code>echo = 1:2</code> displays source code lines 1 through 2).</td>
+</tr>
+<tr class="even">
+<td><code>warning</code></td>
+<td>hides or shows package and system warning messages. <code>TRUE</code> (Default) displays warning boxes.</td>
+</tr>
+<tr class="odd">
+<td><code>error</code></td>
+<td>configures how the document compilation responds to failing code. <code>FALSE</code> (Default) halts compilation immediately if a code error occurs.</td>
+</tr>
+<tr class="even">
+<td><code>message</code></td>
+<td>suppresses text notifications like library startup alerts. <code>TRUE</code> (Default) shows messages associated with your code.</td>
+</tr>
+<tr class="odd">
+<td><code>cache</code></td>
+<td>stores code chunk results to optimize future document rendering. <code>FALSE</code> (Default) will re-run every line of code every time you compile or knit your document.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Default chunk options are usually <code>TRUE</code> (unless I’ve specified otherwise above).</p>
+</div>
+</div>
+<p><strong>To add a chunk option you should:</strong></p>
+<ol type="1">
+<li>Place your cursor directly into the code brackets after the <code>r</code>:</li>
+</ol>
+<blockquote class="blockquote">
+<p><code>```{r}</code></p>
+</blockquote>
+<ol start="2" type="1">
+<li>Add a comma after r.</li>
+</ol>
+<blockquote class="blockquote">
+<p><code>```{r, }</code></p>
+</blockquote>
+<ol start="3" type="1">
+<li>Add a chunk option.</li>
+</ol>
+<blockquote class="blockquote">
+<p><code>```{r, echo=TRUE}</code></p>
+</blockquote>
+<ol start="4" type="1">
+<li>To add multiple chunk options, simply add a comma after every option.</li>
+</ol>
+<blockquote class="blockquote">
+<p><code>```{r, echo=TRUE, include=FALSE}</code></p>
+</blockquote>
+</section>
+<section id="adding-a-code-chunk-in-rmarkdown" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-code-chunk-in-rmarkdown">Adding a Code Chunk in RMarkdown</h2>
+<p>Now to add your very own chunk of <code>R</code> code into your new .rmd file!!</p>
+<ol type="1">
+<li><p>Make some space at the bottom of your current .rmd file. One or two lines should be good.</p></li>
+<li><p>Select the <strong>Insert a new code chunk</strong> <img src="images/clipboard-908724409.png" class="img-fluid" width="33"> icon in the menu.</p></li>
+<li><p>Select <strong>Insert a new R chunk</strong>. <img src="images/clipboard-2859250197.png" class="img-fluid" width="34"></p>
+<p><img src="images/clipboard-3560408174.png" class="img-fluid" width="550"></p></li>
+</ol>
+<p>You should now have your very own chunk of R code ready for use.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Do It Yourself T0-4</strong></p>
+<p>In your Brand New Code Chunk™ …</p>
+<p>4a. Plot the <code>cars</code> data. What is the x axis? What is the y axis?</p>
+<p>4b. Add a comment to your <code>cars</code> plot code.</p>
+<p>4c. In this chunk, configure the options so it includes your plot in the final knitted document, but doesn’t include the source code.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-and-knitting-your-rmarkdown-file" class="level2">
+<h2 class="anchored" data-anchor-id="saving-and-knitting-your-rmarkdown-file">Saving and Knitting Your RMarkdown File</h2>
+<p>Finally, to save your RMarkdown document, navigate to the menu and press the ‘Save’ icon.</p>
+<p><img src="images/clipboard-3292907617.png" class="img-fluid"></p>
+<p>If you set your working directory correctly at the beginning of this tutorial, you will be directed to save your Untitled.rmd in the folder you set as your working directory</p>
+<blockquote class="blockquote">
+<p>(e.g., <code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 1</code>).</p>
+</blockquote>
+<p>Now, when we turn in assignments in this course, you will need to knit your code to save it as the output type you set at the beginning of this tutorial when you first made the Rmarkdown file.</p>
+<ol type="1">
+<li><p>Locate the <strong>Knit</strong> icon (which is next to the Settings wheel and literally looks like a little ball of kitting yarn).</p></li>
+<li><p>Click <strong>Knit</strong>. <img src="images/clipboard-1189437882.png" class="img-fluid" width="50"></p></li>
+<li><p>You will be redirected to the knitted version of your code.</p></li>
+<li><p>In this case, I set my output type as HTML, so it will redirect me to a HTML file including all of the text and configured code chunks within the original .rmd file. It (should) look something like this:</p></li>
+</ol>
+<p><img src="images/clipboard-1530012198.png" class="img-fluid"></p>
+</section>
+<section id="review" class="level2">
+<h2 class="anchored" data-anchor-id="review">Review</h2>
+<p>Wowie! That was a lot! If you’ve made it to the end of this, CONGRATS! You now know how to start coding in RStudio. Give yourself a HUGE pat on the back because learning the basics to <code>R</code> and Rmarkdown are by far the hardest parts of learning how to code in <code>R</code>.</p>
+<p>However, I’m confident these essentials will give you the foundational knowledge you will need to succeed in this course. And I can (hopefully) promise once you master these skills, learning how to use RStudio to your advantage will only get easier from here.</p>
+<p>To review, you should be able to:</p>
+<ol type="1">
+<li>Navigate the RStudio computing environment, including describing where the Console is.</li>
+<li>Set a working directory and explain the difference between an absolute and relative path.</li>
+<li>Create, edit, and save Rmarkdown files.</li>
+<li>Edit chunk options in a Rmarkdown file.</li>
+<li>Understand how to comment on your code.</li>
+<li>Provide a summary on a data set.</li>
+<li>Plot a simple, 2 variable data set.</li>
+</ol>
+<p>If you find you are unable to do one or more of the above tasks, go ahead and take some time to review this tutorial again until it starts to make sense. Happy coding!</p>
+<p><img src="images/clipboard-4280102554.png" class="img-fluid" width="200"></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

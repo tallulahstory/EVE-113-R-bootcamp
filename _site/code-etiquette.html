@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -74,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -163,9 +163,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-code-etiquette" id="toc-what-is-code-etiquette" class="nav-link active" data-scroll-target="#what-is-code-etiquette">What is Code Etiquette?</a></li>
+  <li><a href="#what-is-code-etiquette" id="toc-what-is-code-etiquette" class="nav-link active" data-scroll-target="#what-is-code-etiquette">What is Code Etiquette?</a>
+  <ul class="collapse">
   <li><a href="#why-use-good-etiquette" id="toc-why-use-good-etiquette" class="nav-link" data-scroll-target="#why-use-good-etiquette">Why Use Good Etiquette?</a></li>
-  <li><a href="#code-guidlines" id="toc-code-guidlines" class="nav-link" data-scroll-target="#code-guidlines">Code Guidlines</a>
+  </ul></li>
+  <li><a href="#code-guidelines" id="toc-code-guidelines" class="nav-link" data-scroll-target="#code-guidelines">Code Guidelines</a>
   <ul class="collapse">
   <li><a href="#file-names" id="toc-file-names" class="nav-link" data-scroll-target="#file-names">File Names</a></li>
   <li><a href="#object-and-vector-names" id="toc-object-and-vector-names" class="nav-link" data-scroll-target="#object-and-vector-names">Object and Vector Names</a></li>
@@ -212,15 +214,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>What is Code Etiquette?</h1>
 <p>Now that we’ve actually started writing and running our own commands, now is the best time to introduce you to <strong>proper code etiquette.</strong> We might also refer to this as “coding style” which actually matters a lot more than you might think.</p>
 <p>Good coding style is like using correct punctuation or capitalization; You can manage without it, but it sure makes things easier to read. As with styles of punctuation, there are many possible variations that one can use, but over the years language conventions have settled on “correct” ways of using punctuation. The same thing has happened with code. There is an “unspoken” grammar that is used when coding that has nothing to do with the actual code.</p>
+<section id="why-use-good-etiquette" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-good-etiquette">Why Use Good Etiquette?</h2>
+<p>Good style is important because while your code often only has one author, it’ll usually have multiple readers (like me!!!!). This is especially true when you’re writing code with others. Turning in code that is pleasant to read, easy to follow, and logical makes the grading process way easier (and, once again, aids in reproducibility)! We can workshop how your code should look in office hours, if needed.</p>
 </section>
-<section id="why-use-good-etiquette" class="level1">
-<h1>Why Use Good Etiquette?</h1>
-<p>This is one of the coding things that chatGPT and LLM AI models actually <strong>fail</strong> at. These applications often add in large spaces and comments that are <em>unnecessary</em> and <em>unproductive</em> to your code at large. This also (ironically) makes spotting when code was written by you (the talented, capable student) or a dumb chat bot. And trust me, I know the difference.</p>
-<p>Good style is also important because while your code often only has one author, it’ll usually have multiple readers (like me!!). This is especially true when you’re writing code with others. Turning in code that is pleasant to read, easy to follow, and logical makes the grading process way easier (and, once again, aids in reproducibility)!</p>
 </section>
-<section id="code-guidlines" class="level1">
-<h1>Code Guidlines</h1>
-<p>This “code etiquette guide” was adapted from <a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham’s Advanced R Guide.</a> As you progress in your coding progress, you should never wayside good code practices, so feel free to check out his resources if you want to learn more. For now, let’s start with the basics.</p>
+<section id="code-guidelines" class="level1">
+<h1>Code Guidelines</h1>
+<p>This “code etiquette guide” was adapted from <a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham’s Advanced R Guide.</a> As you progress in your coding journey, you should never wayside good code practices, so feel free to check out his resources if you want to learn more. For now, let’s start with the basics and what I expect to see in your own code.</p>
 <section id="file-names" class="level2">
 <h2 class="anchored" data-anchor-id="file-names">File Names</h2>
 <p>File names should be meaningful and end in <code>.R</code>.</p>
@@ -296,10 +297,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(debug)<span class="fu">do</span>(x)</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span> (x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Extra spacing (i.e., more than one space in a row) is <strong>ok</strong> if it improves alignment of equal signs or assignments (<code>&lt;-</code>).</p>
+<p>Extra spacing (i.e., more than one space in a row) is <strong>okay</strong> if it improves alignment of equal signs or assignments (<code>&lt;-</code>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">total =</span> a <span class="sc">+</span> b <span class="sc">+</span> c, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">total =</span>  a <span class="sc">+</span> b <span class="sc">+</span> c, </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean  =</span> (a <span class="sc">+</span> b <span class="sc">+</span> c) <span class="sc">/</span> n</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -317,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="commenting" class="level2">
 <h2 class="anchored" data-anchor-id="commenting">Commenting</h2>
-<p>Comment your code. Each line of a comment should begin with the comment symbol and a single space: <code>#</code>.</p>
+<p>Comment your code. Tell me what you’re doing or why you did it. Explain things. If you don’t explain something, I may not know how to grade your assignment. Each line of a comment should begin with the comment symbol and a single space: <code>#</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -328,7 +329,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Comments should explain the why, not the what.</p>
+<p>Comments should explain the <strong><em>why</em></strong>, not the <strong><em>what</em></strong>.</p>
 </div>
 </div>
 <p>Use commented lines of <code>-</code> and <code>=</code> to break up your file into easily readable chunks if you’re not coding in a .rmd file.</p>
@@ -345,8 +346,8 @@ Tip
 <p>In this house, we do not support using right-hand assignment.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>results <span class="sc">&lt;</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">max_petal =</span> <span class="fu">max</span>(Petal.Width)) <span class="ot">-&gt;</span> results</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">max_petal =</span> <span class="fu">max</span>(Petal.Width))</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
@@ -357,7 +358,7 @@ Tip
 </section>
 <section id="explicit-returns" class="level2">
 <h2 class="anchored" data-anchor-id="explicit-returns">Explicit returns</h2>
-<p>Do not rely on R’s implicit return feature. It is better to be clear about your intent to <code>return()</code> an object within a function call.</p>
+<p>Do not rely on R’s implicit return feature. It is better to be clear about your intent to <code>return()</code> or <code>print()</code> an object within a function call.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>AddValues <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
@@ -390,8 +391,8 @@ Tip
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="co"># this extra indent is not needed</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="co"># this extra indent is not needed</span></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span></span>
@@ -410,21 +411,22 @@ Tip
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>,</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Okay</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>, <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>, </span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>)</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>, <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>, <span class="at">subtitle =</span> <span class="st">"Dot Plot"</span>, <span class="at">legend =</span> <span class="st">"Species"</span>, <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Okay</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>, <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>, </span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>, <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>, <span class="at">subtitle =</span> <span class="st">"Dot Plot"</span>, <span class="at">legend =</span> <span class="st">"Species"</span>, <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>ggplot2 allows you to do data manipulation, such as filtering or slicing, within the <code>data</code> argument. Avoid this, and instead do the data manipulation in a pipeline before starting plotting.</p>
 <div class="cell">
@@ -518,7 +520,7 @@ Tip
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tallulahstory\.github\.io\/EVE-113-R-bootcamp\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

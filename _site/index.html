@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -74,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -199,15 +199,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="images/clipboard-1943924653.png" class="img-fluid"></p>
-<blockquote class="blockquote">
-<p><em>Photo Credit: <a href="https://www.instagram.com/ocean_imaging/?hl=en"><strong>Stefan Andrews / Ocean Image Bank</strong></a></em></p>
-</blockquote>
-<p>This “course” was written and developed with the intrepid, undergraduate ecologist and/or marine biologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113. Some students may have zero experience using <code>R</code>. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or <code>unix</code>. It’s possible this is your first time ever hearing of <code>R</code> (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, <strong>this resource is meant to serve you!</strong> If there is a problem you’re hoping to tackle that is not included in this guide, please don’t hesitate to notify your TA or instructor and we can help you.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1943924653.png" class="img-fluid figure-img"></p>
+<figcaption>Abalone in a Kelp Forest | Photo Credit: Stefan Andrews / Ocean Image Bank</figcaption>
+</figure>
+</div>
+<p>This “course” was written and developed with the intrepid, undergraduate ecologist in mind. It makes use of real-world ecological questions using real-world ecological data. This bootcamp was also designed to meet a variety of experience levels for students enrolled in EVE 113. Some oif you may have zero experience using <code>R</code>. Others may be well versed in using the console, tidyverse and ggplot, but may be unfamiliar with things like vegan or <code>unix</code>. It’s possible this is your first time ever hearing of <code>R</code> (hopefully not the last), or it could be your hundredth. Either way, no matter the situation, <strong>this resource is meant to serve you!</strong> If there is a problem you’re hoping to tackle that is not included in this guide, please don’t hesitate to notify your TA or instructor and we can help you.</p>
 <p>This guide is setup like a website where we have our Home page (the page you’re on now), the Getting Started page, and the Tutorial page(s). You can navigate between each of these by simply heading to the top of the web browser you’re currently viewing this on. This home page won’t contain more than a general overview of how this bootcamp is structured, how to get the most out of your learning, and information for further “R education” beyond EVE 113.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Work associated with these tutorials is <u>due August 27th</u></strong>, prior to our first data workshop day. It is our expectation that you understand the learning objectives in each tutorial prior to coming to class on the 27th.</p>
+</div>
+</div>
 <section id="what-is-r" class="level1">
 <h1>What is R?</h1>
-<p><code>R</code> is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because <code>R</code> is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or “add-ons”) that further extend the programs functionality. <code>R</code> is an extroidinarily valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you’d like to learn more about why reproducibility in research matters, you can read more <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/">here</a>.</p>
+<p><code>R</code> is an open source scripted programming language used for statistical analyses and graphical visualization of data. Because <code>R</code> is also an open source platform, it means that independent developers, researchers, and scientists alike have helped contribute to additional packages (or “add-ons”) that further extend the programs functionality. <code>R</code> is an extraordinarily valuable tool because it allows you to keep a detailed record of how you analyzed your data (which is vital for reproducibility). If you’d like to learn more about why reproducibility in research matters, you can read more <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5244822/">here</a>.</p>
 <p>In this course, we will be coding in <code>R</code> using the <strong>free</strong> software interface application known as RStudio. RStudio is a user-friendly IDE (integrated development environment) where you can access both the Console and the Terminal (we will talk about what both of those means later). <code>R</code> and RStudio work with any operating system you have on hand, whether that be Windows, Apple (macOS), or Linux. Although, if you’re operating on Linux, I might just assume you already have <code>R</code> downloaded in some capacity.</p>
 </section>
 <section id="course-design" class="level1">
@@ -231,13 +246,13 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p><strong><em>Your learning here will be a product of the amount of time you spend engaging with the material, practicing your skills, and asking questions when they come up.</em></strong></p>
-<p>You should always return to this website if you need to revisit any tutorials from earlier in the term (e.g., you’re doing an analysis but forgot the code to run said analysis, you can return to this website and navigate to the top right corner search bar to find what you’re looking for). <strong>I am always available via email to help you when you get stuck. Please come to me before finding your way to chatGPT or AI.</strong></p>
+<p>You should always return to this website if you need to revisit any tutorials from earlier in the term (e.g., you’re doing an analysis but forgot the code to run said analysis, you can return to this website and navigate to the top right corner search bar to find what you’re looking for). <strong>I am always available via email to help you when you get stuck. <u>Please come to me before finding your way to ask questions to chatGPT or AI.</u></strong></p>
 </div>
 </div>
 <p>I’ve tried to make this experience as learner-friendly as possible. This bootcamp will follow a series of tutorials, practice problems, and assignments that you can complete to flaunt your newly acquired R knowledge.</p>
 <p>Your <strong>tutorials</strong> are where you will <em>gain skills and knowledge</em> to satisfy our <strong>learning objectives</strong>.</p>
 <p>The <strong>DIYs</strong> are ways you can <em>test or practice your new skills or knowledge</em> as you go.</p>
-<p>The <strong>assignments</strong> are the <em>products of your tutorials, DIYs, lab work, and learning objectives</em>.</p>
+<p>The <strong>assignments</strong> are the <em>products of your tutorials, DIYs, lab work, and learning objectives</em>. Assignments associated with tutorial content will be due August 27th.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <p>At the top of every tutorial, there will be numbered <strong>learning objectives</strong> stating the goals and material covered in the tutorial itself. They will look like:</p>
@@ -275,7 +290,7 @@ Tip
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(incremented_value)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>We will learn about two different coding languages in this course: <code>R</code> and <code>unix</code>. The primary distinction between the two, asides from the languages themselves, is that <code>R</code> uses the <em>Console</em> and <code>unix</code> uses the <em>Terminal</em>. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in <code>R</code>. However, some tutorials will cover using <code>unix</code>. Since operating in the terminal is often computationally heavy, <strong>this course will not require students to use the Terminal,</strong> but the information on how to actually use <code>unix</code>, bash chunks, and the Terminal will be covered in these tutorials. When I am switching between <code>R</code> and <code>unix</code> I will be <strong>very clear about what type of code chunk I am using.</strong></p>
+<p>We will learn about two different coding languages in this course: <code>R</code> and <code>unix</code>. The primary distinction between the two, asides from the languages themselves, is that <code>R</code> uses the <em>Console</em> and <code>unix</code> uses the <em>Terminal</em>. You, as the student enrolled in EVE 113, will only have to learn how to actually write code in <code>R</code>. However, some tutorials will cover using <code>unix</code>. Since operating in the terminal is often computationally heavy, <strong>this course will not require students to use the Terminal,</strong> but the information on how to actually use <code>unix</code>, bash chunks, and the Terminal will be covered in tutorial 4. When I am switching between <code>R</code> and <code>unix</code> I will be <strong>very clear about what type of code chunk I am using.</strong></p>
 </section>
 <section id="do-it-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="do-it-yourself">Do It Yourself</h2>
@@ -338,7 +353,7 @@ Tip
 <li><p><a href="https://www.davidzeleny.net/wiki/lib/exe/fetch.php/recol:materials:beckerman-petchey2012_getting-started-with-r-an-introduction-for-biologists2.pdf">Getting Started with R: An Introduction for Biologists by Beckerman and Petchy</a></p></li>
 <li><p><a href="https://link.springer.com/book/10.1007/978-3-031-99665-8">R Coding for Ecology by Rocchini</a></p></li>
 </ul>
-<p>If you find none of these fit your style, or don’t fit your learning needs, lets sit down and chat to find something better.</p>
+<p>If you find none of these fit your style, or don’t fit your learning needs, lets sit down and chat to find something better for you.</p>
 
 
 </section>
@@ -417,7 +432,7 @@ Tip
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tallulahstory\.github\.io\/EVE-113-R-bootcamp\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

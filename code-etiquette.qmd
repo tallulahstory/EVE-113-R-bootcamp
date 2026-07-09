@@ -2,7 +2,7 @@
 title: "Code Etiquette 101"
 ---
 
-# What is Code Etiquette? 
+# What is Code Etiquette?
 
 Now that we’ve actually started writing and running our own commands, now is the best time to introduce you to **proper code etiquette.** We might also refer to this as “coding style” which actually matters a lot more than you might think.
 

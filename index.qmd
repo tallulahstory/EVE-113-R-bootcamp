@@ -30,7 +30,7 @@ In this course, we will be coding in R using the **free** software interface app
 
 Overall, our class learning objectives for data analysis this summer are (broadly) as follows:
 
-1.  Introduce students to the `R` programming language - specifically with ecological and biological data in mind.
+1.  Introduce students to the R programming language - specifically with ecological and biological data in mind.
 
 2.  Introduce and learn how to code in the tidyverse (and all of its amazing sub-packages).
 
@@ -54,7 +54,7 @@ Your **tutorials** are where you will *gain skills and knowledge* to satisfy our
 
 The **DIYs** are ways you can *test or practice your new skills or knowledge* as you go and form the component parts of the assignment(s) associated with your **R Preparedness assignment**.
 
-Again: [**The R Preparedness assignment(s) associated with tutorial content will be due August 27th.**]{.underline} Give yourself ample time to work through these! You will thank me later.
+Again: [**The R Preparedness assignment(s) associated with tutorial content will be due August 27th.**]{.underline} Give yourself ample time to work through this! You will thank me later.
 
 ## Learning Objectives
 
@@ -112,7 +112,7 @@ b\. Each part will be a specific task or question that may ask you to explain a 
 
 ### Completing Assignments
 
-Navigate to Files on our class Canvas page and find the R Preparedness folder. Download the .rmd files named "Tutorial 1" and "Tutorial 2". At the end of each tutorial, you will knit your .rmd document as an html and submit it via canvas by the due date. More on how to do this in Tutorial 0.
+Navigate to Files on our class Canvas page and find the R Preparedness folder. Download the .rmd file named "R Prep". At the end of each tutorial, you will knit your .rmd document as an html and submit it via canvas by the due date. More on how to do this in Tutorial 0.
 
 The .rmd will include chunks of code and places for you to answer the DIYs as you work through the tutorial.
 
@@ -134,7 +134,7 @@ At very, very bottom, I will cite any of the packages or resources I used to mak
 
 # Why You Should Continue Learning R Beyond This Course...
 
-[Auker and Barthelmess, 2020](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3060) synthesize how important learning how to use R has become for Ecologists and Biologists just within the past decade. Relatively any job in this field nowadays likely requires some fundamental (or, occasionally, even advanced) knowledge of how to use R as a tool to analyze ecological data. Personally, I use R on a near daily basis; Between running statistical tests, plotting data, or sharing my workflow with collaborators, it's become a vital skill in my tool set to leverage. Having heavy computational and statistical experience has allowed me to be better prepared for my PhD, and I know these skills will continue to serve me throughout my career.
+[Auker and Barthelmess, 2020](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3060) synthesize how important learning how to use R has become for Ecologists and Biologists just within the past decade. Relatively any job in this field nowadays likely requires some fundamental (or, occasionally, even advanced) knowledge of how to use R as a tool to analyze ecological data. Personally, I use R on a near daily basis; Between running statistical tests, plotting data, or sharing my workflow with collaborators, it's become a vital skill in my tool set to leverage. Having computational and statistical experience has allowed me to be better prepared for my PhD, and I know these skills will continue to serve me throughout my career.
 
 It's true that learning a new programming language can, in simple terms, suck. However, being able to leverage these tools in your learning can be an invaluable skill both short- and long-term.
 

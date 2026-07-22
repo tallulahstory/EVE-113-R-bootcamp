@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Tutorial 1
+# R Preparedness
 
 This assignment is due August 27th. In order to receive full credit students should:
 
@@ -47,3 +47,85 @@ Answer:
 **2c. How many rows does the tidepool metadata set have?**
 
 Answer:
+
+## Question 3
+
+**3a. What is the atomic data type of tide pool size? How many tide pool sizes are there?**
+
+```{r Question_3a}
+
+```
+
+**3b. Rename the tidepool metadata object (if you haven't already) using** `snake_case` **convention.**
+
+```{r Question_3b}
+
+```
+
+**3c. Rename all variables in your new tide pool data frame to match** `snake_case` **conventions.**
+
+```{r Question_3c}
+
+```
+
+## Question 4
+
+**Use code to install the tidyverse and dplyr packages; Load the packages into your working session.**
+
+```{r Question_4}
+
+```
+
+*\*\*Note:* This would normally be done at the beginning of any real working script. Ensure that all package installations take place before any commands are run.For the sake of our learning here, we're installing it later into our script.
+
+## Question 5
+
+**5a. Filter the tide pool data to only include large tide pools with a macro_richness that is \>= to 10.**
+
+```{r Question_5a}
+
+```
+
+**5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).**
+
+```{r Question_5b}
+
+```
+
+## Question 6
+
+**6a. How could you use `arrange()` to sort all missing values to the start? Write a line of code that sorts the missing values (NAs) in the penguins data set to the start. (HINT: try using `is.na()`).**
+
+```{r Question_6a}
+
+```
+
+**6b. In the tide pool data frame, arrange the observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.**
+
+```{r Question_6b}
+
+```
+
+## Question 7
+
+7a.
+
+7b.
+
+## Question 8
+
+**8a. Re-import the tidepool metadata set.**
+
+```{r Question_8a}
+
+```
+
+**What effect does this have to the work we've already done to the data set?**
+
+Answer:
+
+**8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.**
+
+```{r Question_8b}
+
+```

@@ -370,7 +370,7 @@ For the purposes of this course, we will only really care about `eval`, `include
 Here's a quick guide to what these mean below:
 
 | Option | Function |
-|------------------------------------|------------------------------------|
+|----|----|
 | `eval` | dictates whether a code block is actually executed when you render, knit, or compile your document. |
 | `include` | controls the visibility of a code chunk's output in your final rendered document. |
 | `echo` | controls whether the source code itself appears in your final rendered document. `echo = numeric` will select specific lines of code to display (e.g., `echo = 1:2` displays source code lines 1 through 2). |

@@ -16,7 +16,9 @@ library(ggplot2)
 
 ![Soft corals growing on a pier, Indonesia \| Photo Credit: Erik Lucas](images/clipboard-2064581165.png)
 
-In this class, we will be using a suite of packages known as the tidyverse. These packages were originally developed by Hadley Wickham and Garrett Grolemund as a new approach to using `R`. Since it's widespread use and continued development, the tidyverse has made `R` more user friendly and more flexible for the purposes of data science. By the end of this tutorial, my goal is to familiarize you with the tidy workflow and the commands that will allow you to work with your own data.
+In this class, we will be using a suite of packages known as the tidyverse. These packages were originally developed by Hadley Wickham and Garrett Grolemund as a new approach to using R. Since it's widespread use and continued development, the tidyverse has made R more user friendly and more flexible for the purposes of data science. By the end of this tutorial, my goal is to familiarize you with the tidy workflow and the commands that will allow you to work with your own data.
+
+To complete this tutorial, use the "R Prep.rmd" file located on the class canvas page. This tutorial will go between learning skills with examples and setting up the questions in that assignment. **Your R Preparedness assignment is due August 27th prior to our first data workshop day.**
 
 ## Learning Objectives
 
@@ -29,7 +31,13 @@ In this class, we will be using a suite of packages known as the tidyverse. Thes
 
 For this tutorial you are expected to already know how to create a new .rmd file, get your working directory, and set your working directory. If you are not able to do so, return to Tutorial 0 for a quick review on these skills.
 
-To start, create a new .rmd file in your **EVE 113** \> **Coding Tutorials** directory under a new folder called **Tutorial 1**. Name the .rmd "Tutorial 1". Once you've done this, get and set your working directory to **EVE 113** \> **Coding Tutorials** \> **Tutorial 1**.
+::: callout-important
+To start, ensure your `R-Prep.rmd` file is in your **Coding Tutorials** folder. If you do not have a coding tutorials folder, make a folder path on your computer like the following: `/yourusername/Desktop/EVE 113/Coding Tutorials`.
+
+Alongside answering assignment questions in the R-Prep assignment, I would also like you to create your own Rmarkdown file called `Tutorial 1.rmd` to follow along as you work through this tutorial. Do not do work for your R Preparedness assignment in your tutorial 1 file. Instead use this file as a way to test your skills.
+
+**Write your final answers for the assignment is the** `R-Prep.rmd` **only.**
+:::
 
 In this tutorial we will be using the package `palmerpenguins` as well as an example data set provided on the class canvas page. Palmer penguins is a CRAN data set provided that is a better alternative to the `iris` data set. If you'd like to know more about why we won't be using `iris` in this course, you can [read more here](https://medium.com/data-science/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5).
 
@@ -82,9 +90,9 @@ lapply(my_packages, library, character.only = TRUE)
 ```
 :::
 
-Create a new chunk and name it "data import". In this class, we will save our data sets as .csv files (comma separated files). As scientists, we may use Excel or Google Sheets to input data, but it is best practice to save individual data sets as .csv files for simple, easy importing. To read a .xls file into R, you would need to install a third party package which adds an additional computing step during set up.
+Try it yourself: Create a new chunk and name it "data import". In this class, we will save our data sets as .csv files (comma separated files). As scientists, we may use Excel or Google Sheets to input data, but it is best practice to save individual data sets as .csv files for simple, easy importing. To read a .xls file into R, you would need to install a third party package which adds an additional computing step during set up.
 
-Navigate to our class canvas page. Go to **Files** and open the **Coding Tutorials** folder. Download the metadata_tidepool.csv file and save it in your **Tutorial 1** folder. If you've properly set your working directory and saved the file to the correct location, this next step will be easy.
+Navigate to our class canvas page. Go to **Files** and open the **Coding Tutorials** folder. Download the metadata_tidepool.csv file and save it in your **Coding Tutorials** folder. If you've properly set your working directory and saved the file to the correct location, this next step will be easy.
 
 Import your .csv data set using the `read.csv()` command and saving it in a **data frame object** called 'data'.
 
@@ -92,9 +100,19 @@ Import your .csv data set using the `read.csv()` command and saving it in a **da
 data <- read.csv("metadata_tidepool.csv", header = TRUE)
 ```
 
-The argument `header = TRUE` will ensure that when you import your .csv, `R` is treating the first row of your data as column names. You would set this as `header = FALSE` if your data set did not contain column names.
+The argument `header = TRUE` will ensure that when you import your .csv, R is treating the first row of your data as column names. You would set this as `header = FALSE` if your data set did not contain column names.
 
 Great, now we have two different data sets to play around with. Let's start with Palmer penguins.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Question 1**
+
+1a. Get and set your working directory based on the suggested file path in Tutorial 0.
+
+1b. Install the Palmer penguins data set onto your computer.
+
+1c. Import the tidepool metadata practice data set.
+:::
 
 ## Exploring Your Data Frame Object
 
@@ -116,11 +134,13 @@ tail(penguins)
 `head()` returns the first parts of a vector, matrix, table, data frame, or function. `tail()` returns the last parts of the object.
 
 ::: {.callout-tip appearance="simple" icon="false"}
-**Do It Yourself T1.1**
+**Question 2**
 
-1a. Get the summary of the tide pool metadata. What's the mean tidepool volume?
+2a. Retrieve the summary, head, and tail of the tide pool metadata set.
 
-1c. Get the head and the tail of the tide pool metadata. How many rows does this data frame have?
+2b. What's the mean tidepool volume?
+
+2c. How many rows does the tidepool metadata set have?
 :::
 
 ## Values, Variables, and Vectors
@@ -142,10 +162,10 @@ class(penguins$species)
 
 This returns the class of the variable species extracted from the `penguins` data frame. You should see "factor" in your own .rmd, like above.
 
-It's important you understand and can differentiate between the **atomic data types** you might encounter when using `R`. However, for this class and likely beyond, you'll only really need to focus on the first four.
+It's important you understand and can differentiate between the **atomic data types** you might encounter when using R. However, for this class and likely beyond, you'll only really need to focus on the first four.
 
 | Type | Description | Example Value | `class()` Output | Common Use Case |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | Numeric | Default for all real numbers; Can be continuous or discrete. | `10` or `2.1415` | "`numeric`" | Continuous measurements, math calculations |
 | Integer | Whole numbers explicitly defined. | `7L` or `year` | "`integer`" | Discretely counted numbers, IDs, loops, dates |
 | Character | Text strings wrapped in single or double quotes, categorical variables with no numerical value. | "`hello`" or "`yes`" or "`female`" | "`factor`" | Names, descriptive labels, text data |
@@ -153,19 +173,19 @@ It's important you understand and can differentiate between the **atomic data ty
 | Complex | Numbers containing real and imaginary components. | `3 + 2i` | "`complex`" | Purely mathematical or signal functions. |
 | Raw | Unprocessessed binary data stored ad individual bytes. | `as.raw(43)` | "`raw`" | Reading binary files or protocol streams. |
 
-In `R`, we have [values]{.underline} (the data), [vectors]{.underline} (the container), and [variables]{.underline} (the names).
+In R, we have [values]{.underline} (the data), [vectors]{.underline} (the container), and [variables]{.underline} (the names).
 
-**Values** in `R` must belong to an atomic data type (like the six types above).
+**Values** in R must belong to an atomic data type (like the six types above).
 
 **Vectors** are an ordered collection of values. Vectors are *homogeneous*, meaning all values inside a single vector must be of the same type.
 
 - To create a vector you combine values using the `c()` (combine) function.
 
-- If you mix data types, `R` forces lower types into higher types (`Logical < Integer < Double < Character`) without throwing an error.
+- If you mix data types, R forces lower types into higher types (`Logical < Integer < Double < Character`) without throwing an error.
 
   - For example, `c(5, "Hello")` forces the numeric `5` to become a factor `"5"`.
 
-- Access specific elements of a vector by using square brackets `[]`. `R` uses 1-based indexing, so the first element is at position `1`.
+- Access specific elements of a vector by using square brackets `[]`. R uses 1-based indexing, so the first element is at position `1`.
 
 ```{r}
 # create a numeric vector
@@ -194,17 +214,17 @@ fruits <- c("lettuce", "carrots", "celery")
 print(fruits)
 ```
 
-We use the `print()` function to give the output or generate the contents of a vector or object into the `R` Console.
+We use the `print()` function to give the output or generate the contents of a vector or object into the R Console.
 
-All `R` statements where you create objects , assignment statements, have the same form: `object_name <- value`. Again, don't use `=`. It's just confusing.
+All R statements where you create objects , assignment statements, have the same form: `object_name <- value`. Again, don't use `=`. It's just confusing.
 
 ::: callout-tip
-Getting tired of continuously, manually typing `<-` ? Well, you're just in luck!! Statisticians and those who use `R` agree with that sentiment, so there's actually a keyboard shortcut! Just type **Alt** + **-** and voila! You're very own assignment argument.
+Getting tired of continuously, manually typing `<-` ? Well, you're just in luck!! Statisticians and those who use R agree with that sentiment, so there's actually a keyboard shortcut! Just type **Alt** + **-** and voila! You're very own assignment argument.
 
 This is also great because `R` automatically gives you spaces on both sides of the assignment arrow, which (again) is good coding practice and etiquette. Code is miserable to read on a good day, so giveyourselfabreakand [***use spaces***]{.underline}.
 :::
 
-This harkens back to our code etiquette tutorial, but please ensure you're giving your assigned objects, vectors, data frames (or literally everything else) a descriptive name. In this course, I'd like you to use `snake_case`, where you will separate lowercase words of a named object with `_`.
+This harkens to the code etiquette tab, but please ensure you're giving your assigned objects, vectors, data frames (or literally everything else) a descriptive name. In this course, I'd like you to use `snake_case`, where you will separate lowercase words of a named object with `_`.
 
 ```{r, eval = FALSE}
 i_use_snake_case
@@ -217,7 +237,7 @@ Sometimes the data you have doesn't match your coding conventions. Our tide pool
 
 It is best practice to *agree* and *stick to* a single convention when collaborating. To maintain continuity, you can rename variables using your agreed-upon convention.
 
-For us, this convention is `snake_case`. To do this, you can use `dplyr` or base `R`. We'll learn more about `dplyr` in a moment, but for now lets learn how to do this in base `R`.
+For us, this convention is `snake_case`. To do this, you can use `dplyr` or base R. We'll learn more about `dplyr` in a moment, but for now lets learn how to do this in base R.
 
 ```{r, eval = FALSE}
 # explicit name matching in base R to re-name data frame variables
@@ -230,20 +250,20 @@ names(data) <- c("column_1", "column_2", "column_3", "column_4")
 ```
 
 ::: {.callout-tip appearance="simple" icon="false"}
-**Do It Yourself T1.2**
+**Question 3**
 
-2a. What is the atomic data type of tide pool size? How many tide pool sizes are there?
+3a. What is the atomic data type of tide pool size? How many tide pool sizes are there?
 
-2b. Rename the tidepool metadata object (if you haven't already) using `snake_case` convention.
+3b. Rename the tidepool metadata object (if you haven't already) using `snake_case` convention.
 
-2c. Rename all variables in your new tide pool data frame to match `snake_case` conventions.
+3c. Rename all variables in your new tide pool data frame to match `snake_case` conventions.
 :::
 
 ## Data Transformation with dplyr
 
 If you've noticed the double semi-colon after certain names of things (e.g., `knitr::` , `ggplot::` , `dplyr::`) this is an easy indication I am talking about a **package**.
 
-When installing packages that overwrite previously installed or loaded packages in `R`, but you still want to use those functions, you'll need to specify what package relates to what function. The two most common conflicts are two functions from the `stats::` package (which is pre-loaded in base `R`).
+When installing packages that overwrite previously installed or loaded packages in R, but you still want to use those functions, you'll need to specify what package relates to what function. The two most common conflicts are two functions from the `stats::` package (which is pre-loaded in base R):
 
 ```{r, eval = FALSE}
 stats::filter()
@@ -255,7 +275,7 @@ If you receive conflict messages when running `filter()` or `lag()`, it's likely
 
 ### Install and Load dplyr
 
-To transform our data, we will be using the `dplyr` package, which is a small component of the tidyverse package suite. If you haven't done so before, install and load the `tidyverse` and `dplyr` packages in your setup chunk of your Tutorial 1 .rmd.
+To transform our data, we will be using the `dplyr` package, which is a small component of the tidyverse package suite. If you haven't done so before, install and load the `tidyverse` and `dplyr` packages in your setup chunk.
 
 ```{r, eval = FALSE}
 install.packages(c("tidyverse", "dplyr"))
@@ -265,7 +285,13 @@ CRAN_packages <- c("tidyverse", "dplyr")
 lapply(CRAN_packages, library, character.only = TRUE)
 ```
 
-CRAN packages are add-on modules written for `R` by other programmers. `lapply()` applies your vector `CRAN_packages` using the `library()` function, ensuring `R` passes your string of variables (your packages) in your vector as actual package names `R` will recognize. This allows you to load multiple packages at once without having to retype `library()` over and over.
+CRAN packages are add-on modules written for `R` by other programmers. `lapply()` applies your vector `CRAN_packages` using the `library()` function, ensuring `R` passes your string of variables (your packages) in your vector as actual package names R will recognize. This allows you to load multiple packages at once without having to retype `library()` over and over.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Question 4**
+
+Use code to install the tidyverse and dplyr packages; Load the packages into your working session.
+:::
 
 ### dplyr Basics
 
@@ -299,13 +325,13 @@ filter(penguins, species == "Chinstrap", year == 2007)
 chinstrap_2007_df <- filter(penguins, species == "Chinstrap", year == 2007)
 ```
 
-`R` will either print out the results if you explicilty ask using `print()`, or save them into a variable without printing. If you want to print and save it, wrap the entire argument in parentheses.
+R will either print out the results if you explicitly ask using `print()`, or save them into a variable without printing. If you want to print and save it, wrap the entire argument in parentheses.
 
 ```{r}
 (chinstrap_2007_df <- filter(penguins, species == "Chinstrap", year == 2007))
 ```
 
-To filter effectively, you need to understand how to correctly select comparison and logical operators. `R` gives you quite a few:
+To filter effectively, you need to understand how to correctly select comparison and logical operators. R gives you quite a few:
 
 - `>`, greater than
 
@@ -349,7 +375,7 @@ Or for character variables...
 filter(penguins, species %in% c("Chinstrap", "Adelie"))
 ```
 
-What if I'd like to do more complicated subsetting? For example, I'd like to filter for every penguin that isn't a Adelie and Chinstrap penguins and that have bills \<40mm.
+What if I'd like to do more complicated sub-setting? For example, I'd like to filter for every penguin that isn't a Adelie and Chinstrap penguins and that have bills \<40mm.
 
 ```{r}
 filter(penguins, !(species %in% c("Adelie", "Chinstrap") & bill_length_mm > 40))
@@ -396,11 +422,11 @@ filter(fake_data, is.na(x) | x > 1)
 ```
 
 ::: {.callout-tip appearance="simple" icon="false"}
-**Do It Yourself T1-3**
+**Question 5**
 
-3a. Filter the tide pool data to only include large tide pools with a macro_richness that is \>= to 10.
+5a. Filter the tide pool data to only include large tide pools with a macro_richness that is \>= to 10.
 
-3b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).
+5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).
 :::
 
 ### Arrange Rows with arrange()
@@ -432,11 +458,11 @@ tail(arrange(penguins, desc(bill_depth_mm), desc(bill_length_mm)))
 ```
 
 ::: {.callout-tip appearance="simple" icon="false"}
-**Do It Yourself T1-4**
+**Question 6**
 
-4a. How could you use `arrange()` to sort all missing values to the start? (HINT: try using `is.na()`).
+6a. How could you use `arrange()` to sort all missing values to the start? (HINT: try using `is.na()`).
 
-4b. In the tide pool data frame, arrange our observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.
+6b. In the tide pool data frame, arrange our observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.
 :::
 
 ### Select Columns with select()
@@ -454,9 +480,9 @@ select(penguins, species:flipper_length_mm)
 select(penguins, -(species:flipper_length_mm))
 ```
 
-I often use `select()` to make my data transformations more exclusive in a sub-set. I will ask you to select variables when preparing for statistical analyses, to prevent influence or leverage from unwanted values in your analysis.
+I often use `select()` to make my data transformations more exclusive in a sub-set. I will ask you to select variables when preparing for statistical analyses, to prevent influence or leverage from unwanted values in your analyses.
 
-Additional helper functions that come along with select() include:
+Additional helper functions that come along with `select()` include:
 
 - `starts_with("abc")` would match names that begin with "abc".
 
@@ -464,11 +490,29 @@ Additional helper functions that come along with select() include:
 
 - `contains("ijk")` would match names that contain "ijk".
 
+::: {.callout-tip appearance="simple" icon="false"}
+**Question 7**
+
+7a.
+
+7b.
+:::
+
+### Rename Columns
+
 Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command `rename()`!
 
 ```{r, eval = FALSE}
 rename(example_data, old_col_name1 = new_col_name1, old_col_name2 = new_col_name2)
 ```
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Question 8**
+
+8a. Re-import the tidepool metadata set. What effect does this have to the work we've already done to the data set?
+
+8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.
+:::
 
 ### Add New Variables with mutate()
 

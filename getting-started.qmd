@@ -4,17 +4,17 @@ title: "Getting Started"
 
 ![Grey topshell (Steromphala) cineraria on a blade of eelgrass \| Photo credit: Shannon Moran / Ocean Image Bank](images/clipboard-590625097.png)
 
-Before we even begin, it's incredibly important we actually have the software we need downloaded on our computer. So, to get started, you should probably go ahead and download `R` and RStudio onto your computer. (Again, did I mention that it's free?)
+Before we even begin, it's incredibly important we actually have the software we need downloaded on our computer. So, to get started, you should probably go ahead and download R and RStudio onto your computer. (Again, did I mention that it's free?)
 
 ## Download R
 
-**Visit [this link here](https://cloud.r-project.org/) to get started with downloading `R`.**
+**Visit [this link here](https://cloud.r-project.org/) to get started with downloading R.**
 
 Once you open the webpage it should look something like the below image.
 
 ![](images/clipboard-478905486.png)
 
-There's a lot of hyperlinks here, so start by directing your attention to the first three links towards the top. Click on the associated "Download `R` for..." your current operating system. I'll be doing this tutorial, and most other coding demonstrations in this bootcamp, using a macOS operating system. Windows and Mac don't largely differ when using RStudio or `R`, but if you find yourself confused, don't hesitate to ask me any questions you might have.
+There's a lot of hyperlinks here, so start by directing your attention to the first three links towards the top. Click on the associated "Download R for..." your current operating system. I'll be doing this tutorial, and most other coding demonstrations in this bootcamp, using a macOS operating system. Windows and Mac don't largely differ when using RStudio or R, but if you find yourself confused, don't hesitate to ask me any questions you might have.
 
 Once you hit download you will be redirected to another webpage, with even more links.
 
@@ -24,9 +24,9 @@ Click on the hyperlink that is associated with your current operating system. Fo
 
 ![](images/clipboard-1616476471.png)
 
-Click that link, allow the `R` package to download onto your computer, then follow your computers prompts to download it onto your device.
+Click that link, allow the R package to download onto your computer, then follow your computers prompts to download it onto your device.
 
-Once downloaded, if you open `R`, you'll get a console environment that looks like this.
+Once downloaded, if you open R, you'll get a console environment that looks like this.
 
 ![](images/clipboard-3443394905.png)
 

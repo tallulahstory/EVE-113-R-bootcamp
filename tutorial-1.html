@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -74,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -177,6 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values">Missing Values</a></li>
   <li><a href="#arrange-rows-with-arrange" id="toc-arrange-rows-with-arrange" class="nav-link" data-scroll-target="#arrange-rows-with-arrange">Arrange Rows with arrange()</a></li>
   <li><a href="#select-columns-with-select" id="toc-select-columns-with-select" class="nav-link" data-scroll-target="#select-columns-with-select">Select Columns with select()</a></li>
+  <li><a href="#rename-columns" id="toc-rename-columns" class="nav-link" data-scroll-target="#rename-columns">Rename Columns</a></li>
   <li><a href="#add-new-variables-with-mutate" id="toc-add-new-variables-with-mutate" class="nav-link" data-scroll-target="#add-new-variables-with-mutate">Add New Variables with mutate()</a></li>
   <li><a href="#group-summaries-with-summarize" id="toc-group-summaries-with-summarize" class="nav-link" data-scroll-target="#group-summaries-with-summarize">Group Summaries with summarize()</a></li>
   <li><a href="#combining-multiple-operations-with-the-pipe" id="toc-combining-multiple-operations-with-the-pipe" class="nav-link" data-scroll-target="#combining-multiple-operations-with-the-pipe">Combining Multiple Operations with the Pipe</a></li>
@@ -216,7 +217,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Soft corals growing on a pier, Indonesia | Photo Credit: Erik Lucas</figcaption>
 </figure>
 </div>
-<p>In this class, we will be using a suite of packages known as the tidyverse. These packages were originally developed by Hadley Wickham and Garrett Grolemund as a new approach to using <code>R</code>. Since it’s widespread use and continued development, the tidyverse has made <code>R</code> more user friendly and more flexible for the purposes of data science. By the end of this tutorial, my goal is to familiarize you with the tidy workflow and the commands that will allow you to work with your own data.</p>
+<p>In this class, we will be using a suite of packages known as the tidyverse. These packages were originally developed by Hadley Wickham and Garrett Grolemund as a new approach to using R. Since it’s widespread use and continued development, the tidyverse has made R more user friendly and more flexible for the purposes of data science. By the end of this tutorial, my goal is to familiarize you with the tidy workflow and the commands that will allow you to work with your own data.</p>
+<p>To complete this tutorial, use the “R Prep.rmd” file located on the class canvas page. This tutorial will go between learning skills with examples and setting up the questions in that assignment. <strong>Your R Preparedness assignment is due August 27th prior to our first data workshop day.</strong></p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <ol type="1">
@@ -229,7 +231,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="install-packages-and-import-data" class="level2">
 <h2 class="anchored" data-anchor-id="install-packages-and-import-data">Install Packages and Import Data</h2>
 <p>For this tutorial you are expected to already know how to create a new .rmd file, get your working directory, and set your working directory. If you are not able to do so, return to Tutorial 0 for a quick review on these skills.</p>
-<p>To start, create a new .rmd file in your <strong>EVE 113</strong> &gt; <strong>Coding Tutorials</strong> directory under a new folder called <strong>Tutorial 1</strong>. Name the .rmd “Tutorial 1”. Once you’ve done this, get and set your working directory to <strong>EVE 113</strong> &gt; <strong>Coding Tutorials</strong> &gt; <strong>Tutorial 1</strong>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To start, ensure your <code>R-Prep.rmd</code> file is in your <strong>Coding Tutorials</strong> folder. If you do not have a coding tutorials folder, make a folder path on your computer like the following: <code>/yourusername/Desktop/EVE 113/Coding Tutorials</code>.</p>
+<p>Alongside answering assignment questions in the R-Prep assignment, I would also like you to create your own Rmarkdown file called <code>Tutorial 1.rmd</code> to follow along as you work through this tutorial. Do not do work for your R Preparedness assignment in your tutorial 1 file. Instead use this file as a way to test your skills.</p>
+<p><strong>Write your final answers for the assignment is the</strong> <code>R-Prep.rmd</code> <strong>only.</strong></p>
+</div>
+</div>
 <p>In this tutorial we will be using the package <code>palmerpenguins</code> as well as an example data set provided on the class canvas page. Palmer penguins is a CRAN data set provided that is a better alternative to the <code>iris</code> data set. If you’d like to know more about why we won’t be using <code>iris</code> in this course, you can <a href="https://medium.com/data-science/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5">read more here</a>.</p>
 <p><a href="https://allisonhorst.github.io/palmerpenguins/">Palmer penguins</a> is a data set including size measurements, clutch observations, and blood isotope ratios for adult foraging Adelie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.</p>
 <p>First, install palmerpenguins into your local environment by using the command <code>install.packages()</code>.</p>
@@ -280,14 +296,27 @@ Tip
 </div>
 </div>
 </div>
-<p>Create a new chunk and name it “data import”. In this class, we will save our data sets as .csv files (comma separated files). As scientists, we may use Excel or Google Sheets to input data, but it is best practice to save individual data sets as .csv files for simple, easy importing. To read a .xls file into R, you would need to install a third party package which adds an additional computing step during set up.</p>
-<p>Navigate to our class canvas page. Go to <strong>Files</strong> and open the <strong>Coding Tutorials</strong> folder. Download the metadata_tidepool.csv file and save it in your <strong>Tutorial 1</strong> folder. If you’ve properly set your working directory and saved the file to the correct location, this next step will be easy.</p>
+<p>Try it yourself: Create a new chunk and name it “data import”. In this class, we will save our data sets as .csv files (comma separated files). As scientists, we may use Excel or Google Sheets to input data, but it is best practice to save individual data sets as .csv files for simple, easy importing. To read a .xls file into R, you would need to install a third party package which adds an additional computing step during set up.</p>
+<p>Navigate to our class canvas page. Go to <strong>Files</strong> and open the <strong>Coding Tutorials</strong> folder. Download the metadata_tidepool.csv file and save it in your <strong>Coding Tutorials</strong> folder. If you’ve properly set your working directory and saved the file to the correct location, this next step will be easy.</p>
 <p>Import your .csv data set using the <code>read.csv()</code> command and saving it in a <strong>data frame object</strong> called ‘data’.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"metadata_tidepool.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The argument <code>header = TRUE</code> will ensure that when you import your .csv, <code>R</code> is treating the first row of your data as column names. You would set this as <code>header = FALSE</code> if your data set did not contain column names.</p>
+<p>The argument <code>header = TRUE</code> will ensure that when you import your .csv, R is treating the first row of your data as column names. You would set this as <code>header = FALSE</code> if your data set did not contain column names.</p>
 <p>Great, now we have two different data sets to play around with. Let’s start with Palmer penguins.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Question 1</strong></p>
+<p>1a. Get and set your working directory based on the suggested file path in Tutorial 0.</p>
+<p>1b. Install the Palmer penguins data set onto your computer.</p>
+<p>1c. Import the tidepool metadata practice data set.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="exploring-your-data-frame-object" class="level2">
 <h2 class="anchored" data-anchor-id="exploring-your-data-frame-object">Exploring Your Data Frame Object</h2>
@@ -303,15 +332,15 @@ Tip
                                  Mean   :43.92   Mean   :17.15  
                                  3rd Qu.:48.50   3rd Qu.:18.70  
                                  Max.   :59.60   Max.   :21.50  
-                                 NA's   :2       NA's   :2      
+                                 NAs    :2       NAs    :2      
  flipper_length_mm  body_mass_g       sex           year     
  Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
  1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
- Median :197.0     Median :4050   NA's  : 11   Median :2008  
+ Median :197.0     Median :4050   NAs   : 11   Median :2008  
  Mean   :200.9     Mean   :4202                Mean   :2008  
  3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
  Max.   :231.0     Max.   :6300                Max.   :2009  
- NA's   :2         NA's   :2                                 </code></pre>
+ NAs    :2         NAs    :2                                 </code></pre>
 </div>
 </div>
 <p><code>summary()</code> is a generic function used to provide overall summaries of objects or models.</p>
@@ -350,9 +379,10 @@ Tip
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Do It Yourself T1.1</strong></p>
-<p>1a. Get the summary of the tide pool metadata. What’s the mean tidepool volume?</p>
-<p>1c. Get the head and the tail of the tide pool metadata. How many rows does this data frame have?</p>
+<p><strong>Question 2</strong></p>
+<p>2a. Retrieve the summary, head, and tail of the tide pool metadata set.</p>
+<p>2b. What’s the mean tidepool volume?</p>
+<p>2c. How many rows does the tidepool metadata set have?</p>
 </div>
 </div>
 </div>
@@ -373,7 +403,7 @@ Tip
 </div>
 </div>
 <p>This returns the class of the variable species extracted from the <code>penguins</code> data frame. You should see “factor” in your own .rmd, like above.</p>
-<p>It’s important you understand and can differentiate between the <strong>atomic data types</strong> you might encounter when using <code>R</code>. However, for this class and likely beyond, you’ll only really need to focus on the first four.</p>
+<p>It’s important you understand and can differentiate between the <strong>atomic data types</strong> you might encounter when using R. However, for this class and likely beyond, you’ll only really need to focus on the first four.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -436,16 +466,16 @@ Tip
 </tr>
 </tbody>
 </table>
-<p>In <code>R</code>, we have <u>values</u> (the data), <u>vectors</u> (the container), and <u>variables</u> (the names).</p>
-<p><strong>Values</strong> in <code>R</code> must belong to an atomic data type (like the six types above).</p>
+<p>In R, we have <u>values</u> (the data), <u>vectors</u> (the container), and <u>variables</u> (the names).</p>
+<p><strong>Values</strong> in R must belong to an atomic data type (like the six types above).</p>
 <p><strong>Vectors</strong> are an ordered collection of values. Vectors are <em>homogeneous</em>, meaning all values inside a single vector must be of the same type.</p>
 <ul>
 <li><p>To create a vector you combine values using the <code>c()</code> (combine) function.</p></li>
-<li><p>If you mix data types, <code>R</code> forces lower types into higher types (<code>Logical &lt; Integer &lt; Double &lt; Character</code>) without throwing an error.</p>
+<li><p>If you mix data types, R forces lower types into higher types (<code>Logical &lt; Integer &lt; Double &lt; Character</code>) without throwing an error.</p>
 <ul>
 <li>For example, <code>c(5, "Hello")</code> forces the numeric <code>5</code> to become a factor <code>"5"</code>.</li>
 </ul></li>
-<li><p>Access specific elements of a vector by using square brackets <code>[]</code>. <code>R</code> uses 1-based indexing, so the first element is at position <code>1</code>.</p></li>
+<li><p>Access specific elements of a vector by using square brackets <code>[]</code>. R uses 1-based indexing, so the first element is at position <code>1</code>.</p></li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a numeric vector</span></span>
@@ -478,8 +508,8 @@ Tip
 <pre><code>[1] "lettuce" "carrots" "celery" </code></pre>
 </div>
 </div>
-<p>We use the <code>print()</code> function to give the output or generate the contents of a vector or object into the <code>R</code> Console.</p>
-<p>All <code>R</code> statements where you create objects , assignment statements, have the same form: <code>object_name &lt;- value</code>. Again, don’t use <code>=</code>. It’s just confusing.</p>
+<p>We use the <code>print()</code> function to give the output or generate the contents of a vector or object into the R Console.</p>
+<p>All R statements where you create objects , assignment statements, have the same form: <code>object_name &lt;- value</code>. Again, don’t use <code>=</code>. It’s just confusing.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -490,11 +520,11 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Getting tired of continuously, manually typing <code>&lt;-</code> ? Well, you’re just in luck!! Statisticians and those who use <code>R</code> agree with that sentiment, so there’s actually a keyboard shortcut! Just type <strong>Alt</strong> + <strong>-</strong> and voila! You’re very own assignment argument.</p>
+<p>Getting tired of continuously, manually typing <code>&lt;-</code> ? Well, you’re just in luck!! Statisticians and those who use R agree with that sentiment, so there’s actually a keyboard shortcut! Just type <strong>Alt</strong> + <strong>-</strong> and voila! You’re very own assignment argument.</p>
 <p>This is also great because <code>R</code> automatically gives you spaces on both sides of the assignment arrow, which (again) is good coding practice and etiquette. Code is miserable to read on a good day, so giveyourselfabreakand <u><strong><em>use spaces</em></strong></u>.</p>
 </div>
 </div>
-<p>This harkens back to our code etiquette tutorial, but please ensure you’re giving your assigned objects, vectors, data frames (or literally everything else) a descriptive name. In this course, I’d like you to use <code>snake_case</code>, where you will separate lowercase words of a named object with <code>_</code>.</p>
+<p>This harkens to the code etiquette tab, but please ensure you’re giving your assigned objects, vectors, data frames (or literally everything else) a descriptive name. In this course, I’d like you to use <code>snake_case</code>, where you will separate lowercase words of a named object with <code>_</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>i_use_snake_case</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>otherPeopleUseCamelCase</span>
@@ -503,7 +533,7 @@ Tip
 </div>
 <p>Sometimes the data you have doesn’t match your coding conventions. Our tide pool meta data mixes <code>snake_case</code> and <code>camelCase</code>. This is a very common issue and often happens with data sets that include multiple contributors.</p>
 <p>It is best practice to <em>agree</em> and <em>stick to</em> a single convention when collaborating. To maintain continuity, you can rename variables using your agreed-upon convention.</p>
-<p>For us, this convention is <code>snake_case</code>. To do this, you can use <code>dplyr</code> or base <code>R</code>. We’ll learn more about <code>dplyr</code> in a moment, but for now lets learn how to do this in base <code>R</code>.</p>
+<p>For us, this convention is <code>snake_case</code>. To do this, you can use <code>dplyr</code> or base R. We’ll learn more about <code>dplyr</code> in a moment, but for now lets learn how to do this in base R.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># explicit name matching in base R to re-name data frame variables</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) [<span class="fu">names</span>(data) <span class="sc">==</span> <span class="st">"Old_Column_Name"</span>] <span class="ot">&lt;-</span> <span class="st">"new_column_name"</span></span>
@@ -519,10 +549,10 @@ Tip
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Do It Yourself T1.2</strong></p>
-<p>2a. What is the atomic data type of tide pool size? How many tide pool sizes are there?</p>
-<p>2b. Rename the tidepool metadata object (if you haven’t already) using <code>snake_case</code> convention.</p>
-<p>2c. Rename all variables in your new tide pool data frame to match <code>snake_case</code> conventions.</p>
+<p><strong>Question 3</strong></p>
+<p>3a. What is the atomic data type of tide pool size? How many tide pool sizes are there?</p>
+<p>3b. Rename the tidepool metadata object (if you haven’t already) using <code>snake_case</code> convention.</p>
+<p>3c. Rename all variables in your new tide pool data frame to match <code>snake_case</code> conventions.</p>
 </div>
 </div>
 </div>
@@ -530,7 +560,7 @@ Tip
 <section id="data-transformation-with-dplyr" class="level2">
 <h2 class="anchored" data-anchor-id="data-transformation-with-dplyr">Data Transformation with dplyr</h2>
 <p>If you’ve noticed the double semi-colon after certain names of things (e.g., <code>knitr::</code> , <code>ggplot::</code> , <code>dplyr::</code>) this is an easy indication I am talking about a <strong>package</strong>.</p>
-<p>When installing packages that overwrite previously installed or loaded packages in <code>R</code>, but you still want to use those functions, you’ll need to specify what package relates to what function. The two most common conflicts are two functions from the <code>stats::</code> package (which is pre-loaded in base <code>R</code>).</p>
+<p>When installing packages that overwrite previously installed or loaded packages in R, but you still want to use those functions, you’ll need to specify what package relates to what function. The two most common conflicts are two functions from the <code>stats::</code> package (which is pre-loaded in base R):</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">filter</span>()</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -539,7 +569,7 @@ Tip
 <p>If you receive conflict messages when running <code>filter()</code> or <code>lag()</code>, it’s likely because you’ve overwritten one or the other with either <code>stats::</code> or <code>dplyr::</code>. Use the package that correlates to the command you’re trying to execute by indicating so with <code>::</code>.</p>
 <section id="install-and-load-dplyr" class="level3">
 <h3 class="anchored" data-anchor-id="install-and-load-dplyr">Install and Load dplyr</h3>
-<p>To transform our data, we will be using the <code>dplyr</code> package, which is a small component of the tidyverse package suite. If you haven’t done so before, install and load the <code>tidyverse</code> and <code>dplyr</code> packages in your setup chunk of your Tutorial 1 .rmd.</p>
+<p>To transform our data, we will be using the <code>dplyr</code> package, which is a small component of the tidyverse package suite. If you haven’t done so before, install and load the <code>tidyverse</code> and <code>dplyr</code> packages in your setup chunk.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"dplyr"</span>))</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -547,7 +577,18 @@ Tip
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>CRAN_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"dplyr"</span>)</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(CRAN_packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>CRAN packages are add-on modules written for <code>R</code> by other programmers. <code>lapply()</code> applies your vector <code>CRAN_packages</code> using the <code>library()</code> function, ensuring <code>R</code> passes your string of variables (your packages) in your vector as actual package names <code>R</code> will recognize. This allows you to load multiple packages at once without having to retype <code>library()</code> over and over.</p>
+<p>CRAN packages are add-on modules written for <code>R</code> by other programmers. <code>lapply()</code> applies your vector <code>CRAN_packages</code> using the <code>library()</code> function, ensuring <code>R</code> passes your string of variables (your packages) in your vector as actual package names R will recognize. This allows you to load multiple packages at once without having to retype <code>library()</code> over and over.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Question 4</strong></p>
+<p>Use code to install the tidyverse and dplyr packages; Load the packages into your working session.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="dplyr-basics" class="level3">
 <h3 class="anchored" data-anchor-id="dplyr-basics">dplyr Basics</h3>
@@ -594,7 +635,7 @@ Tip
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>chinstrap_2007_df <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Chinstrap"</span>, year <span class="sc">==</span> <span class="dv">2007</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><code>R</code> will either print out the results if you explicilty ask using <code>print()</code>, or save them into a variable without printing. If you want to print and save it, wrap the entire argument in parentheses.</p>
+<p>R will either print out the results if you explicitly ask using <code>print()</code>, or save them into a variable without printing. If you want to print and save it, wrap the entire argument in parentheses.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>(chinstrap_2007_df <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Chinstrap"</span>, year <span class="sc">==</span> <span class="dv">2007</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -615,7 +656,7 @@ Tip
 # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 </div>
 </div>
-<p>To filter effectively, you need to understand how to correctly select comparison and logical operators. <code>R</code> gives you quite a few:</p>
+<p>To filter effectively, you need to understand how to correctly select comparison and logical operators. R gives you quite a few:</p>
 <ul>
 <li><p><code>&gt;</code>, greater than</p></li>
 <li><p><code>&gt;=</code>, greater than or equal to</p></li>
@@ -695,7 +736,7 @@ Tip
 # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 </div>
 </div>
-<p>What if I’d like to do more complicated subsetting? For example, I’d like to filter for every penguin that isn’t a Adelie and Chinstrap penguins and that have bills &lt;40mm.</p>
+<p>What if I’d like to do more complicated sub-setting? For example, I’d like to filter for every penguin that isn’t a Adelie and Chinstrap penguins and that have bills &lt;40mm.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(penguins, <span class="sc">!</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>) <span class="sc">&amp;</span> bill_length_mm <span class="sc">&gt;</span> <span class="dv">40</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -774,9 +815,9 @@ Tip
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Do It Yourself T1-3</strong></p>
-<p>3a. Filter the tide pool data to only include large tide pools with a macro_richness that is &gt;= to 10.</p>
-<p>3b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).</p>
+<p><strong>Question 5</strong></p>
+<p>5a. Filter the tide pool data to only include large tide pools with a macro_richness that is &gt;= to 10.</p>
+<p>5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).</p>
 </div>
 </div>
 </div>
@@ -869,9 +910,9 @@ Tip
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Do It Yourself T1-4</strong></p>
-<p>4a. How could you use <code>arrange()</code> to sort all missing values to the start? (HINT: try using <code>is.na()</code>).</p>
-<p>4b. In the tide pool data frame, arrange our observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.</p>
+<p><strong>Question 6</strong></p>
+<p>6a. How could you use <code>arrange()</code> to sort all missing values to the start? (HINT: try using <code>is.na()</code>).</p>
+<p>6b. In the tide pool data frame, arrange our observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.</p>
 </div>
 </div>
 </div>
@@ -935,16 +976,43 @@ Tip
 # ℹ 334 more rows</code></pre>
 </div>
 </div>
-<p>I often use <code>select()</code> to make my data transformations more exclusive in a sub-set. I will ask you to select variables when preparing for statistical analyses, to prevent influence or leverage from unwanted values in your analysis.</p>
-<p>Additional helper functions that come along with select() include:</p>
+<p>I often use <code>select()</code> to make my data transformations more exclusive in a sub-set. I will ask you to select variables when preparing for statistical analyses, to prevent influence or leverage from unwanted values in your analyses.</p>
+<p>Additional helper functions that come along with <code>select()</code> include:</p>
 <ul>
 <li><p><code>starts_with("abc")</code> would match names that begin with “abc”.</p></li>
 <li><p><code>ends_with("xyz")</code> would matches names that end with “xyz”.</p></li>
 <li><p><code>contains("ijk")</code> would match names that contain “ijk”.</p></li>
 </ul>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Question 7</strong></p>
+<p>7a.</p>
+<p>7b.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="rename-columns" class="level3">
+<h3 class="anchored" data-anchor-id="rename-columns">Rename Columns</h3>
 <p>Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command <code>rename()</code>!</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(example_data, <span class="at">old_col_name1 =</span> new_col_name1, <span class="at">old_col_name2 =</span> new_col_name2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Question 8</strong></p>
+<p>8a. Re-import the tidepool metadata set. What effect does this have to the work we’ve already done to the data set?</p>
+<p>8b. Re-name the tidepool data frame object using <code>snake_case</code> once again (if you didn’t already do so during re-import). Using dplyr and the <code>rename()</code> command, rename all the columns in the tidepool metadata using <code>snake_case</code>.</p>
+</div>
+</div>
 </div>
 </section>
 <section id="add-new-variables-with-mutate" class="level3">
@@ -1051,8 +1119,12 @@ Tip
 <span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_length =</span> <span class="fu">mean</span>(bill_length_mm),</span>
 <span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_depth =</span> <span class="fu">mean</span>(bill_depth_mm))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'species'. You can override using the
-`.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by species and island.
+ℹ Output is grouped by species.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(species, island))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 </div>
 <p>You should read this code as a series of interpretive statements: using the penguins data set select the variables <strong>then</strong> filter the NAs <strong>then</strong> group by the categories of interest <strong>then</strong> summarize. A pipe follows every primary command you’re asking <code>R</code> to compute, stringing them all together as one whole operation and saving it in a new data frame. You use pipes sequentially (left to right, top to bottom) which means you can un-write or over-write previous work in the same pipe string. Don’t do this. This is bad code practice. I will be sad.</p>

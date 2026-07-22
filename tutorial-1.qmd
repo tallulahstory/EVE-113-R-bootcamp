@@ -165,7 +165,7 @@ This returns the class of the variable species extracted from the `penguins` dat
 It's important you understand and can differentiate between the **atomic data types** you might encounter when using R. However, for this class and likely beyond, you'll only really need to focus on the first four.
 
 | Type | Description | Example Value | `class()` Output | Common Use Case |
-|---------------|---------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 | Numeric | Default for all real numbers; Can be continuous or discrete. | `10` or `2.1415` | "`numeric`" | Continuous measurements, math calculations |
 | Integer | Whole numbers explicitly defined. | `7L` or `year` | "`integer`" | Discretely counted numbers, IDs, loops, dates |
 | Character | Text strings wrapped in single or double quotes, categorical variables with no numerical value. | "`hello`" or "`yes`" or "`female`" | "`factor`" | Names, descriptive labels, text data |

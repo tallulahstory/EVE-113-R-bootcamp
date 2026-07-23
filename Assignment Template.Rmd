@@ -108,9 +108,17 @@ Answer:
 
 ## Question 7
 
-7a.
+**7a. Create a sub-set of the tidepool data that only includes the pool number, Shannon's diversity metrics for macro sessile and mobile organisms, and the macro richness.**
 
-7b.
+```{r Question_7a}
+
+```
+
+**7b. Arrange your new sub-set in descending order by the pool number.**
+
+```{r Question_7b}
+
+```
 
 ## Question 8
 
@@ -127,5 +135,13 @@ Answer:
 **8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.**
 
 ```{r Question_8b}
+
+```
+
+## Question 9
+
+**Using the tidepool metadata sub-set you created in question 7, add together the Shannon's Diversity for both sessile and mobile macroscopic organisms. Name this new variable appropriately.**
+
+```{r Question_9}
 
 ```

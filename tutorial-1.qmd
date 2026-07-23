@@ -36,9 +36,9 @@ For this tutorial you are expected to already know how to create a new .rmd file
 ::: callout-important
 To start, ensure your `R-Prep.rmd` file is in your **Coding Tutorials** folder. If you do not have a coding tutorials folder, make a folder path on your computer like the following: `/yourusername/Desktop/EVE 113/Coding Tutorials`.
 
-Alongside answering assignment questions in the R-Prep assignment, I would also like you to create your own Rmarkdown file called `Tutorial 1.rmd` to follow along as you work through this tutorial. Do not do work for your R Preparedness assignment in your tutorial 1 file. Instead use this file as a way to test your skills.
+Alongside answering assignment questions in the R-Prep assignment, I would also like you to create your own Rmarkdown file called `tutorial-1.rmd` to follow along as you work through this tutorial. Do not do work for your R Preparedness assignment in your tutorial-1.rmd file. Instead use this file as a way to test your skills and practice your code.
 
-**Write your final answers for the assignment is the** `R-Prep.rmd` **only.**
+**Write your final answers for the assignment is the** `R-Prep.rmd` **only. Do not submit the tutorial-1.rmd as the submission for your R Preparedness assignment.**
 :::
 
 In this tutorial we will be using the package `palmerpenguins` as well as an example data set provided on the class canvas page. Palmer penguins is a CRAN data set provided that is a better alternative to the `iris` data set. If you'd like to know more about why we won't be using `iris` in this course, you can [read more here](https://medium.com/data-science/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5).
@@ -167,7 +167,7 @@ This returns the class of the variable species extracted from the `penguins` dat
 It's important you understand and can differentiate between the **atomic data types** you might encounter when using R. However, for this class and likely beyond, you'll only really need to focus on the first four.
 
 | Type | Description | Example Value | `class()` Output | Common Use Case |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | Numeric | Default for all real numbers; Can be continuous or discrete. | `10` or `2.1415` | "`numeric`" | Continuous measurements, math calculations |
 | Integer | Whole numbers explicitly defined. | `7L` or `year` | "`integer`" | Discretely counted numbers, IDs, loops, dates |
 | Character | Text strings wrapped in single or double quotes, categorical variables with no numerical value. | "`hello`" or "`yes`" or "`female`" | "`factor`" | Names, descriptive labels, text data |
@@ -287,7 +287,7 @@ CRAN_packages <- c("tidyverse", "dplyr")
 lapply(CRAN_packages, library, character.only = TRUE)
 ```
 
-CRAN packages are add-on modules written for `R` by other programmers. `lapply()` applies your vector `CRAN_packages` using the `library()` function, ensuring `R` passes your string of variables (your packages) in your vector as actual package names R will recognize. This allows you to load multiple packages at once without having to retype `library()` over and over.
+CRAN packages are add-on modules written for R by other programmers. `lapply()` applies your vector `CRAN_packages` using the `library()` function, ensuring R passes your string of variables (your packages) in your vector as actual package names R will recognize. This allows you to load multiple packages at once without having to retype `library()` over and over.
 
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 4**
@@ -327,7 +327,7 @@ filter(penguins, species == "Chinstrap", year == 2007)
 chinstrap_2007_df <- filter(penguins, species == "Chinstrap", year == 2007)
 ```
 
-R will either print out the results if you explicitly ask using `print()`, or save them into a variable without printing. If you want to print and save it, wrap the entire argument in parentheses.
+R will either print out the results if you explicitly ask using `print()`, or save them into a variable without printing. If you want to print and save it without writing an extra line of code, wrap the entire argument in parentheses.
 
 ```{r}
 (chinstrap_2007_df <- filter(penguins, species == "Chinstrap", year == 2007))
@@ -347,7 +347,7 @@ To filter effectively, you need to understand how to correctly select comparison
 
 - `==`, equal to
 
-Boolean operators combine comparisons and logical operators when you'd like to filter multiple things at once. This is where filtering is the most confusing. Even after 4 years of using `dplyr` consistently, I am still struggling to understand this. So, I am under no expectation that you are to master this, I am simply giving you this information, and you may do with it what you'd like.
+Boolean operators combine comparisons and logical operators when you'd like to filter multiple things at once. This is where filtering is the most confusing; Even after 4 years of using `dplyr` consistently, I am still struggling to understand this. So, I am under no expectation that you are to master this, I am simply giving you this information, and you may do with it what you'd like.
 
 Boolean Operations are as follows:
 
@@ -359,27 +359,27 @@ Boolean Operations are as follows:
 
 ![](images/clipboard-1634400291.png)
 
-Say, for example I'd like to find penguins that were measured in 2007 or 2008.
+Say, for example, I'd like to find penguins that were measured in 2007 **or** 2008.
 
-```{r}
+```{r, eval = FALSE}
 filter(penguins, year == 2007 | year == 2008)
 ```
 
-This reads in plain English as "find all penguins measured in year 2007 or year 2008". You can also simplify if you're filtering the data frame by the same variable by using `x %in% y`.
+This reads in plain English as "find all penguins measured in year 2007 **or** year 2008". You can also simplify if you're filtering the data frame by the same variable by using `x %in% y`.
 
-```{r}
+```{r, eval = FALSE}
 filter(penguins, year %in% c(2007,2008))
 ```
 
 Or for character variables...
 
-```{r}
+```{r, eval = FALSE}
 filter(penguins, species %in% c("Chinstrap", "Adelie"))
 ```
 
-What if I'd like to do more complicated sub-setting? For example, I'd like to filter for every penguin that isn't a Adelie and Chinstrap penguins and that have bills \<40mm.
+What if I'd like to do more complicated sub-setting? For example, I'd like to filter for every penguin that **isn't** a Adelie and Chinstrap penguin and that have bills \<40mm.
 
-```{r}
+```{r, eval = FALSE}
 filter(penguins, !(species %in% c("Adelie", "Chinstrap") & bill_length_mm > 40))
 ```
 
@@ -469,7 +469,7 @@ tail(arrange(penguins, desc(bill_depth_mm), desc(bill_length_mm)))
 
 ### Select Columns with select()
 
-Its not uncommon to receive data sets with hundreds or maybe even thousands of variables. Working with a data frame that dense is computationally expensive, so sub-setting down to the variables of interest is best practice when dealing with data like this. `select()` gives you the power to accomplish this.
+Its not uncommon to receive data sets with hundreds or maybe even thousands of variables. Working with a data frame that dense is computationally expensive, so sub-setting down to the variables of interest is best practice when dealing with data like that. `select()` gives you the power to accomplish that.
 
 ```{r}
 # select columns of interest
@@ -505,7 +505,9 @@ Additional helper functions that come along with `select()` include:
 Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command `rename()`!
 
 ```{r, eval = FALSE}
-rename(example_data, old_col_name1 = new_col_name1, old_col_name2 = new_col_name2)
+rename(example_data, 
+       old_col_name1 = new_col_name1, 
+       old_col_name2 = new_col_name2)
 ```
 
 ::: {.callout-tip appearance="simple" icon="false"}
@@ -513,12 +515,12 @@ rename(example_data, old_col_name1 = new_col_name1, old_col_name2 = new_col_name
 
 8a. Re-import the tidepool metadata set. What effect does this have to the work we've already done to the data set?
 
-8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.
+8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using `dplyr` and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.
 :::
 
 ### Add New Variables with mutate()
 
-Adding new columns or variables that are functions of existing columns is exactly where mutate() comes in.
+Adding new columns or variables that are functions of existing columns is exactly where `mutate()` comes in.
 
 ```{r}
 # create a smaller sub-set of data to work with
@@ -555,7 +557,9 @@ Retrieve mean, medians, standard deviations, standard errors, and more with `sum
 summarize(penguins, mean_bill_length_mm = mean(bill_length_mm))
 ```
 
-Ruh roh... Okay that went wrong fast. Well, do you recall when I was talking about how missing values can muck up your code earlier in the tutorial? Well the `penguins` data frame includes a few rows that have `NA` observations. To run summaries that include rows with NAs, use `na.rm = TRUE`.
+Ruh roh... Okay that went wrong fast.
+
+Well, do you recall when I was talking about how missing values can muck up your code earlier in the tutorial? Well the `penguins` data frame includes a few rows that have `NA` observations. To run summaries that include rows with NAs, use `na.rm = TRUE`.
 
 ```{r}
 summarize(penguins, mean_bill_length_mm = mean(bill_length_mm, na.rm = TRUE))
@@ -588,7 +592,9 @@ Imagine that I'd like to get the mean of bill length and bill depth by species o
 3.  grouping by species and island
 4.  summarizing your variables
 
-Doing it like this is why people might come to hate coding, because this would be time intensive and yield a higher risk of making an up-stream mistake that would don't catch until the very end. However, what if I told you all of this can be done in one consecutive "line" of code? Take a look at the following:
+Doing it like this is why people might come to hate coding, because this would be time intensive and yield a higher risk of making an up-stream mistake that you don't catch until the very end of all your code. However, what if I told you all of this can be done in one consecutive "line" of code?
+
+Take a look at the following:
 
 ```{r}
 penguins_bills <- penguins %>%
@@ -599,16 +605,18 @@ penguins_bills <- penguins %>%
             mean_depth = mean(bill_depth_mm))
 ```
 
-You should read this code as a series of interpretive statements: using the penguins data set select the variables **then** filter the NAs **then** group by the categories of interest **then** summarize.
+You should read this code as a series of interpretive statements: using the penguins data set (`penguins_bills <- penguins %>%`), select the variables (`select(species, island, bill_length_mm, bill_depth_mm)`) **then** (`%>%`) filter out the NAs in bill_length_mm (`filter(!is.na(bill_length_mm))`) **then** (`%>%`) group by the categories of interest (`group_by(species, island)`) **then** (`%>%`)summarize. Every pipe (`%>%`) reads as "then"—the next step in your sequence of code.
 
-A pipe follows every primary command you're asking R to compute, stringing them all together as one whole operation and saving it in a new data frame. You use pipes sequentially (left to right, top to bottom) which means you can un-write or over-write previous work in the same pipe string. Don't do this. This is bad code practice. I will be sad if I see this in your code.
+A pipe (`%>%`) follows every primary command you're asking R to compute, stringing them all together as one whole operation and saving it in a new data frame. You use pipes sequentially (left to right, top to bottom) which means you can un-write or over-write previous work in the same pipe string. Don't do this. This is bad code practice. I will be sad if I see this in your code.
 
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 10**
 
-10a.
+**Only using pipes:**
 
-10b.
+10a. Using the tidepool metadata, group by tide pool size and get the mean Shannon's diversity of both the mobile and sessile macro-organisms. Save this in a new data frame object (a tibble) and name it appropriately.
+
+10b. Using the penguins data, create a new sub-set that only includes Chinstrap penguins and their bill measurements. Get the mean of the bill measurements in each year the penguins were measured.
 :::
 
 **Working with the pipe is one of the key features of the tidyverse that make it so powerful.** The only exception to this, however, is `ggplot2`, which was written before the pipe was discovered. However, you can still string together piped, `dplyr` operations when plotting in ggplot2. I'll show you how to do that next as we learn...
@@ -623,18 +631,20 @@ Add the following to your setup chunk:
 library(ggplot2)
 ```
 
-Let's use the first graph we create to answer a hypothetical question we might have about the penguins data: do penguins with larger bills have a higher body mass? Intuitively you might think that penguin bill size would scale proportionally with penguin body mass, but there's no real way to tell without first visualizing it. We will use ggplot2 to do so.
+Let's use the first graph we create to answer a hypothetical question we might have about the penguins data: *do penguins with larger bills have a higher body mass?*
+
+Intuitively you might think that penguin bill size would scale proportionally with penguin body mass, but there's no real way to tell without first visualizing it. We will use ggplot2 to do so.
 
 ### Create a ggplot
 
-To answer the above question, lets put bill length on the y axis and body mass on the x axis.
+To answer the above question, lets put bill length on the y-axis and body mass on the x-axis.
 
 ```{r}
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
   geom_point()
 ```
 
-This plot shows what we would expect: as penguin bill length increases, so to does body mass. What we've done here is used the function `ggplot()` to coordinate a system that you can add layers to. You add layers after each previous function using the `+`.
+This plot shows what we might expect: as bill length increases, so too does body mass. What we've done here is used the function `ggplot()` to coordinate a system that you can add layers to. You add layers after each previous function using the `+`.
 
 The first argument of `ggplot()` is the `data =` argument, which tells ggplot which data set you're going to be visualizing. If you don't specify this, ggplot will not know what to map your visualizations with (AKA: nothing will happen). Typing just `ggplot(data = penguins)` has a similar effect.
 
@@ -642,35 +652,43 @@ The first argument of `ggplot()` is the `data =` argument, which tells ggplot wh
 ggplot(data = penguins)
 ```
 
-This is just an empty graph. R has no idea what you want you x or y axis to be. So you use the `aes()` call in `ggplot()` to specify what you'd like your x or x axis to be.
+This is just an empty graph. R has no idea what you want you x- or y-axis to be. So you use the `aes()` call in `ggplot()` to specify what you'd like your x- or y-axis to be.
 
 ```{r}
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm))
 ```
 
-Great, now R knows your graphing the penguins data set and visualizing `bill_length_mm` and `body_mass_g` on the y and x axis, respectively. However, we still need to tell R what type of graph this is. There are a LOT of ways to visualize data, so making the choice about what type of graph to use can be one of the harder choices you might have to make when data analysis rolls around. Here we're using a scatter plot, which is specified by a `geom_` argument.
+Great, now R knows your graphing the penguins data set and visualizing `bill_length_mm` and `body_mass_g` on the y- and x-axis, respectively. However, we still need to tell R what type of graph this is.
+
+There are a LOT of ways to visualize data, so making the choice about what type of graph to use can be one of the harder things you might have to do when your own data analysis rolls around. Here we're using a scatter plot, which is specified by the `geom_point` argument.
 
 ::: {.callout-tip appearance="simple" icon="false"}
-To see examples of plots and what types of geom\_ functions are at your disposal you can [head here.](https://r-graph-gallery.com/ggplot2-package.html)
+To see examples of plots and what types of geom\_ functions are at your disposal, you can [head here.](https://r-graph-gallery.com/ggplot2-package.html)
 
-**This resource is genuinely incredible and will really help you expand your ggplot knowledge beyond just what I show you here.**
+**This resource is genuinely incredible and will really help you expand your ggplot knowledge beyond just what I show you here. Please use it to your advantage!**
 :::
 
-Some geom\_ calls we might use on our class include:
+Some `geom_` calls we *might* use on our class include:
 
-- geom_point - scatter plot
+- `geom_point` - makes a scatter plot
 
-- geom_bar - bar plot
+- `geom_bar` - makes a bar plot
 
-- geom_line - line plot. Can be combined with geom_point to make a line plot with points connecting the lines
+  - I will show you more functions of a bar plot later on, but understand that this is ***not*** the same thing as a column plot or a histogram.
 
-- geom_boxplot - boxplot (one of my favorite visualizations
+- `geom_line` - makes a line plot.
 
-- geom_violin - violin plot (a better distribution visualizer than a boxplot)
+  - Can be combined with `geom_point` to make a line plot with points connecting the lines.
 
-- geom_histogram - histogram
+- `geom_boxplot` - makes a box plot (one of my personal favorite plots)!
 
-- geom_qq - qq plot for showing quartiles during statistical analysis diagnosis.
+- `geom_violin` - makes a violin plot (a better distribution visualizer than a box plot, and still just as cool when customized).
+
+- `geom_histogram` - makes a histogram
+
+- `geom_qq` - makes a qq plot.
+
+  - This is very useful for data diagnosis and visualizing residuals.
 
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 11**
@@ -686,28 +704,34 @@ Some geom\_ calls we might use on our class include:
 
 ### Coloring and Adding Shapes
 
-How we choose to visualize data says almost just as much about what we're saying about our results and our research. Making intentional, smart data visualization choices should be at the foremost of your work as you create your tidepool and culture experiment figures. For example, the graph we created above with the penguins data set shows a relatively positive linear relationship between bill length and body mass. However, ecological data is not as simple as: get bigger, grow bill. What about species differences between bill length and body mass? Geographical differences? Have evolutionary pressures changes how bill size scales with body mass? Does sex play a role in this?
+*How* we choose to visualize data says almost just as much about *what* we're saying in our results and our research. Making intentional, smart data visualization choices should be at the foremost of your work as you create your tidepool and culture experiment figures.
 
-These are all questions that can be answered by mapping more aesthetics to your plot to convey complex information about your data. Two of the primary ways of doing this is with color = and shape = .
+For example, the graph we created above with the penguins data set shows a (relatively) positive, linear relationship between bill length and body mass. However, ecological data is not as simple as: get bigger, grow bill.
+
+What about species differences between bill length and body mass? Geographical differences? Have evolutionary pressures changes how bill size scales with body mass? Does sex play a role in this? Does island habitat influence these factors?
+
+These are all questions that can be answered by **mapping more aesthetics** to your plot to convey complex information about your data. Two of the primary ways of doing this is with `color =` and `shape =` .
 
 ```{r}
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) +
   geom_point()
 ```
 
-Whoa! We get very clear separation here between the three penguin species. Not every species shows that same positive linear relationship between bill length and body mass. What about sex differences between and within the species?
+Whoa! We get very clear separation here between the three penguin species. Not every species shows that same positive linear relationship between bill length and body mass.
+
+What about sex differences between and within the species?
 
 ```{r}
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
   geom_point()
 ```
 
-If you spend some time parsing apart the circles and triangles, you can see that male penguins are more likely to have larger bills and a higher body mass when compared to females of the same species. You can answer these big questions by, again, making intentional choices with your graphing choices. By adding color and shape aesthetics to our graphs, we add depth and complexity to the data we're visualizing.
+If you spend some time parsing apart the circles and triangles, you can see that male penguins are more likely to have larger bills and a higher body mass when compared to females of the same species. You can answer these big questions by, again, making intentional choices with your graphs. By adding aesthetics to our graphs, we add depth and complexity to the data we're visualizing.
 
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 12**
 
-Using the tidepool metadata, create a scatter plot that shows the relationship between the sessile and mobile macro organisms Shannon's diversity colored by tidepool size.
+Using the tidepool metadata, create a scatter plot that shows the relationship between the sessile and mobile macro-organisms Shannon diversity colored by tidepool size.
 :::
 
 ### Facets
@@ -728,7 +752,7 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
   facet_wrap(~ sex)
 ```
 
-We can also fact by multiple variables.
+We can also facet by multiple variables.
 
 ```{r}
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) + 
@@ -744,9 +768,11 @@ Using the penguins data set, create a scatter plot faceted by species and island
 
 ### String Together dplyr and ggplot Commands Using Pipes
 
-If you didn't notice the NAs before when we colored by species and shaped our points by sex, then you for sure notice them now in the above graph. How might we get rid of those before we plot? There are a few ways we could go about this. If we're interested in sex-specific questions, and we have multiple observations that don't include sex data, it might be prudent (for future analysis) to remove those NAs. To do this, we would use the `drop_na()` command as a part of a pipe string.
+If you didn't notice the NAs before when we colored by species and shaped our points by sex, then you for sure notice them now in the above graph. How might we get rid of those before we plot?
 
-Remember when I said earlier we can combine dplyr actions in one pipe with ggplot? To filter before you plot, you can use dplyr to remove and/or filter unwanted observations in the same line of code as your ggplot command.
+There are a few ways we could go about this. If we're interested in sex-specific questions, and we have multiple observations that don't include sex data, it might be prudent (for future analysis as well) to remove those NAs. To do this, we would use the `drop_na()` command as a part of a pipe string.
+
+Remember when I said earlier we can also combine `dplyr` actions in one pipe with ggplot? To filter before you plot, you can use pipes to remove and/or filter unwanted observations in the same line of code as your ggplot command.
 
 ```{r}
 penguins %>%
@@ -766,9 +792,9 @@ Using the penguins data set and a pipe string, create a scatter plot faceted by 
 
 ### Using geom_smooth and geom_abline
 
-If I actually wanted to describe any linear (or non-linear) relationships in a graph, it will do me no good to just point at a scatter plot and claim there's a linear relationship without a best-fit line. You would usually back up a statement like this using a linear regression, but I won't cover how to do those until a later tutorial.
+If I actually wanted to describe any linear (or non-linear) relationships in a graph, it will do me no good to just point at a scatter plot and claim there's a linear relationship without a best-fit line there. You would usually back up a statement like this using a linear regression, but I won't cover how to do those until a later tutorial.
 
-The geom commands `geom_smooth` and `geom_abline` can be used in conjunction with geom commands like `geom_point()` to display a linear, quadratic, or non-linear relationship. For example: using `geom_smooth()` with a linear displays a line according to a statistical method or pattern.
+The geom commands `geom_smooth` and `geom_abline` can be used in conjunction with geom commands like `geom_point()` to display a linear, quadratic, or non-linear relationship. For example: using `geom_smooth()` with a linear model ("lm") displays a line according to a statistical method or pattern.
 
 ```{r}
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
@@ -776,7 +802,9 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   geom_smooth(method = "lm")
 ```
 
-This will display a smoothed conditional mean line using the linear regression formula of `y ~ x`. This is essentially saying the predicted response of body mass (y) equals the y-intercept plus the slope times the predictor of bill length (x), fitting a continuously smooth, straight line along those values. They grey shading along that line is the 95% confidence interval (or standard error) that the estimated line "fits" the data. We can remove the standard error shading by specifying `se = FALSE`.
+This will display a smoothed conditional mean line using the linear regression formula of `y ~ x`. This is essentially saying "the predicted response of body mass (y) equals the y-intercept plus the slope times the predictor of bill length (x), fitting a continuously smooth, straight line along those values".
+
+They grey shading along that line is the 95% confidence interval (or standard error) that the estimated line "fits" the data. We can remove the standard error shading by specifying `se = FALSE`.
 
 ```{r}
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
@@ -784,7 +812,9 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   geom_smooth(method = "lm", se = FALSE)
 ```
 
-`geom_abline` literally fits a line to a specific point in your graph that you tell it to. Sub-commands in this include `geom_vline` for vertical lines and `geom_hline` for horizontal lines. This would be great if, say for example, we'd like to point out a certain measurement that indicates growth or maturity in penguins (I'm not a penguin expert sadly so don't come for me if this isn't accurate).
+The `geom_abline` command(s) literally fit a line to a specific point on your graph. Sub-commands in this include `geom_vline` for vertical lines and `geom_hline` for horizontal lines.
+
+This would be great if, say for example, we'd like to point out a certain measurement that indicates growth or maturity in penguins (I'm not a penguin expert sadly, so don't come for me if this isn't accurate).
 
 ```{r}
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
@@ -792,7 +822,7 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   geom_vline(xintercept = 40, color = "blue", linewidth = 2, linetype = "dashed")
 ```
 
-Within geom\_ commands like this one, I can create specific aesthetic changes like color, linewidth, or linetype (all of which I've done above). I could also do the same for our linear regression line.
+Within `geom_` commands like this one, we can create specific aesthetic changes like color, linewidth, or linetype (all of which I've done above). We could also do the same for our linear regression line.
 
 ```{r}
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
@@ -800,7 +830,7 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   geom_smooth(method = "lm", color = "red", linewidth = 2, linetype = "dashed")
 ```
 
-I can also use geom_smooth and geom_abline commands in tandem with facets, to get a better idea of the fitted lines between categories of observations.
+We can also use `geom_smooth` in tandem with facets, to get a better idea of the fitted lines between categories of observations.
 
 ```{r}
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
@@ -809,26 +839,27 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   facet_wrap(~ species)
 ```
 
-Each species have varying levels of strength to the positive linear relationship of body mass and bill length. This tells a more nuanced story than simply "there is a positive linear relationship between body mass and bill length". Using data visualization as leverage to tell that nuanced story will aid in your final speed talk and paper for this class.
+Each species have varying levels of strength to the slope of their linear lines. This tells a more nuanced story than simply "there is a positive linear relationship between body mass and bill length". Using data visualization as leverage to tell that nuanced story will aid in your final speed talk and paper for this class.
 
-We can also use geom_smooth alone to show general trends in numerical data.
+We can also use `geom_smooth` alone to show general trends in numerical data.
 
 ```{r}
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
   geom_smooth()
 ```
 
-This looks fairly relational to our scatter plot, but instead of a perfectly linear line, we've fit a best smoothed estimate line to every point. We can also add multiple smooths for multiple categories.
+This looks fairly relational to our scatter plot, but instead of a perfectly linear line, we've fit a best smoothed estimate line to every observed point. We can also add multiple smooths for multiple categories.
 
 ```{r}
 ggplot(data = penguins) +
-  geom_smooth(aes(x = body_mass_g, y = bill_length_mm, linetype = species, color = species))
+  geom_smooth(aes(x = body_mass_g, y = bill_length_mm, 
+                  linetype = species, color = species))
 ```
 
 We now a smoothed picture of our body mass and bill length question. Take note of the standard errors of each smooth and how they differ. What might this tell you about the data?
 
 ::: {.callout-tip appearance="simple" icon="false"}
-Question 15
+**Question 15**
 
 Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y \~ x.
 
@@ -839,11 +870,22 @@ Using the tidepool metadata, explore the relationship between macro organism ric
 
 There are a plethora of add-ons and complexities that make ggplot simultaneously awesome and super confusing. I'll try to run through a few need-to-know cases that might help serve you in this course.
 
-1.  Creating a bar chart: helps you get a better idea of the number of observations in a variable of interest (without the stat = 'identity' this time).
+1.  Creating a bar chart: helps you get a better idea of the number of observations in a variable of interest (without the `stat = 'identity'` this time).
 
 ```{r}
-ggplot(data = penguins) +
-  geom_bar(aes(x = species)) # there are varying numbers of observations between the species
+ggplot(data = penguins) + # there are varying numbers of observations between the species
+  geom_bar(aes(x = species, 
+               color = species)) # outline color by species
+
+# OR
+ggplot(data = penguins) + 
+  geom_bar(aes(x = species, 
+               fill = species)) # fill bar color by species(much nicer, visually)
+
+# OR
+ggplot(data = penguins) + 
+  geom_bar(aes(x = species, 
+               fill = island)) # fill color by different variable than what you're plotting
 ```
 
 2.  Creating a bar chart with a proportion: might be a better way to view the counts of a variable, or understand how your data is structured (and because absolute counts can LIE)
@@ -858,8 +900,138 @@ ggplot(data = penguins) +
 ```{r}
 ggplot(data = penguins) +
   stat_summary(aes(x = species, y = bill_length_mm), 
-               fun.ymin = min,
-               fun.ymax = max,
-               fun.y = median
-  )
+               fun.min = min,
+               fun.max = max,
+               fun.y = median)
+```
+
+4.  Position adjustments in bar charts.
+
+```{r}
+# position = "fill"
+ggplot(data = penguins) + 
+  geom_bar(aes(x = species, 
+               fill = island),
+           position = "fill") # automatic proportion, stacked bar chart
+
+# position = "dodge"
+ggplot(data = penguins) + 
+  geom_bar(aes(x = species, 
+               fill = island),
+           position = "dodge") # place values to the sides of one another
+```
+
+5.  Manually creating your own discrete colors or shape scale using `scale_shape_manual` or `scale_color_manual`.
+
+```{r}
+penguins %>%
+  drop_na() %>%
+  ggplot(aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
+  geom_point() +
+  scale_color_manual(values = c("orange", "blue", "purple")) +
+  scale_shape_manual(values = c(19, 8))
+```
+
+**Shapes available to you in R include:**
+
+![](images/clipboard-3761452378.png)
+
+**Colors available to you in R include (but are absolutely not limited to):**
+
+![](images/clipboard-3602967895.png){width="517"}
+
+6.  Adding axis and graph labels.
+
+```{r}
+penguins %>%
+  drop_na() %>%
+  ggplot(aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
+  geom_point() +
+  scale_color_manual(values = c("orange", "blue", "purple")) +
+  scale_shape_manual(values = c(19, 8)) +
+  labs(y = "Bill Length (mm)",
+       x = "Body Mass (g)",
+       title = "Plot 1",
+       subtitle = "Penguin bill length and body mass by species and sex",
+       color = "Species",
+       shape = "Sex")
+```
+
+7.  Changing the plot theme.
+
+```{r}
+penguins %>%
+  drop_na() %>%
+  ggplot(aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
+  geom_point() +
+  scale_color_manual(values = c("orange", "blue", "purple")) +
+  scale_shape_manual(values = c(19, 8)) +
+  labs(y = "Bill Length (mm)",
+       x = "Body Mass (g)",
+       title = "Plot 1",
+       subtitle = "Penguin bill length and body mass by species and sex",
+       color = "Species",
+       shape = "Sex") +
+  theme_bw()
+```
+
+There a lot of different themes includes with ggplot to make your plots more visually appealing. You can also install the add-on package `ggthemes()` to broaden your range of plot themes. To explore all the native themes in ggplot, [head here.](https://ggplot2.tidyverse.org/reference/ggtheme.html#ref-examples)
+
+8.  Change the limits of your x- or y-axis as needed with `xlim()` or `ylim()`.
+
+```{r}
+penguins %>%
+  drop_na() %>%
+  ggplot(aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
+  geom_point() +
+  xlim(0,7000) +
+  ylim(0,70) +
+  scale_color_manual(values = c("orange", "blue", "purple")) +
+  scale_shape_manual(values = c(19, 8)) +
+  labs(y = "Bill Length (mm)",
+       x = "Body Mass (g)",
+       title = "Plot 1",
+       subtitle = "Penguin bill length and body mass by species and sex",
+       color = "Species",
+       shape = "Sex") +
+  theme_bw()
+```
+
+9.  Coordinate flip with `coord_flip()`.
+
+```{r}
+ggplot(data = penguins) +
+  stat_summary(aes(x = species, y = bill_length_mm), 
+               fun.min = min,
+               fun.max = max,
+               fun.y = median) +
+  coord_flip() +
+  labs(y = "Bill Length (mm)", 
+       x = "Species") +
+  theme_bw()
+```
+
+10. Saving your plot with `ggsave()`.
+
+```{r, eval = FALSE}
+plot_1 <- penguins %>%
+  drop_na() %>%
+  ggplot(aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
+  geom_point() +
+  scale_color_manual(values = c("orange", "blue", "purple")) +
+  scale_shape_manual(values = c(19, 8)) +
+  labs(y = "Bill Length (mm)",
+       x = "Body Mass (g)",
+       title = "Plot 1",
+       subtitle = "Penguin bill length and body mass by species and sex",
+       color = "Species",
+       shape = "Sex") +
+  theme_bw()
+
+ggsave('figure_or_plot_name_here.png',                      # saved plot name
+       path = "/Users/yourusername/Desktop/EVE 113/Plots",  # a path OR your wd
+       width = 10,                                          # plot width
+       length = 7,                                          # plot length
+       units = c("in"),                                     # unit of width/length
+       dpi = 300)                                           # plot resoltion
 ```

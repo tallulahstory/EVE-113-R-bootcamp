@@ -145,3 +145,86 @@ Answer:
 ```{r Question_9}
 
 ```
+
+## Question 10
+
+**Only using pipes**
+
+**10a. Using the tidepool metadata, group by tide pool size and get the mean Shannon's diversity of both the mobile and sessile macro-organisms. Save this in a new data frame object (a tibble) and name it appropriately.**
+
+```{r Question_10a}
+
+```
+
+**10b. Using the penguins data, create a new sub-set that only includes Chinstrap penguins and their bill measurements. Get the mean of the bill measurements in each year the penguins were measured.**
+
+```{r Question_10b}
+
+```
+
+## Question 11
+
+**11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume.**
+
+```{r Question_11a}
+
+```
+
+**11b. Create a bar plot showing the macro richness by tidepool size. (HINT: you will need to use the argument** `stat = 'identity'` **in your** `geom_` **call).**
+
+```{r Question_11b}
+
+```
+
+**11c. Use the** `?geom_bar` **help command to pull up the help page for the** `geom_bar()` **command. Spend a little bit of time reading. You can also look at** `?geom_col`.
+
+```{r Question_11c}
+?geom_bar
+?geom_col
+```
+
+**Why do we need to use the** `stat = 'identity'` **argument when running** `geom_bar()`?
+
+Answer:
+
+**11d. What happens if we don't add stat = 'identity'?**
+
+```{r Question_11d}
+# Optional to add code here if you'd like to support your answer
+```
+
+Answer:
+
+## Question 12
+
+**Using the tidepool metadata, create a scatter plot that shows the relationship between the sessile and mobile macro-organisms Shannon diversity colored by tidepool size.**
+
+```{r Question_12}
+
+```
+
+## Question 13
+
+**Using the penguins data set, create a scatter plot faceted by species and island that explores the relationship between bill depth and bill length. Add additional aesthetic mappings as wanted or needed.**
+
+```{r Question_13}
+
+```
+
+## Question 14
+
+**Using the penguins data set and a pipe string, create a scatter plot faceted by species and sex that explores the relationship between bill depth and body mass only in the year 2007.**
+
+```{r Question_14}
+
+```
+
+## Question 15
+
+**Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y \~ x.**
+
+```{r Question_15}
+
+```
+
+*(HINT: This one is tricky and will involve you using the mathematical operator log() on one of the axis. You can do so without piping using dplyr commands OR altering the data frame itself).*

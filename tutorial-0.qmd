@@ -4,7 +4,7 @@ title: "Tutorial 0"
 
 # R and RMarkdown Basics
 
-![Cyanobacterial growth in a lake \| Photo Credit: Rebecca North](images/clipboard-1208279086.png)
+!['iwa (Great Frigate) bird in flight in Mangroves \| Photo Credit: Lorenzo Mittiga](images/clipboard-4261253529.png)
 
 Welcome to your "first" R tutorial! Well, technically this is tutorial 0, but this lesson will form the foundational knowledge you will need to start learning the basics of coding in R! Let's get started...
 
@@ -64,9 +64,17 @@ Find the point where your cursor is blinking towards the bottom. The `>` indicat
 
 ![](images/clipboard-3133842425.png){width="450"}
 
+::: {.callout-note appearance="simple" icon="false"}
+**DIY T0-1**
+
+1a. Type something, anything, into the Console then hit 'Enter' or 'return' on your keyboard. What happens?
+
+1b. Why does this happen when typing something random?
+:::
+
 ## Setting your working directory
 
-Now, we're going to type out our first ever command into the **Console**! Yay! Go ahead and either manually type or copy/paste the command below then press 'return' or 'Enter' on your keyboard.
+Now, we're going to type out our first ever REAL command into the **Console**! Yay! Go ahead and either manually type or copy/paste the command below then press 'return' or 'Enter' on your keyboard.
 
 ```{r, eval=FALSE}
 getwd()
@@ -106,13 +114,13 @@ There are **two** methods to set your working directory...
 
 In order to change your working directory manually, we will use the `setwd()` command.
 
-For example, if I wanted to change my working directory to an existing folder called `R-tutorials` located on my `Desktop` in a folder called `EVE 113`, I’d run the following code:
+For example, if I wanted to change my working directory to an existing folder called `Coding Tutorials` located on my `Desktop` in a folder called `EVE 113`, I’d run the following code:
 
 ```{r, eval = FALSE}
-setwd("/Users/yourusernamehere/Desktop/EVE 113/R tutorials")
+setwd("/Users/yourusernamehere/Desktop/EVE 113/Coding tutorials")
 ```
 
-This is the directory path R will now use when searching and saving files as I work: Users \> yourusenamehere \> Desktop \> EVE 113 \> R tutorials. The "\>" indicates the directionality that `R` is searching in my computer for the works pace.
+This is the directory path R will now use when searching and saving files as I work: **Users** \> **yourusernamehere** \> **Desktop** \> **EVE 113** \> **Coding Tutorials**. The "\>" indicates the directionality that R is searching in my computer for the works pace.
 
 ### Option 2: Point-and-Click Approach in RStudio
 
@@ -130,47 +138,56 @@ To do this:
 
 ## Understanding Absolute and Relative Paths
 
-For the sake of this course (and these tutorials), I'd like you to make a folder to set as your working directory before we proceed any further. You can use the following template if you'd like to keep things simple:
+For the sake of this course (and these tutorials), I'd like you to make a folder to set as your working directory before we proceed any further. Use the following template:
 
 1.  Create a primary folder on your desktop called **EVE 113**.
 2.  Create a sub-folder inside **EVE 113** called **Coding Tutorials** – (this will let you keep coding tutorial work and class coding work separate from one another).
-3.  Create another sub-folder called **Tutorial 0**.
 
 The **path** you've just created will be something along the lines of:
 
-| `/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 0`
+| `/Users/yourusername/Desktop/EVE 113/Coding Tutorials`
 
 A **file path** tells you (and your computer) the exact place you can locate a file. Paths can either be [absolute]{.underline} or [relative]{.underline}. You use different paths, in different scenarios, to set your working directory.
 
 An **absolute** path would be something like...
 
 ```{r, eval=FALSE}
-setwd("/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 0") # on macOS
+setwd("/Users/yourusername/Desktop/EVE 113/Coding Tutorials") # on macOS
 ```
 
 or
 
 ```{r, eval=FALSE}
-setwd("C:\Users\yourusername\Desktop\EVE 113\Coding Tutorials\Tutorial 0") # on Windows
+setwd("C:\Users\yourusername\Desktop\EVE 113\Coding Tutorials") # on Windows
 ```
 
-- Here the working directory is explicitly specified (`/Users/yourusername/Desktop/EVE 113/Coding Tutorials`).
+- Here the working directory is explicitly specified (`/Users/yourusername/Desktop/EVE 113`).
 
-- It includes the set destination for a file (`/Tutorial 0`, or essentially where you want to go with the path).
+- It includes the set folder destination for a file (`/Coding Tutorials`, or essentially where you want to go with the path).
 
 A **relative** path would be something like...
 
 ```{r, eval=FALSE}
-setwd("./Tutorial 0")
+setwd("./Coding Tutorials")
 ```
 
 - Here, the working directory is implicitly specified.
 
-- A `.` before the forward or backslash indicates you are moving *down* the path, whereas `..` indicates movement *up* the path.
+- A `.` before the forward or backslash indicates you are moving *down* the path
 
-This idea is illustrated here:
+- A `..` indicates movement *up* the path.
 
-![](images/clipboard-1258135516.png)
+Return to your parent directory by typing the following:
+
+```{r, eval = FALSE}
+setwd("..") 
+```
+
+Move laterally to another folder in your working directory:
+
+```{r}
+setwd("../neightbor folder")
+```
 
 Understanding the path concept will help you when saving, accessing, and moving around your internal operating system. If you encounter problems setting your working directory, try restarting the RStudio application before seeking further assistance.
 
@@ -183,7 +200,7 @@ To make a new .rmd file, go through the following steps:
 1.  Set your working directory.
 
     ```{r, eval = FALSE}
-    setwd("/Users/yourusenamehere/Desktop/EVE 113/Coding Tutorials/Tutorial 0")
+    setwd("/Users/yourusenamehere/Desktop/EVE 113/Coding Tutorials")
     ```
 
 2.  Check that you've successfully changed your working directory.
@@ -203,7 +220,9 @@ To make a new .rmd file, go through the following steps:
 6.  Select your **Default Output Format**. This will be what your file will be saved as when you Knit your .rmd. Any format will do for the sake of this tutorial, but I often prefer HTML.
 
 ::: callout-note
-**In future tutorials you will be completing your assignments in a pre-prepared .rmd file. This output option will already be chosen for you in those files.**
+**For your R Preparedness assignment, you will be completing your work in a pre-prepared .rmd file. This output option will already be chosen for you in those files.**
+
+For scratch work on these tutorials, set the knit output to whatever you'd like it to be
 :::
 
 7.  Click **Okay**.
@@ -211,6 +230,12 @@ To make a new .rmd file, go through the following steps:
 Your .rmd document should be created! There's already a lot of text included in the base Rmarkdown document, but some of it should help with getting oriented. Go ahead and take a minute to explore.
 
 ![](images/clipboard-2139477287.png)
+
+::: {.callout-note appearance="simple" icon="false"}
+**DIY T0-2**
+
+Find the Visual editor viewer. Switch between visual and Source a few times and notice the differences. What do the two \## prior to text in the Source editor mean? What does this do to the text in the Visual editor?
+:::
 
 Start by pressing the green play button (which is the **Run Current Chunk** button) to the right corner of [Chunk 1]{.underline} (which begins at line 8).
 
@@ -267,7 +292,11 @@ plot(pressure)
 
 You might be quick to notice that this plot output is very large, and you have to scroll far down to even be able to view the entire thing in the code editor. As we progress in this course, we will continue adding multiple lines of code per code chunk and constantly scrolling up and down will become very tiresome very quickly.
 
-So, whenever we generate a plot or need a summary from our code chunk output, navigating the printed results in the code editor will become cumbersome. **For the purposes of continuity in this class, we will be setting our [code chunk outputs]{.underline} to be in the *Console* instead of *inline*.**
+So, whenever we generate a plot or need a summary from our code chunk output, navigating the printed results in the code editor will become cumbersome.
+
+::: callout-important
+**For the purposes of continuity in this class, we will be setting our [code chunk outputs]{.underline} to be in the *Console* instead of *inline*.**
+:::
 
 ### Setting Chunk Output to Console
 
@@ -316,7 +345,7 @@ summary(cars) <- gives a summary of the native data set cars
 
 > Error: unexpected symbol in "summary(cars) \<- gives a"
 
-This means your code is *not able to run* because `R` encountered an *unexpected symbol* in the text you added to the chunk. That's because `<-` is an actual **argument** in the `R` programming language.
+This means your code is *not able to run* because R encountered an *unexpected symbol* in the text you added to the chunk. That's because `<-` is an actual **argument** in the R programming language.
 
 Additionally, there is no such command as `gives` in `R`.
 
@@ -341,7 +370,7 @@ Huh... Using quotes around our comment doesn't work either?? When you do this, y
 
 > Error: unexpected string constant in "summary(cars) "gives a summary of the native data set cars""
 
-That is because `R` is not able to recognize the constraint `"gives a summary of the native data set cars"` as a part of the code evaluation `summary(cars)`.
+That is because R is not able to recognize the constraint `"gives a summary of the native data set cars"` as a part of the code evaluation `summary(cars)`.
 
 Let's try one more thing... Go ahead and edit chunk 2 with the following:
 
@@ -351,26 +380,34 @@ summary(cars) # gives a summary of the native data set cars
 
 Yay!!! It works!!!
 
-Using a preemptive `#` before your comment text will turn your comment a different color and `R` will ignore any text included to the right of it.
+Using a preemptive `#` before your comment text will turn your comment a different color and R will ignore any text included to the right of it.
 
 If you press enter to a new line of code, you will need to add another `#` before any additional comments you make. Essentially, what R is doing is it's reading what you've typed into any code chunk left to right. When it encounters a `#`, it reads past it until a new line of code begins.
 
-## RMarkdown Chunk Options
+::: {.callout-note appearance="simple" icon="false"}
+**DIY T0-3**
 
-At the end of the document on line 32 (or 33 if you've been completing the DIYs as we've progressed) there is the following text explaining the code chunk options.
+3a. In the same code chunk as the summary(cars) code, retrieve a summary of the data set pressure (the data set you plotted above).
 
-::: callout-note
-The `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+3b. Add a comment about what running the code in 3a showed you.
+
+3c. In the same code chunk as the plot(pressure) code, plot the cars data set.
 :::
 
-RMarkdown **parameters (or chunk options)** allow you to alter *individual chunks of code* to alter the **code output** in some manner when you knit your final document.
+## RMarkdown Chunk Options
 
-For the purposes of this course, we will only really care about `eval`, `include`, and `echo`, but know that many (many) more chunk options exist. To find more ways to edit or alter you code chunks, visit [this cheat sheet](https://www.rob-mcculloch.org/R/rmarkdown-cheatsheet-2.0_from-rstudio-2019-1-7.pdf). Chunk options come with an operative argument (like `eval`) and a conditional statement (like `TRUE` or `FALSE`).
+At the end of the document around line 32 there is the following text explaining the code chunk options.
+
+> The `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+**RMarkdown** **parameters (or chunk options)** allow you to alter *individual chunks of code* to alter the **code output** in some manner when you knit your final document.
+
+For the purposes of this course, we will only really care about `eval`, `include`, and `echo`, but know that many (many) more chunk options exist. To find more ways to edit or alter your code chunks, visit [this cheat sheet](https://www.rob-mcculloch.org/R/rmarkdown-cheatsheet-2.0_from-rstudio-2019-1-7.pdf). Chunk options come with an operative argument (like `eval`) and a conditional statement (like `TRUE` or `FALSE`).
 
 Here's a quick guide to what these mean below:
 
 | Option | Function |
-|----|----|
+|------------------------------------|------------------------------------|
 | `eval` | dictates whether a code block is actually executed when you render, knit, or compile your document. |
 | `include` | controls the visibility of a code chunk's output in your final rendered document. |
 | `echo` | controls whether the source code itself appears in your final rendered document. `echo = numeric` will select specific lines of code to display (e.g., `echo = 1:2` displays source code lines 1 through 2). |
@@ -401,6 +438,12 @@ Default chunk options are usually `TRUE` (unless I've specified otherwise above)
 
 > ```` ```{r, echo=TRUE, include=FALSE} ````
 
+::: {.callout-note appearance="simple" icon="false"}
+**DIY T0-4**
+
+In the plot code chunk, edit the chunk option so that when kitting, none of the source code appears.
+:::
+
 ## Adding a Code Chunk in RMarkdown
 
 Now to add your very own chunk of `R` code into your new .rmd file!!
@@ -423,9 +466,9 @@ Finally, to save your RMarkdown document, navigate to the menu and press the 'Sa
 
 If you set your working directory correctly at the beginning of this tutorial, you will be directed to save your Untitled.rmd in the folder you set as your working directory
 
-> (e.g., `/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 1`).
+> (e.g., `/Users/yourusername/Desktop/EVE 113/Coding Tutorials`).
 
-Now, when we turn in assignments in this course, you will need to knit your code to save it as the output type you set at the beginning of this tutorial when you first made the Rmarkdown file.
+Now, when you turn in the R-Prep.rmd assignment, you will need to knit your code and save it as and html.
 
 1.  Locate the **Knit** icon (which is next to the Settings wheel and literally looks like a little ball of kitting yarn).
 
@@ -439,7 +482,7 @@ Now, when we turn in assignments in this course, you will need to knit your code
 
 ## Review
 
-Wowie! That was a lot! If you've made it to the end of this, CONGRATS! You now know how to start coding in RStudio. Give yourself a HUGE pat on the back because learning the basics to `R` and Rmarkdown are by far the hardest parts of learning how to code in `R`.
+Wowie! That was a lot! If you've made it to the end of this, CONGRATS! You now know how to start coding in RStudio. Give yourself a HUGE pat on the back because learning the basics to R and Rmarkdown are by far the hardest parts of learning how to code in R.
 
 However, I'm confident these essentials will give you the foundational knowledge you will need to succeed in this course. And I can (hopefully) promise once you master these skills, learning how to use RStudio to your advantage will only get easier from here.
 
@@ -456,3 +499,49 @@ To review, you should be able to:
 If you find you are unable to do one or more of the above tasks, go ahead and take some time to review this tutorial again until it starts to make sense. Happy coding!
 
 ![](images/clipboard-4280102554.png){width="200"}
+
+# Answer Key
+
+::: {.callout-important appearance="simple" icon="false"}
+**DIY T0-1**
+
+1a. R should provide an error, something along the lines of:
+
+> Error: object 'whatever you typed here' not found
+
+1b. This happens because I'm assuming whatever you typed isn't an actual command or saved object in R. You should think of R as a hungry, hungry hippo: The hippo will only work for you if you feed it the right stuff. If you don't feed it the right stuff then it won't work (or might even eat you).
+:::
+
+::: {.callout-important appearance="simple" icon="false"}
+**DIY T0-2**
+
+You know you've successfully found the right thing when you look beneath the document tab and before your actual script (sandwiched in the left corner) and click onto what looks more like a real document and not code.
+
+The two \##'s prior to the text in the source editor turns plain text larger and bolder. In the visual editor, this displays the text as "Header 2".
+:::
+
+::: {.callout-important appearance="simple" icon="false"}
+**DIY T0-3**
+
+3a / 3b.
+
+```{r, eval = FALSE}
+summary(cars)
+summary(pressure) # shows the temperature and pressure of cars
+```
+
+3c.
+
+```{r, eval = FALSE}
+plot(pressure)
+plot(cars)
+```
+:::
+
+::: {.callout-important appearance="simple" icon="false"}
+**DIY T0-4**
+
+Your chunk option should look like the below, and when kitting, your final html should not show the source code producing both the pressure and cars plots.
+
+\`\`\`{r, echo = FALSE}
+:::

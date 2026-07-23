@@ -12,7 +12,7 @@ Before we even begin, it's incredibly important we actually have the software we
 
 Once you open the webpage it should look something like the below image.
 
-![](images/clipboard-478905486.png)
+![](images/clipboard-478905486.png){width="755"}
 
 There's a lot of hyperlinks here, so start by directing your attention to the first three links towards the top. Click on the associated "Download R for..." your current operating system. I'll be doing this tutorial, and most other coding demonstrations in this bootcamp, using a macOS operating system. Windows and Mac don't largely differ when using RStudio or R, but if you find yourself confused, don't hesitate to ask me any questions you might have.
 

@@ -1099,4 +1099,12 @@ Once completed, add your first and last name and date completed at the top of th
 
 Your **output should be a knitted html file**. If you do not know how to knit, revisit Tutorial 0.
 
-Knit the R-Prep.rmd and submit both the knitted .html and .rmd files to the canvas under the R Preparedness assignment.
+Knit the R-Prep.rmd and submit both the knitted .html and .rmd files to the canvas under the [R Preparedness assignment](https://canvas.ucdavis.edu/courses/1122338/assignments/1673419).
+
+![](images/clipboard-3131794238.png){width="193"}
+
+# Works Cited
+
+Wickham, H. (2016). *ggplot2: Elegant Graphics for Data Analysis* \[R\]. <https://ggplot2.tidyverse.org>
+
+Wickham, H., François, R., Müller, K., & Vaughan, D. (2025). *dplyr: A Grammar of Data Manipulation* (Version R package version 1.1.4) \[Computer software\]. <https://dplyr.tidyverse.org>

@@ -2,19 +2,19 @@ project:
   type: website
 
 website:
-  title: "EVE 113 R Preparedness"
+  title: "EVE 113 R Tutorials"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - href: getting-started.qmd
         text: Getting Started
-      - href: code-etiquette.qmd
-        text: Code Etiquette 101
       - href: tutorial-0.qmd
         text: Tutorial 0
       - href: tutorial-1.qmd
         text: Tutorial 1
+      - href: code-etiquette.qmd
+        text: Code Etiquette 101
 
 format:
   html:

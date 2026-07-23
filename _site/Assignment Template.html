@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="your name here">
 
-<title>Getting Started – EVE 113 R Bootcamp</title>
+<title>Tutorial 1 – EVE 113 R Bootcamp</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -97,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./getting-started.html" aria-current="page"> 
+    <a class="nav-link" href="./getting-started.html"> 
 <span class="menu-text">Getting Started</span></a>
   </li>  
   <li class="nav-item">
@@ -128,8 +129,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#download-r" id="toc-download-r" class="nav-link active" data-scroll-target="#download-r">Download R</a></li>
-  <li><a href="#download-rstudio" id="toc-download-rstudio" class="nav-link" data-scroll-target="#download-rstudio">Download RStudio</a></li>
+  <li><a href="#r-preparedness" id="toc-r-preparedness" class="nav-link active" data-scroll-target="#r-preparedness">R Preparedness</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
+  <li><a href="#question-8" id="toc-question-8" class="nav-link" data-scroll-target="#question-8">Question 8</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -138,14 +148,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Getting Started</h1>
+<h1 class="title">Tutorial 1</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>your name here </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Invalid Date</p>
+    </div>
+  </div>
   
     
   </div>
@@ -155,54 +177,64 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-590625097.png" class="img-fluid figure-img"></p>
-<figcaption>Grey topshell (Steromphala) cineraria on a blade of eelgrass | Photo credit: Shannon Moran / Ocean Image Bank</figcaption>
-</figure>
-</div>
-<p>Before we even begin, it’s incredibly important we actually have the software we need downloaded on our computer. So, to get started, you should probably go ahead and download R and RStudio onto your computer. (Again, did I mention that it’s free?)</p>
-<section id="download-r" class="level2">
-<h2 class="anchored" data-anchor-id="download-r">Download R</h2>
-<p><strong>Visit <a href="https://cloud.r-project.org/">this link here</a> to get started with downloading R.</strong></p>
-<p>Once you open the webpage it should look something like the below image.</p>
-<p><img src="images/clipboard-478905486.png" class="img-fluid"></p>
-<p>There’s a lot of hyperlinks here, so start by directing your attention to the first three links towards the top. Click on the associated “Download R for…” your current operating system. I’ll be doing this tutorial, and most other coding demonstrations in this bootcamp, using a macOS operating system. Windows and Mac don’t largely differ when using RStudio or R, but if you find yourself confused, don’t hesitate to ask me any questions you might have.</p>
-<p>Once you hit download you will be redirected to another webpage, with even more links.</p>
-<p><img src="images/clipboard-3099214236.png" class="img-fluid"></p>
-<p>Click on the hyperlink that is associated with your current operating system. For most users, it should be the most up-to-date version of your internal operating system. For me, that’s currently macOS Sequoia 15.1.1, which means I would choose the blue hyperlink that says ‘R-4.6.0-arm64.pkg’.</p>
-<p><img src="images/clipboard-1616476471.png" class="img-fluid"></p>
-<p>Click that link, allow the R package to download onto your computer, then follow your computers prompts to download it onto your device.</p>
-<p>Once downloaded, if you open R, you’ll get a console environment that looks like this.</p>
-<p><img src="images/clipboard-3443394905.png" class="img-fluid"></p>
-<p>Great! You now have R installed. However, you’ll soon discover this is not the most user-friendly or flexible application to be doing the analyses or visualizations we’d like to do. Instead, we’re going to be using <strong>RStudio as our main interface for this course.</strong></p>
+<section id="r-preparedness" class="level1">
+<h1>R Preparedness</h1>
+<p>This assignment is due August 27th. In order to receive full credit students should:</p>
+<ol type="1">
+<li>Follow Tutorial 1 from start to finish.</li>
+<li>Complete the Questions as they go.</li>
+<li>Type their answers into the provided code chunks below or in the text space provided.</li>
+<li>Ask questions if they arise.</li>
+</ol>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<p><strong>1a. Get and set your working directory based on the suggested file path in Tutorial 0.</strong></p>
+<p><strong>1b. Install the Palmer penguins data set onto your computer.</strong></p>
+<p><strong>1c. Import the tidepool metadata practice data set.</strong></p>
 </section>
-<section id="download-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="download-rstudio">Download RStudio</h2>
-<p><strong>Visit <a href="https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads">this link here</a> to download RStudio.</strong></p>
-<p>Again, you’ll be redirected to a website with a lot of hyperlinks. If you are at the top of the webpage where is says “<strong>RStudio IDE User Guide</strong>”, scroll down until you find the set of links pictured below:</p>
-<p><img src="images/clipboard-708821866.png" class="img-fluid"></p>
-<p>Click the link that is associated with your operating system and allow the installer disk to download. Then, follow the instillation instructions when prompted by your computer.</p>
-<p>Now, to make sure RStudio is correctly installed, go ahead and open the application for the first time. Your screen should look something like the below image (although your “File” window in the bottom right may appear different from mine).</p>
-<p><img src="images/clipboard-1146750783.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Apple and macOS users:</strong> You may receive a warning from Apple security that confirms if you’d like to open the application for the first time. This is normal, and don’t be afraid to hit the “Open” button. If you followed the correct directions from the websites I’ve hyper linked in this guide, there will be no danger to your computer by opening the application. I pinky promise.</p>
-</div>
-</div>
-<p><strong>Congrats! You’ve now successfully downloaded and installed both R and RStudio onto your computer.</strong> This is a huge milestone in your learning as a scientist. Feel free to poke around and explore this interface if you’d like. This boot camp will cover a lot of the necessary elements we’ll be using in the course, but it’s always good to familiarize yourself with a new operating software if you can.</p>
-<p><strong>Happy Coding!</strong></p>
-<p><img src="images/clipboard-3038303337.png" class="img-fluid" width="295"></p>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<p><strong>2a. Retrieve the summary, head, and tail of the tide pool metadata set</strong>.</p>
+<p><strong>2b. What’s the mean tidepool volume?</strong></p>
+<p>Answer:</p>
+<p><strong>2c. How many rows does the tidepool metadata set have?</strong></p>
+<p>Answer:</p>
+</section>
+<section id="question-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<p><strong>3a. What is the atomic data type of tide pool size? How many tide pool sizes are there?</strong></p>
+<p><strong>3b. Rename the tidepool metadata object (if you haven’t already) using</strong> <code>snake_case</code> <strong>convention.</strong></p>
+<p><strong>3c. Rename all variables in your new tide pool data frame to match</strong> <code>snake_case</code> <strong>conventions.</strong></p>
+</section>
+<section id="question-4" class="level2">
+<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<p><strong>Use code to install the tidyverse and dplyr packages; Load the packages into your working session.</strong></p>
+<p><em>**Note:</em> This would normally be done at the beginning of any real working script. Ensure that all package installations take place before any commands are run.For the sake of our learning here, we’re installing it later into our script.</p>
+</section>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<p><strong>5a. Filter the tide pool data to only include large tide pools with a macro_richness that is &gt;= to 10.</strong></p>
+<p><strong>5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).</strong></p>
+</section>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<p><strong>6a. How could you use <code>arrange()</code> to sort all missing values to the start? Write a line of code that sorts the missing values (NAs) in the penguins data set to the start. (HINT: try using <code>is.na()</code>).</strong></p>
+<p><strong>6b. In the tide pool data frame, arrange the observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.</strong></p>
+</section>
+<section id="question-7" class="level2">
+<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<p>7a.</p>
+<p>7b.</p>
+</section>
+<section id="question-8" class="level2">
+<h2 class="anchored" data-anchor-id="question-8">Question 8</h2>
+<p><strong>8a. Re-import the tidepool metadata set.</strong></p>
+<p><strong>What effect does this have to the work we’ve already done to the data set?</strong></p>
+<p>Answer:</p>
+<p><strong>8b. Re-name the tidepool data frame object using <code>snake_case</code> once again (if you didn’t already do so during re-import). Using dplyr and the <code>rename()</code> command, rename all the columns in the tidepool metadata using <code>snake_case</code>.</strong></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

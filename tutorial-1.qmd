@@ -640,6 +640,7 @@ Intuitively you might think that penguin bill size would scale proportionally wi
 To answer the above question, lets put bill length on the y-axis and body mass on the x-axis.
 
 ```{r}
+#| warning: false
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
   geom_point()
 ```
@@ -713,6 +714,7 @@ What about species differences between bill length and body mass? Geographical d
 These are all questions that can be answered by **mapping more aesthetics** to your plot to convey complex information about your data. Two of the primary ways of doing this is with `color =` and `shape =` .
 
 ```{r}
+#| warning: false
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) +
   geom_point()
 ```
@@ -722,6 +724,7 @@ Whoa! We get very clear separation here between the three penguin species. Not e
 What about sex differences between and within the species?
 
 ```{r}
+#| warning: false
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
   geom_point()
 ```
@@ -739,6 +742,7 @@ Using the tidepool metadata, create a scatter plot that shows the relationship b
 What if I wanted to look at the species closer, without combining them together on one large graph? You'd use `facet_wrap()` to facet your plot by a single variable.
 
 ```{r}
+#| warning: false
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
   geom_point() +
   facet_wrap(~ species)
@@ -747,6 +751,7 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 This applies the same variable mapping to each species, but graphs them separately according to whatever argument you use in `facet_wrap()`. We could also do the same thing with sex.
 
 ```{r}
+#| warning: false
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
   geom_point() +  
   facet_wrap(~ sex)
@@ -755,6 +760,7 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 We can also facet by multiple variables.
 
 ```{r}
+#| warning: false
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) + 
   geom_point() +
   facet_wrap(species ~ sex, nrow = 2)
@@ -797,6 +803,8 @@ If I actually wanted to describe any linear (or non-linear) relationships in a g
 The geom commands `geom_smooth` and `geom_abline` can be used in conjunction with geom commands like `geom_point()` to display a linear, quadratic, or non-linear relationship. For example: using `geom_smooth()` with a linear model ("lm") displays a line according to a statistical method or pattern.
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   geom_point() +
   geom_smooth(method = "lm")
@@ -807,6 +815,8 @@ This will display a smoothed conditional mean line using the linear regression f
 They grey shading along that line is the 95% confidence interval (or standard error) that the estimated line "fits" the data. We can remove the standard error shading by specifying `se = FALSE`.
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE)
@@ -817,6 +827,8 @@ The `geom_abline` command(s) literally fit a line to a specific point on your gr
 This would be great if, say for example, we'd like to point out a certain measurement that indicates growth or maturity in penguins (I'm not a penguin expert sadly, so don't come for me if this isn't accurate).
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   geom_point() +
   geom_vline(xintercept = 40, color = "blue", linewidth = 2, linetype = "dashed")
@@ -825,6 +837,8 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
 Within `geom_` commands like this one, we can create specific aesthetic changes like color, linewidth, or linetype (all of which I've done above). We could also do the same for our linear regression line.
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   geom_point() +
   geom_smooth(method = "lm", color = "red", linewidth = 2, linetype = "dashed")
@@ -833,6 +847,8 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
 We can also use `geom_smooth` in tandem with facets, to get a better idea of the fitted lines between categories of observations.
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins, aes(x = bill_length_mm, y = body_mass_g)) +
   geom_point() +
   geom_smooth(method = "lm", color = "red") +
@@ -844,6 +860,8 @@ Each species have varying levels of strength to the slope of their linear lines.
 We can also use `geom_smooth` alone to show general trends in numerical data.
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
   geom_smooth()
 ```
@@ -851,6 +869,8 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 This looks fairly relational to our scatter plot, but instead of a perfectly linear line, we've fit a best smoothed estimate line to every observed point. We can also add multiple smooths for multiple categories.
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins) +
   geom_smooth(aes(x = body_mass_g, y = bill_length_mm, 
                   linetype = species, color = species))
@@ -873,6 +893,8 @@ There are a plethora of add-ons and complexities that make ggplot simultaneously
 1.  Creating a bar chart: helps you get a better idea of the number of observations in a variable of interest (without the `stat = 'identity'` this time).
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins) + # there are varying numbers of observations between the species
   geom_bar(aes(x = species, 
                color = species)) # outline color by species
@@ -891,6 +913,8 @@ ggplot(data = penguins) +
 2.  Creating a bar chart with a proportion: might be a better way to view the counts of a variable, or understand how your data is structured (and because absolute counts can LIE)
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins) +
   geom_bar(aes(x = species, y = ..prop.., group = 1))
 ```
@@ -898,6 +922,8 @@ ggplot(data = penguins) +
 3.  Statistical transformation: using stat_summary is another useful way to get a fuller picture of your data.
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins) +
   stat_summary(aes(x = species, y = bill_length_mm), 
                fun.min = min,
@@ -908,6 +934,8 @@ ggplot(data = penguins) +
 4.  Position adjustments in bar charts.
 
 ```{r}
+#| message: false
+#| warning: false
 # position = "fill"
 ggplot(data = penguins) + 
   geom_bar(aes(x = species, 
@@ -924,6 +952,8 @@ ggplot(data = penguins) +
 5.  Manually creating your own discrete colors or shape scale using `scale_shape_manual` or `scale_color_manual`.
 
 ```{r}
+#| message: false
+#| warning: false
 penguins %>%
   drop_na() %>%
   ggplot(aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
@@ -943,6 +973,8 @@ penguins %>%
 6.  Adding axis and graph labels.
 
 ```{r}
+#| message: false
+#| warning: false
 penguins %>%
   drop_na() %>%
   ggplot(aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
@@ -960,6 +992,8 @@ penguins %>%
 7.  Changing the plot theme.
 
 ```{r}
+#| message: false
+#| warning: false
 penguins %>%
   drop_na() %>%
   ggplot(aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
@@ -980,6 +1014,8 @@ There a lot of different themes includes with ggplot to make your plots more vis
 8.  Change the limits of your x- or y-axis as needed with `xlim()` or `ylim()`.
 
 ```{r}
+#| message: false
+#| warning: false
 penguins %>%
   drop_na() %>%
   ggplot(aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) +
@@ -1000,6 +1036,8 @@ penguins %>%
 9.  Coordinate flip with `coord_flip()`.
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot(data = penguins) +
   stat_summary(aes(x = species, y = bill_length_mm), 
                fun.min = min,
@@ -1035,3 +1073,30 @@ ggsave('figure_or_plot_name_here.png',                      # saved plot name
        units = c("in"),                                     # unit of width/length
        dpi = 300)                                           # plot resoltion
 ```
+
+## Review
+
+By now you should be able to do the following skills and/or have completed the following tasks:
+
+1.  Install multiple packages at once and load them into your library/working session.
+2.  Be familiar with the tidyverse and two of it's sub-packages: dplyr and ggplot2
+3.  Get summary statistics.
+4.  Understand variable types.
+5.  Filter you data.
+6.  Exclude NA observations by variable and by row.
+7.  Arrange and select from your data set.
+8.  Rename columns and add new variables.
+9.  String together ggplot and dplyr commands with pipes.
+10. Create basic plots with ggplot2.
+11. Completed practice work and followed along with tutorial in your `tutorial-1.rmd`.
+12. Completed Questions 1-15 in the R-Prep.rmd assignment.
+
+If you answered "no" to any of the above or have not completed the work associated with this tutorial, it would be a good idea to revisit the sections or questions you missed along the way.
+
+## Submitting Your R-Prep.rmd
+
+Once completed, add your first and last name and date completed at the top of the .rmd file in the section provided (you'll see a spot to put "your name here" and "current date here".
+
+Your **output should be a knitted html file**. If you do not know how to knit, revisit Tutorial 0.
+
+Knit the R-Prep.rmd and submit both the knitted .html and .rmd files to the canvas under the R Preparedness assignment.

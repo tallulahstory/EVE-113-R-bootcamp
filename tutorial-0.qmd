@@ -185,7 +185,7 @@ setwd("..")
 
 Move laterally to another folder in your working directory:
 
-```{r}
+```{r, eval = FALSE}
 setwd("../neightbor folder")
 ```
 

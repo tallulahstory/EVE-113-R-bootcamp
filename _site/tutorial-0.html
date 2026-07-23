@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -74,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -171,7 +171,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#option-1-manually-set-your-working-directory" id="toc-option-1-manually-set-your-working-directory" class="nav-link" data-scroll-target="#option-1-manually-set-your-working-directory">Option 1: Manually set your working directory</a></li>
   <li><a href="#option-2-point-and-click-approach-in-rstudio" id="toc-option-2-point-and-click-approach-in-rstudio" class="nav-link" data-scroll-target="#option-2-point-and-click-approach-in-rstudio">Option 2: Point-and-Click Approach in RStudio</a></li>
-  <li><a href="#optional-option-3-working-with-rstudio-rprojects" id="toc-optional-option-3-working-with-rstudio-rprojects" class="nav-link" data-scroll-target="#optional-option-3-working-with-rstudio-rprojects">(Optional) Option 3: Working with RStudio Rprojects</a></li>
   </ul></li>
   <li><a href="#understanding-absolute-and-relative-paths" id="toc-understanding-absolute-and-relative-paths" class="nav-link" data-scroll-target="#understanding-absolute-and-relative-paths">Understanding Absolute and Relative Paths</a></li>
   <li><a href="#creating-a-new-rmarkdown-file" id="toc-creating-a-new-rmarkdown-file" class="nav-link" data-scroll-target="#creating-a-new-rmarkdown-file">Creating a new Rmarkdown File</a>
@@ -217,16 +216,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Cyanobacterial growth in a lake | Photo Credit: Rebecca North</figcaption>
 </figure>
 </div>
-<p>Welcome to your “first” R bootcamp tutorial! Well, technically this is tutorial 0, but this lesson will form the foundational knowledge you will need to start learning the basics of coding in R! Let’s get started…</p>
+<p>Welcome to your “first” R tutorial! Well, technically this is tutorial 0, but this lesson will form the foundational knowledge you will need to start learning the basics of coding in R! Let’s get started…</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <ol type="1">
 <li><p>Be able to describe and navigate the RStudio computing environment.</p></li>
 <li><p>Learn how to set your working directory and understand pathing in a computing environment.</p></li>
 <li><p>Learn how to create new script and .rmd files.</p></li>
-<li><p>Be able to set evaluations and customizations in .rmd code chunks with knitr::.</p></li>
+<li><p>Be able to set evaluations and customization in .rmd code chunks with <code>knitr</code>.</p></li>
 <li><p>Understand good code etiquette and commenting guidelines, especially with research reproducibility in mind.</p></li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will not be submitting an assignment associated with this tutorial. This is simply meant to provide you with foundational knowledge in order to use R.</p>
+<p>If you have extensive experience in R or RStudio, you may proceed on to Tutorial 1.</p>
+</div>
+</div>
 </section>
 <section id="tour-de-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="tour-de-rstudio">Tour De RStudio</h2>
@@ -270,20 +283,20 @@ Warning
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Congrats!! You’ve now typed your first command in <code>R</code>. This should result in a response being <strong>printed</strong> below your command that looks (something) like this:</p>
+<p>Congrats!! You’ve now typed your first command in R. This should result in a response being <strong>printed</strong> below your command that looks (something) like this:</p>
 <p><img src="images/clipboard-4144521823.png" class="img-fluid" width="672"></p>
-<p>Above, you asked <code>R</code> to “get my working directory” with the command <code>getwd()</code> by using the starting prompt <code>&gt;</code> in the Console; A response was printed after you hit Enter.</p>
+<p>Above, you asked R to “get my working directory” with the command <code>getwd()</code> by using the starting prompt <code>&gt;</code> in the Console; A response was printed after you hit Enter.</p>
 <p>This is lot’s of new vocabulary, so lets zoom it in and break it down.</p>
 <p><img src="images/clipboard-53264308.png" class="img-fluid"></p>
-<p>Here you’ve <strong>commanded</strong> <code>R</code> to <code>getwd()</code> and it <strong>prints</strong> your <u>response</u>, above a new <strong>prompt</strong> line.</p>
-<p>This is how <code>R</code> works (for the most part). You type a command in the Console (or in a <code>R</code> chunk) and it will either:</p>
+<p>Here you’ve <strong>commanded</strong> R to <code>getwd()</code> and it <strong>prints</strong> your <u>response</u>, above a new <strong>prompt</strong> line.</p>
+<p>This is how R works (for the most part). You type a command in the Console (or in a R chunk) and it will either:</p>
 <ol type="1">
 <li><p>Print a response for you in the Console.</p></li>
 <li><p>Open file into the script tab.</p></li>
 <li><p>Open a plot on the bottom right.</p></li>
 <li><p>Open the help window.</p></li>
 </ol>
-<p>As you can see, when I run the command <code>getwd()</code>, it tells me that my current <strong>working directory</strong> is a general space on my computer called <code>/Users/loganstory</code>. What this really means is that when I try to read new files into <code>R</code>, or “write” files out of <code>R</code>, it will assume that I want to put them in this general folder.</p>
+<p>As you can see, when I run the command <code>getwd()</code>, it tells me that my current <strong>working directory</strong> is a general space on my computer called <code>/Users/loganstory</code>. What this really means is that when I try to read new files into R, or “write” files out of R, it will assume that I want to put them in this general folder.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -301,11 +314,11 @@ Tip
 <section id="option-1-manually-set-your-working-directory" class="level3">
 <h3 class="anchored" data-anchor-id="option-1-manually-set-your-working-directory">Option 1: Manually set your working directory</h3>
 <p>In order to change your working directory manually, we will use the <code>setwd()</code> command.</p>
-<p>For example, if I wanted to change my working directory to an existing folder called <em><code>R-bootcamp</code></em> located on my <em><code>Desktop</code></em> under my <em><code>PhD</code></em> and <em><code>Teaching</code></em> folders, I’d run the following code:</p>
+<p>For example, if I wanted to change my working directory to an existing folder called <code>R-tutorials</code> located on my <code>Desktop</code> in a folder called <code>EVE 113</code>, I’d run the following code:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/loganstory/Desktop/PhD/Teaching/R Bootcamp/R-bootcamp"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusernamehere/Desktop/EVE 113/R tutorials"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>This is the directory path R will now use when searching and saving files as I work: Users &gt; loganstory &gt; Desktop &gt; PhD &gt; Teaching &gt; R Bootcamp &gt; R-bootcamp. The “&gt;” indicates the directionality that <code>R</code> is searching in my computer for the workspace.</p>
+<p>This is the directory path R will now use when searching and saving files as I work: Users &gt; yourusenamehere &gt; Desktop &gt; EVE 113 &gt; R tutorials. The “&gt;” indicates the directionality that <code>R</code> is searching in my computer for the works pace.</p>
 </section>
 <section id="option-2-point-and-click-approach-in-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="option-2-point-and-click-approach-in-rstudio">Option 2: Point-and-Click Approach in RStudio</h3>
@@ -318,31 +331,6 @@ Tip
 </ol>
 <p><img src="images/clipboard-1113837578.png" class="img-fluid" width="450"></p>
 </section>
-<section id="optional-option-3-working-with-rstudio-rprojects" class="level3">
-<h3 class="anchored" data-anchor-id="optional-option-3-working-with-rstudio-rprojects">(Optional) Option 3: Working with RStudio Rprojects</h3>
-<p><img src="images/clipboard-2087124086.png" class="img-fluid" width="178"></p>
-<p>RStudio Projects provide a convenient way to manage and organize your data analysis work. <strong>Instead of setting your working directory every time, you can work within a Rproject and won’t have to worry about setting a working directory every time you make a new file.</strong></p>
-<p>A project creates an isolated workspace, ensuring that all files, data, and settings are kept together. This helps maintain a clear and organized workflow, especially for complex or long-term projects. We won’t be using projects in this course, but this is yet another option at your disposal (if you so choose).</p>
-<p>To create a new project in RStudio, you can take two different point-and-click approaches:</p>
-<p><strong>Point-and-Click in the Menu:</strong></p>
-<ol type="1">
-<li><p>Click on <strong>File</strong> in the menu.</p></li>
-<li><p>Select <strong>New Project…</strong>.</p></li>
-<li><p>Choose <strong>New Directory</strong> for a new project or <strong>Existing Directory</strong> to use an existing folder.</p></li>
-<li><p>Follow the prompts to set up your project.</p></li>
-</ol>
-<p><strong>Point-and-click in RStudio:</strong></p>
-<ol type="1">
-<li><p>Go to the top right corner and select the <strong>Project: (None)</strong> icon (should look like a little R in a 3-d cube).</p></li>
-<li><p>Select <strong>New Project</strong>.</p></li>
-</ol>
-<p><img src="images/clipboard-710576101.png" class="img-fluid" width="450"></p>
-<ol start="3" type="1">
-<li>Select <strong>New Directory</strong> -&gt; <strong>New Project</strong>.&nbsp;</li>
-<li>Name your project and select a directory (i.e., folder where you are working).</li>
-<li>Click <strong>Create Project</strong>.</li>
-</ol>
-</section>
 </section>
 <section id="understanding-absolute-and-relative-paths" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-absolute-and-relative-paths">Understanding Absolute and Relative Paths</h2>
@@ -353,7 +341,7 @@ Tip
 <li>Create another sub-folder called <strong>Tutorial 0</strong>.</li>
 </ol>
 <p>The <strong>path</strong> you’ve just created will be something along the lines of:</p>
-<div class="line-block"><code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials</code></div>
+<div class="line-block"><code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 0</code></div>
 <p>A <strong>file path</strong> tells you (and your computer) the exact place you can locate a file. Paths can either be <u>absolute</u> or <u>relative</u>. You use different paths, in different scenarios, to set your working directory.</p>
 <p>An <strong>absolute</strong> path would be something like…</p>
 <div class="cell">
@@ -375,33 +363,13 @@ Tip
 <li><p>Here, the working directory is implicitly specified.</p></li>
 <li><p>A <code>.</code> before the forward or backslash indicates you are moving <em>down</em> the path, whereas <code>..</code> indicates movement <em>up</em> the path.</p></li>
 </ul>
-<p>This idea is simply illustrated here:</p>
+<p>This idea is illustrated here:</p>
 <p><img src="images/clipboard-1258135516.png" class="img-fluid"></p>
-<blockquote class="blockquote">
-<p><strong>EXAMPLE</strong></p>
-<p>larry or nelle can set their working directory as <code>/Users/larry</code> or <code>/Users/nelle</code>.</p>
-<p>If either of them wanted to access a file called ‘image.png’ inside their working directory they would use the path <code>./image.png</code>.</p>
-<p>If either of them wanted to access a filed called ‘image.png’ <em>outside</em> of their working directory under <code>data</code>, they would use an absolute path of <code>/data/Documents/image.png</code>.</p>
-</blockquote>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Do It Yourself T0.1</strong></p>
-<p>1a. Using the Console, set your working directory to the <strong>Tutorial 0</strong> folder.</p>
-<p>1b. Use a command to print your working directory.</p>
-<p>1c. Change your working directory back to your <strong>root</strong> directory.</p>
-</div>
-</div>
-</div>
 <p>Understanding the path concept will help you when saving, accessing, and moving around your internal operating system. If you encounter problems setting your working directory, try restarting the RStudio application before seeking further assistance.</p>
 </section>
 <section id="creating-a-new-rmarkdown-file" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-new-rmarkdown-file">Creating a new Rmarkdown File</h2>
-<p>A .rmd (or Rmarkdown) file is a type of <code>R</code> script file that allows you to provide detailed descriptions of your code, analyses, and even interpretation.</p>
-<p>Rmarkdown files also are also great for creating class assignments, writing manuscript code, or even cross-working between two different code languages (like <code>R</code> and <code>python</code>, for example). It’s also has integrated tools to help with improving reproducibility, including both a visual and source code editor. These tutorials were written in a similar interface known as a quarto website, which functions relatively similarly to a Rmarkdown file.</p>
+<p>A .rmd (or Rmarkdown) file is a type of R script file that allows you to provide detailed descriptions of your code, analyses, and even interpretation.</p>
 <p>To make a new .rmd file, go through the following steps:</p>
 <ol type="1">
 <li><p>Set your working directory.</p>
@@ -417,7 +385,22 @@ Tip
 <p><img src="images/clipboard-2120255914.png" class="img-fluid" width="573"></p></li>
 <li><p>When the document window pops up, title your new .rmd “Tutorial 0”.</p></li>
 <li><p>Select your <strong>Default Output Format</strong>. This will be what your file will be saved as when you Knit your .rmd. Any format will do for the sake of this tutorial, but I often prefer HTML.</p></li>
-<li><p>Click <strong>Okay</strong>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>In future tutorials you will be completing your assignments in a pre-prepared .rmd file. This output option will already be chosen for you in those files.</strong></p>
+</div>
+</div>
+<ol start="7" type="1">
+<li>Click <strong>Okay</strong>.</li>
 </ol>
 <p>Your .rmd document should be created! There’s already a lot of text included in the base Rmarkdown document, but some of it should help with getting oriented. Go ahead and take a minute to explore.</p>
 <p><img src="images/clipboard-2139477287.png" class="img-fluid"></p>
@@ -439,7 +422,7 @@ Tip
 <p>The line <code>knitr::opts_chunk$set(echo = TRUE)</code> in code chunk 1 is used in Rmarkdown documents to globally configure code chunks so that the underlying source code is visible in the final rendered output.</p>
 <p>Here, you’re using the package <strong>knitr::</strong> to set any <em>outputs</em> you run in Rmarkdown to be included when you <strong>knit</strong> the final document. This code chunk is automatically included in all .rmd files you create unless you personalize your RStudio otherwise. We won’t worry about this too much for now.</p>
 <p>Scroll down to the second code chunk.</p>
-<p>Run chunk 2. You should see a new output print diretly below your code chunk inside the code editor AND the Console.</p>
+<p>Run chunk 2. You should see a new output print directly below your code chunk inside the code editor AND the Console.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -454,9 +437,9 @@ Tip
 </div>
 <p>This is the output of the command <code>summary(cars)</code>.</p>
 <p><img src="images/clipboard-2280816900.png" class="img-fluid"></p>
-<p>Here, <code>R</code> is providing a <code>summary()</code> of the data set <code>cars</code>.</p>
+<p>Here, R is providing a <code>summary()</code> of the data set <code>cars</code>.</p>
 <p>Now you may be asking yourself, “where did this data set come from??? I don’t have any data sets in my computer called <code>cars</code>.” You’d be 100% correct!</p>
-<p>You <em>don’t</em> have a data set called <code>cars</code> on your computer, but RStudio <em>does</em>. This is one of the “native” data sets included in the <code>R</code> and Rstudio computing environment. These can be used to practice data manipulation and visualization and we will use a few of these throughout these tutorials.</p>
+<p>You <em>don’t</em> have a data set called <code>cars</code> on your computer, but RStudio <em>does</em>. This is one of the “native” data sets included in the R and Rstudio computing environment. These can be used to practice data manipulation and visualization and we will use a few of these throughout these tutorials.</p>
 <p>The data gives the speed of cars and the distances taken to stop. The data was recorded in the 1920s. <code>cars</code> is data frame with 50 observations on 2 variables.</p>
 <table class="caption-top table">
 <tbody>
@@ -514,18 +497,6 @@ Tip
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You can manually change the chunk output type by simply adding this option at the top of your .rmd manually, like above, but it’s significantly easier to just do the point-and-click method.</p>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Do It Yourself T0-2</strong></p>
-<p>2a. Re-run chunk 2. Find where the new output is.</p>
-<p>2b. We’ve plotted a different internal data set called <code>pressure</code>. Get a summary of <code>pressure</code> without adding a new chunk of code or adding a new line within an already existing chunk of code.</p>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="commenting-on-code" class="level2">
@@ -554,7 +525,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>It is always best practice to ensure all of your code runs without any errors or warnings before submitting for a grade.</strong></p>
+<p><strong>It is always best practice to ensure all of your code runs without any errors or warnings before submitting it.</strong></p>
 <p>A good way to check if your code is running completely without errors or warnings is by scrolling all the way to the bottom of your .rmd and running all the chunks above it. Everything should run synchronously.</p>
 </div>
 </div>
@@ -574,17 +545,6 @@ Tip
 <p>Yay!!! It works!!!</p>
 <p>Using a preemptive <code>#</code> before your comment text will turn your comment a different color and <code>R</code> will ignore any text included to the right of it.</p>
 <p>If you press enter to a new line of code, you will need to add another <code>#</code> before any additional comments you make. Essentially, what R is doing is it’s reading what you’ve typed into any code chunk left to right. When it encounters a <code>#</code>, it reads past it until a new line of code begins.</p>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Do It Yourself T0-3</strong></p>
-<p>3a. Add comments to chunk 3 to describe what the command <code>plot()</code> is doing.</p>
-</div>
-</div>
-</div>
 </section>
 <section id="rmarkdown-chunk-options" class="level2">
 <h2 class="anchored" data-anchor-id="rmarkdown-chunk-options">RMarkdown Chunk Options</h2>
@@ -696,20 +656,6 @@ Note
 <p><img src="images/clipboard-3560408174.png" class="img-fluid" width="550"></p></li>
 </ol>
 <p>You should now have your very own chunk of R code ready for use.</p>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Do It Yourself T0-4</strong></p>
-<p>In your Brand New Code Chunk™ …</p>
-<p>4a. Plot the <code>cars</code> data. What is the x axis? What is the y axis?</p>
-<p>4b. Add a comment to your <code>cars</code> plot code.</p>
-<p>4c. In this chunk, configure the options so it includes your plot in the final knitted document, but doesn’t include the source code.</p>
-</div>
-</div>
-</div>
 </section>
 <section id="saving-and-knitting-your-rmarkdown-file" class="level2">
 <h2 class="anchored" data-anchor-id="saving-and-knitting-your-rmarkdown-file">Saving and Knitting Your RMarkdown File</h2>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tutorial 0 – EVE 113 R Bootcamp</title>
+<title>Tutorial 0 – EVE 113 R Tutorials</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">EVE 113 R Bootcamp</span>
+    <span class="navbar-title">EVE 113 R Tutorials</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -136,16 +136,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Getting Started</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./code-etiquette.html"> 
-<span class="menu-text">Code Etiquette 101</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="./tutorial-0.html" aria-current="page"> 
 <span class="menu-text">Tutorial 0</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./tutorial-1.html"> 
 <span class="menu-text">Tutorial 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./code-etiquette.html"> 
+<span class="menu-text">Code Etiquette 101</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -183,6 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#saving-and-knitting-your-rmarkdown-file" id="toc-saving-and-knitting-your-rmarkdown-file" class="nav-link" data-scroll-target="#saving-and-knitting-your-rmarkdown-file">Saving and Knitting Your RMarkdown File</a></li>
   <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review">Review</a></li>
   </ul></li>
+  <li><a href="#answer-key" id="toc-answer-key" class="nav-link" data-scroll-target="#answer-key">Answer Key</a></li>
   </ul>
 </nav>
     </div>
@@ -212,8 +213,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>R and RMarkdown Basics</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-1208279086.png" class="img-fluid figure-img"></p>
-<figcaption>Cyanobacterial growth in a lake | Photo Credit: Rebecca North</figcaption>
+<p><img src="images/clipboard-4261253529.png" class="img-fluid figure-img"></p>
+<figcaption>’iwa (Great Frigate) bird in flight in Mangroves | Photo Credit: Lorenzo Mittiga</figcaption>
 </figure>
 </div>
 <p>Welcome to your “first” R tutorial! Well, technically this is tutorial 0, but this lesson will form the foundational knowledge you will need to start learning the basics of coding in R! Let’s get started…</p>
@@ -276,10 +277,22 @@ Warning
 <p>Again, the <strong>Console</strong> is where <u>you code directly with <code>R</code> and where outputs to commands will <strong>print</strong></u>.</p>
 <p>Find the point where your cursor is blinking towards the bottom. The <code>&gt;</code> indicates the <strong>Prompt</strong> space. This is where you can type your commands directly into the Console.</p>
 <p><img src="images/clipboard-3133842425.png" class="img-fluid" width="450"></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>DIY T0-1</strong></p>
+<p>1a. Type something, anything, into the Console then hit ‘Enter’ or ‘return’ on your keyboard. What happens?</p>
+<p>1b. Why does this happen when typing something random?</p>
+</div>
+</div>
+</div>
 </section>
 <section id="setting-your-working-directory" class="level2">
 <h2 class="anchored" data-anchor-id="setting-your-working-directory">Setting your working directory</h2>
-<p>Now, we’re going to type out our first ever command into the <strong>Console</strong>! Yay! Go ahead and either manually type or copy/paste the command below then press ‘return’ or ‘Enter’ on your keyboard.</p>
+<p>Now, we’re going to type out our first ever REAL command into the <strong>Console</strong>! Yay! Go ahead and either manually type or copy/paste the command below then press ‘return’ or ‘Enter’ on your keyboard.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -314,11 +327,11 @@ Tip
 <section id="option-1-manually-set-your-working-directory" class="level3">
 <h3 class="anchored" data-anchor-id="option-1-manually-set-your-working-directory">Option 1: Manually set your working directory</h3>
 <p>In order to change your working directory manually, we will use the <code>setwd()</code> command.</p>
-<p>For example, if I wanted to change my working directory to an existing folder called <code>R-tutorials</code> located on my <code>Desktop</code> in a folder called <code>EVE 113</code>, I’d run the following code:</p>
+<p>For example, if I wanted to change my working directory to an existing folder called <code>Coding Tutorials</code> located on my <code>Desktop</code> in a folder called <code>EVE 113</code>, I’d run the following code:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusernamehere/Desktop/EVE 113/R tutorials"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusernamehere/Desktop/EVE 113/Coding tutorials"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>This is the directory path R will now use when searching and saving files as I work: Users &gt; yourusenamehere &gt; Desktop &gt; EVE 113 &gt; R tutorials. The “&gt;” indicates the directionality that <code>R</code> is searching in my computer for the works pace.</p>
+<p>This is the directory path R will now use when searching and saving files as I work: <strong>Users</strong> &gt; <strong>yourusernamehere</strong> &gt; <strong>Desktop</strong> &gt; <strong>EVE 113</strong> &gt; <strong>Coding Tutorials</strong>. The “&gt;” indicates the directionality that R is searching in my computer for the works pace.</p>
 </section>
 <section id="option-2-point-and-click-approach-in-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="option-2-point-and-click-approach-in-rstudio">Option 2: Point-and-Click Approach in RStudio</h3>
@@ -334,37 +347,43 @@ Tip
 </section>
 <section id="understanding-absolute-and-relative-paths" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-absolute-and-relative-paths">Understanding Absolute and Relative Paths</h2>
-<p>For the sake of this course (and these tutorials), I’d like you to make a folder to set as your working directory before we proceed any further. You can use the following template if you’d like to keep things simple:</p>
+<p>For the sake of this course (and these tutorials), I’d like you to make a folder to set as your working directory before we proceed any further. Use the following template:</p>
 <ol type="1">
 <li>Create a primary folder on your desktop called <strong>EVE 113</strong>.</li>
 <li>Create a sub-folder inside <strong>EVE 113</strong> called <strong>Coding Tutorials</strong> – (this will let you keep coding tutorial work and class coding work separate from one another).</li>
-<li>Create another sub-folder called <strong>Tutorial 0</strong>.</li>
 </ol>
 <p>The <strong>path</strong> you’ve just created will be something along the lines of:</p>
-<div class="line-block"><code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 0</code></div>
+<div class="line-block"><code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials</code></div>
 <p>A <strong>file path</strong> tells you (and your computer) the exact place you can locate a file. Paths can either be <u>absolute</u> or <u>relative</u>. You use different paths, in different scenarios, to set your working directory.</p>
 <p>An <strong>absolute</strong> path would be something like…</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 0"</span>) <span class="co"># on macOS</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusername/Desktop/EVE 113/Coding Tutorials"</span>) <span class="co"># on macOS</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>or</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:\Users\yourusername\Desktop\EVE 113\Coding Tutorials\Tutorial 0"</span>) <span class="co"># on Windows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:\Users\yourusername\Desktop\EVE 113\Coding Tutorials"</span>) <span class="co"># on Windows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li><p>Here the working directory is explicitly specified (<code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials</code>).</p></li>
-<li><p>It includes the set destination for a file (<code>/Tutorial 0</code>, or essentially where you want to go with the path).</p></li>
+<li><p>Here the working directory is explicitly specified (<code>/Users/yourusername/Desktop/EVE 113</code>).</p></li>
+<li><p>It includes the set folder destination for a file (<code>/Coding Tutorials</code>, or essentially where you want to go with the path).</p></li>
 </ul>
 <p>A <strong>relative</strong> path would be something like…</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"./Tutorial 0"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"./Coding Tutorials"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>Here, the working directory is implicitly specified.</p></li>
-<li><p>A <code>.</code> before the forward or backslash indicates you are moving <em>down</em> the path, whereas <code>..</code> indicates movement <em>up</em> the path.</p></li>
+<li><p>A <code>.</code> before the forward or backslash indicates you are moving <em>down</em> the path</p></li>
+<li><p>A <code>..</code> indicates movement <em>up</em> the path.</p></li>
 </ul>
-<p>This idea is illustrated here:</p>
-<p><img src="images/clipboard-1258135516.png" class="img-fluid"></p>
+<p>Return to your parent directory by typing the following:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">".."</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Move laterally to another folder in your working directory:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"../neightbor folder"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>Understanding the path concept will help you when saving, accessing, and moving around your internal operating system. If you encounter problems setting your working directory, try restarting the RStudio application before seeking further assistance.</p>
 </section>
 <section id="creating-a-new-rmarkdown-file" class="level2">
@@ -374,11 +393,11 @@ Tip
 <ol type="1">
 <li><p>Set your working directory.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusenamehere/Desktop/EVE 113/Coding Tutorials/Tutorial 0"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusenamehere/Desktop/EVE 113/Coding Tutorials"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p>Check that you’ve successfully changed your working directory.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p>Proceed to the top left corner and click the <strong>New File</strong> icon.</p></li>
 <li><p>Scroll down and select <strong>R Markdown</strong>…</p>
@@ -396,7 +415,8 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>In future tutorials you will be completing your assignments in a pre-prepared .rmd file. This output option will already be chosen for you in those files.</strong></p>
+<p><strong>For your R Preparedness assignment, you will be completing your work in a pre-prepared .rmd file. This output option will already be chosen for you in those files.</strong></p>
+<p>For scratch work on these tutorials, set the knit output to whatever you’d like it to be</p>
 </div>
 </div>
 <ol start="7" type="1">
@@ -404,6 +424,17 @@ Note
 </ol>
 <p>Your .rmd document should be created! There’s already a lot of text included in the base Rmarkdown document, but some of it should help with getting oriented. Go ahead and take a minute to explore.</p>
 <p><img src="images/clipboard-2139477287.png" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>DIY T0-2</strong></p>
+<p>Find the Visual editor viewer. Switch between visual and Source a few times and notice the differences. What do the two ## prior to text in the Source editor mean? What does this do to the text in the Visual editor?</p>
+</div>
+</div>
+</div>
 <p>Start by pressing the green play button (which is the <strong>Run Current Chunk</strong> button) to the right corner of <u>Chunk 1</u> (which begins at line 8).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -424,7 +455,7 @@ Tip
 <p>Scroll down to the second code chunk.</p>
 <p>Run chunk 2. You should see a new output print directly below your code chunk inside the code editor AND the Console.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     speed           dist       
  Min.   : 4.0   Min.   :  2.00  
@@ -464,18 +495,31 @@ Tip
 <p>In code chunk 3, there is code to produce a plot. This also makes use of another internal data set called <code>pressure</code>, which is a 2 variable data set exploring the relation between temperature in degrees Celsius and vapor pressure of mercury in millimeters (of mercury).</p>
 <p>Run this code chunk and scroll down to look at the output.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="tutorial-0_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="tutorial-0_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p><img src="images/clipboard-4006929003.png" class="img-fluid"></p>
 <p>You might be quick to notice that this plot output is very large, and you have to scroll far down to even be able to view the entire thing in the code editor. As we progress in this course, we will continue adding multiple lines of code per code chunk and constantly scrolling up and down will become very tiresome very quickly.</p>
-<p>So, whenever we generate a plot or need a summary from our code chunk output, navigating the printed results in the code editor will become cumbersome. <strong>For the purposes of continuity in this class, we will be setting our <u>code chunk outputs</u> to be in the <em>Console</em> instead of <em>inline</em>.</strong></p>
+<p>So, whenever we generate a plot or need a summary from our code chunk output, navigating the printed results in the code editor will become cumbersome.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>For the purposes of continuity in this class, we will be setting our <u>code chunk outputs</u> to be in the <em>Console</em> instead of <em>inline</em>.</strong></p>
+</div>
+</div>
 <section id="setting-chunk-output-to-console" class="level3">
 <h3 class="anchored" data-anchor-id="setting-chunk-output-to-console">Setting Chunk Output to Console</h3>
 <ol type="1">
@@ -487,14 +531,14 @@ Tip
 <p>This generates your plots in the <strong>Plot</strong> window at the bottom right of your screen. Here you can navigate between <strong>Files</strong>, <strong>Plots</strong>, and other environmental viewers. Keep the plot tab open for now.</p>
 <p>If you scroll back up to the top of your document you should now see the following at the top:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Tutorial 0"</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"You Name Here"</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"Todays Date Here"</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> html_document</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>editor_options<span class="sc">:</span> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  chunk_output_type<span class="sc">:</span> console</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Tutorial 0"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"You Name Here"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"Todays Date Here"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> html_document</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>editor_options<span class="sc">:</span> </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  chunk_output_type<span class="sc">:</span> console</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You can manually change the chunk output type by simply adding this option at the top of your .rmd manually, like above, but it’s significantly easier to just do the point-and-click method.</p>
 </section>
@@ -506,13 +550,13 @@ Tip
 <p>In Rmarkdown, you can also add more detailed text above and below code chunks (like the text included in our new .rmd file we’ve created). In this case, the text in our new document introduces you to Rmarkdown, but in the future we will use this for interpretative comments about our work.</p>
 <p>With the code chunks we already have, lets add some comments. Go ahead and add the following comment next to <code>summary(cars)</code> then run the chunk.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars) <span class="ot">&lt;-</span> gives a summary of the native data set cars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars) <span class="ot">&lt;-</span> gives a summary of the native data set cars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>…that doesn’t work. When you run this, you should receive the following error:</p>
 <blockquote class="blockquote">
 <p>Error: unexpected symbol in “summary(cars) &lt;- gives a”</p>
 </blockquote>
-<p>This means your code is <em>not able to run</em> because <code>R</code> encountered an <em>unexpected symbol</em> in the text you added to the chunk. That’s because <code>&lt;-</code> is an actual <strong>argument</strong> in the <code>R</code> programming language.</p>
+<p>This means your code is <em>not able to run</em> because R encountered an <em>unexpected symbol</em> in the text you added to the chunk. That’s because <code>&lt;-</code> is an actual <strong>argument</strong> in the R programming language.</p>
 <p>Additionally, there is no such command as <code>gives</code> in <code>R</code>.</p>
 <p>The moment <code>R</code> recognizes something wrong in your code, it won’t run and it will return an <strong>error</strong> or a <strong>warning</strong> message.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -531,39 +575,42 @@ Tip
 </div>
 <p>So, how can we add a comment to our code if we can’t do it that way?? Let’s try something else:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars) <span class="st">"gives a summary of the native data set cars"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars) <span class="st">"gives a summary of the native data set cars"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Huh… Using quotes around our comment doesn’t work either?? When you do this, you’ll receive the error message:</p>
 <blockquote class="blockquote">
 <p>Error: unexpected string constant in “summary(cars)”gives a summary of the native data set cars””</p>
 </blockquote>
-<p>That is because <code>R</code> is not able to recognize the constraint <code>"gives a summary of the native data set cars"</code> as a part of the code evaluation <code>summary(cars)</code>.</p>
+<p>That is because R is not able to recognize the constraint <code>"gives a summary of the native data set cars"</code> as a part of the code evaluation <code>summary(cars)</code>.</p>
 <p>Let’s try one more thing… Go ahead and edit chunk 2 with the following:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars) <span class="co"># gives a summary of the native data set cars</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars) <span class="co"># gives a summary of the native data set cars</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Yay!!! It works!!!</p>
-<p>Using a preemptive <code>#</code> before your comment text will turn your comment a different color and <code>R</code> will ignore any text included to the right of it.</p>
+<p>Using a preemptive <code>#</code> before your comment text will turn your comment a different color and R will ignore any text included to the right of it.</p>
 <p>If you press enter to a new line of code, you will need to add another <code>#</code> before any additional comments you make. Essentially, what R is doing is it’s reading what you’ve typed into any code chunk left to right. When it encounters a <code>#</code>, it reads past it until a new line of code begins.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>DIY T0-3</strong></p>
+<p>3a. In the same code chunk as the summary(cars) code, retrieve a summary of the data set pressure (the data set you plotted above).</p>
+<p>3b. Add a comment about what running the code in 3a showed you.</p>
+<p>3c. In the same code chunk as the plot(pressure) code, plot the cars data set.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="rmarkdown-chunk-options" class="level2">
 <h2 class="anchored" data-anchor-id="rmarkdown-chunk-options">RMarkdown Chunk Options</h2>
-<p>At the end of the document on line 32 (or 33 if you’ve been completing the DIYs as we’ve progressed) there is the following text explaining the code chunk options.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>At the end of the document around line 32 there is the following text explaining the code chunk options.</p>
+<blockquote class="blockquote">
 <p>The <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
-</div>
-</div>
-<p>RMarkdown <strong>parameters (or chunk options)</strong> allow you to alter <em>individual chunks of code</em> to alter the <strong>code output</strong> in some manner when you knit your final document.</p>
-<p>For the purposes of this course, we will only really care about <code>eval</code>, <code>include</code>, and <code>echo</code>, but know that many (many) more chunk options exist. To find more ways to edit or alter you code chunks, visit <a href="https://www.rob-mcculloch.org/R/rmarkdown-cheatsheet-2.0_from-rstudio-2019-1-7.pdf">this cheat sheet</a>. Chunk options come with an operative argument (like <code>eval</code>) and a conditional statement (like <code>TRUE</code> or <code>FALSE</code>).</p>
+</blockquote>
+<p><strong>RMarkdown</strong> <strong>parameters (or chunk options)</strong> allow you to alter <em>individual chunks of code</em> to alter the <strong>code output</strong> in some manner when you knit your final document.</p>
+<p>For the purposes of this course, we will only really care about <code>eval</code>, <code>include</code>, and <code>echo</code>, but know that many (many) more chunk options exist. To find more ways to edit or alter your code chunks, visit <a href="https://www.rob-mcculloch.org/R/rmarkdown-cheatsheet-2.0_from-rstudio-2019-1-7.pdf">this cheat sheet</a>. Chunk options come with an operative argument (like <code>eval</code>) and a conditional statement (like <code>TRUE</code> or <code>FALSE</code>).</p>
 <p>Here’s a quick guide to what these mean below:</p>
 <table class="caption-top table">
 <colgroup>
@@ -645,6 +692,17 @@ Note
 <blockquote class="blockquote">
 <p><code>```{r, echo=TRUE, include=FALSE}</code></p>
 </blockquote>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>DIY T0-4</strong></p>
+<p>In the plot code chunk, edit the chunk option so that when kitting, none of the source code appears.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="adding-a-code-chunk-in-rmarkdown" class="level2">
 <h2 class="anchored" data-anchor-id="adding-a-code-chunk-in-rmarkdown">Adding a Code Chunk in RMarkdown</h2>
@@ -663,9 +721,9 @@ Note
 <p><img src="images/clipboard-3292907617.png" class="img-fluid"></p>
 <p>If you set your working directory correctly at the beginning of this tutorial, you will be directed to save your Untitled.rmd in the folder you set as your working directory</p>
 <blockquote class="blockquote">
-<p>(e.g., <code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 1</code>).</p>
+<p>(e.g., <code>/Users/yourusername/Desktop/EVE 113/Coding Tutorials</code>).</p>
 </blockquote>
-<p>Now, when we turn in assignments in this course, you will need to knit your code to save it as the output type you set at the beginning of this tutorial when you first made the Rmarkdown file.</p>
+<p>Now, when you turn in the R-Prep.rmd assignment, you will need to knit your code and save it as and html.</p>
 <ol type="1">
 <li><p>Locate the <strong>Knit</strong> icon (which is next to the Settings wheel and literally looks like a little ball of kitting yarn).</p></li>
 <li><p>Click <strong>Knit</strong>. <img src="images/clipboard-1189437882.png" class="img-fluid" width="50"></p></li>
@@ -676,7 +734,7 @@ Note
 </section>
 <section id="review" class="level2">
 <h2 class="anchored" data-anchor-id="review">Review</h2>
-<p>Wowie! That was a lot! If you’ve made it to the end of this, CONGRATS! You now know how to start coding in RStudio. Give yourself a HUGE pat on the back because learning the basics to <code>R</code> and Rmarkdown are by far the hardest parts of learning how to code in <code>R</code>.</p>
+<p>Wowie! That was a lot! If you’ve made it to the end of this, CONGRATS! You now know how to start coding in RStudio. Give yourself a HUGE pat on the back because learning the basics to R and Rmarkdown are by far the hardest parts of learning how to code in R.</p>
 <p>However, I’m confident these essentials will give you the foundational knowledge you will need to succeed in this course. And I can (hopefully) promise once you master these skills, learning how to use RStudio to your advantage will only get easier from here.</p>
 <p>To review, you should be able to:</p>
 <ol type="1">
@@ -690,9 +748,71 @@ Note
 </ol>
 <p>If you find you are unable to do one or more of the above tasks, go ahead and take some time to review this tutorial again until it starts to make sense. Happy coding!</p>
 <p><img src="images/clipboard-4280102554.png" class="img-fluid" width="200"></p>
-
-
 </section>
+</section>
+<section id="answer-key" class="level1">
+<h1>Answer Key</h1>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>DIY T0-1</strong></p>
+<p>1a. R should provide an error, something along the lines of:</p>
+<blockquote class="blockquote">
+<p>Error: object ‘whatever you typed here’ not found</p>
+</blockquote>
+<p>1b. This happens because I’m assuming whatever you typed isn’t an actual command or saved object in R. You should think of R as a hungry, hungry hippo: The hippo will only work for you if you feed it the right stuff. If you don’t feed it the right stuff then it won’t work (or might even eat you).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>DIY T0-2</strong></p>
+<p>You know you’ve successfully found the right thing when you look beneath the document tab and before your actual script (sandwiched in the left corner) and click onto what looks more like a real document and not code.</p>
+<p>The two ##’s prior to the text in the source editor turns plain text larger and bolder. In the visual editor, this displays the text as “Header 2”.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>DIY T0-3</strong></p>
+<p>3a / 3b.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pressure) <span class="co"># shows the temperature and pressure of cars</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>3c.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>DIY T0-4</strong></p>
+<p>Your chunk option should look like the below, and when kitting, your final html should not show the source code producing both the pressure and cars plots.</p>
+<p>```{r, echo = FALSE}</p>
+</div>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -157,10 +157,10 @@ tide_pool_data <- read.csv("metadata_tidepool.csv")
 
 Answer: It un-writes any previous changes made, specifically with sorting and renaming of variables
 
-**8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.**
+**8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`. Be sure to save this in a new data frame object.**
 
 ```{r Question_8b}
-rename(tide_pool_data,
+tide_pool_data <- rename(tide_pool_data,
        pool_number = Pool_number,
        volume = Volume,
        tide_pool_size = TidePoolSize,
@@ -188,7 +188,11 @@ mutate(tide_pool_subset,
 **10a. Using the tidepool metadata, group by tide pool size and get the mean Shannon's diversity of both the mobile and sessile macro-organisms. Save this in a new data frame object (a tibble) and name it appropriately.**
 
 ```{r Question_10a}
-
+tide_pool_subset_2 <- tide_pool_data %>%
+  select(macro_shannon_sessile, macro_shannon_mobile, tide_pool_size) %>% # optional step
+  group_by(tide_pool_size) %>%
+  mutate(mean_mobile = mean(macro_shannon_sessile))
+  
 ```
 
 **10b. Using the penguins data, create a new sub-set that only includes Chinstrap penguins and their bill measurements. Get the mean of the bill measurements in each year the penguins were measured.**

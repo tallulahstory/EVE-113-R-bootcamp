@@ -515,7 +515,7 @@ rename(example_data,
 
 8a. Re-import the tidepool metadata set. What effect does this have to the work we've already done to the data set?
 
-8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using `dplyr` and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.
+8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`. Be sure to save this in a new data frame object.
 :::
 
 ### Add New Variables with mutate()

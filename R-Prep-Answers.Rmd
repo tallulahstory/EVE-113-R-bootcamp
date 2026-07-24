@@ -1,7 +1,7 @@
 ---
-title: "R-Preparedness"
-author: "your name here"
-date: "current date here"
+title: "R-Prep-Answers"
+author: "Tallulah Story"
+date: "2026-07-24"
 output: html_document
 editor_options: 
   chunk_output_type: console
@@ -28,8 +28,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **1c. Import the tidepool metadata practice data set and save it as "data".**
 
-```{r question_1, echo = FALSE}
+```{r Question_1}
+getwd()
+setwd("/Users/loganstory/Desktop/EVE 113/Coding Tutorials") # should be students wd
 
+install.packages("palmerpenguins")
+library(palmerpenguins)
+
+# student should use a descrptive data frame object name
+data <- read.csv("metadata_tidepool.csv")
 ```
 
 ## Question 2
@@ -37,37 +44,47 @@ knitr::opts_chunk$set(echo = TRUE)
 **2a. Retrieve the summary, head, and tail of the tide pool metadata set**.
 
 ```{r Question_2}
-
+summary(data)
+head(data)
+tail(data)
 ```
 
 **2b. What's the mean tidepool volume?**
 
-Answer:
+Answer: 6.50
 
 **2c. How many rows does the tidepool metadata set have?**
 
-Answer:
+Answer: 12
 
 ## Question 3
 
 **3a. What is the atomic data type of tide pool size? How many tide pool sizes are there?**
 
 ```{r Question_3a}
-
+class(data$TidePoolSize)
 ```
 
-Answer: 
+Answer: "Character"; A dichotomous categorical variable, including Large and Small tidepools
 
 **3b. Rename the tidepool metadata object (if you haven't already) using** `snake_case` **convention.**
 
 ```{r Question_3b}
-
+tide_pool_data <- read.csv("metadata_tidepool.csv") # new name should be descriptive and lowercase
 ```
 
 **3c. Rename all variables in your new tide pool data frame to match** `snake_case` **conventions.**
 
 ```{r Question_3c}
-
+names(tide_pool_data) <- c("pool_number",             # student should be using all lowercase
+                           "volume", 
+                           "tide_pool_size", 
+                           "macro_shannon_sessile",
+                           "macro_shannon_mobile",
+                           "macro_shannon_mean",
+                           "macro_richness",
+                           "macro_autotroph",
+                           "macro_heterotroph")
 ```
 
 ## Question 4
@@ -75,7 +92,9 @@ Answer:
 **Use code to install the tidyverse and dplyr packages; Load the packages into your working session.**
 
 ```{r Question_4}
-
+install.packages(c("tidyverse", "dplyr"))
+library(tidyverse) # if this step is done consecutively, awesome! If not, no worries
+library(dplyr)
 ```
 
 *\*\*Note:* This would normally be done at the beginning of any real working script. Ensure that all package installations take place before any commands are run. For the sake of our learning here, we're installing it later into our script.
@@ -85,13 +104,13 @@ Answer:
 **5a. Filter the tide pool data to only include large tide pools with a macro richness that is >= to 7.**
 
 ```{r Question_5a}
-
+filter(tide_pool_data, tide_pool_size == "large" & macro_richness >= 7)
 ```
 
 **5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).**
 
 ```{r Question_5b}
-
+filter(penguins, !year %in% 2007 & sex == "male" & island == "Biscoe")
 ```
 
 ## Question 6
@@ -99,13 +118,13 @@ Answer:
 **6a. How could you use `arrange()` to sort all missing values to the start? Write a line of code that sorts the missing values (NAs) for sex in the penguins data set to the start. (HINT: try using `is.na()`).**
 
 ```{r Question_6a}
-
+arrange(penguins, desc(is.na(sex)))
 ```
 
 **6b. In the tide pool data frame, arrange the observations in descending order by the macro Shannon mean and the macro richness.**
 
 ```{r Question_6b}
-
+arrange(penguins, desc(macro_shannon_mean, macro_richness))
 ```
 
 ## Question 7
@@ -113,13 +132,17 @@ Answer:
 **7a. Create a sub-set of the tidepool data that only includes the pool number, Shannon's diversity metrics for macro sessile and mobile organisms, and the macro richness.**
 
 ```{r Question_7a}
-
+(tide_pool_subset <- select(tide_pool_data,          # bonus if they separate each line
+                           pool_number, 
+                           macro_shannon_sessile, 
+                           macro_shannon_mobile, 
+                           macro_richness))
 ```
 
 **7b. Arrange your new sub-set in descending order by the pool number.**
 
 ```{r Question_7b}
-
+arrange(tide_pool_subset, desc(pool_number))
 ```
 
 ## Question 8
@@ -127,17 +150,26 @@ Answer:
 **8a. Re-import the tidepool metadata set.**
 
 ```{r Question_8a}
-
+tide_pool_data <- read.csv("metadata_tidepool.csv")
 ```
 
 **What effect does this have to the work we've already done to the data set?**
 
-Answer:
+Answer: It un-writes any previous changes made, specifically with sorting and renaming of variables
 
 **8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.**
 
 ```{r Question_8b}
-
+rename(tide_pool_data,
+       pool_number = Pool_number,
+       volume = Volume,
+       tide_pool_size = TidePoolSize,
+       macro_shannon_sessile = macro_Shannon_sessile,
+       macro_shannon_mobile = macro_Shannon_mobile,
+       macro_shannon_mean = macro_Shannon_mean,
+       macro_richness = macro_Richness,
+       macro_autotroph = macro_Autotroph,
+       macro_heterotroph = macro_Heterotroph)
 ```
 
 ## Question 9
@@ -145,7 +177,8 @@ Answer:
 **Using the tidepool metadata sub-set you created in question 7, add together the Shannon's Diversity for both sessile and mobile macroscopic organisms. Name this new variable appropriately.**
 
 ```{r Question_9}
-
+mutate(tide_pool_subset,
+       macro_shannon_combined = macro_shannon_sessile + macro_shannon_mobile)
 ```
 
 ## Question 10

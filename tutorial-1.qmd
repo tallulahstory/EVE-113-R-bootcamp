@@ -113,7 +113,7 @@ Great, now we have two different data sets to play around with. Let's start with
 
 1b. Install the Palmer penguins data set onto your computer.
 
-1c. Import the tidepool metadata practice data set.
+1c. Import the tidepool metadata practice data set and save it as "data".
 :::
 
 ## Exploring Your Data Frame Object
@@ -426,7 +426,7 @@ filter(fake_data, is.na(x) | x > 1)
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 5**
 
-5a. Filter the tide pool data to only include large tide pools with a macro_richness that is \>= to 10.
+5a. Filter the tide pool data to only include large tide pools with a macro richness that is \>= to 7.
 
 5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).
 :::
@@ -462,9 +462,9 @@ tail(arrange(penguins, desc(bill_depth_mm), desc(bill_length_mm)))
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 6**
 
-6a. How could you use `arrange()` to sort all missing values to the start? (HINT: try using `is.na()`).
+6a. How could you use `arrange()` to sort all missing values in the sex to the start? (HINT: try using `is.na()`).
 
-6b. In the tide pool data frame, arrange our observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.
+6b. In the tide pool data frame, arrange the observations in descending order by the macro Shannon mean and the macro richness.
 :::
 
 ### Select Columns with select()
@@ -502,12 +502,12 @@ Additional helper functions that come along with `select()` include:
 
 ### Rename Columns
 
-Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command `rename()`!
+Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command `rename()`! This is also better than using base R because you don't have to rename columns in order, you can rename them in any order, which prevents any accidental mistypes of mistakes when renaming.
 
 ```{r, eval = FALSE}
 rename(example_data, 
-       old_col_name1 = new_col_name1, 
-       old_col_name2 = new_col_name2)
+       new_col_name1 = old_col_name1, 
+       new_col_name2 = old_col_name2)
 ```
 
 ::: {.callout-tip appearance="simple" icon="false"}

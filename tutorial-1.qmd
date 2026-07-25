@@ -691,16 +691,20 @@ Some `geom_` calls we *might* use on our class include:
 
   - This is very useful for data diagnosis and visualizing residuals.
 
+- `geom_jitter` - adds small amount of random variation to locations of each point to deal with overplotting.
+
+  - Good for small data sets with discrete, limited values.
+
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 11**
 
-11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume.
+11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume. Then, create another scatter plot an additional `geom_` call to prevent overplotting.
 
 11b. Create a bar plot showing the macro richness by tidepool size. (HINT: you will need to use the argument stat = 'identity' in your geom\_ call).
 
 11c. Use the ?geom_bar help command to pull up the help page for the geom_bar() command. Spend a little bit of time reading. Why do we need to use the stat = 'identity' argument when running the geom_bar()?
 
-11d. What happens if we don't add stat = 'identity'?
+11d. What happens if we don't add stat = 'identity'? Test it out in the console.
 :::
 
 ### Coloring and Adding Shapes

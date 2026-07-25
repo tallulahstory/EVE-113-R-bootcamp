@@ -101,7 +101,7 @@ library(dplyr)
 
 ## Question 5
 
-**5a. Filter the tide pool data to only include large tide pools with a macro richness that is >= to 7.**
+**5a. Filter the tide pool data to only include large tide pools with a macro richness that is \>= to 7.**
 
 ```{r Question_5a}
 filter(tide_pool_data, tide_pool_size == "large" & macro_richness >= 7)
@@ -188,31 +188,44 @@ mutate(tide_pool_subset,
 **10a. Using the tidepool metadata, group by tide pool size and get the mean Shannon's diversity of both the mobile and sessile macro-organisms. Save this in a new data frame object (a tibble) and name it appropriately.**
 
 ```{r Question_10a}
-tide_pool_subset_2 <- tide_pool_data %>%
+(tide_pool_subset_2 <- tide_pool_data %>%
   select(macro_shannon_sessile, macro_shannon_mobile, tide_pool_size) %>% # optional step
   group_by(tide_pool_size) %>%
-  mutate(mean_mobile = mean(macro_shannon_sessile))
-  
+  mutate(mean_mobile = mean(macro_shannon_mobile),
+         mean_sessile = mean(macro_shannon_sessile)))
 ```
 
 **10b. Using the penguins data, create a new sub-set that only includes Chinstrap penguins and their bill measurements. Get the mean of the bill measurements in each year the penguins were measured.**
 
 ```{r Question_10b}
-
+penguins_bills <- penguins %>%
+  select(species, bill_length_mm, bill_depth_mm, year) %>%
+  filter(species == "Chinstrap") %>%
+  group_by(year) %>%                                        # important to group by AFTER filtering
+  mutate(mean_bill_length = mean(bill_length_mm),
+         mean_bill_depth = mean(bill_depth_mm))
 ```
 
 ## Question 11
 
-**11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume.**
+**11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume. Then, create another scatter plot an additional geom\_ call to prevent overplotting.**
 
 ```{r Question_11a}
+ggplot(tide_pool_data, aes(x = macro_richness, y = volume)) +  # doesn't matter what order x/y is in
+  geom_point()
 
+ggplot(tide_pool_data, aes(x = macro_richness, y = volume)) +  
+  geom_point() +
+  geom_jitter()   # student should add geom_jitter() call to second plot, better if comments to the code are added
 ```
 
-**11b. Create a bar plot showing the macro richness by tidepool size. (HINT: you will need to use the argument** `stat = 'identity'` **in your** `geom_` **call).**
+**11b. Create a bar plot showing the macro richness by tidepool size.**
+
+(HINT: you will need to use the argument `stat = 'identity'` in your `geom_` call).
 
 ```{r Question_11b}
-
+ggplot(data = tide_pool_data, aes(x = tide_pool_size, y = macro_richness)) +
+  geom_bar(stat = 'identity')
 ```
 
 **11c. Use the** `?geom_bar` **help command to pull up the help page for the** `geom_bar()` **command. Spend a little bit of time reading. You can also look at** `?geom_col`.
@@ -224,22 +237,20 @@ tide_pool_subset_2 <- tide_pool_data %>%
 
 **Why do we need to use the** `stat = 'identity'` **argument when running** `geom_bar()`?
 
-Answer:
+Answer: It leaves the data as is, rather than simply counting the number of cases for the x axis.
 
-**11d. What happens if we don't add stat = 'identity'?**
+**11d. What would happen if we don't add stat = 'identity'? Test it out in the console.**
 
-```{r Question_11d}
-# Optional to add code here if you'd like to support your answer
-```
-
-Answer:
+Answer: The bar graph won't run, given that stat_count() requires an x or y aesthetic. Can't compute first layer.
 
 ## Question 12
 
 **Using the tidepool metadata, create a scatter plot that shows the relationship between the sessile and mobile macro-organisms Shannon diversity colored by tidepool size.**
 
 ```{r Question_12}
-
+ggplot(data = tide_pool_data, aes(x = macro_shannon_mobile, y = macro_shannon_sessile, 
+                                  color = tide_pool_size)) + # better is color layer is on seperate line
+  geom_point()
 ```
 
 ## Question 13
@@ -247,7 +258,10 @@ Answer:
 **Using the penguins data set, create a scatter plot faceted by species and island that explores the relationship between bill depth and bill length. Add additional aesthetic mappings as wanted or needed.**
 
 ```{r Question_13}
-
+ggplot(data = penguins, aes(x = bill_depth_mm, y = bill_length_mm,
+                            color = species, shape = island)) + # optional, but HIGHLY reccomended
+  geom_point() +
+  facet_wrap(species ~ island)
 ```
 
 ## Question 14
@@ -255,15 +269,26 @@ Answer:
 **Using the penguins data set and a pipe string, create a scatter plot faceted by species and sex that explores the relationship between bill depth and body mass only in the year 2007.**
 
 ```{r Question_14}
-
+penguins %>%
+  drop_na() %>%                                       # this should be included!!!!!!!
+  filter(year %in% c(2007)) %>%                       # can also be 'year == 2007'
+  ggplot(aes(x = bill_depth_mm, y = body_mass_g, 
+             color = species, shape = sex)) +         # additional aesthetics encouraged
+  geom_point() +
+  facet_wrap(species ~ sex)                           # can be in either order
 ```
 
 ## Question 15
 
-**Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y \~ x.**
+**Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y ~ x.**
 
 ```{r Question_15}
-
+ggplot(data = tide_pool_data, aes(x = macro_richness, 
+                                  y = log(volume))) +                # log should be on volume axis
+  geom_point() +
+  geom_jitter() +
+  facet_wrap(~ tide_pool_size) +                                     # step needs to come BEFORE smooth
+  geom_smooth(method = 'lm')                                         # can include se if wanted
 ```
 
-*(HINT: This one is tricky and will involve you using the mathematical operator log() on one of the axis. You can do so without piping using dplyr commands OR altering the data frame itself).*
+*(HINT: Notice the slopes of your lines. How might you better visualize this? Figuring this one out might be tricky and will involve you using the mathematical operator log() on one of the axis. You can do so without piping using dplyr commands OR altering the data frame itself).*

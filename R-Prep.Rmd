@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **1a. Get and set your working directory based on the suggested file path in Tutorial 0.**
 
-**1b. Install the Palmer penguins data set onto your computer.**
+**1b. Install the Palmer penguins data set onto your computer using the console. Load the data set into your working script. **
 
 **1c. Import the tidepool metadata practice data set and save it as "data".**
 
@@ -72,7 +72,7 @@ Answer:
 
 ## Question 4
 
-**Use code to install the tidyverse and dplyr packages; Load the packages into your working session.**
+**Use code to install the tidyverse and dplyr packages in the console; Load the packages into your working session.**
 
 ```{r Question_4}
 

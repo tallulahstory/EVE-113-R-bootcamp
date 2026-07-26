@@ -24,18 +24,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **1a. Get and set your working directory based on the suggested file path in Tutorial 0.**
 
-**1b. Install the Palmer penguins data set onto your computer.**
+**1b. Install the Palmer penguins data set onto your computer using the console. Load the data set into your working script.**
 
 **1c. Import the tidepool metadata practice data set and save it as "data".**
 
 ```{r Question_1}
 getwd()
-#setwd("/Users/loganstory/Desktop/EVE 113/Coding Tutorials") # should be students wd
+setwd("/Users/loganstory/Desktop/PhD/Teaching/R Bootcamp/R-bootcamp") # should be students wd
 
-install.packages("palmerpenguins")
 library(palmerpenguins)
 
-# student should use a descrptive data frame object name
+# data should have a descrptive data frame object name later down the line, but saved as 'data' for now
 data <- read.csv("metadata_tidepool.csv")
 ```
 
@@ -76,7 +75,7 @@ tide_pool_data <- read.csv("metadata_tidepool.csv") # new name should be descrip
 **3c. Rename all variables in your new tide pool data frame to match** `snake_case` **conventions.**
 
 ```{r Question_3c}
-names(tide_pool_data) <- c("pool_number",             # student should be using all lowercase
+names(tide_pool_data) <- c("pool_number",             # all columns should be using all lowercase
                            "volume", 
                            "tide_pool_size", 
                            "macro_shannon_sessile",
@@ -89,10 +88,9 @@ names(tide_pool_data) <- c("pool_number",             # student should be using 
 
 ## Question 4
 
-**Use code to install the tidyverse and dplyr packages; Load the packages into your working session.**
+**Use code to install the tidyverse and dplyr packages in the console; Load the packages into your working session.**
 
 ```{r Question_4}
-install.packages(c("tidyverse", "dplyr"))
 library(tidyverse) # if this step is done consecutively, awesome! If not, no worries
 library(dplyr)
 ```
@@ -124,7 +122,7 @@ arrange(penguins, desc(is.na(sex)))
 **6b. In the tide pool data frame, arrange the observations in descending order by the macro Shannon mean and the macro richness.**
 
 ```{r Question_6b}
-arrange(penguins, desc(macro_shannon_mean, macro_richness))
+arrange(tide_pool_data, desc(macro_shannon_mean), desc(macro_richness))
 ```
 
 ## Question 7
@@ -132,7 +130,7 @@ arrange(penguins, desc(macro_shannon_mean, macro_richness))
 **7a. Create a sub-set of the tidepool data that only includes the pool number, Shannon's diversity metrics for macro sessile and mobile organisms, and the macro richness.**
 
 ```{r Question_7a}
-(tide_pool_subset <- select(tide_pool_data,          # bonus if they separate each line
+(tide_pool_subset <- select(tide_pool_data,          # bonus if each line (yay tidy code practices!!)
                            pool_number, 
                            macro_shannon_sessile, 
                            macro_shannon_mobile, 
@@ -160,7 +158,7 @@ Answer: It un-writes any previous changes made, specifically with sorting and re
 **8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`. Be sure to save this in a new data frame object.**
 
 ```{r Question_8b}
-tide_pool_data <- rename(tide_pool_data,
+tide_pool_data <- rename(tide_pool_data,               # df can be renamed, or overwrite previous df
        pool_number = Pool_number,
        volume = Volume,
        tide_pool_size = TidePoolSize,

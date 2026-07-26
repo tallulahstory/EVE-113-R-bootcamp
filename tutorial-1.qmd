@@ -45,7 +45,7 @@ In this tutorial we will be using the package `palmerpenguins` as well as an exa
 
 [Palmer penguins](https://allisonhorst.github.io/palmerpenguins/) is a data set including size measurements, clutch observations, and blood isotope ratios for adult foraging Adelie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.
 
-First, install palmerpenguins into your local environment by using the command `install.packages()`.
+First, install palmerpenguins into your local environment by using the command `install.packages()` in the console.
 
 ```{r, eval = FALSE}
 install.packages("palmerpenguins")
@@ -63,6 +63,10 @@ The packages are now installed, but not currently active in our library. To make
 library(palmerpenguins)
 ```
 
+::: callout-important
+Remember, it's best practice to install new packages in your console, not in your working script. You only want to load packages in your working script using the `library()` command at the beginning of every new script you start.
+:::
+
 ::: callout-tip
 To keep things neat and tidy, I suggest **using one R chunk to complete your "setup" (i.e., package installation, library imports, and other global options you set in your script)**. It would look something like this in your .rmd file:
 
@@ -75,12 +79,16 @@ getwd()
 setwd("/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 1")
 getwd()
 
-# install packages 
+# install packages (step completed in console, NOT working script)
 install.packages(c("package1", 
                    "package2", 
                    "package3", 
                    "package4")
                  )
+
+# load individual packages
+library(package1)
+library(package2)
 
 # load multiple packages at once
 my_packages <- c("package1", # perhaps note what this package is used for
@@ -111,7 +119,7 @@ Great, now we have two different data sets to play around with. Let's start with
 
 1a. Get and set your working directory based on the suggested file path in Tutorial 0.
 
-1b. Install the Palmer penguins data set onto your computer.
+1b. Install the Palmer penguins data set onto your computer using the console. Load the data set into your working script.
 
 1c. Import the tidepool metadata practice data set and save it as "data".
 :::

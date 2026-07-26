@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -74,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -259,7 +259,7 @@ Important
 </div>
 <p>In this tutorial we will be using the package <code>palmerpenguins</code> as well as an example data set provided on the class canvas page. Palmer penguins is a CRAN data set provided that is a better alternative to the <code>iris</code> data set. If you’d like to know more about why we won’t be using <code>iris</code> in this course, you can <a href="https://medium.com/data-science/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5">read more here</a>.</p>
 <p><a href="https://allisonhorst.github.io/palmerpenguins/">Palmer penguins</a> is a data set including size measurements, clutch observations, and blood isotope ratios for adult foraging Adelie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.</p>
-<p>First, install palmerpenguins into your local environment by using the command <code>install.packages()</code>.</p>
+<p>First, install palmerpenguins into your local environment by using the command <code>install.packages()</code> in the console.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -270,6 +270,19 @@ Important
 <p>The packages are now installed, but not currently active in our library. To make the packages usable and active in our current session, we use the <code>library()</code> command.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember, it’s best practice to install new packages in your console, not in your working script. You only want to load packages in your working script using the <code>library()</code> command at the beginning of every new script you start.</p>
+</div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -291,19 +304,23 @@ Tip
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 1"</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># install packages </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># install packages (step completed in console, NOT working script)</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"package1"</span>, </span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package2"</span>, </span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package3"</span>, </span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package4"</span>)</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                 )</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># load multiple packages at once</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>my_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"package1"</span>, <span class="co"># perhaps note what this package is used for</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package2"</span>, <span class="co"># bwt these are not real packages</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package3"</span>, <span class="co"># don't try to actually install them</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package4"</span>) <span class="co"># (HINT: it won't work)</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(my_packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># load individual packages</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(package1)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(package2)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># load multiple packages at once</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>my_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"package1"</span>, <span class="co"># perhaps note what this package is used for</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package2"</span>, <span class="co"># bwt these are not real packages</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package3"</span>, <span class="co"># don't try to actually install them</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"package4"</span>) <span class="co"># (HINT: it won't work)</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(my_packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -323,8 +340,8 @@ Tip
 <div class="callout-body-container">
 <p><strong>Question 1</strong></p>
 <p>1a. Get and set your working directory based on the suggested file path in Tutorial 0.</p>
-<p>1b. Install the Palmer penguins data set onto your computer.</p>
-<p>1c. Import the tidepool metadata practice data set.</p>
+<p>1b. Install the Palmer penguins data set onto your computer using the console. Load the data set into your working script.</p>
+<p>1c. Import the tidepool metadata practice data set and save it as “data”.</p>
 </div>
 </div>
 </div>
@@ -343,15 +360,15 @@ Tip
                                  Mean   :43.92   Mean   :17.15  
                                  3rd Qu.:48.50   3rd Qu.:18.70  
                                  Max.   :59.60   Max.   :21.50  
-                                 NA's   :2       NA's   :2      
+                                 NAs    :2       NAs    :2      
  flipper_length_mm  body_mass_g       sex           year     
  Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
  1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
- Median :197.0     Median :4050   NA's  : 11   Median :2008  
+ Median :197.0     Median :4050   NAs   : 11   Median :2008  
  Mean   :200.9     Mean   :4202                Mean   :2008  
  3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
  Max.   :231.0     Max.   :6300                Max.   :2009  
- NA's   :2         NA's   :2                                 </code></pre>
+ NAs    :2         NAs    :2                                 </code></pre>
 </div>
 </div>
 <p><code>summary()</code> is a generic function used to provide overall summaries of objects or models.</p>
@@ -759,7 +776,7 @@ Tip
 </div>
 <div class="callout-body-container">
 <p><strong>Question 5</strong></p>
-<p>5a. Filter the tide pool data to only include large tide pools with a macro_richness that is &gt;= to 10.</p>
+<p>5a. Filter the tide pool data to only include large tide pools with a macro richness that is &gt;= to 7.</p>
 <p>5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).</p>
 </div>
 </div>
@@ -854,8 +871,8 @@ Tip
 </div>
 <div class="callout-body-container">
 <p><strong>Question 6</strong></p>
-<p>6a. How could you use <code>arrange()</code> to sort all missing values to the start? (HINT: try using <code>is.na()</code>).</p>
-<p>6b. In the tide pool data frame, arrange our observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.</p>
+<p>6a. How could you use <code>arrange()</code> to sort all missing values in the sex to the start? (HINT: try using <code>is.na()</code>).</p>
+<p>6b. In the tide pool data frame, arrange the observations in descending order by the macro Shannon mean and the macro richness.</p>
 </div>
 </div>
 </div>
@@ -941,11 +958,11 @@ Tip
 </section>
 <section id="rename-columns" class="level3">
 <h3 class="anchored" data-anchor-id="rename-columns">Rename Columns</h3>
-<p>Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command <code>rename()</code>!</p>
+<p>Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command <code>rename()</code>! This is also better than using base R because you don’t have to rename columns in order, you can rename them in any order, which prevents any accidental mistypes of mistakes when renaming.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(example_data, </span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">old_col_name1 =</span> new_col_name1, </span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">old_col_name2 =</span> new_col_name2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">new_col_name1 =</span> old_col_name1, </span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">new_col_name2 =</span> old_col_name2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -955,7 +972,7 @@ Tip
 <div class="callout-body-container">
 <p><strong>Question 8</strong></p>
 <p>8a. Re-import the tidepool metadata set. What effect does this have to the work we’ve already done to the data set?</p>
-<p>8b. Re-name the tidepool data frame object using <code>snake_case</code> once again (if you didn’t already do so during re-import). Using <code>dplyr</code> and the <code>rename()</code> command, rename all the columns in the tidepool metadata using <code>snake_case</code>.</p>
+<p>8b. Re-name the tidepool data frame object using <code>snake_case</code> once again (if you didn’t already do so during re-import). Using dplyr and the <code>rename()</code> command, rename all the columns in the tidepool metadata using <code>snake_case</code>. Be sure to save this in a new data frame object.</p>
 </div>
 </div>
 </div>
@@ -1077,8 +1094,12 @@ Tip
 <span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_length =</span> <span class="fu">mean</span>(bill_length_mm),</span>
 <span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_depth =</span> <span class="fu">mean</span>(bill_depth_mm))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'species'. You can override using the
-`.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by species and island.
+ℹ Output is grouped by species.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(species, island))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 </div>
 <p>You should read this code as a series of interpretive statements: using the penguins data set (<code>penguins_bills &lt;- penguins %&gt;%</code>), select the variables (<code>select(species, island, bill_length_mm, bill_depth_mm)</code>) <strong>then</strong> (<code>%&gt;%</code>) filter out the NAs in bill_length_mm (<code>filter(!is.na(bill_length_mm))</code>) <strong>then</strong> (<code>%&gt;%</code>) group by the categories of interest (<code>group_by(species, island)</code>) <strong>then</strong> (<code>%&gt;%</code>)summarize. Every pipe (<code>%&gt;%</code>) reads as “then”—the next step in your sequence of code.</p>
@@ -1176,6 +1197,10 @@ Tip
 <ul>
 <li>This is very useful for data diagnosis and visualizing residuals.</li>
 </ul></li>
+<li><p><code>geom_jitter</code> - adds small amount of random variation to locations of each point to deal with overplotting.</p>
+<ul>
+<li>Good for small data sets with discrete, limited values.</li>
+</ul></li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -1184,10 +1209,10 @@ Tip
 </div>
 <div class="callout-body-container">
 <p><strong>Question 11</strong></p>
-<p>11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume.</p>
+<p>11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume. Then, create another scatter plot an additional <code>geom_</code> call to prevent overplotting.</p>
 <p>11b. Create a bar plot showing the macro richness by tidepool size. (HINT: you will need to use the argument stat = ‘identity’ in your geom_ call).</p>
 <p>11c. Use the ?geom_bar help command to pull up the help page for the geom_bar() command. Spend a little bit of time reading. Why do we need to use the stat = ‘identity’ argument when running the geom_bar()?</p>
-<p>11d. What happens if we don’t add stat = ‘identity’?</p>
+<p>11d. What happens if we don’t add stat = ‘identity’? Test it out in the console.</p>
 </div>
 </div>
 </div>

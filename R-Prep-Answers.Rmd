@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r Question_1}
 getwd()
-setwd("/Users/loganstory/Desktop/EVE 113/Coding Tutorials") # should be students wd
+#setwd("/Users/loganstory/Desktop/EVE 113/Coding Tutorials") # should be students wd
 
 install.packages("palmerpenguins")
 library(palmerpenguins)

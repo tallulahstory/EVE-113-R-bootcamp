@@ -45,7 +45,7 @@ In this tutorial we will be using the package `palmerpenguins` as well as an exa
 
 [Palmer penguins](https://allisonhorst.github.io/palmerpenguins/) is a data set including size measurements, clutch observations, and blood isotope ratios for adult foraging Adelie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.
 
-First, install palmerpenguins into your local environment by using the command `install.packages()`.
+First, install palmerpenguins into your local environment by using the command `install.packages()` in the console.
 
 ```{r, eval = FALSE}
 install.packages("palmerpenguins")
@@ -63,6 +63,10 @@ The packages are now installed, but not currently active in our library. To make
 library(palmerpenguins)
 ```
 
+::: callout-important
+Remember, it's best practice to install new packages in your console, not in your working script. You only want to load packages in your working script using the `library()` command at the beginning of every new script you start.
+:::
+
 ::: callout-tip
 To keep things neat and tidy, I suggest **using one R chunk to complete your "setup" (i.e., package installation, library imports, and other global options you set in your script)**. It would look something like this in your .rmd file:
 
@@ -75,12 +79,16 @@ getwd()
 setwd("/Users/yourusername/Desktop/EVE 113/Coding Tutorials/Tutorial 1")
 getwd()
 
-# install packages 
+# install packages (step completed in console, NOT working script)
 install.packages(c("package1", 
                    "package2", 
                    "package3", 
                    "package4")
                  )
+
+# load individual packages
+library(package1)
+library(package2)
 
 # load multiple packages at once
 my_packages <- c("package1", # perhaps note what this package is used for
@@ -111,9 +119,9 @@ Great, now we have two different data sets to play around with. Let's start with
 
 1a. Get and set your working directory based on the suggested file path in Tutorial 0.
 
-1b. Install the Palmer penguins data set onto your computer.
+1b. Install the Palmer penguins data set onto your computer using the console. Load the data set into your working script.
 
-1c. Import the tidepool metadata practice data set.
+1c. Import the tidepool metadata practice data set and save it as "data".
 :::
 
 ## Exploring Your Data Frame Object
@@ -426,7 +434,7 @@ filter(fake_data, is.na(x) | x > 1)
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 5**
 
-5a. Filter the tide pool data to only include large tide pools with a macro_richness that is \>= to 10.
+5a. Filter the tide pool data to only include large tide pools with a macro richness that is \>= to 7.
 
 5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).
 :::
@@ -462,9 +470,9 @@ tail(arrange(penguins, desc(bill_depth_mm), desc(bill_length_mm)))
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 6**
 
-6a. How could you use `arrange()` to sort all missing values to the start? (HINT: try using `is.na()`).
+6a. How could you use `arrange()` to sort all missing values in the sex to the start? (HINT: try using `is.na()`).
 
-6b. In the tide pool data frame, arrange our observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.
+6b. In the tide pool data frame, arrange the observations in descending order by the macro Shannon mean and the macro richness.
 :::
 
 ### Select Columns with select()
@@ -502,12 +510,12 @@ Additional helper functions that come along with `select()` include:
 
 ### Rename Columns
 
-Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command `rename()`!
+Remember earlier when I showed you how to rename your columns using base R? Well, like I said, you can also do that with dplyr using the command `rename()`! This is also better than using base R because you don't have to rename columns in order, you can rename them in any order, which prevents any accidental mistypes of mistakes when renaming.
 
 ```{r, eval = FALSE}
 rename(example_data, 
-       old_col_name1 = new_col_name1, 
-       old_col_name2 = new_col_name2)
+       new_col_name1 = old_col_name1, 
+       new_col_name2 = old_col_name2)
 ```
 
 ::: {.callout-tip appearance="simple" icon="false"}
@@ -515,7 +523,7 @@ rename(example_data,
 
 8a. Re-import the tidepool metadata set. What effect does this have to the work we've already done to the data set?
 
-8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using `dplyr` and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.
+8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`. Be sure to save this in a new data frame object.
 :::
 
 ### Add New Variables with mutate()
@@ -691,16 +699,20 @@ Some `geom_` calls we *might* use on our class include:
 
   - This is very useful for data diagnosis and visualizing residuals.
 
+- `geom_jitter` - adds small amount of random variation to locations of each point to deal with overplotting.
+
+  - Good for small data sets with discrete, limited values.
+
 ::: {.callout-tip appearance="simple" icon="false"}
 **Question 11**
 
-11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume.
+11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume. Then, create another scatter plot an additional `geom_` call to prevent overplotting.
 
 11b. Create a bar plot showing the macro richness by tidepool size. (HINT: you will need to use the argument stat = 'identity' in your geom\_ call).
 
 11c. Use the ?geom_bar help command to pull up the help page for the geom_bar() command. Spend a little bit of time reading. Why do we need to use the stat = 'identity' argument when running the geom_bar()?
 
-11d. What happens if we don't add stat = 'identity'?
+11d. What happens if we don't add stat = 'identity'? Test it out in the console.
 :::
 
 ### Coloring and Adding Shapes

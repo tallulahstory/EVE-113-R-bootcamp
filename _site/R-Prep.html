@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -75,10 +75,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -231,8 +231,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="question-1" class="level2">
 <h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
 <p><strong>1a. Get and set your working directory based on the suggested file path in Tutorial 0.</strong></p>
-<p><strong>1b. Install the Palmer penguins data set onto your computer.</strong></p>
-<p><strong>1c. Import the tidepool metadata practice data set.</strong></p>
+<p><strong>1b. Install the Palmer penguins data set onto your computer using the console. Load the data set into your working script. </strong></p>
+<p><strong>1c. Import the tidepool metadata practice data set and save it as “data”.</strong></p>
 </section>
 <section id="question-2" class="level2">
 <h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
@@ -245,23 +245,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="question-3" class="level2">
 <h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
 <p><strong>3a. What is the atomic data type of tide pool size? How many tide pool sizes are there?</strong></p>
+<p>Answer:</p>
 <p><strong>3b. Rename the tidepool metadata object (if you haven’t already) using</strong> <code>snake_case</code> <strong>convention.</strong></p>
 <p><strong>3c. Rename all variables in your new tide pool data frame to match</strong> <code>snake_case</code> <strong>conventions.</strong></p>
 </section>
 <section id="question-4" class="level2">
 <h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
-<p><strong>Use code to install the tidyverse and dplyr packages; Load the packages into your working session.</strong></p>
-<p><em>**Note:</em> This would normally be done at the beginning of any real working script. Ensure that all package installations take place before any commands are run.For the sake of our learning here, we’re installing it later into our script.</p>
+<p><strong>Use code to install the tidyverse and dplyr packages in the console; Load the packages into your working session.</strong></p>
+<p><em>**Note:</em> This would normally be done at the beginning of any real working script. Ensure that all package installations take place before any commands are run. For the sake of our learning here, we’re installing it later into our script.</p>
 </section>
 <section id="question-5" class="level2">
 <h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
-<p><strong>5a. Filter the tide pool data to only include large tide pools with a macro_richness that is &gt;= to 10.</strong></p>
+<p><strong>5a. Filter the tide pool data to only include large tide pools with a macro richness that is &gt;= to 7.</strong></p>
 <p><strong>5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).</strong></p>
 </section>
 <section id="question-6" class="level2">
 <h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
-<p><strong>6a. How could you use <code>arrange()</code> to sort all missing values to the start? Write a line of code that sorts the missing values (NAs) in the penguins data set to the start. (HINT: try using <code>is.na()</code>).</strong></p>
-<p><strong>6b. In the tide pool data frame, arrange the observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.</strong></p>
+<p><strong>6a. How could you use <code>arrange()</code> to sort all missing values to the start? Write a line of code that sorts the missing values (NAs) for sex in the penguins data set to the start. (HINT: try using <code>is.na()</code>).</strong></p>
+<p><strong>6b. In the tide pool data frame, arrange the observations in descending order by the macro Shannon mean and the macro richness.</strong></p>
 </section>
 <section id="question-7" class="level2">
 <h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
@@ -273,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>8a. Re-import the tidepool metadata set.</strong></p>
 <p><strong>What effect does this have to the work we’ve already done to the data set?</strong></p>
 <p>Answer:</p>
-<p><strong>8b. Re-name the tidepool data frame object using <code>snake_case</code> once again (if you didn’t already do so during re-import). Using dplyr and the <code>rename()</code> command, rename all the columns in the tidepool metadata using <code>snake_case</code>.</strong></p>
+<p><strong>8b. Re-name the tidepool data frame object using <code>snake_case</code> once again (if you didn’t already do so during re-import). Using dplyr and the <code>rename()</code> command, rename all the columns in the tidepool metadata using <code>snake_case</code>. Be sure to save this in a new data frame object.</strong></p>
 </section>
 <section id="question-9" class="level2">
 <h2 class="anchored" data-anchor-id="question-9">Question 9</h2>
@@ -287,8 +288,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-11" class="level2">
 <h2 class="anchored" data-anchor-id="question-11">Question 11</h2>
-<p><strong>11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume.</strong></p>
-<p><strong>11b. Create a bar plot showing the macro richness by tidepool size. (HINT: you will need to use the argument</strong> <code>stat = 'identity'</code> <strong>in your</strong> <code>geom_</code> <strong>call).</strong></p>
+<p><strong>11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume. Then, create another scatter plot an additional geom_ call to prevent overplotting.</strong></p>
+<p><strong>11b. Create a bar plot showing the macro richness by tidepool size.</strong></p>
+<p>(HINT: you will need to use the argument <code>stat = 'identity'</code> in your <code>geom_</code> call).</p>
 <p><strong>11c. Use the</strong> <code>?geom_bar</code> <strong>help command to pull up the help page for the</strong> <code>geom_bar()</code> <strong>command. Spend a little bit of time reading. You can also look at</strong> <code>?geom_col</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>?geom_bar</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -304,10 +306,7 @@ you could try '??geom_col'</code></pre>
 </div>
 <p><strong>Why do we need to use the</strong> <code>stat = 'identity'</code> <strong>argument when running</strong> <code>geom_bar()</code>?</p>
 <p>Answer:</p>
-<p><strong>11d. What happens if we don’t add stat = ‘identity’?</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional to add code here if you'd like to support your answer</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p><strong>11d. What happens if we don’t add stat = ‘identity’? Test it out in the console.</strong></p>
 <p>Answer:</p>
 </section>
 <section id="question-12" class="level2">
@@ -325,7 +324,7 @@ you could try '??geom_col'</code></pre>
 <section id="question-15" class="level2">
 <h2 class="anchored" data-anchor-id="question-15">Question 15</h2>
 <p><strong>Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y ~ x.</strong></p>
-<p><em>(HINT: This one is tricky and will involve you using the mathematical operator log() on one of the axis. You can do so without piping using dplyr commands OR altering the data frame itself).</em></p>
+<p><em>(HINT: Notice the slopes of your lines. How might you better visualize this? Figuring this one out might be tricky and will involve you using the mathematical operator log() on one of the axis. You can do so without piping using dplyr commands OR altering the data frame itself).</em></p>
 
 
 </section>

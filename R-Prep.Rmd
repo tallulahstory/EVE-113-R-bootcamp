@@ -24,9 +24,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **1a. Get and set your working directory based on the suggested file path in Tutorial 0.**
 
-**1b. Install the Palmer penguins data set onto your computer.**
+**1b. Install the Palmer penguins data set onto your computer using the console. Load the data set into your working script. **
 
-**1c. Import the tidepool metadata practice data set.**
+**1c. Import the tidepool metadata practice data set and save it as "data".**
 
 ```{r question_1, echo = FALSE}
 
@@ -56,6 +56,8 @@ Answer:
 
 ```
 
+Answer: 
+
 **3b. Rename the tidepool metadata object (if you haven't already) using** `snake_case` **convention.**
 
 ```{r Question_3b}
@@ -70,17 +72,17 @@ Answer:
 
 ## Question 4
 
-**Use code to install the tidyverse and dplyr packages; Load the packages into your working session.**
+**Use code to install the tidyverse and dplyr packages in the console; Load the packages into your working session.**
 
 ```{r Question_4}
 
 ```
 
-*\*\*Note:* This would normally be done at the beginning of any real working script. Ensure that all package installations take place before any commands are run.For the sake of our learning here, we're installing it later into our script.
+*\*\*Note:* This would normally be done at the beginning of any real working script. Ensure that all package installations take place before any commands are run. For the sake of our learning here, we're installing it later into our script.
 
 ## Question 5
 
-**5a. Filter the tide pool data to only include large tide pools with a macro_richness that is \>= to 10.**
+**5a. Filter the tide pool data to only include large tide pools with a macro richness that is >= to 7.**
 
 ```{r Question_5a}
 
@@ -94,13 +96,13 @@ Answer:
 
 ## Question 6
 
-**6a. How could you use `arrange()` to sort all missing values to the start? Write a line of code that sorts the missing values (NAs) in the penguins data set to the start. (HINT: try using `is.na()`).**
+**6a. How could you use `arrange()` to sort all missing values to the start? Write a line of code that sorts the missing values (NAs) for sex in the penguins data set to the start. (HINT: try using `is.na()`).**
 
 ```{r Question_6a}
 
 ```
 
-**6b. In the tide pool data frame, arrange the observations in descending order by the Macro-organism Shannon mean and the Macro-organism richness.**
+**6b. In the tide pool data frame, arrange the observations in descending order by the macro Shannon mean and the macro richness.**
 
 ```{r Question_6b}
 
@@ -132,7 +134,7 @@ Answer:
 
 Answer:
 
-**8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`.**
+**8b.  Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`. Be sure to save this in a new data frame object.**
 
 ```{r Question_8b}
 
@@ -164,13 +166,15 @@ Answer:
 
 ## Question 11
 
-**11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume.**
+**11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume. Then, create another scatter plot an additional geom_ call to prevent overplotting.**
 
 ```{r Question_11a}
 
 ```
 
-**11b. Create a bar plot showing the macro richness by tidepool size. (HINT: you will need to use the argument** `stat = 'identity'` **in your** `geom_` **call).**
+**11b. Create a bar plot showing the macro richness by tidepool size.**
+
+(HINT: you will need to use the argument `stat = 'identity'` in your `geom_` call).
 
 ```{r Question_11b}
 
@@ -187,11 +191,7 @@ Answer:
 
 Answer:
 
-**11d. What happens if we don't add stat = 'identity'?**
-
-```{r Question_11d}
-# Optional to add code here if you'd like to support your answer
-```
+**11d. What happens if we don't add stat = 'identity'? Test it out in the console.**
 
 Answer:
 
@@ -221,10 +221,10 @@ Answer:
 
 ## Question 15
 
-**Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y \~ x.**
+**Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y ~ x.**
 
 ```{r Question_15}
 
 ```
 
-*(HINT: This one is tricky and will involve you using the mathematical operator log() on one of the axis. You can do so without piping using dplyr commands OR altering the data frame itself).*
+*(HINT: Notice the slopes of your lines. How might you better visualize this? Figuring this one out might be tricky and will involve you using the mathematical operator log() on one of the axis. You can do so without piping using dplyr commands OR altering the data frame itself).*

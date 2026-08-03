@@ -1,0 +1,292 @@
+---
+title: "R-Prep-Answers"
+author: "Tallulah Story"
+date: "2026-07-24"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# R Preparedness
+
+This assignment is due August 27th. In order to receive full credit students should:
+
+1.  Follow Tutorial 1 from start to finish.
+2.  Complete the Questions as they go.
+3.  Type their answers into the provided code chunks below or in the text space provided.
+4.  Ask questions if they arise.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+
+**1a. Get and set your working directory based on the suggested file path in Tutorial 0.**
+
+**1b. Install the Palmer penguins data set onto your computer using the console. Load the data set into your working script.**
+
+**1c. Import the tidepool metadata practice data set and save it as "data".**
+
+```{r Question_1}
+getwd()
+setwd("/Users/loganstory/Desktop/PhD/Teaching/R Bootcamp/R-bootcamp") # should be students wd
+
+library(palmerpenguins)
+
+# data should have a descrptive data frame object name later down the line, but saved as 'data' for now
+data <- read.csv("metadata_tidepool.csv")
+```
+
+## Question 2
+
+**2a. Retrieve the summary, head, and tail of the tide pool metadata set**.
+
+```{r Question_2}
+summary(data)
+head(data)
+tail(data)
+```
+
+**2b. What's the mean tidepool volume?**
+
+Answer: 6.50
+
+**2c. How many rows does the tidepool metadata set have?**
+
+Answer: 12
+
+## Question 3
+
+**3a. What is the atomic data type of tide pool size? How many tide pool sizes are there?**
+
+```{r Question_3a}
+class(data$TidePoolSize)
+```
+
+Answer: "Character"; A dichotomous categorical variable, including Large and Small tidepools
+
+**3b. Rename the tidepool metadata object (if you haven't already) using** `snake_case` **convention.**
+
+```{r Question_3b}
+tide_pool_data <- read.csv("metadata_tidepool.csv") # new name should be descriptive and lowercase
+```
+
+**3c. Rename all variables in your new tide pool data frame to match** `snake_case` **conventions.**
+
+```{r Question_3c}
+names(tide_pool_data) <- c("pool_number",             # all columns should be using all lowercase
+                           "volume", 
+                           "tide_pool_size", 
+                           "macro_shannon_sessile",
+                           "macro_shannon_mobile",
+                           "macro_shannon_mean",
+                           "macro_richness",
+                           "macro_autotroph",
+                           "macro_heterotroph")
+```
+
+## Question 4
+
+**Use code to install the tidyverse and dplyr packages in the console; Load the packages into your working session.**
+
+```{r Question_4}
+library(tidyverse) # if this step is done consecutively, awesome! If not, no worries
+library(dplyr)
+```
+
+*\*\*Note:* This would normally be done at the beginning of any real working script. Ensure that all package installations take place before any commands are run. For the sake of our learning here, we're installing it later into our script.
+
+## Question 5
+
+**5a. Filter the tide pool data to only include large tide pools with a macro richness that is \>= to 7.**
+
+```{r Question_5a}
+filter(tide_pool_data, tide_pool_size == "large" & macro_richness >= 7)
+```
+
+**5b. Filter the Palmer penguins data set to only include male penguins that were measured in every year except 2007 on Biscoe island (HINT: try using the ! logical operator to exclude 2007).**
+
+```{r Question_5b}
+filter(penguins, !year %in% 2007 & sex == "male" & island == "Biscoe")
+```
+
+## Question 6
+
+**6a. How could you use `arrange()` to sort all missing values to the start? Write a line of code that sorts the missing values (NAs) for sex in the penguins data set to the start. (HINT: try using `is.na()`).**
+
+```{r Question_6a}
+arrange(penguins, desc(is.na(sex)))
+```
+
+**6b. In the tide pool data frame, arrange the observations in descending order by the macro Shannon mean and the macro richness.**
+
+```{r Question_6b}
+arrange(tide_pool_data, desc(macro_shannon_mean), desc(macro_richness))
+```
+
+## Question 7
+
+**7a. Create a sub-set of the tidepool data that only includes the pool number, Shannon's diversity metrics for macro sessile and mobile organisms, and the macro richness.**
+
+```{r Question_7a}
+(tide_pool_subset <- select(tide_pool_data,          # bonus if each line (yay tidy code practices!!)
+                           pool_number, 
+                           macro_shannon_sessile, 
+                           macro_shannon_mobile, 
+                           macro_richness))
+```
+
+**7b. Arrange your new sub-set in descending order by the pool number.**
+
+```{r Question_7b}
+arrange(tide_pool_subset, desc(pool_number))
+```
+
+## Question 8
+
+**8a. Re-import the tidepool metadata set.**
+
+```{r Question_8a}
+tide_pool_data <- read.csv("metadata_tidepool.csv")
+```
+
+**What effect does this have to the work we've already done to the data set?**
+
+Answer: It un-writes any previous changes made, specifically with sorting and renaming of variables
+
+**8b. Re-name the tidepool data frame object using `snake_case` once again (if you didn't already do so during re-import). Using dplyr and the `rename()` command, rename all the columns in the tidepool metadata using `snake_case`. Be sure to save this in a new data frame object.**
+
+```{r Question_8b}
+tide_pool_data <- rename(tide_pool_data,               # df can be renamed, or overwrite previous df
+       pool_number = Pool_number,
+       volume = Volume,
+       tide_pool_size = TidePoolSize,
+       macro_shannon_sessile = macro_Shannon_sessile,
+       macro_shannon_mobile = macro_Shannon_mobile,
+       macro_shannon_mean = macro_Shannon_mean,
+       macro_richness = macro_Richness,
+       macro_autotroph = macro_Autotroph,
+       macro_heterotroph = macro_Heterotroph)
+```
+
+## Question 9
+
+**Using the tidepool metadata sub-set you created in question 7, add together the Shannon's Diversity for both sessile and mobile macroscopic organisms. Name this new variable appropriately.**
+
+```{r Question_9}
+mutate(tide_pool_subset,
+       macro_shannon_combined = macro_shannon_sessile + macro_shannon_mobile)
+```
+
+## Question 10
+
+**Only using pipes**
+
+**10a. Using the tidepool metadata, group by tide pool size and get the mean Shannon's diversity of both the mobile and sessile macro-organisms. Save this in a new data frame object (a tibble) and name it appropriately.**
+
+```{r Question_10a}
+(tide_pool_subset_2 <- tide_pool_data %>%
+  select(macro_shannon_sessile, macro_shannon_mobile, tide_pool_size) %>% # optional step
+  group_by(tide_pool_size) %>%
+  mutate(mean_mobile = mean(macro_shannon_mobile),
+         mean_sessile = mean(macro_shannon_sessile)))
+```
+
+**10b. Using the penguins data, create a new sub-set that only includes Chinstrap penguins and their bill measurements. Get the mean of the bill measurements in each year the penguins were measured.**
+
+```{r Question_10b}
+penguins_bills <- penguins %>%
+  select(species, bill_length_mm, bill_depth_mm, year) %>%
+  filter(species == "Chinstrap") %>%
+  group_by(year) %>%                                        # important to group by AFTER filtering
+  mutate(mean_bill_length = mean(bill_length_mm),
+         mean_bill_depth = mean(bill_depth_mm))
+```
+
+## Question 11
+
+**11a. Create a scatter plot using the tidepool metadata exploring the macro richness and tidepool volume. Then, create another scatter plot an additional geom\_ call to prevent overplotting.**
+
+```{r Question_11a}
+ggplot(tide_pool_data, aes(x = macro_richness, y = volume)) +  # doesn't matter what order x/y is in
+  geom_point()
+
+ggplot(tide_pool_data, aes(x = macro_richness, y = volume)) +  
+  geom_point() +
+  geom_jitter()   # student should add geom_jitter() call to second plot, better if comments to the code are added
+```
+
+**11b. Create a bar plot showing the macro richness by tidepool size.**
+
+(HINT: you will need to use the argument `stat = 'identity'` in your `geom_` call).
+
+```{r Question_11b}
+ggplot(data = tide_pool_data, aes(x = tide_pool_size, y = macro_richness)) +
+  geom_bar(stat = 'identity')
+```
+
+**11c. Use the** `?geom_bar` **help command to pull up the help page for the** `geom_bar()` **command. Spend a little bit of time reading. You can also look at** `?geom_col`.
+
+```{r Question_11c}
+?geom_bar
+?geom_col
+```
+
+**Why do we need to use the** `stat = 'identity'` **argument when running** `geom_bar()`?
+
+Answer: It leaves the data as is, rather than simply counting the number of cases for the x axis.
+
+**11d. What would happen if we don't add stat = 'identity'? Test it out in the console.**
+
+Answer: The bar graph won't run, given that stat_count() requires an x or y aesthetic. Can't compute first layer.
+
+## Question 12
+
+**Using the tidepool metadata, create a scatter plot that shows the relationship between the sessile and mobile macro-organisms Shannon diversity colored by tidepool size.**
+
+```{r Question_12}
+ggplot(data = tide_pool_data, aes(x = macro_shannon_mobile, y = macro_shannon_sessile, 
+                                  color = tide_pool_size)) + # better is color layer is on seperate line
+  geom_point()
+```
+
+## Question 13
+
+**Using the penguins data set, create a scatter plot faceted by species and island that explores the relationship between bill depth and bill length. Add additional aesthetic mappings as wanted or needed.**
+
+```{r Question_13}
+ggplot(data = penguins, aes(x = bill_depth_mm, y = bill_length_mm,
+                            color = species, shape = island)) + # optional, but HIGHLY reccomended
+  geom_point() +
+  facet_wrap(species ~ island)
+```
+
+## Question 14
+
+**Using the penguins data set and a pipe string, create a scatter plot faceted by species and sex that explores the relationship between bill depth and body mass only in the year 2007.**
+
+```{r Question_14}
+penguins %>%
+  drop_na() %>%                                       # this should be included!!!!!!!
+  filter(year %in% c(2007)) %>%                       # can also be 'year == 2007'
+  ggplot(aes(x = bill_depth_mm, y = body_mass_g, 
+             color = species, shape = sex)) +         # additional aesthetics encouraged
+  geom_point() +
+  facet_wrap(species ~ sex)                           # can be in either order
+```
+
+## Question 15
+
+**Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y ~ x.**
+
+```{r Question_15}
+ggplot(data = tide_pool_data, aes(x = macro_richness, 
+                                  y = log(volume))) +                # log should be on volume axis
+  geom_point() +
+  geom_jitter() +
+  facet_wrap(~ tide_pool_size) +                                     # step needs to come BEFORE smooth
+  geom_smooth(method = 'lm')                                         # can include se if wanted
+```
+
+*(HINT: Notice the slopes of your lines. How might you better visualize this? Figuring this one out might be tricky and will involve you using the mathematical operator log() on one of the axis. You can do so without piping using dplyr commands OR altering the data frame itself).*

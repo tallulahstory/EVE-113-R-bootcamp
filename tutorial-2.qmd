@@ -1,3 +1,7 @@
 ---
 title: "Tutorial 2"
 ---
+
+# Statistical Analyses in R
+
+![Sea grass and coral, Australia \| Photo Credit: Matt Curnock](images/clipboard-612694491.png)

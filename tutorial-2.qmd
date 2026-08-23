@@ -159,7 +159,7 @@ Above we see that Adelie and Chinstrap penguins have approximately equivalent va
 
 $$H_0: \text{(Null Hypothesis) \(\sigma_1^2 = \sigma_2^2 = \dots = \sigma_k^2\) ... The variances are equal across all groups)}$$
 
-$$H_0: \text{(Alternative Hypothesis): At least ONE variance is different}$$
+$$H_A: \text{(Alternative Hypothesis): At least ONE variance is different}$$
 
 This is done in R with the command `rstatix::levene_test()`.
 
@@ -246,7 +246,7 @@ flowchart TD
     C6 -->|No| C8[Kruskal-Wallis + pairwise Wilcoxon]
 
     D --> D1[Linear & normal residuals?]
-    D1 -->|Yes| D2[Pearson correlation /\nlinear regression]
+    D1 -->|Yes| D2[Pearson correlation or linear regression]
     D1 -->|No| D3[Spearman correlation]
 
     E --> E1[Chi-square test of independence]
@@ -256,96 +256,162 @@ flowchart TD
 
 A **confidence interval (CI)** gives a range of plausible values for a population parameter (like a mean), along with a stated confidence level (typically 95%). It's a way of quantifying uncertainty around an estimate, rather than reporting just a single number.
 
-### 3.1 CI for a single mean
+### CI for a single mean
 
-For a normally-distributed (or large-sample) variable, R's `t.test()` will compute a 95% CI for the mean even if you're not testing a specific hypothesis:
+For a normally-distributed (or large-sample) variable, base R's `t.test()` command (not the same as the `t_test()` command in `rstatix`) will compute a 95% CI for the mean even if you're not testing a specific hypothesis:
 
-```{r} #| label: ci-mean  bill_ci <- t.test(penguins$bill_length_mm) bill_ci$estimate bill_ci$conf.int}
+```{r}
+bill_ci <- t.test(penguins$bill_length_mm)
+bill_ci$estimate  # provides the mean
+bill_ci$conf.int  # provides the confidence interval, and at what conf. level (95%)
 ```
 
-Under the hood, this CI is built from the sample mean, the standard error, and a critical value from the t-distribution:
+Under the hood, a confidence interval is built from taking the sample mean, the standard error, a a critical value from the t-distribution:
 
 $$\bar{x} \pm t^{*}_{(n-1)} \times SE$$
 
-You can compute it "by hand" to see exactly what's happening:
+You can also compute your CI "by hand" with `summarize`:
 
-```{r} #| label: ci-mean-manual  x <- penguins$bill_length_mm n <- length(x) mean_x <- mean(x) se_x <- sd(x) / sqrt(n) t_crit <- qt(0.975, df = n - 1)  # two-tailed, 95%  tibble(   mean = mean_x,   lower = mean_x - t_crit * se_x,   upper = mean_x + t_crit * se_x )}
+```{r}
+penguins %>%
+  drop_na() %>%
+  summarize(n = length(bill_length_mm),
+         mean = mean(bill_length_mm),
+         se = sd(bill_length_mm) / sqrt(n),
+         t_crit = qt(0.975, df = n - 1),    # two-tailed, 95% confidence interval distribution
+         ci_upper = mean + t_crit * se,
+         ci_lower = mean - t_crit * se)
 ```
 
-### 3.2 CI for a difference in means, by group
+Either way, `t.test()` can provide a quick alternative to calculating a confidence interval by hand, or having to going through the steps to do so.
 
-`t.test()` also returns a CI for the *difference* in means between two groups:
+### CI for a difference in means, by group
 
-```{r} #| label: ci-diff  adelie_gentoo <- penguins |>   filter(species %in% c("Adelie", "Gentoo"))  diff_ci <- t.test(flipper_length_mm ~ species, data = adelie_gentoo) diff_ci$conf.int}
+`t.test()` can also return a CI for the *difference* in means between two groups:
+
+```{r}
+adelie_gentoo <- penguins %>%
+  filter(species %in% c("Adelie", "Gentoo"))
+
+diff_ci <- t.test(flipper_length_mm ~ species, data = adelie_gentoo)
+diff_ci$conf.int
 ```
 
-This tells us: we're 95% confident the true difference in mean flipper length between Adelie and Gentoo penguins falls within this interval. Because this interval doesn't include zero, that's already a strong hint about what a formal hypothesis test will tell us (more on that next).
+In plain english, this tells us "we're 95% confident the true difference in mean flipper length between Adelie and Gentoo penguins falls within this interval. Because this interval doesn't include zero, that's already a strong hint about what a formal hypothesis test will tell us (more on that next).
 
-## A quick note on interpretation
+::: callout-important
+A 95% CI does **not** mean "there's a 95% chance the true mean is in this interval." It means: if we repeated this sampling process many times and built a CI each time, about 95% of those intervals would contain the true population parameter.
+:::
 
-A 95% CI does **not** mean "there's a 95% chance the true mean is in this interval." It means: if we repeated this sampling process many times and built a CI each time, about 95% of those intervals would contain the true population parameter. Subtle, but important!
-
-------------------------------------------------------------------------
-
-## 4. Hypothesis testing
+## Hypothesis testing
 
 A **hypothesis test** formalizes a comparison between a null hypothesis ($H_0$, usually "no effect" or "no difference") and an alternative hypothesis ($H_A$). The output is typically a test statistic and a p-value: the probability of observing data this extreme (or more extreme) *if the null hypothesis were true*.
 
-### 4.1 One-sample t-test
+### One-sample t-test
 
-Suppose prior literature suggests Adelie penguin bills average 40 mm. Do our data support or contradict that?
+Suppose prior literature suggests Adelie penguin bills average 40 mm (but this isn't real and I 100% just made that number up). Do our data support or contradict that? We then would hypothesize that Adelie penguins bills do not significantly differ from 40mm, based on "prior literature" (that would be our null hypothesis).
 
-```{r} #| label: one-sample-t  adelie <- penguins |> filter(species == "Adelie")  t.test(adelie$bill_length_mm, mu = 40)}
+```{r}
+adelie <- penguins %>%
+  filter(species == "Adelie")
+
+# base R t-test
+t.test(adelie$bill_length_mm, mu = 40)
 ```
 
-### 4.2 Two-sample t-test (independent groups)
+The output tells us that we reject the null hypothesis (p \< 0.05) and find that, based on the Palmer penguins data, the true mean is not equal to 40mm. We are 95% confident that the true mean of bill length (mm) falls within 38.36mm and 39.21mm.
 
-Returning to our running example: do Adelie and Gentoo penguins differ in flipper length? First, check the assumptions from Section 1 for each group:
+### Two-sample t-test (independent groups)
 
-```{r} #| label: two-sample-checks  adelie_gentoo |>   group_by(species) |>   summarise(     shapiro_p = shapiro.test(flipper_length_mm)$p.value,     .groups = "drop"   )  leveneTest(flipper_length_mm ~ species, data = adelie_gentoo)}
+Returning to our running example: do Adelie and Gentoo penguins differ in flipper length? This is a statistical test that relies on data being normally distirbuted and homoscedastic. We can do this in two seperate pipe strings using rstatix...
+
+```{r}
+# test for normality (Shapiro-Wilk Test)
+penguins %>%
+  filter(species %in% c("Adelie", "Gentoo")) %>%
+  shapiro_test(flipper_length_mm) 
+
+# test for equality of variances (Levene's Test)
+penguins %>%
+  filter(species %in% c("Adelie", "Gentoo")) %>%
+  levene_test(flipper_length_mm ~ species)
 ```
 
-Flipper length looks reasonably normal within each group, but Levene's test may flag unequal variances. Rather than assume equal variances, it's good default practice to use **Welch's t-test**, which does not assume equal variances (this is actually R's default for `t.test()`):
+Flipper length is not normally distributed for the two species, but the assumption of equality of variances is satisfied by a Levene's Test. If our variances are not equivalent, we can instead choose a Welch's t-test, which does not assume equality of variances or normality of distributions. Here, we will be using the t_test() command, which can be altered to run a Welch's t-test or a Students t-test...
 
-```{r} #| label: two-sample-t  t.test(flipper_length_mm ~ species, data = adelie_gentoo)}
+```{r}
+# Student's t-test
+penguins %>%
+  filter(species %in% c("Adelie", "Gentoo")) %>%
+  mutate(species = droplevels(species)) %>%       # remove Chinstrap as a level
+  t_test(flipper_length_mm ~ species,
+         var.equal = TRUE)                        # clarifies variances are equal (homoscedasticity) 
+
+# Welch's t-test
+penguins %>%
+  filter(species %in% c("Adelie", "Gentoo")) %>%
+  mutate(species = droplevels(species)) %>% 
+  t_test(flipper_length_mm ~ species,
+         var.equal = FALSE)                     # default is FALSE, so only need to specify when TRUE
 ```
 
-The tiny p-value tells us there's strong evidence of a real difference in mean flipper length between these two species.
+The tiny p-value being outputted here tells us **there's strong evidence of a real difference in mean flipper length between these two species**. See when we compare the correct test (Student's t-test) to the Welch's test, the p-value gets larger. This makes sense, given our variable, flipper length, has equal variances between the two penguin species, so running a Welch's t-test actually decreased our quantitative conclusion above.
 
-### 4.3 Non-parametric alternative: Wilcoxon rank-sum test
+Both are still significant, but this lends an excellent point that choosing the correct test for the underlying assumptions of your data can be very important!!
 
-If normality had been a serious concern, the **Wilcoxon rank-sum test** (a.k.a. Mann-Whitney U test) is a non-parametric alternative that compares distributions using ranks rather than raw means:
+### Non-parametric alternative: Wilcoxon rank-sum test
 
-```{r} #| label: wilcoxon  wilcox.test(flipper_length_mm ~ species, data = adelie_gentoo)}
+Above, we learned that normality of our underlying distribution is a serious problem (p \<0.05). We proceeded with comparing our two t-test options, but these tests assume our data is normally distributed (and the penguins data is not). For non-normally distributed data, we use a **Wilcoxon rank-sum test** (a.k.a. Mann-Whitney U test) as a non-parametric alternative that compares distributions using ranks rather than raw means...
+
+```{r}
+penguins %>%
+  filter(species %in% c("Adelie", "Gentoo")) %>%
+  mutate(species = droplevels(species)) %>%
+  wilcox_test(bill_length_mm ~ species)
 ```
 
-Here, both tests agree - a reassuring sign when a variable sits close to the boundary of "normal enough."
+This provides a very strong result (p \< 0.00001), and both tests still agree that there is strong evidence mean flipper length differs between out two species. Again, we can compare and contrast how our understanding of the data and the tests we choose correlate to a stronger or weaker quantitative conclusion. In this case, a Wilcoxon rank-sum test was the appropriate choice for our data, not because it gives us the "most significant result" but because it best satisfies the underlying assumptions the test is making about our data.
 
-### 4.4 Chi-square test of independence
+### Chi-square test of independence
 
-For two **categorical** variables, we ask whether they're associated. Are penguin species distributed differently across islands?
+For two **categorical** variables, we can ask whether they're associated. Are penguin species distributed differently across islands? We can think about this ecologically as well: why would it be important to understand how different species might be distributed across the islands?
 
-```{r} #| label: chi-square  species_island_table <- table(penguins$species, penguins$island) species_island_table  chisq.test(species_island_table)}
+An important first step to running this test in R is creating a table with counts of observations shared between the two variables. Then, we can use the command `chisq_test()`.
+
+```{r}
+(species_island_table <- table(penguins$species, penguins$island))
+chisq_test(species_island_table)
 ```
 
-A very small p-value here indicates species and island are *not* independent - some species are only found on certain islands, which lines up with what we know biologically about this dataset.
+A very small p-value here indicates that species and island are [not]{.underline} independent and that some species are only found on certain islands, and not others. We can visually see this in the `species_island_table`, but the chi-square test allows us to *provide power* to the visualization (i.e., with a significant p value).
 
-------------------------------------------------------------------------
+## Parametric and non-parametric group comparisons
 
-## 5. Parametric and non-parametric group comparisons
+When comparing more than two groups, the parametric go-to is an ANOVA (analysis of variance). The non-parametric alternative to this is a Kruskal-Wallis test.
 
-When comparing **more than two** groups, the parametric go-to is **ANOVA** (analysis of variance); the non-parametric alternative is the **Kruskal-Wallis test**.
-
-### 5.1 One-way ANOVA
+### One-way ANOVA
 
 Let's ask: does body mass differ across all three penguin species?
 
-```{r} #| label: anova  mass_aov <- aov(body_mass_g ~ species, data = penguins) summary(mass_aov)}
+```{r}
+anova <- aov(body_mass_g ~ species, data = penguins)
+summary(anova)
 ```
 
-ANOVA tells us *whether* group means differ overall, but not *which* groups differ. For that, we follow up with a **post-hoc test**, like Tukey's Honestly Significant Difference (HSD):
+There's a lot to take in when you generate a summary table from an ANOVA, but the primary thing to look for is the Pr(\>F) value for your predictor variable. The Pr(\>F) is the p-value associated with your F-statistic in the ANOVA table, specifically answering the question "if there really were no difference in group means, what's the probability of getting an F-statistic this larger, or maybe even larger, by chance?" A low p-value indicates it's less by chance, and that it's more representative of the data. The F-value represents the variance *between* group means. A large F is indicative that group means are spread out relative to how much individual vary within that group.
 
-```{r} #| label: anova-posthoc  TukeyHSD(mass_aov)}
+Yuck blegh gross. That's a whole lotta stats lingo all to say, the Pr(\>F) is, essentially, your p-value. You can interpret it as such. So, in this case, our significant p-value (\< 0.001) means that [at least one]{.underline} groups' body mass mean differs significantly.
+
+But, you now might be wondering, which group actually differs? ANOVA can only tell us *whether* group means differ overall, but not *which* groups differ. For that, we follow up with a post-hoc test, like Tukey's Honestly Significant Difference (HSD) (or just commonly known as a Tukey test)...
+
+```{r}
+tukey_hsd(anova)
+```
+
+The table output tells us that Adelie and Gentoo and Chinstrap and Gentoo are significantly different, but Adelie and Chinstrap do not differ in mean body mass. We can add this onto a boxplot with significance bars using ...
+
+```{r}
+
 ```
 
 It's good practice to check the ANOVA's residuals for normality and equal variance after the fact, since that's technically what the assumptions apply to:
@@ -353,7 +419,7 @@ It's good practice to check the ANOVA's residuals for normality and equal varian
 ```{r} #| label: anova-diagnostics  par(mfrow = c(1, 2)) plot(mass_aov, which = 1)  # residuals vs. fitted (checks equal variance) plot(mass_aov, which = 2)  # Q-Q plot of residuals (checks normality)}
 ```
 
-### 5.2 Kruskal-Wallis test
+### Kruskal-Wallis test
 
 If those diagnostics looked shaky, the **Kruskal-Wallis test** compares medians/rank distributions across 3+ groups without assuming normality or equal variances:
 

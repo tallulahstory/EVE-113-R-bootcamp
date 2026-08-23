@@ -1,7 +1,432 @@
 ---
 title: "Tutorial 2"
+editor_options: 
+  chunk_output_type: console
 ---
 
-# Statistical Analyses in R
+```{r, echo = FALSE}
+#| message: false
+#| warning: false
+#| paged-print: false
+library(palmerpenguins)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(car)
+library(broom)
+library(rstatix)
+```
+
+# Applied Statistical Analyses in R
 
 ![Sea grass and coral, Australia \| Photo Credit: Matt Curnock](images/clipboard-612694491.png)
+
+Statistical analyses are powerful tools we, as ecologists, can leverage to better explain our data. When we perform statistical analyses, we can describe trends, significances, and make quantitative conclusions about our data.
+
+Nowadays, we often rely on what is described as "modern classical statistics" to achieve all of the things I mentioned above. Classical stats covers topics such as estimation, quantification of uncertainty, and hypothesis testing. However, since computers came along, there is a lot of development to stats that has yet to break its way into most learning environments - if at all. Here, the goal of this tutorial is to familiarize you with applied statistical analysis in R, choosing which tests to perform with your data, and the code needed to do so. **This tutorial will not cover in-depth the mathematical or theoretical basis for many statistical tests.** Instead, the goal of this tutorial is for you to be able to diagnose your data, pick an appropriate statistical test given those diagnostics, and be able to write code to produce an output.
+
+By the end of this, you should be able to look at your data set and begin to make specific, meaningful choices about how to leverage these tools to make quantitative conclusions about your own data.
+
+## Learning Objectives
+
+1.  Learn what normality, homo/heteroscedasticity, and outliers are (and how to check for them).
+
+2.  Understand a stats test decision tree and apply it to your own hypotheses.
+
+3.  Compute confidence intervals.
+
+4.  Run hypothesis tests.
+
+5.  Use parametric and non-parametric analyses (ANOVA, Kruskal-Wallis, etc.).
+
+6.  Perform a simple linear regression.
+
+### Setup and Required Packages
+
+Start a new .rmd document, name it Tutorial 2, and save it somewhere in your local operating system.
+
+Once again, we'll be using the `palmerpenguins` package as an example ecological data set while we work through this tutorial. Information about the data can be [found here](https://allisonhorst.github.io/palmerpenguins/), if you're curious. Like in Tutorial 1, we need to load this data into our working session if we want to be able to use it.
+
+```{r, eval = FALSE}
+#| message: false
+#| warning: false
+
+install.packages("palmerpenguins")   # install this if you have not already
+library(palmerpenguins)              # load the package into your working session
+
+penguins <- penguins                 # save the data into a vector object, now accesible in your enviornment window
+```
+
+During this tutorial we'll use the various continuous, numerical variables and categorical variables in the penguins data to apply the concepts and ideas being introduced. We also need to install and load some additional packages that will make conducting our tests and analyses much easier.
+
+```{r, eval = FALSE}
+install.packages(c("tidyverse", "car", "broom", "rstatix")) # install new packages, if you haven't already
+
+# load all packages into working session
+library(tidyverse)                   
+library(car)                        # functions and tools for linear regression(s)
+library(broom)                      # converts stats objects to tidy tables
+library(rstatix)                    # a pipe-friendly alternative to the base R stats package
+```
+
+Some people may choose to use functions provided by the base R `stats` package. This is a fine alternative, but for the purposes of this tutorial, we will be using commands and coding conventions associated with the `rstatix` package (as a pipe-friendly alternative to the stats package.
+
+## Diagnosing your data
+
+Before we even begin picking out statistical tests, we need to understand the properties our data possess. The three most important things to know about our data, especially when it comes to statistical analyses are [normality], homoscedasticity, and the presence of outliers. These three basic parameters determine whether you should opt for parametric, classical tests, or use non-parametric analyses.
+
+### Normality
+
+**Normality** tells us that our [data is normally distributed]{.underline} (i.e., following a bell-shaped, symmetric distribution). It's just our luck that, as ecologists, it is not uncommon for our data to be non-normal. Many classical tests (t-tests, ANOVA, Pearson correlation, linear regressions) assume that the residuals of our a model follow a normal bell-shaped curve/distribution.
+
+We typically check normality visually with a simple histogram.
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm)) +
+  geom_histogram()
+```
+
+The variable `bill_length_mm` has a bi-modal distribution. This means that there are two primary peaks where our data values are clustered along the x-axis. Already, this means the variable (and underlying distribution) of `bill_length_mm` is non-normal. What about `body_mass_g`?
+
+```{r}
+ggplot(data = penguins, aes(x = body_mass_g)) +
+  geom_histogram()
+```
+
+This variable appears to have a more uni modal, bell-shaped distribution, where the data values are clustered in a visible center. This variable would be considered normal. However, this distribution is slightly skewed, meaning that the uni modal center of the data sits to the **left** or the **right** of the x-axis limits.
+
+![Visual representation of right and left skew](images/clipboard-3508625289.png){width="554"}
+
+We can draw a smoothed curve over our histogram to better visualize this skew using the command `after_stat` combined with a geom call of density...
+
+```{r}
+#| message: false
+#| warning: false
+ggplot(data = penguins, aes(x = body_mass_g)) +
+  geom_histogram(aes(y = after_stat(density))) +
+  geom_density(color = "red", linewidth = 2)
+```
+
+This draws and empirical, smoothed normality curve over out data. But, you can see how messy this quickly becomes when trying to evaluate large, variable data sets. We can also diagnose normality using a Q-Q plot (also known as a quantile-quantile plot). It's often much more informative than a histogram and more representative of the true normality of your data.
+
+You don't need to understand how this plot is being made, you only need to see if your data points are falling along the diagonal line. To generate this in ggplot, we use the geom calls `stat_qq()` and `stat_qq_line()`.
+
+```{r}
+#| message: false
+#| warning: false
+ggplot(data = penguins, aes(sample = body_mass_g)) +
+  stat_qq() +
+  stat_qq_line()
+```
+
+But still, we might be inclined to say this is approximately normal, but both ends of the quantile tails veer off the line. So what would be a way we could evaluate normality objectively? Well, the **Shapiro-Wilk test** gives us a formal hypothesis test for normality, where:
+
+$$H_0: \text{the data are drawn from a normal distribution}$$
+
+$$H_1: \text{the data are not drawn from a normal distribution}$$
+
+```{r}
+penguins %>%
+  shapiro_test(body_mass_g)
+```
+
+Above, we are specifying the data set (`penguins`) then piping (`%>%`) that data into the command `shapiro_test`, where we are evaluating the Shapiro-Wilk test of normality is satisfied or not for the variable `body_mass_g`. Here, the output of a small p-value (\<0.0001) suggests that the data deviates significantly from normality. Therefore, we reject $H_0$.
+
+::: callout-important
+Note that with large sample sizes, Shapiro-Wilk can flag trivial deviations as "significant". Therefore, while quantitiative checks should be standard, you should also still consider pairing your testing with a visual check (either with a histogram, Q-Q plot, or better yet, both!!)
+:::
+
+::: callout-note
+Usually we care about the normality of model residuals, not the actualy raw variable itself (in this case, `body_mass_g`). For a simple one-sample question, this distinction doesn't matter much, but you should keep it in mind once we get to regressions and ANOVA (Sections 5-6) - we'll come back to this.
+:::
+
+### Homoscedasticity (equal variance)
+
+Many tests that compare groups (t-tests, ANOVA) also assume homoscedasticity.
+
+**Homoscedasticity** is when the variance of the outcome variable is roughly equal across groups. When variances differ substantially across groups, we call that **heteroscedasticity**.
+
+A boxplot is a quick visual check for any type of scedasticity without generating a model and residuals...
+
+```{r}
+#| message: false
+#| warning: false
+ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
+  geom_boxplot() 
+```
+
+Above we see that Adelie and Chinstrap penguins have approximately equivalent variances (similar upper and lower quantile values), but Gentoo penguins have a higher mean, median, and IQR (Inter Quartile Range). Like normality, diagnosing this visually can also pose problems, so we can use a Levene's Test to do so, where:
+
+$$H_0: \text{(Null Hypothesis) \(\sigma_1^2 = \sigma_2^2 = \dots = \sigma_k^2\) ... The variances are equal across all groups)}$$
+
+$$H_0: \text{(Alternative Hypothesis): At least ONE variance is different}$$
+
+This is done in R with the command `rstatix::levene_test()`.
+
+```{r}
+penguins %>%
+  levene_test(body_mass_g ~ species) # formula should be Y (dependent variable) ~ X (predictor variable)
+```
+
+The code above is doing the same thing as the shapiro_test(), but instead looking at a grouped prediction. A small p-value indicates that group variances are significantly different (aka, heteroscedasticity), which should push you towards a statistical test that does NOT assume all group variances are equal.
+
+### Outliers 
+
+**Outliers** are observations that fall outside of the main group of data. Knowing if you have outliers and what they are really, REALLY matters because nearly all of our classical statistical approaches (means, variances, regression coefficiients) are sensitive to extreme values. This means that an outlier could be skewing your data to a conclusion that is not necessarily true (think: Type 1 and Type 2 errors in statistical analysis).
+
+A boxplot, again, can give you a way to quickly, visually check for outliers. Black dots beyond the whiskers (the straight lines coming from the boxplots) are flags for potential outliers. We can even ask ggplot to visually enunciate the outliers with the specification `outlier.size =` and `outlier.color =` within our `geom_boxplot` call.
+
+```{r}
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_boxplot(outlier.size = 2, outlier.color = "red")
+```
+
+There are two outliers in flipper_length_mm, which may or may not influence our quantitative descriptions of our data. We can also manually pull out flagged outliers using the interquartile range as...
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  drop_na() %>%
+  mutate(q1 = quantile(flipper_length_mm, 0.25),
+         q3 = quantile(flipper_length_mm, 0.75),
+         iqr = q3 - q1,
+         is_outlier = flipper_length_mm < (q1 - 1.5 * iqr) | 
+                      flipper_length_mm > (q3 + 1.5 * iqr)) %>%
+  filter(is_outlier) %>%
+  select(species, island, sex, flipper_length_mm)
+```
+
+This spits out the two outliers seen in the boxplot (both Adelie penguins). We can even filter out the outliers using the same workslow and re-plot the same boxplot to cross-compare all within the same pipe string...
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  drop_na() %>%
+  mutate(q1 = quantile(flipper_length_mm, 0.25),
+         q3 = quantile(flipper_length_mm, 0.75),
+         iqr = q3 - q1,
+         is_outlier = flipper_length_mm < (q1 - 1.5 * iqr) | 
+           flipper_length_mm > (q3 + 1.5 * iqr)) %>%
+  filter(!is_outlier) %>%
+  ggplot(aes(x = species, y = flipper_length_mm)) +
+  geom_boxplot()
+```
+
+::: callout-important
+Finding an outlier doesn't automatically mean you should delete it! Ask *why* it's extreme; Is it a measurement or data-entry error, or a real biological observation? These are all important gut-checks to perform when working with your own data. Being able to justify any computing choice should be your utmost priority before excluding values willy-nilly.
+
+Still, you should always document any decision to exclude data, and consider reporting results with and without the outlier(s).
+:::
+
+## Choosing a Statistical Test 
+
+Once you know your data's shape (normal or not, equal variance or not), and you know your question (comparing groups? testing a relationship? testing association?), you can navigate to an appropriate test. The diagram below is a simplified version of the kind of decision tree many ecologists might carry around in their heads.
+
+```{mermaid}
+%%| fig-width: 11
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "24px"}, "flowchart": {"nodeSpacing": 40, "rankSpacing": 60}}}%%
+flowchart TD
+    A[What is your question?] --> B[Compare a value to a hypothesized number]
+    A --> C[Compare two or more groups]
+    A --> D[Test a relationship between two continuous variables]
+    A --> E[Test association between two categorical variables]
+
+    B --> B1[Normal?]
+    B1 -->|Yes| B2[One-sample t-test]
+    B1 -->|No| B3[Wilcoxon signed-rank test]
+
+    C --> C1{How many groups?}
+    C1 -->|2 groups| C2[Normal & equal variance?]
+    C2 -->|Yes| C3[Two-sample t-test]
+    C2 -->|Unequal variance| C4[Welch's t-test]
+    C2 -->|Not normal| C5[Wilcoxon rank-sum test]
+
+    C1 -->|3+ groups| C6[Normal & equal variance?]
+    C6 -->|Yes| C7[One-way ANOVA + Tukey HSD]
+    C6 -->|No| C8[Kruskal-Wallis + pairwise Wilcoxon]
+
+    D --> D1[Linear & normal residuals?]
+    D1 -->|Yes| D2[Pearson correlation /\nlinear regression]
+    D1 -->|No| D3[Spearman correlation]
+
+    E --> E1[Chi-square test of independence]
+```
+
+## Confidence intervals
+
+A **confidence interval (CI)** gives a range of plausible values for a population parameter (like a mean), along with a stated confidence level (typically 95%). It's a way of quantifying uncertainty around an estimate, rather than reporting just a single number.
+
+### 3.1 CI for a single mean
+
+For a normally-distributed (or large-sample) variable, R's `t.test()` will compute a 95% CI for the mean even if you're not testing a specific hypothesis:
+
+```{r} #| label: ci-mean  bill_ci <- t.test(penguins$bill_length_mm) bill_ci$estimate bill_ci$conf.int}
+```
+
+Under the hood, this CI is built from the sample mean, the standard error, and a critical value from the t-distribution:
+
+$$\bar{x} \pm t^{*}_{(n-1)} \times SE$$
+
+You can compute it "by hand" to see exactly what's happening:
+
+```{r} #| label: ci-mean-manual  x <- penguins$bill_length_mm n <- length(x) mean_x <- mean(x) se_x <- sd(x) / sqrt(n) t_crit <- qt(0.975, df = n - 1)  # two-tailed, 95%  tibble(   mean = mean_x,   lower = mean_x - t_crit * se_x,   upper = mean_x + t_crit * se_x )}
+```
+
+### 3.2 CI for a difference in means, by group
+
+`t.test()` also returns a CI for the *difference* in means between two groups:
+
+```{r} #| label: ci-diff  adelie_gentoo <- penguins |>   filter(species %in% c("Adelie", "Gentoo"))  diff_ci <- t.test(flipper_length_mm ~ species, data = adelie_gentoo) diff_ci$conf.int}
+```
+
+This tells us: we're 95% confident the true difference in mean flipper length between Adelie and Gentoo penguins falls within this interval. Because this interval doesn't include zero, that's already a strong hint about what a formal hypothesis test will tell us (more on that next).
+
+## A quick note on interpretation
+
+A 95% CI does **not** mean "there's a 95% chance the true mean is in this interval." It means: if we repeated this sampling process many times and built a CI each time, about 95% of those intervals would contain the true population parameter. Subtle, but important!
+
+------------------------------------------------------------------------
+
+## 4. Hypothesis testing
+
+A **hypothesis test** formalizes a comparison between a null hypothesis ($H_0$, usually "no effect" or "no difference") and an alternative hypothesis ($H_A$). The output is typically a test statistic and a p-value: the probability of observing data this extreme (or more extreme) *if the null hypothesis were true*.
+
+### 4.1 One-sample t-test
+
+Suppose prior literature suggests Adelie penguin bills average 40 mm. Do our data support or contradict that?
+
+```{r} #| label: one-sample-t  adelie <- penguins |> filter(species == "Adelie")  t.test(adelie$bill_length_mm, mu = 40)}
+```
+
+### 4.2 Two-sample t-test (independent groups)
+
+Returning to our running example: do Adelie and Gentoo penguins differ in flipper length? First, check the assumptions from Section 1 for each group:
+
+```{r} #| label: two-sample-checks  adelie_gentoo |>   group_by(species) |>   summarise(     shapiro_p = shapiro.test(flipper_length_mm)$p.value,     .groups = "drop"   )  leveneTest(flipper_length_mm ~ species, data = adelie_gentoo)}
+```
+
+Flipper length looks reasonably normal within each group, but Levene's test may flag unequal variances. Rather than assume equal variances, it's good default practice to use **Welch's t-test**, which does not assume equal variances (this is actually R's default for `t.test()`):
+
+```{r} #| label: two-sample-t  t.test(flipper_length_mm ~ species, data = adelie_gentoo)}
+```
+
+The tiny p-value tells us there's strong evidence of a real difference in mean flipper length between these two species.
+
+### 4.3 Non-parametric alternative: Wilcoxon rank-sum test
+
+If normality had been a serious concern, the **Wilcoxon rank-sum test** (a.k.a. Mann-Whitney U test) is a non-parametric alternative that compares distributions using ranks rather than raw means:
+
+```{r} #| label: wilcoxon  wilcox.test(flipper_length_mm ~ species, data = adelie_gentoo)}
+```
+
+Here, both tests agree - a reassuring sign when a variable sits close to the boundary of "normal enough."
+
+### 4.4 Chi-square test of independence
+
+For two **categorical** variables, we ask whether they're associated. Are penguin species distributed differently across islands?
+
+```{r} #| label: chi-square  species_island_table <- table(penguins$species, penguins$island) species_island_table  chisq.test(species_island_table)}
+```
+
+A very small p-value here indicates species and island are *not* independent - some species are only found on certain islands, which lines up with what we know biologically about this dataset.
+
+------------------------------------------------------------------------
+
+## 5. Parametric and non-parametric group comparisons
+
+When comparing **more than two** groups, the parametric go-to is **ANOVA** (analysis of variance); the non-parametric alternative is the **Kruskal-Wallis test**.
+
+### 5.1 One-way ANOVA
+
+Let's ask: does body mass differ across all three penguin species?
+
+```{r} #| label: anova  mass_aov <- aov(body_mass_g ~ species, data = penguins) summary(mass_aov)}
+```
+
+ANOVA tells us *whether* group means differ overall, but not *which* groups differ. For that, we follow up with a **post-hoc test**, like Tukey's Honestly Significant Difference (HSD):
+
+```{r} #| label: anova-posthoc  TukeyHSD(mass_aov)}
+```
+
+It's good practice to check the ANOVA's residuals for normality and equal variance after the fact, since that's technically what the assumptions apply to:
+
+```{r} #| label: anova-diagnostics  par(mfrow = c(1, 2)) plot(mass_aov, which = 1)  # residuals vs. fitted (checks equal variance) plot(mass_aov, which = 2)  # Q-Q plot of residuals (checks normality)}
+```
+
+### 5.2 Kruskal-Wallis test
+
+If those diagnostics looked shaky, the **Kruskal-Wallis test** compares medians/rank distributions across 3+ groups without assuming normality or equal variances:
+
+```{r} #| label: kruskal  kruskal.test(body_mass_g ~ species, data = penguins)}
+```
+
+Just like ANOVA needs a post-hoc test, Kruskal-Wallis is typically followed by **pairwise Wilcoxon tests** (with a p-value correction for multiple comparisons):
+
+```{r} #| label: kruskal-posthoc  pairwise.wilcox.test(   penguins$body_mass_g, penguins$species,   p.adjust.method = "bonferroni" )}
+```
+
+::: callout-tip
+## Try it yourself
+
+Re-run Sections 5.1 and 5.2 using `flipper_length_mm` or `bill_depth_mm` instead of `body_mass_g`. Do the parametric and non-parametric approaches agree?
+:::
+
+------------------------------------------------------------------------
+
+## 6. Simple linear regression
+
+While ANOVA and t-tests compare group means, **linear regression** models the relationship between a continuous predictor and a continuous response. Let's model bill length as a function of flipper length.
+
+First, visualize the relationship:
+
+```{r} #| label: regression-plot  ggplot(penguins, aes(x = flipper_length_mm, y = bill_length_mm)) +   geom_point(aes(color = species), alpha = 0.7) +   geom_smooth(method = "lm", color = "black", se = TRUE) +   labs(title = "Bill length vs. flipper length",        x = "Flipper length (mm)", y = "Bill length (mm)")}
+```
+
+There's a clear positive linear relationship. Let's fit the model:
+
+```{r} #| label: regression-fit  bill_flipper_lm <- lm(bill_length_mm ~ flipper_length_mm, data = penguins) summary(bill_flipper_lm)}
+```
+
+A tidier summary of the coefficients (and their CIs) with `broom`:
+
+```{r} #| label: regression-tidy  tidy(bill_flipper_lm, conf.int = TRUE) glance(bill_flipper_lm)   # model-level stats like R-squared}
+```
+
+**Interpreting the output:**
+
+- The **slope** (`flipper_length_mm` coefficient) tells us the expected change in bill length (mm) for each 1 mm increase in flipper length.
+- The **p-value** on that slope tests $H_0: \beta_1 = 0$ (no linear relationship).
+- **R-squared** tells us the proportion of variance in bill length explained by flipper length.
+
+Just as with ANOVA, we should check the regression assumptions using diagnostic plots of the residuals:
+
+```{r} #| label: regression-diagnostics  par(mfrow = c(2, 2)) plot(bill_flipper_lm)}
+```
+
+We're looking for: a random scatter of residuals with no obvious pattern (linearity, equal variance), and points falling roughly along the diagonal in the Q-Q plot (normality of residuals).
+
+::: callout-important
+## A biological caveat
+
+Notice in the scatterplot that species cluster fairly distinctly. A model that ignores species may be missing an important structural feature of the data (this is a classic setup for adding `species` as a covariate, or fitting separate models per group - beyond the scope of this tutorial, but worth keeping in mind as you design your own analyses).
+:::
+
+------------------------------------------------------------------------
+
+## Wrap-up
+
+You've now walked through the core workflow for applied statistics in R:
+
+1.  **Diagnose** your data - normality, homoscedasticity, outliers.
+2.  **Choose** a test using the decision tree, based on your question and diagnostics.
+3.  **Estimate** with confidence intervals.
+4.  **Test** hypotheses, choosing parametric or non-parametric approaches as appropriate.
+5.  **Compare groups** with ANOVA/Kruskal-Wallis, or **model relationships** with linear regression.
+
+The specific test you choose matters less than the reasoning process behind it. As you work on your own projects, come back to this decision tree, check your assumptions honestly, and let the biology - not just the p-value - guide your interpretation.
+
+::: callout-tip
+## Next steps
+
+Curious to go further? Look into: multiple regression, generalized linear models (GLMs) for non-normal response variables (e.g., counts, presence/absence), mixed-effects models for nested/repeated-measures data, and permutation or bootstrap approaches as a computational alternative to classical p-values.
+:::

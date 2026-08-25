@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r Question_1}
 getwd()
-setwd("/Users/loganstory/Desktop/PhD/Teaching/R Bootcamp/R-bootcamp") # should be students wd
+#setwd("/Users/loganstory/Desktop/PhD/Teaching/R Bootcamp/R-bootcamp") # should be students wd
 
 library(palmerpenguins)
 

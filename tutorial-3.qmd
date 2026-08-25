@@ -19,5 +19,3 @@ We will hopefully receive this data by the end of class, but for now we will be 
 - dada2 tutorial
 
 - phyloseq object
-
-- 

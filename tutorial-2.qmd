@@ -20,8 +20,6 @@ library(rstatix)
 # Applied Statistical Analyses in R
 
 ![Sea grass and coral, Australia \| Photo Credit: Matt Curnock](images/clipboard-612694491.png)
-
-=======
 Statistical analyses are powerful tools we, as ecologists, can leverage to better explain our data. When we perform statistical analyses, we can describe trends, significance, and make quantitative conclusions about our data.
 
 Nowadays, we often rely on what is described as "modern classical statistics" to achieve all of the things I mentioned above. Classical stats covers topics such as estimation, quantification of uncertainty, and hypothesis testing. However, since computers came along, there is a lot of development to stats that has yet to break its way into most learning environments - if at all. Here, the goal of this tutorial is to familiarize you with applied statistical analysis in R, choosing which tests to perform with your data, and the code needed to do so. **This tutorial will not cover in-depth the mathematical or theoretical basis for many statistical tests.** Instead, the goal of this tutorial is for you to be able to diagnose your data, pick an appropriate statistical test given those diagnostics, and be able to write code to produce an output.

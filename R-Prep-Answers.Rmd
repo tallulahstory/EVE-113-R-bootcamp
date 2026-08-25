@@ -278,7 +278,7 @@ penguins %>%
 
 ## Question 15
 
-**Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y ~ x.**
+**Using the tidepool metadata, explore the relationship between macro organism richness and tide pool volume between the two tide pool sizes (large and small). Fit a linear regression line to visualize the linear relationship between y \~ x.**
 
 ```{r Question_15}
 ggplot(data = tide_pool_data, aes(x = macro_richness, 

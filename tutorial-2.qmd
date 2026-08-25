@@ -5,3 +5,21 @@ title: "Tutorial 2"
 # Statistical Analyses in R
 
 ![Sea grass and coral, Australia \| Photo Credit: Matt Curnock](images/clipboard-612694491.png)
+
+- common statistical analyses
+
+- data types
+
+- common stats verbage
+
+- decision tree for choosing tests
+
+- tests
+
+  - t-test
+
+  - chi square
+
+  - one way ANOVA
+
+  - 

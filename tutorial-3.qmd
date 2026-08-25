@@ -9,3 +9,15 @@ editor_options:
 ![Clown Fish in Anemone \| Photo Credit: Dani Escayola](images/clipboard-1448077955.png)
 
 While we were out sampling in the tide pools, we collected filtered water samples, from which we will extract microbial DNA using 16S rRNA sequencing. While we get experience hands-on in lab extracting our DNA using a kit and then running PCRs to see if we've actually extracted any microbial DNA, now I get to show you how scientists handle sequencing data. We will be submitting our class microbial data for NGS (Next Generation Sequencing) at a sequencing center.
+
+We will hopefully receive this data by the end of class, but for now we will be using data collected from last years iteration of this course.
+
+- dada2 pipeline intro
+
+- installing dada2
+
+- dada2 tutorial
+
+- phyloseq object
+
+- 

@@ -21,24 +21,7 @@ library(rstatix)
 
 ![Sea grass and coral, Australia \| Photo Credit: Matt Curnock](images/clipboard-612694491.png)
 
-<<<<<<< HEAD
-- common statistical analyses
 
-- data types
-
-- common stats verbage
-
-- decision tree for choosing tests
-
-- tests
-
-  - t-test
-
-  - chi square
-
-  - one way ANOVA
-
-  - 
 =======
 Statistical analyses are powerful tools we, as ecologists, can leverage to better explain our data. When we perform statistical analyses, we can describe trends, significance, and make quantitative conclusions about our data.
 
